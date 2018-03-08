@@ -82,6 +82,12 @@
   dependencies:
     tslib "^1.7.1"
 
+"@angular/router@5.0.3":
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/@angular/router/-/router-5.0.3.tgz#616cc6a7ae33575b54e613b70af5c7f291c8cd1e"
+  dependencies:
+    tslib "^1.7.1"
+
 "@ionic-native/core@4.4.0":
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/@ionic-native/core/-/core-4.4.0.tgz#fb0f071543bd2725d858f5a0f5c20adbece20df4"
