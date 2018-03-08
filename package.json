@@ -1,8 +1,7 @@
 {
-  "name": "ionicElectron",
+  "name": "bisq-ui",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "author": "Labnoratory",
   "private": true,
   "main": "electron/electron.js",
   "scripts": {
@@ -48,10 +47,10 @@
     "typescript": "2.4.2"
   },
   "build": {
-    "appId": "com.lohanitech.ionic-electron-test",
+    "appId": "org.labnoratory.bisqui",
     "electronVersion": "1.7.5",
     "asar": false,
     "files": ["www/**/*", "electron/*"]
   },
-  "description": "An Ionic project"
+  "description": "GUI for bisq"
 }
