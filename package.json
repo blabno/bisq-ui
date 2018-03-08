@@ -4,7 +4,12 @@
   "author": "Ionic Framework",
   "homepage": "http://ionicframework.com/",
   "private": true,
+  "main": "electron/electron.js",
   "scripts": {
+    "dev": "nf start",
+    "start": "ionic-app-scripts serve",
+    "electron dist": "electron .",
+    "ebuild": "npm run build && node_modules/.bin/build",
     "clean": "ionic-app-scripts clean",
     "build": "ionic-app-scripts build",
     "lint": "ionic-app-scripts lint",
@@ -31,9 +36,22 @@
     "sw-toolbox": "3.6.0",
     "zone.js": "0.8.18"
   },
+  "config": {
+    "ionic_bundler": "webpack",
+    "ionic_webpack": "./config/webpack.config.js"
+  },
   "devDependencies": {
     "@ionic/app-scripts": "3.1.8",
+    "electron": "^1.8.2",
+    "electron-builder": "^20.2.1",
+    "foreman": "^2.0.0",
     "typescript": "2.4.2"
+  },
+  "build": {
+    "appId": "com.lohanitech.ionic-electron-test",
+    "electronVersion": "1.7.5",
+    "asar": false,
+    "files": ["www/**/*", "electron/*"]
   },
   "description": "An Ionic project"
 }
