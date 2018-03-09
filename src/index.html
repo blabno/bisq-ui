@@ -11,6 +11,9 @@
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#4e8ef7">
 
+  <!-- Styles copied from node modules -->
+  <link rel="stylesheet" href="build/bootstrap.css">
+
   <!-- add to homescreen for ios -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -35,6 +38,13 @@
   <!-- Ionic's root component and where the app will load -->
   <ion-app></ion-app>
 
+  <!-- Handling JQuery in electron -->
+  <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+
+  <!-- Scripts copied from node modules -->
+  <script src="build/jquery.js"></script>
+  <script src="build/bootstrap.js"></script>
+
   <!-- The polyfills js is generated during the build process -->
   <script src="build/polyfills.js"></script>
 
@@ -44,6 +54,9 @@
 
   <!-- The main bundle js is generated during the build process -->
   <script src="build/main.js"></script>
+
+  <!-- Handling JQuery in electron -->
+  <script>if (window.module) module = window.module;</script>
 
 </body>
 </html>
