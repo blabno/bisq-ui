@@ -33,5 +33,17 @@ module.exports = {
       '{{ROOT}}/node_modules/jquery/dist/jquery.js'
     ],
     dest: '{{BUILD}}'
+  },
+  copyFontawesomeCss: {
+    src: [
+      '{{ROOT}}/node_modules/@fortawesome/fontawesome-free-webfonts/css/**/*'
+    ],
+    dest: '{{BUILD}}/css'
+  },
+  copyFontawesomeFonts: {
+    src: [
+      '{{ROOT}}/node_modules/@fortawesome/fontawesome-free-webfonts/webfonts/**/*'
+    ],
+    dest: '{{BUILD}}/webfonts'
   }
 };
