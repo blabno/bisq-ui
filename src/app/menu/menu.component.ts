@@ -3,7 +3,7 @@ import { NavController } from 'ionic-angular';
 
 @Component({
   selector: 'app-menu',
-  templateUrl: 'menu.html'
+  templateUrl: './menu.component.html'
 })
 export class MenuComponent {
 
