@@ -1,0 +1,64 @@
+.menu-component {
+  padding: 12px 0px;
+  .toggler {
+    margin: 13px;
+  }
+  .menu-content {
+    top: 76px;
+    position: absolute;
+    width: 100%;
+    background-color: #f8f9fa;
+    z-index: 10;
+    .menu-item {
+      height: 52px;
+      &:hover {
+        color: #6c757d;
+        cursor: pointer;
+      }
+      .menu-icon {
+        padding: 12px;
+        font-size: 28px;
+        float: left;
+      }
+      .item-label {
+        float: left;
+        margin-top: 16px;
+      }
+    }
+  }
+
+  .prices-dropdown {
+    margin-left: 20px;
+    margin-right: 20px;
+    .dropdown-item {
+      font-size: 14px;
+    }
+    button {
+      font-size: 14px;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .menu-content {
+      position: static;
+      .menu-item {
+        width: 80px;
+        text-align: center;
+        .menu-icon {
+          padding: 0px;
+          float: none;
+        }
+        .item-label {
+          float: none;
+          margin-top: 0px;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+
