@@ -10,14 +10,16 @@ import {MainComponent} from './main/main.component';
 import {MenuComponent} from './menu/menu.component';
 
 import appRoutes from './app.routes';
-import {DashboardComponent} from "./dashboard/bashboard.component";
+import {DashboardComponent} from "./dashboard/dashboard.component";
+import {SumaryComponent} from "./dashboard/sumary/sumary.component";
 
 @NgModule({
   declarations: [
     MyApp,
     MainComponent,
     MenuComponent,
-    DashboardComponent
+    DashboardComponent,
+    SumaryComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +31,8 @@ import {DashboardComponent} from "./dashboard/bashboard.component";
     MyApp,
     MainComponent,
     MenuComponent,
-    DashboardComponent
+    DashboardComponent,
+    SumaryComponent
   ],
   providers: [
     StatusBar,

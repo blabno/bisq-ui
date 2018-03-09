@@ -1,5 +1,5 @@
 import {Routes} from '@angular/router';
-import {DashboardComponent} from "./dashboard/bashboard.component";
+import {DashboardComponent} from "./dashboard/dashboard.component";
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
