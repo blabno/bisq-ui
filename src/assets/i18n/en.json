@@ -1,10 +1,16 @@
 {
-	"ACCOUNT": "Account",
-	"BUY_BTC": "Buy BTC",
-	"FOUNDS": "Founds",
-	"HOME": "Home",
-	"PORTFOLIO": "Portfolio",
-	"SELL_BTC": "Sell BTC",
-	"SETTINGS": "Settings",
-	"SUPPORT": "Support"
+  "ACCOUNT": "Account",
+  "ALTCOINS_ACCOUNTS": "Altcoins Accounts",
+  "ARBITRATOR": "Arbitrator",
+  "BACKUP": "Backup",
+  "BUY_BTC": "Buy BTC",
+  "CURRENCY_ACCOUNTS": "Currency Accounts",
+  "FOUNDS": "Founds",
+  "HOME": "Home",
+  "PORTFOLIO": "Portfolio",
+  "SELL_BTC": "Sell BTC",
+  "SETTINGS": "Settings",
+  "SUPPORT": "Support",
+  "WALLET_PASSWORD": "Wallet password",
+  "WALLET_SEED": "Wallet Seed"
 }

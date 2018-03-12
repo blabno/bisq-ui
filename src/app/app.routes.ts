@@ -1,5 +1,6 @@
 import {Routes} from '@angular/router';
-import {DashboardComponent} from "./dashboard/dashboard.component";
+import {DashboardComponent} from './dashboard/dashboard.component';
+import {AccountComponent} from './account/account.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
@@ -22,12 +23,7 @@ const appRoutes: Routes = [
   {path: 'funds/transactions', component: DashboardComponent},
 
   {path: 'account', redirectTo: 'account/currency', pathMatch: 'full'},
-  {path: 'account/currency', component: DashboardComponent},
-  {path: 'account/altcoins', component: DashboardComponent},
-  {path: 'account/arbitrator', component: DashboardComponent},
-  {path: 'account/wallet-password', component: DashboardComponent},
-  {path: 'account/wallet-seed', component: DashboardComponent},
-  {path: 'account/backup', component: DashboardComponent},
+  {path: 'account/:type', component: AccountComponent},
 
   {path: 'settings', component: DashboardComponent},
   {path: 'network', component: DashboardComponent},

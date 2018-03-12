@@ -1,10 +1,16 @@
 {
 	"ACCOUNT": "Konto",
+	"ALTCOINS_ACCOUNTS": "Konta alternatywne",
+	"ARBITRATOR": "Arbitrator",
+	"BACKUP": "Kopia zapasowa",
 	"BUY_BTC": "Kup BTC",
+	"CURRENCY_ACCOUNTS": "Konta walutowe",
 	"FOUNDS": "Fundusze",
 	"HOME": "Strona główna",
 	"PORTFOLIO": "Portfolio",
 	"SELL_BTC": "Sprzedaj BTC",
 	"SETTINGS": "Ustawienia",
-	"SUPPORT": "Pomoc"
+	"SUPPORT": "Pomoc",
+	"WALLET_PASSWORD": "Hasło portfela",
+	"WALLET_SEED": "Seed portfela"
 }
