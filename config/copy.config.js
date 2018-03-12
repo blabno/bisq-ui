@@ -26,24 +26,29 @@ module.exports = {
     src: ['{{ROOT}}/node_modules/sw-toolbox/sw-toolbox.js'],
     dest: '{{BUILD}}'
   },
-  copyBootstrap: {
-    src: [
-      '{{ROOT}}/node_modules/bootstrap/dist/css/bootstrap.css',
-      '{{ROOT}}/node_modules/bootstrap/dist/js/bootstrap.js',
-      '{{ROOT}}/node_modules/jquery/dist/jquery.js'
-    ],
-    dest: '{{BUILD}}'
+  /* Copy custom assets from node module */
+  copyPopperJs: {
+    src: ['{{ROOT}}/node_modules/popper.js/dist/umd/popper.js'],
+    dest: '{{BUILD}}/js'
+  },
+  copyJQueryJs: {
+    src: ['{{ROOT}}/node_modules/jquery/dist/jquery.js'],
+    dest: '{{BUILD}}/js'
+  },
+  copyBootstrapJs: {
+    src: ['{{ROOT}}/node_modules/bootstrap/dist/js/bootstrap.js'],
+    dest: '{{BUILD}}/js'
+  },
+  copyBootstrapCss: {
+    src: ['{{ROOT}}/node_modules/bootstrap/dist/css/bootstrap.css'],
+    dest: '{{BUILD}}/css'
   },
   copyFontawesomeCss: {
-    src: [
-      '{{ROOT}}/node_modules/@fortawesome/fontawesome-free-webfonts/css/**/*'
-    ],
+    src: ['{{ROOT}}/node_modules/@fortawesome/fontawesome-free-webfonts/css/*'],
     dest: '{{BUILD}}/css'
   },
   copyFontawesomeFonts: {
-    src: [
-      '{{ROOT}}/node_modules/@fortawesome/fontawesome-free-webfonts/webfonts/**/*'
-    ],
+    src: ['{{ROOT}}/node_modules/@fortawesome/fontawesome-free-webfonts/webfonts/*'],
     dest: '{{BUILD}}/webfonts'
   }
 };

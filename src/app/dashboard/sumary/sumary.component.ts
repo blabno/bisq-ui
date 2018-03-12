@@ -2,10 +2,10 @@ import {Component} from '@angular/core';
 import {NavController} from 'ionic-angular';
 
 @Component({
-  selector: 'app-menu',
-  templateUrl: './menu.component.html'
+  selector: 'app-sumary',
+  templateUrl: 'sumary.component.html'
 })
-export class MenuComponent {
+export class SumaryComponent {
 
   constructor(public navCtrl: NavController) {
 

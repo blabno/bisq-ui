@@ -13,7 +13,8 @@ import {MainComponent} from './main/main.component';
 import {MenuComponent} from './menu/menu.component';
 
 import appRoutes from './app.routes';
-import {DashboardComponent} from './dashboard/bashboard.component';
+import {DashboardComponent} from "./dashboard/dashboard.component";
+import {SumaryComponent} from "./dashboard/sumary/sumary.component";
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, '../assets/i18n/', '.json');
@@ -23,7 +24,8 @@ export function createTranslateLoader(http: HttpClient) {
     MyApp,
     MainComponent,
     MenuComponent,
-    DashboardComponent
+    DashboardComponent,
+    SumaryComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +45,8 @@ export function createTranslateLoader(http: HttpClient) {
     MyApp,
     MainComponent,
     MenuComponent,
-    DashboardComponent
+    DashboardComponent,
+    SumaryComponent
   ],
   providers: [
     StatusBar,
