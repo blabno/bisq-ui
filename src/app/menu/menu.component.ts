@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-menu',
@@ -6,6 +6,15 @@ import {Component} from '@angular/core';
 })
 export class MenuComponent {
 
-  constructor() {}
+  @ViewChild('navbarToggler') navbarToggler;
+
+  constructor() {
+  }
+
+  onMenuItemClick() {
+    if(992 > window.innerWidth) {
+     this.navbarToggler.nativeElement.click();
+    }
+  }
 
 }
