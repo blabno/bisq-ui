@@ -11,6 +11,9 @@
     z-index: 10;
     overflow-x: auto;
     max-height: calc(100vh - 76px);
+    hr{
+      background: silver;
+    }
     .menu-item {
       height: 52px;
       &:hover {
@@ -43,6 +46,12 @@
   @media (min-width: 992px) {
     .menu-content {
       position: static;
+      hr {
+        width: 1px;
+        height: 50px;
+        position: fixed;
+        top: -10px;
+      }
       .menu-item {
         width: 80px;
         text-align: center;
