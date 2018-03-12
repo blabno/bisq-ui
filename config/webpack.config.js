@@ -223,5 +223,4 @@ var prodConfig = {
 module.exports = {
   dev: devConfig,
   prod: prodConfig
-}
-
+};

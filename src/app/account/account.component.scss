@@ -6,6 +6,11 @@ app-account {
       }
       .tabbar {
         opacity: 1;
+        overflow-x: auto;
+        overflow-y: hidden;
+        .tab-button {
+          min-width: 100px;
+        }
       }
     }
   }
