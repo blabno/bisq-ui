@@ -23,6 +23,10 @@ import {ArbitratorComponent} from './account/arbitrator/arbitrator.component';
 import {WalletPassComponent} from './account/wallet-pass/wallet-pass.component';
 import {WalletSeedComponent} from './account/wallet-seed/wallet-seed.component';
 import {BackupComponent} from './account/backup/backup.component';
+import {SettingsComponent} from './settings/settings.component';
+import {PreferencesComponent} from './settings/preferences/preferences.component';
+import {NetworkInfoComponent} from './settings/network-info/network-info.component';
+import {AboutComponent} from './settings/about/about.component';
 
 const loadModules = [
   MyApp,
@@ -36,7 +40,11 @@ const loadModules = [
   ArbitratorComponent,
   WalletPassComponent,
   WalletSeedComponent,
-  BackupComponent
+  BackupComponent,
+  SettingsComponent,
+  PreferencesComponent,
+  NetworkInfoComponent,
+  AboutComponent
 ];
 
 export function createTranslateLoader(http: HttpClient) {

@@ -1,0 +1,96 @@
+<div class="card">
+    <div class="card-body">
+        <div class="card-title">General preferences</div>
+        <ion-item>
+            <ion-label>Select base currency</ion-label>
+            <ion-select [(ngModel)]="currency">
+                <ion-option value="f">Bitcoin</ion-option>
+                <ion-option value="m">Litecoin</ion-option>
+                <ion-option value="d">Dash</ion-option>
+            </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-label>Language</ion-label>
+            <ion-select [(ngModel)]="Language">
+                <ion-option value="f">English</ion-option>
+                <ion-option value="m">Polish</ion-option>
+            </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-label>Country</ion-label>
+            <ion-select [(ngModel)]="Country">
+                <ion-option value="f">Poland</ion-option>
+                <ion-option value="m">Germany</ion-option>
+            </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-label>Bitcoin block explorer</ion-label>
+            <ion-select [(ngModel)]="gender">
+                <ion-option value="f">Bitaps</ion-option>
+            </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-label>Widthdrawal transaction fee (satoshi/byte):</ion-label>
+            <ion-input type="text" [(ngModel)]="conf.title" [ngModelOptions]="{standalone: true}"></ion-input>
+        </ion-item>
+        <ion-item>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" value="">Use custom value</label>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label>Max. deviation from market price:</ion-label>
+            <ion-input type="text" [(ngModel)]="conf.title" [ngModelOptions]="{standalone: true}"></ion-input>
+        </ion-item>
+        <ion-item>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" value="">Auto select arbitrators </label>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label>Ignore peers with onion address (comma sep.):</ion-label>
+            <ion-input type="text" [(ngModel)]="conf.title" [ngModelOptions]="{standalone: true}"></ion-input>
+        </ion-item>
+    </div>
+</div>
+<div class="card mt-2">
+    <div class="card-body">
+        <div class="card-title">Currencies in market price feed list</div>
+        <ion-item>
+            <ion-label>Prefered currency</ion-label>
+            <ion-select [(ngModel)]="currency">
+                <ion-option value="f">Butcoin</ion-option>
+                <ion-option value="m">Litecoin</ion-option>
+                <ion-option value="d">Dash</ion-option>
+            </ion-select>
+        </ion-item>
+    </div>
+</div>
+<div class="card mt-2">
+    <div class="card-body">
+        <div class="card-title">Display options</div>
+        <ion-item>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" value="">Show my own offers in offer book</label>
+            </div>
+        </ion-item>
+        <ion-item>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" value="">Use animations</label>
+            </div>
+        </ion-item>
+        <ion-item>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" value="">Sort markers lists with no. of offers/trades</label>
+            </div>
+        </ion-item>
+        <ion-item>
+            <button ion-button>Reset all "Don't show again" flags</button>
+        </ion-item>
+    </div>
+</div>
