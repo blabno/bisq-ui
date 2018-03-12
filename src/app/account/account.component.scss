@@ -7,6 +7,9 @@ app-account {
       ion-tab {
         top: 55px;
         height: calc(100vh - 76px - 55px);
+        .ion-page {
+          padding:10px;
+        }
       }
       .tabbar {
         opacity: 1;

@@ -1,5 +1,5 @@
 .menu-component {
-  padding: 12px 0px;
+  padding: 12px 0;
   .toggler {
     margin: 13px;
   }
@@ -11,7 +11,7 @@
     z-index: 10;
     overflow-x: auto;
     max-height: calc(100vh - 76px);
-    hr{
+    hr {
       background: silver;
     }
     .menu-item {
@@ -56,12 +56,12 @@
         width: 80px;
         text-align: center;
         .menu-icon {
-          padding: 0px;
+          padding: 0;
           float: none;
         }
         .item-label {
           float: none;
-          margin-top: 0px;
+          margin-top: 0;
         }
       }
     }
