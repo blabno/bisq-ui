@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light menu-component">
-  <button class="navbar-toggler toggler " type="button" data-toggle="collapse" data-target="#navbarToggle"
-          aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation" #navbarToggler>
+  <button class="navbar-toggler toggler " type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle"
+    aria-expanded="false" aria-label="Toggle navigation" #navbarToggler>
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse menu-content" id="navbarToggle">
@@ -32,7 +32,7 @@
       <li>
         <hr>
       </li>
-      <li class="nav-item menu-item">
+      <li class="nav-item menu-item" routerLinkActive="text-primary" routerLink="/settings">
         <i class="fas fa-cog menu-icon"></i>
         <div class="item-label">{{ 'SETTINGS' | translate }}</div>
       </li>
@@ -43,8 +43,8 @@
     </ul>
   </div>
   <div class="dropdown prices-dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="menuDropdown" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="menuDropdown" data-toggle="dropdown" aria-haspopup="true"
+      aria-expanded="false">
       BTC/USD 8994.12
     </button>
     <div class="dropdown-menu" aria-labelledby="menuDropdown">

@@ -1,6 +1,7 @@
 import {Routes} from '@angular/router';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {AccountComponent} from './account/account.component';
+import {SettingsComponent} from './settings/settings.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
@@ -25,7 +26,9 @@ const appRoutes: Routes = [
   {path: 'account', redirectTo: 'account/currency', pathMatch: 'full'},
   {path: 'account/:type', component: AccountComponent},
 
-  {path: 'settings', component: DashboardComponent},
+  {path: 'settings', redirectTo: 'settings/preferences', pathMatch: 'full'},
+  {path: 'settings/:type', component: SettingsComponent},
+
   {path: 'network', component: DashboardComponent},
   {path: 'about', component: DashboardComponent},
 ];
