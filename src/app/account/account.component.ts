@@ -68,7 +68,7 @@ export class AccountComponent implements OnInit, OnDestroy {
   activeMenuIndex = 0;
   private paramSubscribe: any;
 
-  constructor(private activeRoute: ActivatedRoute, private router: Router, private translate: TranslateService) {}
+  constructor(private activeRoute: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
     this.paramSubscribe = this.activeRoute.params.subscribe(params => {
