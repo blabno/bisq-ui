@@ -11,6 +11,8 @@ function _(str) {
   return str;
 }
 _('PREFERENCES');
+_('NETWORK_INFO');
+_('ABOUT');
 
 @Component({
   selector: 'app-settings',

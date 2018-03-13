@@ -1,6 +1,7 @@
 import {ErrorHandler, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {RouterModule} from '@angular/router';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
@@ -11,11 +12,11 @@ import appRoutes from './app.routes';
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 
-import {MyApp} from './app.component';
+import {AppComponent} from './app.component';
 import {MainComponent} from './main/main.component';
 import {MenuComponent} from './menu/menu.component';
-import {DashboardComponent} from './dashboard/dashboard.component';
-import {SummaryComponent} from './dashboard/summary/summary.component';
+import {MarketComponent} from './market/market.component';
+import {SummaryComponent} from './market/summary/summary.component';
 import {AccountComponent} from './account/account.component';
 import {CurrencyComponent} from './account/currency/currency.component';
 import {AltcoinsComponent} from './account/altcoins/altcoins.component';
@@ -27,12 +28,13 @@ import {SettingsComponent} from './settings/settings.component';
 import {PreferencesComponent} from './settings/preferences/preferences.component';
 import {NetworkInfoComponent} from './settings/network-info/network-info.component';
 import {AboutComponent} from './settings/about/about.component';
+import {FormComponent} from "./shared/form/form.component";
 
 const loadModules = [
-  MyApp,
+  AppComponent,
   MainComponent,
   MenuComponent,
-  DashboardComponent,
+  MarketComponent,
   SummaryComponent,
   AccountComponent,
   CurrencyComponent,
@@ -44,7 +46,8 @@ const loadModules = [
   SettingsComponent,
   PreferencesComponent,
   NetworkInfoComponent,
-  AboutComponent
+  AboutComponent,
+  FormComponent
 ];
 
 export function createTranslateLoader(http: HttpClient) {
@@ -54,8 +57,10 @@ export function createTranslateLoader(http: HttpClient) {
   declarations: loadModules,
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(AppComponent),
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {

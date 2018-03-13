@@ -6,6 +6,7 @@ import {Component} from '@angular/core';
 })
 export class WalletSeedComponent {
 
+  seedWords:string = 'split robot conside add able junk clarify scale jar board subject fist';
   constructor() {
   }
 

@@ -8,7 +8,7 @@ import {TranslateService} from '@ngx-translate/core';
 @Component({
   templateUrl: 'app.html'
 })
-export class MyApp {
+export class AppComponent {
   rootPage: any = MainComponent;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public translate: TranslateService) {

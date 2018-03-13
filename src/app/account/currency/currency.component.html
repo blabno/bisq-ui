@@ -1,1 +1,20 @@
-<p>Currency works!</p>
+<div class="card">
+  <div class="card-header">{{'ACCOUNT.MANAGE_ACCOUNTS' | translate}}</div>
+  <div class="card-body">
+    <div class="col-md-2">{{'ACCOUNT.CURRENCY.YOUR_ACCOUNTS' | translate}}</div>
+    <div class="col-md-10">
+      <!-- insert list of accounts-->
+    </div>
+  </div>
+</div>
+<div class="buttons">
+  <button class="btn btn-primary button-md" (click)="addNew()">{{'ACCOUNT.ADD_NEW' | translate}}</button>
+  <button class="btn btn-primary button-md">{{'ACCOUNT.EXPORT' | translate}}</button>
+  <button class="btn btn-primary button-md">{{'ACCOUNT.IMPORT' | translate}}</button>
+</div>
+
+<app-form title="{{ 'ACCOUNT.CREATE_NEW' | translate}}" [form]="form" [(data)]="model" *ngIf="formOpen"></app-form>
+<div class="buttons" *ngIf="formOpen">
+  <button class="btn btn-primary button-md">{{'ACCOUNT.SAVE' | translate}}</button>
+  <button class="btn btn-primary button-md" (click)="cancel()">{{'ACCOUNT.CANCEL' | translate}}</button>
+</div>
