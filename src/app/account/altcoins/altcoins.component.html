@@ -13,8 +13,15 @@
   <button class="btn btn-primary button-md">{{'ACCOUNT.IMPORT' | translate}}</button>
 </div>
 
-<app-form title="{{ 'ACCOUNT.CREATE_NEW' | translate}}" [form]="form" [(data)]="model" *ngIf="formOpen"></app-form>
-<div class="buttons" *ngIf="formOpen">
-  <button class="btn btn-primary button-md">{{'ACCOUNT.SAVE' | translate}}</button>
-  <button class="btn btn-primary button-md" (click)="cancel()">{{'ACCOUNT.CANCEL' | translate}}</button>
+<div *ngIf="formOpen">
+  <div class="card">
+    <div class="card-header">{{'ACCOUNT.CREATE_NEW' | translate}}</div>
+    <div class="card-body">
+      <app-form [form]="form" [(data)]="model"></app-form>
+    </div>
+  </div>
+  <div class="buttons">
+    <button class="btn btn-primary button-md">{{'ACCOUNT.SAVE' | translate}}</button>
+    <button class="btn btn-primary button-md" (click)="cancel()">{{'ACCOUNT.CANCEL' | translate}}</button>
+  </div>
 </div>

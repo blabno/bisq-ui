@@ -1,26 +1,21 @@
-<div class="card mb-3">
-  <div class="card-header">{{title}}</div>
-  <div class="card-body">
-    <form [formGroup]="formGroup" (ngSubmit)="submit()">
-      <div *ngFor="let field of formFields">
-        <ion-item>
-          <ion-label>{{field.label}}</ion-label>
-          <ion-input *ngIf="'text' === field.type" type="text" [formControlName]="field.key"></ion-input>
-          <ion-select *ngIf="'select' === field.type" [formControlName]="field.key" [multiple]="field.multiple">
-            <ion-option *ngFor="let option of field.options" [value]="option.value">{{option.label}}</ion-option>
-          </ion-select>
-          <ion-checkbox *ngIf="'checkbox' === field.type" [formControlName]="field.key"></ion-checkbox>
-        </ion-item>
-        <div *ngIf="!formGroup.get(field.key).valid && formGroup.get(field.key).touched">
-          <div *ngFor="let validator of field.validators">
-            <div *ngIf="formGroup.get(field.key).errors[validator.key || validator]">
-              <div *ngIf="'required' === validator" class="validation">This field is required</div>
-              <div *ngIf="'required' !== validator" class="validation">{{validator.message}}</div>
-            </div>
-          </div>
+<form [formGroup]="formGroup" (ngSubmit)="submit()">
+  <div *ngFor="let field of formFields">
+    <ion-item>
+      <ion-label>{{field.label}}</ion-label>
+      <ion-input *ngIf="'text' === field.type" type="text" [formControlName]="field.key"></ion-input>
+      <ion-select *ngIf="'select' === field.type" [formControlName]="field.key" [multiple]="field.multiple">
+        <ion-option *ngFor="let option of field.options" [value]="option.value">{{option.label}}</ion-option>
+      </ion-select>
+      <ion-checkbox *ngIf="'checkbox' === field.type" [formControlName]="field.key"></ion-checkbox>
+    </ion-item>
+    <div *ngIf="!formGroup.get(field.key).valid && formGroup.get(field.key).touched">
+      <div *ngFor="let validator of field.validators">
+        <div *ngIf="formGroup.get(field.key).errors[validator.key || validator]">
+          <div *ngIf="'required' === validator" class="validation">This field is required</div>
+          <div *ngIf="'required' !== validator" class="validation">{{validator.message}}</div>
         </div>
       </div>
-      <input type="submit" value="" hidden/>
-    </form>
+    </div>
   </div>
-</div>
+  <input type="submit" value="" hidden/>
+</form>

@@ -14,8 +14,12 @@
 </div>
 
 <div *ngIf="formOpen">
-  <app-form #formElement title="{{ 'ACCOUNT.CREATE_NEW' | translate}}" [form]="form"
-            (onSubmit)="submit($event)"></app-form>
+  <div class="card">
+    <div class="card-header">{{'ACCOUNT.CREATE_NEW' | translate}}</div>
+    <div class="card-body">
+      <app-form #formElement [form]="form" (onSubmit)="submit($event)"></app-form>
+    </div>
+  </div>
   <div class="buttons">
     <button class="btn btn-primary button-md" (click)="formElement.submit()">{{'ACCOUNT.SAVE' | translate}}</button>
     <button class="btn btn-primary button-md" (click)="cancel()">{{'ACCOUNT.CANCEL' | translate}}</button>
