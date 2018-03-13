@@ -1,14 +1,6 @@
 {
 	"ABOUT": "O programie",
 	"ACCOUNT": {
-    "SUBMENU": {
-      "ALTCOINS_ACCOUNTS": "Konta alternatywne",
-      "ARBITRATOR": "Arbitrator",
-      "BACKUP": "Kopia zapasowa",
-      "CURRENCY_ACCOUNTS": "Konta walutowe",
-      "WALLET_PASSWORD": "Hasło portfela",
-      "WALLET_SEED": "Seed portfela"
-    },
 		"ADD_NEW": "Dodaj konto",
 		"ALTCOINS": {
 			"YOUR_ACCOUNTS": "Twoje konta altcoins"
@@ -22,6 +14,14 @@
 		"IMPORT": "Importuj konta",
 		"MANAGE_ACCOUNTS": "Zarządzaj kątami",
 		"SAVE": "Zapisz nowe konto",
+		"SUBMENU": {
+			"ALTCOINS_ACCOUNTS": "Konta alternatywne",
+			"ARBITRATOR": "Arbitrator",
+			"BACKUP": "Kopia zapasowa",
+			"CURRENCY_ACCOUNTS": "Konta walutowe",
+			"WALLET_PASSWORD": "Hasło portfela",
+			"WALLET_SEED": "Seed portfela"
+		},
 		"WALLET_PASS": {
 			"ENTER_PASS": "Wprowadź haslo",
 			"HEADER": "Ustaw hasło zabezpieczeń portfela",
@@ -37,14 +37,20 @@
 			"DATE": "Data portfela",
 			"INFORMATION": "Informacja",
 			"INFORMATION_CONTENT": "Zapisz obie wartości: frazę mnemoniczną oraz datę! Możesz odzyskać swój portfel używając obu tych wartości.",
-      "INFORMATION_CONTENT_2": "Fraza używana jest dla obu porfeli, BTC oraz BSQ. ",
-      "INFORMATION_CONTENT_3": "Powinienieć zapisać frazę na karce papieru i nie przechowywać na komputerze.",
+			"INFORMATION_CONTENT_2": "Fraza używana jest dla obu porfeli, BTC oraz BSQ. ",
+			"INFORMATION_CONTENT_3": "Powinienieć zapisać frazę na karce papieru i nie przechowywać na komputerze.",
 			"RESTORE_BUTTON": "Przywróć portfel",
 			"RESTORE_HEADER": "Przywróć portfel na podstawie frazy",
 			"SEED_WORDS": "Fraza mnemoniczna portfela"
 		}
 	},
-
+	"MARKET": {
+		"SUMMARY": {
+			"AVAILABLE": "Dostępne",
+			"LOCKED": "Zablokowane",
+			"RESERVED": "Zarezerwowane"
+		}
+	},
 	"MENU": {
 		"ACCOUNT": "Konto",
 		"BUY": "Kup",
