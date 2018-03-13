@@ -7,7 +7,9 @@
 			"IMPORT": "Import Accounts",
 			"MANAGE_ACCOUNTS": "Manage Accounts",
       "YOUR_ACCOUNTS": "Your national currency accounts",
-      "CREATE_NEW": "Create new Account"
+      "CREATE_NEW": "Create new Account",
+      "SAVE": "Save new Account",
+      "CANCEL": "Cancel"
 		}
 	},
 	"ALTCOINS_ACCOUNTS": "Altcoins Accounts",

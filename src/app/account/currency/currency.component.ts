@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {NavController} from 'ionic-angular';
 
 const validator = () => {
 
@@ -81,12 +80,16 @@ export class CurrencyComponent {
 
   formOpen:boolean = false;
 
-  constructor(public navCtrl: NavController) {
-
+  constructor() {
   }
 
   addNew() {
     this.formOpen = true;
+  }
+
+  cancel() {
+    this.formOpen = false;
+    this.model = {};
   }
 
 }
