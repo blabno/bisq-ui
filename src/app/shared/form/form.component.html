@@ -11,6 +11,7 @@
       <ion-select *ngIf="'selectMulti' === field.type" multiple="true">
         <ion-option *ngFor="let option of field.options" [value]="option.value">{{option.label}}</ion-option>
       </ion-select>
+      <ion-checkbox *ngIf="'checkbox' === field.type" [disabled]="field.disabled"></ion-checkbox>
     </ion-item>
   </div>
 </div>
