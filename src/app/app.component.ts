@@ -15,7 +15,8 @@ export class AppComponent {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      translate.setDefaultLang('en');
+      // translate.setDefaultLang('en');
+      translate.setDefaultLang('pl');
       statusBar.styleDefault();
       splashScreen.hide();
     });
