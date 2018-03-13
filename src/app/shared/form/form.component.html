@@ -1,7 +1,7 @@
 <div class="card mb-3">
   <div class="card-header">{{title}}</div>
   <div class="card-body">
-    <form [formGroup]="formGroup" (ngSubmit)="onSubmitWrapper()">
+    <form [formGroup]="formGroup" (ngSubmit)="submit()">
       <div *ngFor="let field of formFields">
         <ion-item>
           <ion-label>{{field.label}}</ion-label>

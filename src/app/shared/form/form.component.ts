@@ -40,7 +40,7 @@ export class FormComponent implements OnInit {
     });
   }
 
-  onSubmitWrapper() {
+  submit() {
     if (this.formGroup.valid) {
       this.onSubmit.emit(this.formGroup.value);
     } else {

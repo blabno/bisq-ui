@@ -129,4 +129,8 @@ export class CurrencyComponent {
     this.model = {};
   }
 
+  submit(values) {
+    console.log(values);
+  }
+
 }
