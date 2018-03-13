@@ -13,12 +13,12 @@ import {BackupComponent} from './backup/backup.component';
 function _(str) {
   return str;
 }
-_('CURRENCY_ACCOUNTS');
-_('ALTCOINS_ACCOUNTS');
-_('ARBITRATOR');
-_('WALLET_PASSWORD');
-_('WALLET_SEED');
-_('BACKUP');
+_('ACCOUNT.SUBMENU.CURRENCY_ACCOUNTS');
+_('ACCOUNT.SUBMENU.ALTCOINS_ACCOUNTS');
+_('ACCOUNT.SUBMENU.ARBITRATOR');
+_('ACCOUNT.SUBMENU.WALLET_PASSWORD');
+_('ACCOUNT.SUBMENU.WALLET_SEED');
+_('ACCOUNT.SUBMENU.BACKUP');
 
 @Component({
   selector: 'app-account',
@@ -28,37 +28,37 @@ export class AccountComponent implements OnInit, OnDestroy {
   @ViewChild('accountMenu') accountMenu: Tabs;
   menuTabs = [
     {
-      name: 'CURRENCY_ACCOUNTS',
+      name: 'ACCOUNT.SUBMENU.CURRENCY_ACCOUNTS',
       component: CurrencyComponent,
       icon: 'md-cash',
       route: 'currency'
     },
     {
-      name: 'ALTCOINS_ACCOUNTS',
+      name: 'ACCOUNT.SUBMENU.ALTCOINS_ACCOUNTS',
       component: AltcoinsComponent,
       icon: 'md-link',
       route: 'altcoins'
     },
     {
-      name: 'ARBITRATOR',
+      name: 'ACCOUNT.SUBMENU.ARBITRATOR',
       component: ArbitratorComponent,
       icon: 'md-contacts',
       route: 'arbitrator'
     },
     {
-      name: 'WALLET_PASSWORD',
+      name: 'ACCOUNT.SUBMENU.WALLET_PASSWORD',
       component: WalletPassComponent,
       icon: 'md-lock',
       route: 'wallet-password'
     },
     {
-      name: 'WALLET_SEED',
+      name: 'ACCOUNT.SUBMENU.WALLET_SEED',
       component: WalletSeedComponent,
       icon: 'md-key',
       route: 'wallet-seed'
     },
     {
-      name: 'BACKUP',
+      name: 'ACCOUNT.SUBMENU.BACKUP',
       component: BackupComponent,
       icon: 'md-cloud-download',
       route: 'backup'

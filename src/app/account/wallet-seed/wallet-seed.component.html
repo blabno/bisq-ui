@@ -1,1 +1,41 @@
-<p>wallet-seed works!</p>
+<div class="card">
+  <div class="card-header" *ngIf="!passwordExist">{{ 'ACCOUNT.WALLET_SEED.BACKUP_HEADER' | translate}}</div>
+  <div class="card-body">
+    <form>
+      <ion-item>
+        <ion-label>{{'ACCOUNT.WALLET_SEED.SEED_WORDS' | translate}}</ion-label>
+        <ion-textarea disabled>{{seedWords}}</ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{'ACCOUNT.WALLET_SEED.DATE' | translate}}</ion-label>
+        <ion-datetime></ion-datetime>
+      </ion-item>
+    </form>
+  </div>
+</div>
+<div class="card">
+  <div class="card-header" >{{ 'ACCOUNT.WALLET_SEED.RESTORE_HEADER' | translate}}</div>
+  <div class="card-body">
+    <form>
+      <ion-item>
+        <ion-label>{{'ACCOUNT.WALLET_SEED.SEED_WORDS' | translate}}</ion-label>
+        <ion-textarea></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{'ACCOUNT.WALLET_SEED.DATE' | translate}}</ion-label>
+        <ion-datetime></ion-datetime>
+      </ion-item>
+    </form>
+  </div>
+</div>
+<div class="buttons">
+  <button class="btn btn-primary button-md">{{'ACCOUNT.WALLET_SEED.RESTORE_BUTTON' | translate}}</button>
+</div>
+<div class="card">
+  <div class="card-header"><i class="fas fa-info-circle info"></i>{{'ACCOUNT.WALLET_SEED.INFORMATION' | translate}}</div>
+  <div class="card-body">
+    {{'ACCOUNT.WALLET_SEED.INFORMATION_CONTENT' | translate}}<br/>
+    {{'ACCOUNT.WALLET_SEED.INFORMATION_CONTENT_2' | translate}}<br/><br/>
+    {{'ACCOUNT.WALLET_SEED.INFORMATION_CONTENT_3' | translate}}<br/>
+  </div>
+</div>
