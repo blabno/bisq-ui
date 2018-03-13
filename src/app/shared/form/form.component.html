@@ -1,18 +1,21 @@
 <form [formGroup]="formGroup" (ngSubmit)="submit()">
   <div *ngFor="let field of formFields">
     <ion-item>
-      <ion-label>{{field.label}}</ion-label>
+      <ion-label>{{field.label | translate}}</ion-label>
       <ion-input *ngIf="'text' === field.type" type="text" [formControlName]="field.key"></ion-input>
-      <ion-select *ngIf="'select' === field.type" [formControlName]="field.key" [multiple]="field.multiple">
-        <ion-option *ngFor="let option of field.options" [value]="option.value">{{option.label}}</ion-option>
+      <ion-select *ngIf="'select' === field.type" [formControlName]="field.key" [multiple]="field.multiple"
+                  cancelText="{{'ACCOUNT.CANCEL' | translate}}">
+        <ion-option *ngFor="let option of field.options" [value]="option.value">
+          {{option.label | translate}}
+        </ion-option>
       </ion-select>
       <ion-checkbox *ngIf="'checkbox' === field.type" [formControlName]="field.key"></ion-checkbox>
     </ion-item>
     <div *ngIf="!formGroup.get(field.key).valid && formGroup.get(field.key).touched">
       <div *ngFor="let validator of field.validators">
         <div *ngIf="formGroup.get(field.key).errors[validator.key || validator]">
-          <div *ngIf="'required' === validator" class="validation">This field is required</div>
-          <div *ngIf="'required' !== validator" class="validation">{{validator.message}}</div>
+          <div *ngIf="'required' === validator" class="validation">{{'FIELD_REQUIRED' | translate}}</div>
+          <div *ngIf="'required' !== validator" class="validation">{{validator.message | translate}}</div>
         </div>
       </div>
     </div>
