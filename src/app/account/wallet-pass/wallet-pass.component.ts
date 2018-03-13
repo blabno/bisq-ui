@@ -9,4 +9,13 @@ export class WalletPassComponent {
   constructor() {
   }
 
+  passwordExist: boolean = false;
+
+  setPassword() {
+    this.passwordExist = true;
+  }
+
+  removePassword() {
+    this.passwordExist = false;
+  }
 }

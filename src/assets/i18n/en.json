@@ -1,18 +1,28 @@
 {
 	"ABOUT": "About",
 	"ACCOUNTS": {
-    "ADD_NEW": "Add new account",
-    "EXPORT": "Export Accounts",
-    "IMPORT": "Import Accounts",
-    "MANAGE_ACCOUNTS": "Manage Accounts",
-    "CREATE_NEW": "Create new Account",
-    "SAVE": "Save new Account",
-    "CANCEL": "Cancel",
-		"CURRENCY": {
-      "YOUR_ACCOUNTS": "Your national currency accounts"
+		"ADD_NEW": "Add new account",
+		"ALTCOINS": {
+			"YOUR_ACCOUNTS": "Your altcoins accounts"
 		},
-    "ALTCOINS": {
-      "YOUR_ACCOUNTS": "Your altcoins accounts"
+		"CANCEL": "Cancel",
+		"CREATE_NEW": "Create new Account",
+		"CURRENCY": {
+			"YOUR_ACCOUNTS": "Your national currency accounts"
+		},
+		"EXPORT": "Export Accounts",
+		"IMPORT": "Import Accounts",
+		"MANAGE_ACCOUNTS": "Manage Accounts",
+		"SAVE": "Save new Account",
+		"WALLET_PASS": {
+			"ENTER_PASS": "Enter password",
+			"HEADER": "Set password protection for wallet",
+			"INFORMATION": "Information",
+			"INFORMATION_CONTENT": "The password will be needed when the application is started and when you extract cryptocurrency from the wallet or if you want to see the mnemonic phrase for the wallet.",
+			"REMOVE_HEADER": "Remove password protection for wallet",
+			"REMOVE_PASS": "Remove password",
+			"RE_ENTER_PASS": "Confirm password",
+			"SET_PASS": "Set password"
 		}
 	},
 	"ALTCOINS_ACCOUNTS": "Altcoins Accounts",
@@ -22,8 +32,8 @@
 	"MENU": {
 		"ACCOUNT": "Account",
 		"BUY": "Buy",
-		"MARKET": "Market",
 		"FOUNDS": "Founds",
+		"MARKET": "Market",
 		"PORTFOLIO": "Portfolio",
 		"SELL": "Sell BTC",
 		"SETTINGS": "Settings",
