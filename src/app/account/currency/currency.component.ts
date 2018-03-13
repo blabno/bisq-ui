@@ -19,20 +19,22 @@ function bicValidator(control) {
   templateUrl: 'currency.component.html'
 })
 export class CurrencyComponent {
-  model = {};
-
-  form = {
+  paymentForm = {
     paymentMethod: {
-      label: 'Payment Method', type: 'select',
-      options: [{value: 'sepa', label: 'SEPA'}],
-      validators: ['required']
+      type: 'select', label: 'Payment Method',
+      options: [
+        {value: 'sepa', label: 'SEPA'},
+        {value: 'venmo', label: 'Venmo'}
+      ]
     },
-    account: {
-      label: 'Account owner full name', type: 'text',
+  };
+  sepaForm = {
+    fullName: {
+      type: 'text', label: 'Account owner full name',
       validators: ['required']
     },
     iban: {
-      label: 'IBAN', type: 'text',
+      type: 'text', label: 'IBAN',
       validators: [
         'required',
         {
@@ -43,7 +45,7 @@ export class CurrencyComponent {
       ]
     },
     bic: {
-      label: 'BIC', type: 'text',
+      type: 'text', label: 'BIC',
       validators: [
         'required',
         {
@@ -54,13 +56,12 @@ export class CurrencyComponent {
       ]
     },
     country: {
-      label: 'Country of bank', type: 'select',
+      type: 'select', label: 'Country of bank',
       options: [{value: 'pl', label: "Polska (PL)"}],
       validators: ['required']
     },
     tradesEuro: {
-      label: 'Accepted trades',
-      type: 'select',
+      type: 'select', label: 'Accepted trades',
       multiple: true,
       options: [
         {value: 'at', label: "AT"},
@@ -86,8 +87,7 @@ export class CurrencyComponent {
       ]
     },
     tradesNonEuro: {
-      label: 'Accepted trades',
-      type: 'select',
+      type: 'select', label: 'Accepted trades',
       multiple: true,
       options: [
         {value: 'bg', label: "BG"},
@@ -106,16 +106,38 @@ export class CurrencyComponent {
       ]
     },
     limitations: {
-      label: 'Limitations',
-      type: 'text',
+      type: 'text', label: 'Limitations',
       value: 'Max. trade duration: 6 days / Max. trade limit: 0.0625 BTC / Account age: 0 days',
       disabled: true
     },
-    salt: {label: 'Salt for account age verification', type: 'text'},
-    name: {label: 'Account name', type: 'text'},
+    salt: {type: 'text', label: 'Salt for account age verification'},
+    name: {type: 'text', label: 'Account name'}
+  };
+  venmoForm = {
+    fullName: {
+      type: 'text', label: 'Account owner full name',
+      validators: ['required']
+    },
+    venmoName: {
+      type: 'text', label: 'Venmo username',
+      validators: ['required']
+    },
+    currency: {
+      type: 'text', label: 'Currency',
+      value: 'US Dollar (USD)',
+      disabled: true
+    },
+    limitations: {
+      type: 'text', label: 'Limitations',
+      value: 'Max. trade duration: 1 days / Max. trade limit: 0.04 BTC / Account age: 0 days',
+      disabled: true
+    },
+    salt: {type: 'text', label: 'Salt for account age verification'},
+    name: {type: 'text', label: 'Account name'}
   };
 
   formOpen: boolean = false;
+  formSelected: string;
 
   constructor() {
   }
@@ -126,7 +148,11 @@ export class CurrencyComponent {
 
   cancel() {
     this.formOpen = false;
-    this.model = {};
+    this.formSelected = null;
+  }
+
+  change(values) {
+    this.formSelected = values.paymentMethod
   }
 
   submit(values) {

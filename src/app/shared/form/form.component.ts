@@ -10,7 +10,7 @@ export class FormComponent implements OnInit {
   @Input() title: string;
   @Input() form: any;
   @Input() data: any;
-  @Output() dataChange = new EventEmitter<any>();
+  @Output() onChange = new EventEmitter<any>();
   @Output() onSubmit = new EventEmitter<any>();
 
   formFields;
@@ -21,13 +21,12 @@ export class FormComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.formFields = _.map(this.form, (field, key) => {
-      return {...field, key};
-    });
+    this.formFields = _.map(this.form, (field, key) => ({...field, key}));
     this.formGroup = new FormGroup(_.mapValues(this.form, (field) => new FormControl({
       value: field.value || null,
       disabled: field.disabled
     }, this.getValidators(field.validators))));
+    this.formGroup.valueChanges.subscribe((values) => this.onChange.emit(values))
   }
 
   getValidators(validators) {
