@@ -1,36 +1,32 @@
 <div class="card">
     <div class="card-body">
-        <div class="card-title">General preferences</div>
+        <div class="card-title">{{ 'SETTINGS_VIEW.PREFERENCES.GENERAL_PREFERENCES' | translate }}</div>
         <ion-item>
-            <ion-label>Select base currency</ion-label>
-            <ion-select [(ngModel)]="currency">
-                <ion-option value="f">Bitcoin</ion-option>
-                <ion-option value="m">Litecoin</ion-option>
-                <ion-option value="d">Dash</ion-option>
+            <ion-label>{{ 'SETTINGS_VIEW.PREFERENCES.SELECT_BASE_CURRENCY' | translate }}</ion-label>
+            <ion-select [(ngModel)]="selectedBaseCurrency">
+                <ion-option *ngFor="let currency of baseCurrency" [value]="currency">{{currency}}</ion-option>
             </ion-select>
         </ion-item>
         <ion-item>
-            <ion-label>Language</ion-label>
-            <ion-select [(ngModel)]="Language">
-                <ion-option value="f">English</ion-option>
-                <ion-option value="m">Polish</ion-option>
+            <ion-label>{{ 'SETTINGS_VIEW.PREFERENCES.LANGUAGE' | translate }}</ion-label>
+            <ion-select (ionChange)="langChange($event)">
+                <ion-option *ngFor="let l of translate.getLangs()" [value]="l" [selected]="translate.currentLang === l">{{languagesNames[l]}}</ion-option>
             </ion-select>
         </ion-item>
         <ion-item>
-            <ion-label>Country</ion-label>
-            <ion-select [(ngModel)]="Country">
-                <ion-option value="f">Poland</ion-option>
-                <ion-option value="m">Germany</ion-option>
+            <ion-label>{{ 'SETTINGS_VIEW.PREFERENCES.COUNTRY' | translate }}</ion-label>
+            <ion-select [(ngModel)]="selectedCountry">
+                <ion-option *ngFor="let country of countries" [value]="country">{{country}}</ion-option>
             </ion-select>
         </ion-item>
         <ion-item>
-            <ion-label>Bitcoin block explorer</ion-label>
-            <ion-select [(ngModel)]="gender">
-                <ion-option value="f">Bitaps</ion-option>
+            <ion-label>{{'SETTINGS_VIEW.PREFERENCES.BITCOIN_BLOCK_EXPLORER' | translate }}</ion-label>
+            <ion-select [(ngModel)]="selectedBitcoinExplorer">
+                <ion-option *ngFor="let bitcoinExplorer of bitcoinExplorers" [value]="bitcoinExplorer">{{bitcoinExplorer}}</ion-option>
             </ion-select>
         </ion-item>
         <ion-item>
-            <ion-label>Widthdrawal transaction fee (satoshi/byte):</ion-label>
+            <ion-label>{{'SETTINGS_VIEW.PREFERENCES.WIDTHDRAWAL_TRANSACTION_FEE' | translate }}</ion-label>
             <ion-input type="text" [(ngModel)]="conf.title" [ngModelOptions]="{standalone: true}"></ion-input>
         </ion-item>
         <ion-item>
@@ -40,7 +36,7 @@
             </div>
         </ion-item>
         <ion-item>
-            <ion-label>Max. deviation from market price:</ion-label>
+            <ion-label>{{'SETTINGS_VIEW.PREFERENCES.MAX_DEVIATION_FROM_MARKET_PRICE' | translate }}:</ion-label>
             <ion-input type="text" [(ngModel)]="conf.title" [ngModelOptions]="{standalone: true}"></ion-input>
         </ion-item>
         <ion-item>
@@ -50,14 +46,14 @@
             </div>
         </ion-item>
         <ion-item>
-            <ion-label>Ignore peers with onion address (comma sep.):</ion-label>
+            <ion-label>{{'SETTINGS_VIEW.PREFERENCES.IGNORE_PEERS_WITH_ONION_ADDRESS' | translate }}:</ion-label>
             <ion-input type="text" [(ngModel)]="conf.title" [ngModelOptions]="{standalone: true}"></ion-input>
         </ion-item>
     </div>
 </div>
 <div class="card mt-2">
     <div class="card-body">
-        <div class="card-title">Currencies in market price feed list</div>
+        <div class="card-title">{{'SETTINGS_VIEW.PREFERENCES.CURRENCIES_IN_MARKET_PRICE_FEED_LIST' | translate }}</div>
         <ion-item>
             <ion-label>Prefered currency</ion-label>
             <ion-select [(ngModel)]="currency">
@@ -70,7 +66,7 @@
 </div>
 <div class="card mt-2">
     <div class="card-body">
-        <div class="card-title">Display options</div>
+        <div class="card-title">{{'SETTINGS_VIEW.PREFERENCES.DISPLAY_OPTIONS' | translate }}</div>
         <ion-item>
             <div class="checkbox">
                 <label>
@@ -90,7 +86,7 @@
             </div>
         </ion-item>
         <ion-item>
-            <button ion-button>Reset all "Don't show again" flags</button>
+            <button ion-button>{{'SETTINGS_VIEW.PREFERENCES.RESET_ALL' | translate }}</button>
         </ion-item>
     </div>
 </div>

@@ -4,8 +4,9 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {Tabs} from 'ionic-angular';
 
 import {PreferencesComponent} from './preferences/preferences.component';
-import { NetworkInfoComponent } from './network-info/network-info.component';
+import {NetworkInfoComponent} from './network-info/network-info.component';
 import {AboutComponent} from './about/about.component';
+
 function _(str) {
   return str;
 }
@@ -40,7 +41,8 @@ export class SettingsComponent implements OnInit, OnDestroy {
   activeMenuIndex = 0;
   private paramSubscribe: any;
 
-  constructor(private activeRoute: ActivatedRoute, private router: Router) {}
+  constructor(private activeRoute: ActivatedRoute, private router: Router, ) {
+  }
 
   ngOnInit() {
     this.paramSubscribe = this.activeRoute.params.subscribe(params => {

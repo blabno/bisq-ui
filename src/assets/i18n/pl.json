@@ -6,10 +6,26 @@
 	"BUY_BTC": "Kup BTC",
 	"CURRENCY_ACCOUNTS": "Konta walutowe",
 	"FOUNDS": "Fundusze",
-	"HOME": "Strona główna",
+	"HOME": "",
 	"PORTFOLIO": "Portfolio",
+	"PREFERENCES": "",
 	"SELL_BTC": "Sprzedaj BTC",
 	"SETTINGS": "Ustawienia",
+	"SETTINGS_VIEW": {
+		"PREFERENCES": {
+			"BITCOIN_BLOCK_EXPLORER": "Serwis do Bitcoin block",
+			"COUNTRY": "Kraj",
+			"CURRENCIES_IN_MARKET_PRICE_FEED_LIST": "Lista dostępnych walut",
+			"DISPLAY_OPTIONS": "Opcje wyświetlania",
+			"GENERAL_PREFERENCES": "Ogólne",
+			"IGNORE_PEERS_WITH_ONION_ADDRESS": "Ignorowane połączenia",
+			"LANGUAGE": "Język",
+			"MAX_DEVIATION_FROM_MARKET_PRICE": "Maks. różnica od ceny",
+			"RESET_ALL": "Zresetuj wszystkie \"Nie pokazuj tego\"",
+			"SELECT_BASE_CURRENCY": "Wybierz podstawową walutę",
+			"WIDTHDRAWAL_TRANSACTION_FEE": "Cena transakcji"
+		}
+	},
 	"SUPPORT": "Pomoc",
 	"WALLET_PASSWORD": "Hasło portfela",
 	"WALLET_SEED": "Seed portfela"
