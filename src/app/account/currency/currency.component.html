@@ -14,3 +14,7 @@
 </div>
 
 <app-form title="{{ 'ACCOUNTS.CURRENCY.CREATE_NEW' | translate}}" [form]="form" [(data)]="model" *ngIf="formOpen"></app-form>
+<div class="buttons" *ngIf="formOpen">
+  <button class="btn btn-primary button-md">{{'ACCOUNTS.CURRENCY.SAVE' | translate}}</button>
+  <button class="btn btn-primary button-md" (click)="cancel()">{{'ACCOUNTS.CURRENCY.CANCEL' | translate}}</button>
+</div>

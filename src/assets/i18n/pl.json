@@ -7,7 +7,9 @@
 			"IMPORT": "Importuj konta",
 			"MANAGE_ACCOUNTS": "Zarządzaj kątami",
       "YOUR_ACCOUNTS": "Twoja lista kont walutowych",
-      "CREATE_NEW": "Stwórz nowe konto"
+      "CREATE_NEW": "Stwórz nowe konto",
+      "SAVE": "Zapisz nowe konto",
+      "CANCEL": "Anuluj"
     }
 	},
 	"ALTCOINS_ACCOUNTS": "Konta alternatywne",
