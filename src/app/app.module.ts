@@ -15,8 +15,8 @@ import {SplashScreen} from '@ionic-native/splash-screen';
 import {AppComponent} from './app.component';
 import {MainComponent} from './main/main.component';
 import {MenuComponent} from './menu/menu.component';
-import {DashboardComponent} from './dashboard/dashboard.component';
-import {SummaryComponent} from './dashboard/summary/summary.component';
+import {MarketComponent} from './market/market.component';
+import {SummaryComponent} from './market/summary/summary.component';
 import {AccountComponent} from './account/account.component';
 import {CurrencyComponent} from './account/currency/currency.component';
 import {AltcoinsComponent} from './account/altcoins/altcoins.component';
@@ -34,7 +34,7 @@ const loadModules = [
   AppComponent,
   MainComponent,
   MenuComponent,
-  DashboardComponent,
+  MarketComponent,
   SummaryComponent,
   AccountComponent,
   CurrencyComponent,

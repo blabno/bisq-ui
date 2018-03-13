@@ -1,16 +1,31 @@
 {
-  "ACCOUNT": "Account",
-  "ALTCOINS_ACCOUNTS": "Altcoins Accounts",
-  "ARBITRATOR": "Arbitrator",
-  "BACKUP": "Backup",
-  "BUY_BTC": "Buy BTC",
-  "CURRENCY_ACCOUNTS": "Currency Accounts",
-  "FOUNDS": "Founds",
-  "HOME": "Home",
-  "PORTFOLIO": "Portfolio",
-  "SELL_BTC": "Sell BTC",
-  "SETTINGS": "Settings",
-  "SUPPORT": "Support",
-  "WALLET_PASSWORD": "Wallet password",
-  "WALLET_SEED": "Wallet Seed"
+	"ABOUT": "About",
+	"ACCOUNTS": {
+		"CURRENCY": {
+			"ADD_NEW": "Add new account",
+			"EXPORT": "Export Accounts",
+			"IMPORT": "Import Accounts",
+			"MANAGE_ACCOUNTS": "Manage Accounts",
+      "YOUR_ACCOUNTS": "Your national currency accounts",
+      "CREATE_NEW": "Create new Account"
+		}
+	},
+	"ALTCOINS_ACCOUNTS": "Altcoins Accounts",
+	"ARBITRATOR": "Arbitrator",
+	"BACKUP": "Backup",
+	"CURRENCY_ACCOUNTS": "Currency Accounts",
+	"MENU": {
+		"ACCOUNT": "Account",
+		"BUY": "Buy",
+		"MARKET": "Market",
+		"FOUNDS": "Founds",
+		"PORTFOLIO": "Portfolio",
+		"SELL": "Sell BTC",
+		"SETTINGS": "Settings",
+		"SUPPORT": "Support"
+	},
+	"NETWORK_INFO": "Network",
+	"PREFERENCES": "Preferences",
+	"WALLET_PASSWORD": "Wallet password",
+	"WALLET_SEED": "Wallet Seed"
 }

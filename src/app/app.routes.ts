@@ -1,27 +1,27 @@
 import {Routes} from '@angular/router';
-import {DashboardComponent} from './dashboard/dashboard.component';
+import {MarketComponent} from './market/market.component';
 import {AccountComponent} from './account/account.component';
 import {SettingsComponent} from './settings/settings.component';
 
 const appRoutes: Routes = [
-  {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
-  {path: 'dashboard', component: DashboardComponent},
+  {path: '', redirectTo: 'market', pathMatch: 'full'},
+  {path: 'market', component: MarketComponent},
 
-  {path: 'sell', component: DashboardComponent},
-  {path: 'buy', component: DashboardComponent},
+  {path: 'sell', component: MarketComponent},
+  {path: 'buy', component: MarketComponent},
 
 
   {path: 'portfolio', redirectTo: 'portfolio/offers', pathMatch: 'full'},
-  {path: 'portfolio/offers', component: DashboardComponent},
-  {path: 'portfolio/open-trades', component: DashboardComponent},
-  {path: 'portfolio/history', component: DashboardComponent},
+  {path: 'portfolio/offers', component: MarketComponent},
+  {path: 'portfolio/open-trades', component: MarketComponent},
+  {path: 'portfolio/history', component: MarketComponent},
 
   {path: 'funds', redirectTo: 'funds/receive', pathMatch: 'full'},
-  {path: 'funds/receive', component: DashboardComponent},
-  {path: 'funds/send', component: DashboardComponent},
-  {path: 'funds/reserved', component: DashboardComponent},
-  {path: 'funds/locked', component: DashboardComponent},
-  {path: 'funds/transactions', component: DashboardComponent},
+  {path: 'funds/receive', component: MarketComponent},
+  {path: 'funds/send', component: MarketComponent},
+  {path: 'funds/reserved', component: MarketComponent},
+  {path: 'funds/locked', component: MarketComponent},
+  {path: 'funds/transactions', component: MarketComponent},
 
   {path: 'account', redirectTo: 'account/currency', pathMatch: 'full'},
   {path: 'account/:type', component: AccountComponent},
@@ -29,8 +29,8 @@ const appRoutes: Routes = [
   {path: 'settings', redirectTo: 'settings/preferences', pathMatch: 'full'},
   {path: 'settings/:type', component: SettingsComponent},
 
-  {path: 'network', component: DashboardComponent},
-  {path: 'about', component: DashboardComponent},
+  {path: 'network', component: MarketComponent},
+  {path: 'about', component: MarketComponent},
 ];
 
 export default appRoutes;

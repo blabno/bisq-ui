@@ -1,16 +1,31 @@
 {
-	"ACCOUNT": "Konto",
+	"ABOUT": "O programie",
+	"ACCOUNTS": {
+		"CURRENCY": {
+			"ADD_NEW": "Dodaj konto",
+			"EXPORT": "Eksportuj konta",
+			"IMPORT": "Importuj konta",
+			"MANAGE_ACCOUNTS": "Zarządzaj kątami",
+      "YOUR_ACCOUNTS": "Twoja lista kont walutowych",
+      "CREATE_NEW": "Stwórz nowe konto"
+    }
+	},
 	"ALTCOINS_ACCOUNTS": "Konta alternatywne",
 	"ARBITRATOR": "Arbitrator",
 	"BACKUP": "Kopia zapasowa",
-	"BUY_BTC": "Kup BTC",
 	"CURRENCY_ACCOUNTS": "Konta walutowe",
-	"FOUNDS": "Fundusze",
-	"HOME": "Strona główna",
-	"PORTFOLIO": "Portfolio",
-	"SELL_BTC": "Sprzedaj BTC",
-	"SETTINGS": "Ustawienia",
-	"SUPPORT": "Pomoc",
+	"MENU": {
+		"ACCOUNT": "Konto",
+		"BUY": "Kup",
+		"MARKET": "Market",
+		"FOUNDS": "Fundusze",
+		"PORTFOLIO": "Portfolio",
+		"SELL": "Sprzedaj",
+		"SETTINGS": "Ustawienia",
+		"SUPPORT": "Pomoc"
+	},
+	"NETWORK_INFO": "Sieć",
+	"PREFERENCES": "Preferencje",
 	"WALLET_PASSWORD": "Hasło portfela",
 	"WALLET_SEED": "Seed portfela"
 }

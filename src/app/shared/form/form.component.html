@@ -1,6 +1,6 @@
 <div class="card mb-3">
+  <div class="card-header">{{title}}</div>
   <div class="card-body">
-    <div class="card-title">{{title}}</div>
     <ion-item *ngFor="let field of formFields">
       <ion-label>{{field.label}}</ion-label>
       <ion-input *ngIf="'text' === field.type" type="text"></ion-input>

@@ -79,8 +79,14 @@ export class CurrencyComponent {
     name: {label: 'Account name', type: 'text'},
   };
 
+  formOpen:boolean = false;
+
   constructor(public navCtrl: NavController) {
 
+  }
+
+  addNew() {
+    this.formOpen = true;
   }
 
 }

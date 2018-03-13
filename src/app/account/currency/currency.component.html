@@ -1,1 +1,16 @@
-<app-form title="General preferences" [form]="form" [(data)]="model"></app-form>
+<div class="card">
+  <div class="card-header">{{'ACCOUNTS.CURRENCY.MANAGE_ACCOUNTS' | translate}}</div>
+  <div class="card-body">
+    <div class="col-md-2">{{'ACCOUNTS.CURRENCY.YOUR_ACCOUNTS' | translate}}</div>
+    <div class="col-md-10">
+      <!-- insert list of accounts-->
+    </div>
+  </div>
+</div>
+<div class="buttons">
+  <button class="btn btn-primary button-md" (click)="addNew()">{{'ACCOUNTS.CURRENCY.ADD_NEW' | translate}}</button>
+  <button class="btn btn-primary button-md">{{'ACCOUNTS.CURRENCY.EXPORT' | translate}}</button>
+  <button class="btn btn-primary button-md">{{'ACCOUNTS.CURRENCY.IMPORT' | translate}}</button>
+</div>
+
+<app-form title="{{ 'ACCOUNTS.CURRENCY.CREATE_NEW' | translate}}" [form]="form" [(data)]="model" *ngIf="formOpen"></app-form>
