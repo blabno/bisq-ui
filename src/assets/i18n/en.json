@@ -16,14 +16,6 @@
 	},
 	"ABOUT": "About",
 	"ACCOUNT": {
-    "SUBMENU": {
-      "ALTCOINS_ACCOUNTS": "Altcoins Accounts",
-      "ARBITRATOR": "Arbitrator",
-      "BACKUP": "Backup",
-      "CURRENCY_ACCOUNTS": "Currency Accounts",
-      "WALLET_PASSWORD": "Wallet password",
-      "WALLET_SEED": "Wallet Seed"
-    },
 		"ADD_NEW": "Add new account",
 		"ALTCOINS": {
 			"YOUR_ACCOUNTS": "Your altcoins accounts"
@@ -37,6 +29,14 @@
 		"IMPORT": "Import Accounts",
 		"MANAGE_ACCOUNTS": "Manage Accounts",
 		"SAVE": "Save new Account",
+		"SUBMENU": {
+			"ALTCOINS_ACCOUNTS": "Altcoins Accounts",
+			"ARBITRATOR": "Arbitrator",
+			"BACKUP": "Backup",
+			"CURRENCY_ACCOUNTS": "Currency Accounts",
+			"WALLET_PASSWORD": "Wallet password",
+			"WALLET_SEED": "Wallet Seed"
+		},
 		"WALLET_PASS": {
 			"ENTER_PASS": "Enter password",
 			"HEADER": "Set password protection for wallet",
@@ -52,11 +52,18 @@
 			"DATE": "Wallet date",
 			"INFORMATION": "Information",
 			"INFORMATION_CONTENT": "Please write down both mnemonic phrase and wallet date! You can recover your wallet any time with those words and the date.",
-      "INFORMATION_CONTENT_2": "The seed words are used for both the BTC and the BSQ wallet.",
-      "INFORMATION_CONTENT_3": "You should write down the phrase on a sheet of paper and not save them on computer.",
+			"INFORMATION_CONTENT_2": "The seed words are used for both the BTC and the BSQ wallet.",
+			"INFORMATION_CONTENT_3": "You should write down the phrase on a sheet of paper and not save them on computer.",
 			"RESTORE_BUTTON": "Restore wallet",
 			"RESTORE_HEADER": "Restore wallet from mnemonic phrase",
 			"SEED_WORDS": "Wallet mnemonic phrase"
+		}
+	},
+	"MARKET": {
+		"SUMMARY": {
+			"AVAILABLE": "Available",
+			"LOCKED": "Locked",
+			"RESERVED": "Reserved"
 		}
 	},
 	"MENU": {
@@ -70,5 +77,5 @@
 		"SUPPORT": "Support"
 	},
 	"NETWORK_INFO": "Network",
-	"PREFERENCES": "Preferences",
+	"PREFERENCES": "Preferences"
 }
