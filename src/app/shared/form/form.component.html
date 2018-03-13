@@ -1,0 +1,16 @@
+<div class="card mb-3">
+  <div class="card-body">
+    <div class="card-title">{{title}}</div>
+    <ion-item *ngFor="let field of formFields">
+      <ion-label>{{field.label}}</ion-label>
+      <ion-input *ngIf="'text' === field.type" type="text"></ion-input>
+      <ion-input *ngIf="'label' === field.type" type="text" disabled [value]="field.value"></ion-input>
+      <ion-select *ngIf="'select' === field.type">
+        <ion-option *ngFor="let option of field.options" [value]="option.value">{{option.label}}</ion-option>
+      </ion-select>
+      <ion-select *ngIf="'selectMulti' === field.type" multiple="true">
+        <ion-option *ngFor="let option of field.options" [value]="option.value">{{option.label}}</ion-option>
+      </ion-select>
+    </ion-item>
+  </div>
+</div>
