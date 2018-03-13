@@ -12,11 +12,12 @@ export class AppComponent {
   rootPage: any = MainComponent;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public translate: TranslateService) {
+    translate.setDefaultLang('en');
+    translate.use('en');
+    translate.addLangs(['pl', 'en']);
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      // translate.setDefaultLang('en');
-      translate.setDefaultLang('pl');
       statusBar.styleDefault();
       splashScreen.hide();
     });

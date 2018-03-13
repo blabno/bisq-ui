@@ -53,7 +53,6 @@ const loadModules = [
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
-
 @NgModule({
   declarations: loadModules,
   imports: [
@@ -66,7 +65,7 @@ export function createTranslateLoader(http: HttpClient) {
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-        useFactory: createTranslateLoader,
+        useFactory: (createTranslateLoader),
         deps: [HttpClient]
       }
     })
@@ -79,5 +78,4 @@ export function createTranslateLoader(http: HttpClient) {
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
-export class AppModule {
-}
+export class AppModule {}
