@@ -1,15 +1,18 @@
 {
 	"ABOUT": "O programie",
 	"ACCOUNTS": {
+    "ADD_NEW": "Dodaj konto",
+    "EXPORT": "Eksportuj konta",
+    "IMPORT": "Importuj konta",
+    "MANAGE_ACCOUNTS": "Zarządzaj kątami",
+    "CREATE_NEW": "Stwórz nowe konto",
+    "SAVE": "Zapisz nowe konto",
+    "CANCEL": "Anuluj",
 		"CURRENCY": {
-			"ADD_NEW": "Dodaj konto",
-			"EXPORT": "Eksportuj konta",
-			"IMPORT": "Importuj konta",
-			"MANAGE_ACCOUNTS": "Zarządzaj kątami",
-      "YOUR_ACCOUNTS": "Twoja lista kont walutowych",
-      "CREATE_NEW": "Stwórz nowe konto",
-      "SAVE": "Zapisz nowe konto",
-      "CANCEL": "Anuluj"
+      "YOUR_ACCOUNTS": "Twoje konta walutowe"
+    },
+    "ALTCOINS": {
+      "YOUR_ACCOUNTS": "Twoje konta altcoins"
     }
 	},
 	"ALTCOINS_ACCOUNTS": "Konta alternatywne",

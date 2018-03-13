@@ -1,15 +1,18 @@
 {
 	"ABOUT": "About",
 	"ACCOUNTS": {
+    "ADD_NEW": "Add new account",
+    "EXPORT": "Export Accounts",
+    "IMPORT": "Import Accounts",
+    "MANAGE_ACCOUNTS": "Manage Accounts",
+    "CREATE_NEW": "Create new Account",
+    "SAVE": "Save new Account",
+    "CANCEL": "Cancel",
 		"CURRENCY": {
-			"ADD_NEW": "Add new account",
-			"EXPORT": "Export Accounts",
-			"IMPORT": "Import Accounts",
-			"MANAGE_ACCOUNTS": "Manage Accounts",
-      "YOUR_ACCOUNTS": "Your national currency accounts",
-      "CREATE_NEW": "Create new Account",
-      "SAVE": "Save new Account",
-      "CANCEL": "Cancel"
+      "YOUR_ACCOUNTS": "Your national currency accounts"
+		},
+    "ALTCOINS": {
+      "YOUR_ACCOUNTS": "Your altcoins accounts"
 		}
 	},
 	"ALTCOINS_ACCOUNTS": "Altcoins Accounts",
