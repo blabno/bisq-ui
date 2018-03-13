@@ -1,19 +1,29 @@
 {
 	"ABOUT": "O programie",
 	"ACCOUNTS": {
-    "ADD_NEW": "Dodaj konto",
-    "EXPORT": "Eksportuj konta",
-    "IMPORT": "Importuj konta",
-    "MANAGE_ACCOUNTS": "Zarządzaj kątami",
-    "CREATE_NEW": "Stwórz nowe konto",
-    "SAVE": "Zapisz nowe konto",
-    "CANCEL": "Anuluj",
+		"ADD_NEW": "Dodaj konto",
+		"ALTCOINS": {
+			"YOUR_ACCOUNTS": "Twoje konta altcoins"
+		},
+		"CANCEL": "Anuluj",
+		"CREATE_NEW": "Stwórz nowe konto",
 		"CURRENCY": {
-      "YOUR_ACCOUNTS": "Twoje konta walutowe"
-    },
-    "ALTCOINS": {
-      "YOUR_ACCOUNTS": "Twoje konta altcoins"
-    }
+			"YOUR_ACCOUNTS": "Twoje konta walutowe"
+		},
+		"EXPORT": "Eksportuj konta",
+		"IMPORT": "Importuj konta",
+		"MANAGE_ACCOUNTS": "Zarządzaj kątami",
+		"SAVE": "Zapisz nowe konto",
+		"WALLET_PASS": {
+			"ENTER_PASS": "Wprowadź haslo",
+			"HEADER": "Ustaw hasło zabezpieczeń portfela",
+			"INFORMATION": "Informacja",
+			"INFORMATION_CONTENT": "Hasło potrzebe będzie podczas uruchamiania aplikacji oraz w przypadku wyciągania kryptowaluty z portfela lub jeśli zechcesz zobaczyć frazę mnemoniczną dla portfela.",
+			"REMOVE_HEADER": "Usuń hasło zabezpieczeń portfela",
+			"REMOVE_PASS": "Usuń hasło",
+			"RE_ENTER_PASS": "Potwierdź hasło",
+			"SET_PASS": "Ustaw hasło"
+		}
 	},
 	"ALTCOINS_ACCOUNTS": "Konta alternatywne",
 	"ARBITRATOR": "Arbitrator",
@@ -22,8 +32,8 @@
 	"MENU": {
 		"ACCOUNT": "Konto",
 		"BUY": "Kup",
-		"MARKET": "Market",
 		"FOUNDS": "Fundusze",
+		"MARKET": "Market",
 		"PORTFOLIO": "Portfolio",
 		"SELL": "Sprzedaj",
 		"SETTINGS": "Ustawienia",
