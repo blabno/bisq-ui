@@ -1,6 +1,14 @@
 {
 	"ABOUT": "O programie",
-	"ACCOUNTS": {
+	"ACCOUNT": {
+    "SUBMENU": {
+      "ALTCOINS_ACCOUNTS": "Konta alternatywne",
+      "ARBITRATOR": "Arbitrator",
+      "BACKUP": "Kopia zapasowa",
+      "CURRENCY_ACCOUNTS": "Konta walutowe",
+      "WALLET_PASSWORD": "Hasło portfela",
+      "WALLET_SEED": "Seed portfela"
+    },
 		"ADD_NEW": "Dodaj konto",
 		"ALTCOINS": {
 			"YOUR_ACCOUNTS": "Twoje konta altcoins"
@@ -23,12 +31,20 @@
 			"REMOVE_PASS": "Usuń hasło",
 			"RE_ENTER_PASS": "Potwierdź hasło",
 			"SET_PASS": "Ustaw hasło"
+		},
+		"WALLET_SEED": {
+			"BACKUP_HEADER": "Zrób kopię zapasową frazy",
+			"DATE": "Data portfela",
+			"INFORMATION": "Informacja",
+			"INFORMATION_CONTENT": "Zapisz obie wartości: frazę mnemoniczną oraz datę! Możesz odzyskać swój portfel używając obu tych wartości.",
+      "INFORMATION_CONTENT_2": "Fraza używana jest dla obu porfeli, BTC oraz BSQ. ",
+      "INFORMATION_CONTENT_3": "Powinienieć zapisać frazę na karce papieru i nie przechowywać na komputerze.",
+			"RESTORE_BUTTON": "Przywróć portfel",
+			"RESTORE_HEADER": "Przywróć portfel na podstawie frazy",
+			"SEED_WORDS": "Fraza mnemoniczna portfela"
 		}
 	},
-	"ALTCOINS_ACCOUNTS": "Konta alternatywne",
-	"ARBITRATOR": "Arbitrator",
-	"BACKUP": "Kopia zapasowa",
-	"CURRENCY_ACCOUNTS": "Konta walutowe",
+
 	"MENU": {
 		"ACCOUNT": "Konto",
 		"BUY": "Kup",
@@ -37,10 +53,8 @@
 		"PORTFOLIO": "Portfolio",
 		"SELL": "Sprzedaj",
 		"SETTINGS": "Ustawienia",
-		"SUPPORT": "Pomoc"
+		"SUPPORT": "Wsparcie"
 	},
 	"NETWORK_INFO": "Sieć",
-	"PREFERENCES": "Preferencje",
-	"WALLET_PASSWORD": "Hasło portfela",
-	"WALLET_SEED": "Seed portfela"
+	"PREFERENCES": "Preferencje"
 }
