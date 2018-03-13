@@ -1,8 +1,18 @@
 import {Component} from '@angular/core';
 
-const validator = () => {
+function ibanValidator(control) {
+  if (!control.value || (8 !== control.value.length && 11 !== control.value.length)) {
+    return {wrongLength: true}
+  }
+  return null;
+}
 
-};
+function bicValidator(control) {
+  if (!control.value || 15 > control.value.length || 36 < control.value.length) {
+    return {wrongLength: true}
+  }
+  return null;
+}
 
 @Component({
   selector: 'app-currency',
@@ -14,18 +24,44 @@ export class CurrencyComponent {
   form = {
     paymentMethod: {
       label: 'Payment Method', type: 'select',
-      options: [{value: 'sepa', label: "SEPA"}]
+      options: [{value: 'sepa', label: 'SEPA'}],
+      validators: ['required']
     },
-    account: {label: 'Account owner full name', type: 'text'},
-    iban: {label: 'IBAN', type: 'text', validator},
-    bic: {label: 'BIC', type: 'text', validator},
+    account: {
+      label: 'Account owner full name', type: 'text',
+      validators: ['required']
+    },
+    iban: {
+      label: 'IBAN', type: 'text',
+      validators: [
+        'required',
+        {
+          key: 'wrongLength',
+          message: 'Input length is neither 8 nor 11',
+          handler: ibanValidator
+        }
+      ]
+    },
+    bic: {
+      label: 'BIC', type: 'text',
+      validators: [
+        'required',
+        {
+          key: 'wrongLength',
+          message: 'Number must have length 15 to 34 chars',
+          handler: bicValidator
+        }
+      ]
+    },
     country: {
       label: 'Country of bank', type: 'select',
-      options: [{value: 'pl', label: "Polska (PL)"}]
+      options: [{value: 'pl', label: "Polska (PL)"}],
+      validators: ['required']
     },
     tradesEuro: {
       label: 'Accepted trades',
-      type: 'selectMulti',
+      type: 'select',
+      multiple: true,
       options: [
         {value: 'at', label: "AT"},
         {value: 'be', label: "BE"},
@@ -51,7 +87,8 @@ export class CurrencyComponent {
     },
     tradesNonEuro: {
       label: 'Accepted trades',
-      type: 'selectMulti',
+      type: 'select',
+      multiple: true,
       options: [
         {value: 'bg', label: "BG"},
         {value: 'hr', label: "HR"},
@@ -70,15 +107,15 @@ export class CurrencyComponent {
     },
     limitations: {
       label: 'Limitations',
-      type: 'label',
+      type: 'text',
       value: 'Max. trade duration: 6 days / Max. trade limit: 0.0625 BTC / Account age: 0 days',
-      options: [{value: 'pl', label: "Polska (PL)"}]
+      disabled: true
     },
     salt: {label: 'Salt for account age verification', type: 'text'},
     name: {label: 'Account name', type: 'text'},
   };
 
-  formOpen:boolean = false;
+  formOpen: boolean = false;
 
   constructor() {
   }
