@@ -9,6 +9,7 @@ app-account {
         height: calc(100vh - 76px - 55px);
         .ion-page {
           padding:10px;
+          overflow-y: auto;
         }
       }
       .tabbar {
