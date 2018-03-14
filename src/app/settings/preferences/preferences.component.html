@@ -26,18 +26,18 @@
             </ion-select>
         </ion-item>
         <div class="row">
-          <div class="col-sm-6">
-            <ion-item>
-              <ion-label>{{'SETTINGS_VIEW.PREFERENCES.WIDTHDRAWAL_TRANSACTION_FEE' | translate }}</ion-label>
-              <ion-input type="text" [(ngModel)]="widthdrawalTransactionFee" [disabled]="widthdrawalTransactionFeeDisabled"></ion-input>
-            </ion-item>
-          </div>
-          <div class="col-sm-6">
-            <ion-item>
-              <label>
-                <input type="checkbox" [(ngModel)]="widthdrawalTransactionFeeDisabled">Use custom value</label>
-            </ion-item>
-          </div>
+            <div class="col-sm-6">
+                <ion-item>
+                    <ion-label>{{'SETTINGS_VIEW.PREFERENCES.WIDTHDRAWAL_TRANSACTION_FEE' | translate }}</ion-label>
+                    <ion-input type="text" [(ngModel)]="widthdrawalTransactionFee" [disabled]="widthdrawalTransactionFeeDisabled"></ion-input>
+                </ion-item>
+            </div>
+            <div class="col-sm-6">
+                <ion-item>
+                    <label>
+                        <input type="checkbox" [(ngModel)]="widthdrawalTransactionFeeDisabled">{{'SETTINGS_VIEW.PREFERENCES.USE_CUSTOM_VALUE' | translate }}</label>
+                </ion-item>
+            </div>
         </div>
         <ion-item>
             <ion-label>{{'SETTINGS_VIEW.PREFERENCES.MAX_DEVIATION_FROM_MARKET_PRICE' | translate }}:</ion-label>
@@ -46,7 +46,7 @@
         <ion-item>
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" [(ngModel)]="autoSelectArbitrators">Auto select arbitrators </label>
+                    <input type="checkbox" [(ngModel)]="autoSelectArbitrators">{{'SETTINGS_VIEW.PREFERENCES.AUTO_SELECT_ARBITRATORS' | translate }}</label>
             </div>
         </ion-item>
         <ion-item>
@@ -59,13 +59,37 @@
     <div class="card-body">
         <div class="card-title">{{'SETTINGS_VIEW.PREFERENCES.CURRENCIES_IN_MARKET_PRICE_FEED_LIST' | translate }}</div>
         <ion-item>
-            <ion-label>Prefered currency</ion-label>
-            <ion-select [(ngModel)]="currency">
-                <ion-option value="f">Bitcoin</ion-option>
-                <ion-option value="m">Litecoin</ion-option>
-                <ion-option value="d">Dash</ion-option>
+            <ion-label>{{'SETTINGS_VIEW.PREFERENCES.PREFERED_CURRENCY' | translate }}</ion-label>
+            <ion-select [(ngModel)]="preferedCurrency">
+                <ion-option *ngFor="let currency of baseCurrency" [value]="currency">{{currency}}</ion-option>
             </ion-select>
         </ion-item>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card mt-2 padding">
+                    <div class="card-body">
+                        <ion-item>
+                            <ion-label>{{'SETTINGS_VIEW.PREFERENCES.DISPLAY_NATIONAL_CURRENCIES' | translate }}</ion-label>
+                            <ion-select [(ngModel)]="selectedNationalCurrencies" multiple="true">
+                                <ion-option *ngFor="let nationalCurrency of nationalCurrencies" [value]="nationalCurrency.cc">{{nationalCurrency.name}}</ion-option>
+                            </ion-select>
+                        </ion-item>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card mt-2 padding">
+                    <div class="card-body">
+                        <ion-item>
+                            <ion-label>{{'SETTINGS_VIEW.PREFERENCES.DISPLAY_ALTCOINS' | translate }} </ion-label>
+                            <ion-select [(ngModel)]="selectedCryptocurrencies" multiple="true">
+                                <ion-option *ngFor="let cryptocCurrency of cryptocurrencies" [value]="cryptocCurrency">{{cryptocCurrency}}</ion-option>
+                            </ion-select>
+                        </ion-item>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <div class="card mt-2">

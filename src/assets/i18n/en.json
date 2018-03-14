@@ -65,19 +65,24 @@
 	"PREFERENCES": "Preferences",
 	"SETTINGS_VIEW": {
 		"PREFERENCES": {
+			"AUTO_SELECT_ARBITRATORS": "Auto select arbitrators",
 			"BITCOIN_BLOCK_EXPLORER": "Bitcoin block explorer",
 			"COUNTRY": "Country",
 			"CURRENCIES_IN_MARKET_PRICE_FEED_LIST": "Currencies in market price feed list",
+			"DISPLAY_ALTCOINS": "Display altcoins",
+			"DISPLAY_NATIONAL_CURRENCIES": "Display national currencies",
 			"DISPLAY_OPTIONS": "Display options",
 			"GENERAL_PREFERENCES": "General preferences",
 			"IGNORE_PEERS_WITH_ONION_ADDRESS": "Ignore peers with onion address (comma sep.)",
 			"LANGUAGE": "Language",
 			"MAX_DEVIATION_FROM_MARKET_PRICE": "Max. deviation from market price",
+			"PREFERED_CURRENCY": "Prefered currency",
 			"RESET_ALL": "Reset all \"Don't show again\" flags",
 			"SELECT_BASE_CURRENCY": "Select base currency",
 			"SHOW_MY_OWN_OFFERS_IN_OFFER_BOOK": "Show my own offers in offer book",
 			"SORT_MARKERS_LISTS": "Sort markers lists with no. of offers/trades",
 			"USE_ANIMATIONS": "Use animations",
+			"USE_CUSTOM_VALUE": "Use custom value",
 			"WIDTHDRAWAL_TRANSACTION_FEE": "Widthdrawal transaction fee"
 		}
 	}
