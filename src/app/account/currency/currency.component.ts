@@ -1,5 +1,8 @@
 import {Component} from '@angular/core';
-import {TranslateService} from "@ngx-translate/core";
+import {TranslateService} from '@ngx-translate/core';
+import _ from 'lodash';
+
+import {PaymentAccountsDAO} from "../../shared/DAO/paymentAccounts.dao";
 
 function t(str) {
   return str;
@@ -44,13 +47,13 @@ export class CurrencyComponent {
     paymentMethod: {
       type: 'select', label: 'ACCOUNT.CURRENCY.PAYMENT_METHOD',
       options: [
-        {value: 'sepa', label: 'SEPA'},
-        {value: 'venmo', label: 'Venmo'}
+        {value: 'SEPA', label: 'SEPA'},
+        {value: 'Venmo', label: 'Venmo'}
       ]
     },
   };
   sepaForm = {
-    fullName: {
+    holderName: {
       type: 'text', label: 'ACCOUNT.CURRENCY.OWNER_NAME',
       validators: ['required']
     },
@@ -76,10 +79,18 @@ export class CurrencyComponent {
         }
       ]
     },
-    country: {
+    countryCode: {
       type: 'select', label: 'ACCOUNT.CURRENCY.BANK_COUNTRY',
-      options: [{value: 'pl', label: "ACCOUNT.CURRENCY.COUNTRY_PL"}],
+      options: [{value: 'PL', label: "ACCOUNT.CURRENCY.COUNTRY_PL"}],
       validators: ['required']
+    },
+    selectedTradeCurrency: {
+      type: 'select', label: 'ACCOUNT.CURRENCY.CURRENCY',
+      value: 'USD',
+      options: [
+        {value: 'USD', label: 'ACCOUNT.CURRENCY.CURRENCY_USD'}
+      ],
+      disabled: true,
     },
     tradesEuro: {
       type: 'select', label: 'ACCOUNT.CURRENCY.ACCEPTED_TRADES',
@@ -132,10 +143,13 @@ export class CurrencyComponent {
       disabled: true
     },
     salt: {type: 'text', label: 'ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE'},
-    name: {type: 'text', label: 'ACCOUNT.CURRENCY.ACCOUNT_NAME'}
+    accountName: {
+      type: 'text', label: 'ACCOUNT.CURRENCY.ACCOUNT_NAME',
+      validators: ['required']
+    }
   };
   venmoForm = {
-    fullName: {
+    holderName: {
       type: 'text', label: 'ACCOUNT.CURRENCY.OWNER_NAME',
       validators: ['required']
     },
@@ -143,10 +157,13 @@ export class CurrencyComponent {
       type: 'text', label: 'ACCOUNT.CURRENCY.VENMO_NAME',
       validators: ['required']
     },
-    currency: {
-      type: 'text', label: 'ACCOUNT.CURRENCY.CURRENCY',
-      value: 'ACCOUNT.CURRENCY.CURRENCY_USD',
-      disabled: true
+    selectedTradeCurrency: {
+      type: 'select', label: 'ACCOUNT.CURRENCY.CURRENCY',
+      value: 'USD',
+      options: [
+        {value: 'USD', label: 'ACCOUNT.CURRENCY.CURRENCY_USD'}
+      ],
+      disabled: true,
     },
     limitations: {
       type: 'text', label: 'ACCOUNT.CURRENCY.LIMITATIONS',
@@ -154,18 +171,20 @@ export class CurrencyComponent {
       disabled: true
     },
     salt: {type: 'text', label: 'ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE'},
-    name: {type: 'text', label: 'ACCOUNT.CURRENCY.ACCOUNT_NAME'}
+    accountName: {
+      type: 'text', label: 'ACCOUNT.CURRENCY.ACCOUNT_NAME',
+      validators: ['required']
+    }
   };
 
   formOpen: boolean = false;
   formSelected: string;
 
-  constructor(public translate: TranslateService) {
+  constructor(private translate: TranslateService, private paymentAccountsDAO: PaymentAccountsDAO) {
     this.translate.use('pl');
     this.translate.onLangChange.subscribe(() => {
-       this.sepaForm.limitations.value = this.translate.instant('ACCOUNT.CURRENCY.LIMITATION_SEPA');
-       this.venmoForm.currency.value = this.translate.instant('ACCOUNT.CURRENCY.CURRENCY_USD');
-       this.venmoForm.limitations.value = this.translate.instant('ACCOUNT.CURRENCY.LIMITATION_VENMO');
+      this.sepaForm.limitations.value = this.translate.instant('ACCOUNT.CURRENCY.LIMITATION_SEPA');
+      this.venmoForm.limitations.value = this.translate.instant('ACCOUNT.CURRENCY.LIMITATION_VENMO');
     });
   }
 
@@ -184,6 +203,12 @@ export class CurrencyComponent {
 
   submit(values) {
     console.log(values);
+    const payload = _.pick(values, ['holderName', 'iban', 'bic', 'accountName', 'countryCode', 'selectedTradeCurrency', 'accountName']);
+    payload.paymentMethod = this.formSelected;
+    payload.tradeCurrencies = ['GBP'];
+    this.paymentAccountsDAO.create(payload).then(() => {
+      this.cancel();
+    });
   }
 
 }

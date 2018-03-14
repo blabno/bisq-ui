@@ -41,7 +41,7 @@ export class FormComponent implements OnInit {
 
   submit() {
     if (this.formGroup.valid) {
-      this.onSubmit.emit(this.formGroup.value);
+      this.onSubmit.emit(_.mapValues(this.formGroup.controls, 'value'));
     } else {
       _.forEach(this.formGroup.controls, (control) => control.markAsTouched());
     }
