@@ -114,5 +114,10 @@
 			"USE_CUSTOM_VALUE": "Użyj własnej wartośći",
 			"WIDTHDRAWAL_TRANSACTION_FEE": "Cena transakcji"
 		}
+	},
+	"TOAST": {
+		"FORM_VALIDATION_ERROR": "Brak wszystkich wymaganych pól",
+		"PAYMENT_METHOD_CREATED": "Metoda płatnosci stworzona pomyślnie",
+		"PAYMENT_METHOD_ERROR": "Błąd podczas tworzenia metody płatnosci"
 	}
 }

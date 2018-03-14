@@ -114,5 +114,10 @@
 			"USE_CUSTOM_VALUE": "Use custom value",
 			"WIDTHDRAWAL_TRANSACTION_FEE": "Widthdrawal transaction fee"
 		}
+	},
+	"TOAST": {
+		"FORM_VALIDATION_ERROR": "Missing required fields",
+		"PAYMENT_METHOD_CREATED": "Payment method created successfully",
+		"PAYMENT_METHOD_ERROR": "Error during creating payment method"
 	}
 }

@@ -4,14 +4,16 @@ import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 import {MainComponent} from './main/main.component';
 import {TranslateService} from '@ngx-translate/core';
-import {PaymentAccountsDAO} from "./shared/DAO/paymentAccounts.dao";
-import {CurrenciesDAO} from "./shared/DAO/currencies.dao";
+import {PaymentAccountsDAO} from './shared/DAO/paymentAccounts.dao';
+import {CurrenciesDAO} from './shared/DAO/currencies.dao';
+import {ToastService} from './shared/services/toast.service';
 
 @Component({
   templateUrl: 'app.html',
   providers: [
     PaymentAccountsDAO,
-    CurrenciesDAO
+    CurrenciesDAO,
+    ToastService
   ]
 })
 export class AppComponent {

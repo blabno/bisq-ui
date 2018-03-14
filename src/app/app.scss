@@ -52,3 +52,10 @@ a:hover {
 .tabs-md .tab-button[aria-selected=true] .tab-button-icon {
     color: var(--blue);
 }
+
+ion-toast {
+  &.error .toast-wrapper {
+    background-color: var(--red);
+    color: black;
+  }
+}
