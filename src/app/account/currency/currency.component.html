@@ -18,17 +18,17 @@
     <div class="card-header">{{'ACCOUNT.CREATE_NEW' | translate}}</div>
     <div class="card-body">
       <app-form [form]="paymentForm" (onChange)="change($event)"></app-form>
-      <app-form #sepaFormElement [hidden]="'sepa' !== formSelected" [form]="sepaForm"
+      <app-form #sepaFormElement [hidden]="'SEPA' !== formSelected" [form]="sepaForm"
                 (onSubmit)="submit($event)"></app-form>
-      <app-form #venmoFormElement [hidden]="'venmo' !== formSelected" [form]="venmoForm"
+      <app-form #venmoFormElement [hidden]="'Venmo' !== formSelected" [form]="venmoForm"
                 (onSubmit)="submit($event)"></app-form>
     </div>
   </div>
   <div class="buttons">
-    <button *ngIf="'sepa' === formSelected" class="btn btn-primary button-md" (click)="sepaFormElement.submit()">
+    <button *ngIf="'SEPA' === formSelected" class="btn btn-primary button-md" (click)="sepaFormElement.submit()">
       {{'ACCOUNT.SAVE' | translate}}
     </button>
-    <button *ngIf="'venmo' === formSelected" class="btn btn-primary button-md" (click)="venmoFormElement.submit()">
+    <button *ngIf="'Venmo' === formSelected" class="btn btn-primary button-md" (click)="venmoFormElement.submit()">
       {{'ACCOUNT.SAVE' | translate}}
     </button>
     <button class="btn btn-primary button-md" (click)="cancel()">{{'ACCOUNT.CANCEL' | translate}}</button>

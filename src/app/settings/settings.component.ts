@@ -7,12 +7,13 @@ import {PreferencesComponent} from './preferences/preferences.component';
 import {NetworkInfoComponent} from './network-info/network-info.component';
 import {AboutComponent} from './about/about.component';
 
-function _(str) {
+function t(str) {
   return str;
 }
-_('PREFERENCES');
-_('NETWORK_INFO');
-_('ABOUT');
+
+t('PREFERENCES');
+t('NETWORK_INFO');
+t('ABOUT');
 
 @Component({
   selector: 'app-settings',

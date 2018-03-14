@@ -8,6 +8,10 @@ export class PaymentAccountsDAO {
   }
 
   query() {
-    return this.http.get('/api/v1/payment-accounts').toPromise()
+    return this.http.get('/api/v1/payment-accounts').toPromise();
+  }
+
+  create(payload) {
+    return this.http.post('/api/v1/payment-accounts', payload).toPromise();
   }
 }
