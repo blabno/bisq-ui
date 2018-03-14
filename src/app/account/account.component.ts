@@ -10,15 +10,16 @@ import {WalletPassComponent} from './wallet-pass/wallet-pass.component';
 import {WalletSeedComponent} from './wallet-seed/wallet-seed.component';
 import {BackupComponent} from './backup/backup.component';
 
-function _(str) {
+function t(str) {
   return str;
 }
-_('ACCOUNT.SUBMENU.CURRENCY_ACCOUNTS');
-_('ACCOUNT.SUBMENU.ALTCOINS_ACCOUNTS');
-_('ACCOUNT.SUBMENU.ARBITRATOR');
-_('ACCOUNT.SUBMENU.WALLET_PASSWORD');
-_('ACCOUNT.SUBMENU.WALLET_SEED');
-_('ACCOUNT.SUBMENU.BACKUP');
+
+t('ACCOUNT.SUBMENU.CURRENCY_ACCOUNTS');
+t('ACCOUNT.SUBMENU.ALTCOINS_ACCOUNTS');
+t('ACCOUNT.SUBMENU.ARBITRATOR');
+t('ACCOUNT.SUBMENU.WALLET_PASSWORD');
+t('ACCOUNT.SUBMENU.WALLET_SEED');
+t('ACCOUNT.SUBMENU.BACKUP');
 
 @Component({
   selector: 'app-account',
