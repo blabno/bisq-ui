@@ -2,13 +2,13 @@ import {Routes} from '@angular/router';
 import {MarketComponent} from './market/market.component';
 import {AccountComponent} from './account/account.component';
 import {SettingsComponent} from './settings/settings.component';
+import {OffersComponent} from "./offers/offers.component";
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'market', pathMatch: 'full'},
   {path: 'market', component: MarketComponent},
 
-  {path: 'sell', component: MarketComponent},
-  {path: 'buy', component: MarketComponent},
+  {path: 'offers/:type', component: OffersComponent},
 
 
   {path: 'portfolio', redirectTo: 'portfolio/offers', pathMatch: 'full'},

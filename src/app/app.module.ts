@@ -29,6 +29,8 @@ import {PreferencesComponent} from './settings/preferences/preferences.component
 import {NetworkInfoComponent} from './settings/network-info/network-info.component';
 import {AboutComponent} from './settings/about/about.component';
 import {FormComponent} from "./shared/form/form.component";
+import {OffersComponent} from "./offers/offers.component";
+import {OffersListComponent} from "./shared/offersList/offersList.component";
 
 const loadModules = [
   AppComponent,
@@ -47,7 +49,9 @@ const loadModules = [
   PreferencesComponent,
   NetworkInfoComponent,
   AboutComponent,
-  FormComponent
+  FormComponent,
+  OffersComponent,
+  OffersListComponent
 ];
 
 export function createTranslateLoader(http: HttpClient) {
