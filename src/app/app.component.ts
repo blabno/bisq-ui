@@ -5,11 +5,13 @@ import {SplashScreen} from '@ionic-native/splash-screen';
 import {MainComponent} from './main/main.component';
 import {TranslateService} from '@ngx-translate/core';
 import {PaymentAccountsDAO} from "./shared/DAO/paymentAccounts.dao";
+import {CurrenciesDAO} from "./shared/DAO/currencies.dao";
 
 @Component({
   templateUrl: 'app.html',
   providers: [
-    PaymentAccountsDAO
+    PaymentAccountsDAO,
+    CurrenciesDAO
   ]
 })
 export class AppComponent {
