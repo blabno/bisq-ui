@@ -4,9 +4,13 @@ import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 import {MainComponent} from './main/main.component';
 import {TranslateService} from '@ngx-translate/core';
+import {PaymentAccountsDAO} from "./shared/DAO/paymentAccounts.dao";
 
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: 'app.html',
+  providers: [
+    PaymentAccountsDAO
+  ]
 })
 export class AppComponent {
   rootPage: any = MainComponent;
