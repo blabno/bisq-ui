@@ -1,19 +1,4 @@
 {
-	"SETTINGS_VIEW": {
-		"PREFERENCES": {
-			"BITCOIN_BLOCK_EXPLORER": "Serwis do Bitcoin block",
-			"COUNTRY": "Kraj",
-			"CURRENCIES_IN_MARKET_PRICE_FEED_LIST": "Lista dostępnych walut",
-			"DISPLAY_OPTIONS": "Opcje wyświetlania",
-			"GENERAL_PREFERENCES": "Ogólne",
-			"IGNORE_PEERS_WITH_ONION_ADDRESS": "Ignorowane połączenia",
-			"LANGUAGE": "Język",
-			"MAX_DEVIATION_FROM_MARKET_PRICE": "Maks. różnica od ceny",
-			"RESET_ALL": "Zresetuj wszystkie \"Nie pokazuj tego\"",
-			"SELECT_BASE_CURRENCY": "Wybierz podstawową walutę",
-			"WIDTHDRAWAL_TRANSACTION_FEE": "Cena transakcji"
-		}
-	},
 	"ABOUT": "O programie",
 	"ACCOUNT": {
 		"ADD_NEW": "Dodaj konto",
@@ -23,6 +8,21 @@
 		"CANCEL": "Anuluj",
 		"CREATE_NEW": "Stwórz nowe konto",
 		"CURRENCY": {
+			"ACCEPTED_TRADES": "Akceptowane transakcje",
+			"ACCOUNT_NAME": "Nazwa konta",
+			"BANK_COUNTRY": "Kraj banku",
+			"COUNTRY_PL": "Polska (PL)",
+			"CURRENCY": "Waluta",
+			"CURRENCY_USD": "Dolar amerykański (USD)",
+			"LIMITATIONS": "Ograniczenia",
+			"LIMITATION_SEPA": "Maks. czas transakcji: 6 dni / Maks. limit transakcji: 0.0625 BTC / aktywność konta: 0 dni",
+			"LIMITATION_VENMO": "Maks. czas transakcji: 1 dzień / Maks. limit transakcji: 0.04 BTC / aktywność konta: 0 dni",
+			"OWNER_NAME": "Imię i nazwisko posiadacza",
+			"PAYMENT_METHOD": "Metoda płatności",
+			"SALT_ACCOUNT_AGE": "Kod potwierdzający aktywność konta",
+			"VALIDATION_15_TO_34": "Number musi mieć od 15 do 34 znaków",
+			"VALIDATION_8_NOR_11": "Wymagane 8 lub 11 znaków",
+			"VENMO_NAME": "Nazwa konta Venmo",
 			"YOUR_ACCOUNTS": "Twoje konta walutowe"
 		},
 		"EXPORT": "Eksportuj konta",
@@ -59,6 +59,7 @@
 			"SEED_WORDS": "Fraza mnemoniczna portfela"
 		}
 	},
+	"FIELD_REQUIRED": "To pole jest wymagane",
 	"MARKET": {
 		"SUMMARY": {
 			"AVAILABLE": "Dostępne",
@@ -77,5 +78,20 @@
 		"SUPPORT": "Wsparcie"
 	},
 	"NETWORK_INFO": "Sieć",
-	"PREFERENCES": "Preferencje"
+	"PREFERENCES": "Preferencje",
+	"SETTINGS_VIEW": {
+		"PREFERENCES": {
+			"BITCOIN_BLOCK_EXPLORER": "Serwis do Bitcoin block",
+			"COUNTRY": "Kraj",
+			"CURRENCIES_IN_MARKET_PRICE_FEED_LIST": "Lista dostępnych walut",
+			"DISPLAY_OPTIONS": "Opcje wyświetlania",
+			"GENERAL_PREFERENCES": "Ogólne",
+			"IGNORE_PEERS_WITH_ONION_ADDRESS": "Ignorowane połączenia",
+			"LANGUAGE": "Język",
+			"MAX_DEVIATION_FROM_MARKET_PRICE": "Maks. różnica od ceny",
+			"RESET_ALL": "Zresetuj wszystkie \"Nie pokazuj tego\"",
+			"SELECT_BASE_CURRENCY": "Wybierz podstawową walutę",
+			"WIDTHDRAWAL_TRANSACTION_FEE": "Cena transakcji"
+		}
+	}
 }

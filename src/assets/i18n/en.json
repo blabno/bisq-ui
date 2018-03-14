@@ -1,19 +1,4 @@
 {
-	"SETTINGS_VIEW": {
-		"PREFERENCES": {
-			"BITCOIN_BLOCK_EXPLORER": "Bitcoin block explorer",
-			"COUNTRY": "Country",
-			"CURRENCIES_IN_MARKET_PRICE_FEED_LIST": "Currencies in market price feed list",
-			"DISPLAY_OPTIONS": "Display options",
-			"GENERAL_PREFERENCES": "General preferences",
-			"IGNORE_PEERS_WITH_ONION_ADDRESS": "Ignore peers with onion address (comma sep.)",
-			"LANGUAGE": "Language",
-			"MAX_DEVIATION_FROM_MARKET_PRICE": "Max. deviation from market price",
-			"RESET_ALL": "Reset all \"Don't show again\" flags",
-			"SELECT_BASE_CURRENCY": "Select base currency",
-			"WIDTHDRAWAL_TRANSACTION_FEE": "Widthdrawal transaction fee"
-		}
-	},
 	"ABOUT": "About",
 	"ACCOUNT": {
 		"ADD_NEW": "Add new account",
@@ -23,6 +8,21 @@
 		"CANCEL": "Cancel",
 		"CREATE_NEW": "Create new Account",
 		"CURRENCY": {
+			"ACCEPTED_TRADES": "Accepted trades",
+			"ACCOUNT_NAME": "Account name",
+			"BANK_COUNTRY": "Country of bank",
+			"COUNTRY_PL": "Poland (PL)",
+			"CURRENCY": "Currency",
+			"CURRENCY_USD": "US Dollar (USD)",
+			"LIMITATIONS": "Limitations",
+			"LIMITATION_SEPA": "Max. trade duration: 6 days / Max. trade limit: 0.0625 BTC / Account age: 0 days",
+			"LIMITATION_VENMO": "Max. trade duration: 1 days / Max. trade limit: 0.04 BTC / Account age: 0 days",
+			"OWNER_NAME": "Account owner full name",
+			"PAYMENT_METHOD": "Payment method",
+			"SALT_ACCOUNT_AGE": "Salt for account age verification",
+			"VALIDATION_15_TO_34": "Number must have length 15 to 34 chars",
+			"VALIDATION_8_NOR_11": "Input length is neither 8 nor 11",
+			"VENMO_NAME": "Venmo username",
 			"YOUR_ACCOUNTS": "Your national currency accounts"
 		},
 		"EXPORT": "Export Accounts",
@@ -59,6 +59,7 @@
 			"SEED_WORDS": "Wallet mnemonic phrase"
 		}
 	},
+	"FIELD_REQUIRED": "This field is required",
 	"MARKET": {
 		"SUMMARY": {
 			"AVAILABLE": "Available",
@@ -77,5 +78,20 @@
 		"SUPPORT": "Support"
 	},
 	"NETWORK_INFO": "Network",
-	"PREFERENCES": "Preferences"
+	"PREFERENCES": "Preferences",
+	"SETTINGS_VIEW": {
+		"PREFERENCES": {
+			"BITCOIN_BLOCK_EXPLORER": "Bitcoin block explorer",
+			"COUNTRY": "Country",
+			"CURRENCIES_IN_MARKET_PRICE_FEED_LIST": "Currencies in market price feed list",
+			"DISPLAY_OPTIONS": "Display options",
+			"GENERAL_PREFERENCES": "General preferences",
+			"IGNORE_PEERS_WITH_ONION_ADDRESS": "Ignore peers with onion address (comma sep.)",
+			"LANGUAGE": "Language",
+			"MAX_DEVIATION_FROM_MARKET_PRICE": "Max. deviation from market price",
+			"RESET_ALL": "Reset all \"Don't show again\" flags",
+			"SELECT_BASE_CURRENCY": "Select base currency",
+			"WIDTHDRAWAL_TRANSACTION_FEE": "Widthdrawal transaction fee"
+		}
+	}
 }

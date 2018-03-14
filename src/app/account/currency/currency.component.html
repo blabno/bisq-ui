@@ -13,8 +13,24 @@
   <button class="btn btn-primary button-md">{{'ACCOUNT.IMPORT' | translate}}</button>
 </div>
 
-<app-form title="{{ 'ACCOUNT.CREATE_NEW' | translate}}" [form]="form" [(data)]="model" *ngIf="formOpen"></app-form>
-<div class="buttons" *ngIf="formOpen">
-  <button class="btn btn-primary button-md">{{'ACCOUNT.SAVE' | translate}}</button>
-  <button class="btn btn-primary button-md" (click)="cancel()">{{'ACCOUNT.CANCEL' | translate}}</button>
+<div *ngIf="formOpen">
+  <div class="card">
+    <div class="card-header">{{'ACCOUNT.CREATE_NEW' | translate}}</div>
+    <div class="card-body">
+      <app-form [form]="paymentForm" (onChange)="change($event)"></app-form>
+      <app-form #sepaFormElement [hidden]="'sepa' !== formSelected" [form]="sepaForm"
+                (onSubmit)="submit($event)"></app-form>
+      <app-form #venmoFormElement [hidden]="'venmo' !== formSelected" [form]="venmoForm"
+                (onSubmit)="submit($event)"></app-form>
+    </div>
+  </div>
+  <div class="buttons">
+    <button *ngIf="'sepa' === formSelected" class="btn btn-primary button-md" (click)="sepaFormElement.submit()">
+      {{'ACCOUNT.SAVE' | translate}}
+    </button>
+    <button *ngIf="'venmo' === formSelected" class="btn btn-primary button-md" (click)="venmoFormElement.submit()">
+      {{'ACCOUNT.SAVE' | translate}}
+    </button>
+    <button class="btn btn-primary button-md" (click)="cancel()">{{'ACCOUNT.CANCEL' | translate}}</button>
+  </div>
 </div>
