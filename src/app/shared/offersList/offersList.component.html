@@ -1,0 +1,38 @@
+<div class="sort-method">
+  <ion-item>
+    <ion-label>{{'OFFERS.LIST.FILTER.BY_CURRENCY' | translate}}</ion-label>
+    <ion-select>
+      <ion-option>Show All</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>{{'OFFERS.LIST.FILTER.BY_METHOD' | translate}}</ion-label>
+    <ion-select>
+      <ion-option>Show All</ion-option>
+    </ion-select>
+  </ion-item>
+</div>
+<div>{{'OFFERS.LIST.NO_OFFERS' | translate}}: {{list.length || 0}}</div>
+<div class="row">
+  <div class="col-md-6 col-lg-4" *ngFor="let item of list">
+    <div class="card">
+      <div class="card-header">
+        <i class="fas fa-user-circle" title="Onion adress: {{item.peerAddress}}"></i>
+        {{item.market}}
+        <span class="float-right">{{item.method}} <i class="fas fa-info-circle info"></i></span>
+      </div>
+      <div class="card-body">
+        <div>BTC(min-max)<span class="float-right">{{item.btc}}</span></div>
+        <div>{{'OFFERS.LIST.PRICE' | translate}}<span class="float-right">{{item.price}}</span></div>
+        <div>{{'OFFERS.LIST.AMOUNT' | translate}}<span class="float-right">{{item.amount}}</span></div>
+      </div>
+      <div class="btn rounded-0" (click)="select(item.id)" [ngClass]="{
+            'btn-primary': 'buy' === type,
+            'btn-warning': 'sell' === type
+            }">
+        <span *ngIf="'buy' === type"><i class="fas fa-download menu-icon"></i>{{'OFFERS.LIST.BUY' | translate}}</span>
+        <span *ngIf="'sell' === type"><i class="fas fa-upload menu-icon"></i>{{'OFFERS.LIST.SELL' | translate}}</span>
+      </div>
+    </div>
+  </div>
+</div>

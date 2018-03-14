@@ -78,6 +78,19 @@
 		"SUPPORT": "Wsparcie"
 	},
 	"NETWORK_INFO": "Sieć",
+	"OFFERS": {
+		"LIST": {
+			"AMOUNT": "Wartość",
+			"BUY": "Kup",
+			"FILTER": {
+				"BY_CURRENCY": "Filtruj po walucie",
+				"BY_METHOD": "Filtruj po metodzie płatności"
+			},
+			"NO_OFFERS": "Liczba ofert",
+			"PRICE": "Cena",
+			"SELL": "Sprzedaj"
+		}
+	},
 	"PREFERENCES": "Preferencje",
 	"SETTINGS_VIEW": {
 		"PREFERENCES": {

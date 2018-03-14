@@ -78,6 +78,19 @@
 		"SUPPORT": "Support"
 	},
 	"NETWORK_INFO": "Network",
+	"OFFERS": {
+		"LIST": {
+			"AMOUNT": "Amount",
+			"BUY": "Buy",
+			"FILTER": {
+				"BY_CURRENCY": "Filter by Currency",
+				"BY_METHOD": "Filter by paymaent method"
+			},
+			"NO_OFFERS": "No. of offers",
+			"PRICE": "Price",
+			"SELL": "Sell"
+		}
+	},
 	"PREFERENCES": "Preferences",
 	"SETTINGS_VIEW": {
 		"PREFERENCES": {
