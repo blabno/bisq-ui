@@ -22,8 +22,9 @@ export class AltcoinsComponent {
     email: {label: 'Email address', type: 'text'},
     limitations: {
       label: 'Limitations',
-      type: 'label',
-      value: 'Max. trade duration: 6 days / Max. trade limit: 0.0625 BTC / Account age: 0 days'
+      type: 'text',
+      value: 'Max. trade duration: 6 days / Max. trade limit: 0.0625 BTC / Account age: 0 days',
+      disabled: true
     },
     salt: {label: 'Salt for account age verification', type: 'text'},
     name: {label: 'Account name', type: 'text'},

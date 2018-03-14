@@ -1,4 +1,25 @@
 import {Component} from '@angular/core';
+import {TranslateService} from "@ngx-translate/core";
+
+function _(str) {
+  return str;
+}
+
+_('ACCOUNT.CURRENCY.PAYMENT_METHOD');
+_('ACCOUNT.CURRENCY.OWNER_NAME');
+_('ACCOUNT.CURRENCY.VALIDATION_8_NOR_11');
+_('ACCOUNT.CURRENCY.VALIDATION_15_TO_34');
+_('ACCOUNT.CURRENCY.BANK_COUNTRY');
+_('ACCOUNT.CURRENCY.COUNTRY_PL');
+_('ACCOUNT.CURRENCY.ACCEPTED_TRADES');
+_('ACCOUNT.CURRENCY.LIMITATION_SEPA');
+_('ACCOUNT.CURRENCY.LIMITATION_VENMO');
+_('ACCOUNT.CURRENCY.LIMITATIONS');
+_('ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE');
+_('ACCOUNT.CURRENCY.ACCOUNT_NAME');
+_('ACCOUNT.CURRENCY.VENMO_NAME');
+_('ACCOUNT.CURRENCY.CURRENCY');
+_('ACCOUNT.CURRENCY.CURRENCY_USD');
 
 function ibanValidator(control) {
   if (!control.value || (8 !== control.value.length && 11 !== control.value.length)) {
@@ -19,48 +40,49 @@ function bicValidator(control) {
   templateUrl: 'currency.component.html'
 })
 export class CurrencyComponent {
-  model = {};
-
-  form = {
+  paymentForm = {
     paymentMethod: {
-      label: 'Payment Method', type: 'select',
-      options: [{value: 'sepa', label: 'SEPA'}],
-      validators: ['required']
+      type: 'select', label: 'ACCOUNT.CURRENCY.PAYMENT_METHOD',
+      options: [
+        {value: 'sepa', label: 'SEPA'},
+        {value: 'venmo', label: 'Venmo'}
+      ]
     },
-    account: {
-      label: 'Account owner full name', type: 'text',
+  };
+  sepaForm = {
+    fullName: {
+      type: 'text', label: 'ACCOUNT.CURRENCY.OWNER_NAME',
       validators: ['required']
     },
     iban: {
-      label: 'IBAN', type: 'text',
+      type: 'text', label: 'IBAN',
       validators: [
         'required',
         {
           key: 'wrongLength',
-          message: 'Input length is neither 8 nor 11',
+          message: 'ACCOUNT.CURRENCY.VALIDATION_8_NOR_11',
           handler: ibanValidator
         }
       ]
     },
     bic: {
-      label: 'BIC', type: 'text',
+      type: 'text', label: 'BIC',
       validators: [
         'required',
         {
           key: 'wrongLength',
-          message: 'Number must have length 15 to 34 chars',
+          message: 'ACCOUNT.CURRENCY.VALIDATION_15_TO_34',
           handler: bicValidator
         }
       ]
     },
     country: {
-      label: 'Country of bank', type: 'select',
-      options: [{value: 'pl', label: "Polska (PL)"}],
+      type: 'select', label: 'ACCOUNT.CURRENCY.BANK_COUNTRY',
+      options: [{value: 'pl', label: "ACCOUNT.CURRENCY.COUNTRY_PL"}],
       validators: ['required']
     },
     tradesEuro: {
-      label: 'Accepted trades',
-      type: 'select',
+      type: 'select', label: 'ACCOUNT.CURRENCY.ACCEPTED_TRADES',
       multiple: true,
       options: [
         {value: 'at', label: "AT"},
@@ -86,8 +108,7 @@ export class CurrencyComponent {
       ]
     },
     tradesNonEuro: {
-      label: 'Accepted trades',
-      type: 'select',
+      type: 'select', label: 'ACCOUNT.CURRENCY.ACCEPTED_TRADES',
       multiple: true,
       options: [
         {value: 'bg', label: "BG"},
@@ -106,18 +127,46 @@ export class CurrencyComponent {
       ]
     },
     limitations: {
-      label: 'Limitations',
-      type: 'text',
-      value: 'Max. trade duration: 6 days / Max. trade limit: 0.0625 BTC / Account age: 0 days',
+      type: 'text', label: 'ACCOUNT.CURRENCY.LIMITATIONS',
+      value: 'ACCOUNT.CURRENCY.LIMITATION_SEPA',
       disabled: true
     },
-    salt: {label: 'Salt for account age verification', type: 'text'},
-    name: {label: 'Account name', type: 'text'},
+    salt: {type: 'text', label: 'ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE'},
+    name: {type: 'text', label: 'ACCOUNT.CURRENCY.ACCOUNT_NAME'}
+  };
+  venmoForm = {
+    fullName: {
+      type: 'text', label: 'ACCOUNT.CURRENCY.OWNER_NAME',
+      validators: ['required']
+    },
+    venmoName: {
+      type: 'text', label: 'ACCOUNT.CURRENCY.VENMO_NAME',
+      validators: ['required']
+    },
+    currency: {
+      type: 'text', label: 'ACCOUNT.CURRENCY.CURRENCY',
+      value: 'ACCOUNT.CURRENCY.CURRENCY_USD',
+      disabled: true
+    },
+    limitations: {
+      type: 'text', label: 'ACCOUNT.CURRENCY.LIMITATIONS',
+      value: 'ACCOUNT.CURRENCY.LIMITATION_VENMO',
+      disabled: true
+    },
+    salt: {type: 'text', label: 'ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE'},
+    name: {type: 'text', label: 'ACCOUNT.CURRENCY.ACCOUNT_NAME'}
   };
 
   formOpen: boolean = false;
+  formSelected: string;
 
-  constructor() {
+  constructor(public translate: TranslateService) {
+    this.translate.use('pl');
+    this.translate.onLangChange.subscribe(() => {
+       this.sepaForm.limitations.value = this.translate.instant('ACCOUNT.CURRENCY.LIMITATION_SEPA');
+       this.venmoForm.currency.value = this.translate.instant('ACCOUNT.CURRENCY.CURRENCY_USD');
+       this.venmoForm.limitations.value = this.translate.instant('ACCOUNT.CURRENCY.LIMITATION_VENMO');
+    });
   }
 
   addNew() {
@@ -126,7 +175,15 @@ export class CurrencyComponent {
 
   cancel() {
     this.formOpen = false;
-    this.model = {};
+    this.formSelected = null;
+  }
+
+  change(values) {
+    this.formSelected = values.paymentMethod
+  }
+
+  submit(values) {
+    console.log(values);
   }
 
 }
