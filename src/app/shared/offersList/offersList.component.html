@@ -17,21 +17,21 @@
   <div class="col-md-6 col-lg-4" *ngFor="let item of list">
     <div class="card">
       <div class="card-header">
-        <i class="fas fa-user-circle" title="Onion adress: {{item.peerAddress}}"></i>
+        <i class="fas fa-user-circle" title="Onion adress: {{item.offerer}}"></i>
         {{item.market}}
         <span class="float-right">{{item.method}} <i class="fas fa-info-circle info"></i></span>
       </div>
       <div class="card-body">
-        <div>BTC(min-max)<span class="float-right">{{item.btc}}</span></div>
-        <div>{{'OFFERS.LIST.PRICE' | translate}}<span class="float-right">{{item.price}}</span></div>
-        <div>{{'OFFERS.LIST.AMOUNT' | translate}}<span class="float-right">{{item.amount}}</span></div>
+        <div>BTC (min-max)<span class="float-right">{{getOfferBTCAmount(item)}}</span></div>
+        <div>{{'OFFERS.LIST.PRICE' | translate}}<span class="float-right">{{item.other_amount}} ({{item.price_detail.market_price_margin * 100}}%)</span></div>
+        <div>{{'OFFERS.LIST.AMOUNT' | translate}}<span class="float-right">{{getOfferAmount(item)}}</span></div>
       </div>
-      <div class="btn rounded-0" (click)="select(item.id)" [ngClass]="{
+      <div class="btn rounded-0" (click)="select(item.offer_id)" [ngClass]="{
             'btn-primary': 'buy' === type,
             'btn-warning': 'sell' === type
             }">
-        <span *ngIf="'buy' === type"><i class="fas fa-download menu-icon"></i>{{'OFFERS.LIST.BUY' | translate}}</span>
-        <span *ngIf="'sell' === type"><i class="fas fa-upload menu-icon"></i>{{'OFFERS.LIST.SELL' | translate}}</span>
+        <span *ngIf="'buy' === type" class="select-button"><i class="fas fa-download menu-icon"></i>{{'OFFERS.LIST.BUY' | translate}}</span>
+        <span *ngIf="'sell' === type" class="select-button"><i class="fas fa-upload menu-icon"></i>{{'OFFERS.LIST.SELL' | translate}}</span>
       </div>
     </div>
   </div>

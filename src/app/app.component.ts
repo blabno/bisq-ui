@@ -7,13 +7,15 @@ import {TranslateService} from '@ngx-translate/core';
 import {PaymentAccountsDAO} from './shared/DAO/paymentAccounts.dao';
 import {CurrenciesDAO} from './shared/DAO/currencies.dao';
 import {ToastService} from './shared/services/toast.service';
+import {OffersDAO} from "./shared/DAO/offers.dao";
 
 @Component({
   templateUrl: 'app.html',
   providers: [
     PaymentAccountsDAO,
     CurrenciesDAO,
-    ToastService
+    ToastService,
+    OffersDAO
   ]
 })
 export class AppComponent {

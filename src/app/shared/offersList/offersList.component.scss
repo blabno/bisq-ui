@@ -1,6 +1,12 @@
 app-offers-list {
   .card {
     margin-top:10px;
+    .select-button {
+      font-size: 15px;
+      i {
+        margin-right: 5px;
+      }
+    }
   }
   .info {
     color: var(--info);
