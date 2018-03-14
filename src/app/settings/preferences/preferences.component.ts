@@ -13,8 +13,14 @@ export class PreferencesComponent {
   public selectedCountry = this.countries[0];
   public bitcoinExplorers = ['Bitaps'];
   public selectedBitcoinExplorer = this.bitcoinExplorers[0];
-  public widthdrawalTransactionFee = 10;
-  public widthdrawalTransactionFeeEditable = false;
+  public widthdrawalTransactionFee = 20;
+  public widthdrawalTransactionFeeDisabled = true;
+  public maxDeviationFromMarketPrice = 30;
+  public autoSelectArbitrators = true;
+  public showMyOwnOffersInOfferBook = true;
+  public useAnimations = false;
+  public sortMarkersLists = true;
+  public ignorePeers = ''
   constructor(public translate: TranslateService) {}
   langChange(e) {
     this.translate.use(e);

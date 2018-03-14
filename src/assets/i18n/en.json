@@ -1,19 +1,4 @@
 {
-	"SETTINGS_VIEW": {
-		"PREFERENCES": {
-			"BITCOIN_BLOCK_EXPLORER": "Bitcoin block explorer",
-			"COUNTRY": "Country",
-			"CURRENCIES_IN_MARKET_PRICE_FEED_LIST": "Currencies in market price feed list",
-			"DISPLAY_OPTIONS": "Display options",
-			"GENERAL_PREFERENCES": "General preferences",
-			"IGNORE_PEERS_WITH_ONION_ADDRESS": "Ignore peers with onion address (comma sep.)",
-			"LANGUAGE": "Language",
-			"MAX_DEVIATION_FROM_MARKET_PRICE": "Max. deviation from market price",
-			"RESET_ALL": "Reset all \"Don't show again\" flags",
-			"SELECT_BASE_CURRENCY": "Select base currency",
-			"WIDTHDRAWAL_TRANSACTION_FEE": "Widthdrawal transaction fee"
-		}
-	},
 	"ABOUT": "About",
 	"ACCOUNT": {
 		"ADD_NEW": "Add new account",
@@ -77,5 +62,23 @@
 		"SUPPORT": "Support"
 	},
 	"NETWORK_INFO": "Network",
-	"PREFERENCES": "Preferences"
+	"PREFERENCES": "Preferences",
+	"SETTINGS_VIEW": {
+		"PREFERENCES": {
+			"BITCOIN_BLOCK_EXPLORER": "Bitcoin block explorer",
+			"COUNTRY": "Country",
+			"CURRENCIES_IN_MARKET_PRICE_FEED_LIST": "Currencies in market price feed list",
+			"DISPLAY_OPTIONS": "Display options",
+			"GENERAL_PREFERENCES": "General preferences",
+			"IGNORE_PEERS_WITH_ONION_ADDRESS": "Ignore peers with onion address (comma sep.)",
+			"LANGUAGE": "Language",
+			"MAX_DEVIATION_FROM_MARKET_PRICE": "Max. deviation from market price",
+			"RESET_ALL": "Reset all \"Don't show again\" flags",
+			"SELECT_BASE_CURRENCY": "Select base currency",
+			"SHOW_MY_OWN_OFFERS_IN_OFFER_BOOK": "Show my own offers in offer book",
+			"SORT_MARKERS_LISTS": "Sort markers lists with no. of offers/trades",
+			"USE_ANIMATIONS": "Use animations",
+			"WIDTHDRAWAL_TRANSACTION_FEE": "Widthdrawal transaction fee"
+		}
+	}
 }

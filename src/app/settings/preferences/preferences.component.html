@@ -25,29 +25,33 @@
                 <ion-option *ngFor="let bitcoinExplorer of bitcoinExplorers" [value]="bitcoinExplorer">{{bitcoinExplorer}}</ion-option>
             </ion-select>
         </ion-item>
-        <ion-item>
-            <ion-label>{{'SETTINGS_VIEW.PREFERENCES.WIDTHDRAWAL_TRANSACTION_FEE' | translate }}</ion-label>
-            <ion-input type="text" [(ngModel)]="conf.title" [ngModelOptions]="{standalone: true}"></ion-input>
-        </ion-item>
-        <ion-item>
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" value="">Use custom value</label>
-            </div>
-        </ion-item>
+        <div class="row">
+          <div class="col-sm-6">
+            <ion-item>
+              <ion-label>{{'SETTINGS_VIEW.PREFERENCES.WIDTHDRAWAL_TRANSACTION_FEE' | translate }}</ion-label>
+              <ion-input type="text" [(ngModel)]="widthdrawalTransactionFee" [disabled]="widthdrawalTransactionFeeDisabled"></ion-input>
+            </ion-item>
+          </div>
+          <div class="col-sm-6">
+            <ion-item>
+              <label>
+                <input type="checkbox" [(ngModel)]="widthdrawalTransactionFeeDisabled">Use custom value</label>
+            </ion-item>
+          </div>
+        </div>
         <ion-item>
             <ion-label>{{'SETTINGS_VIEW.PREFERENCES.MAX_DEVIATION_FROM_MARKET_PRICE' | translate }}:</ion-label>
-            <ion-input type="text" [(ngModel)]="conf.title" [ngModelOptions]="{standalone: true}"></ion-input>
+            <ion-input type="text" [(ngModel)]="maxDeviationFromMarketPrice"></ion-input>
         </ion-item>
         <ion-item>
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" value="">Auto select arbitrators </label>
+                    <input type="checkbox" [(ngModel)]="autoSelectArbitrators">Auto select arbitrators </label>
             </div>
         </ion-item>
         <ion-item>
             <ion-label>{{'SETTINGS_VIEW.PREFERENCES.IGNORE_PEERS_WITH_ONION_ADDRESS' | translate }}:</ion-label>
-            <ion-input type="text" [(ngModel)]="conf.title" [ngModelOptions]="{standalone: true}"></ion-input>
+            <ion-input type="text" [(ngModel)]="ignorePeers"></ion-input>
         </ion-item>
     </div>
 </div>
@@ -57,7 +61,7 @@
         <ion-item>
             <ion-label>Prefered currency</ion-label>
             <ion-select [(ngModel)]="currency">
-                <ion-option value="f">Butcoin</ion-option>
+                <ion-option value="f">Bitcoin</ion-option>
                 <ion-option value="m">Litecoin</ion-option>
                 <ion-option value="d">Dash</ion-option>
             </ion-select>
@@ -70,19 +74,19 @@
         <ion-item>
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" value="">Show my own offers in offer book</label>
+                    <input type="checkbox" [(ngModel)]="showMyOwnOffersInOfferBook">{{'SETTINGS_VIEW.PREFERENCES.SHOW_MY_OWN_OFFERS_IN_OFFER_BOOK' | translate }} </label>
             </div>
         </ion-item>
         <ion-item>
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" value="">Use animations</label>
+                    <input type="checkbox" [(ngModel)]="useAnimations">{{'SETTINGS_VIEW.PREFERENCES.USE_ANIMATIONS' | translate }} </label>
             </div>
         </ion-item>
         <ion-item>
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" value="">Sort markers lists with no. of offers/trades</label>
+                    <input type="checkbox" [(ngModel)]="sortMarkersLists">{{'SETTINGS_VIEW.PREFERENCES.SORT_MARKERS_LISTS' | translate }} </label>
             </div>
         </ion-item>
         <ion-item>
