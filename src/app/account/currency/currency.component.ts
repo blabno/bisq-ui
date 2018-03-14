@@ -2,7 +2,8 @@ import {Component} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 import _ from 'lodash';
 
-import {PaymentAccountsDAO} from "../../shared/DAO/paymentAccounts.dao";
+import {PaymentAccountsDAO} from '../../shared/DAO/paymentAccounts.dao';
+import {ToastService} from '../../shared/services/toast.service';
 
 function t(str) {
   return str;
@@ -81,7 +82,7 @@ export class CurrencyComponent {
     },
     countryCode: {
       type: 'select', label: 'ACCOUNT.CURRENCY.BANK_COUNTRY',
-      options: [{value: 'PL', label: "ACCOUNT.CURRENCY.COUNTRY_PL"}],
+      options: [{value: 'PL', label: 'ACCOUNT.CURRENCY.COUNTRY_PL'}],
       validators: ['required']
     },
     selectedTradeCurrency: {
@@ -96,45 +97,45 @@ export class CurrencyComponent {
       type: 'select', label: 'ACCOUNT.CURRENCY.ACCEPTED_TRADES',
       multiple: true,
       options: [
-        {value: 'at', label: "AT"},
-        {value: 'be', label: "BE"},
-        {value: 'cy', label: "CY"},
-        {value: 'ee', label: "EE"},
-        {value: 'fi', label: "FI"},
-        {value: 'fr', label: "FR"},
-        {value: 'gr', label: "GR"},
-        {value: 'es', label: "ES"},
-        {value: 'nl', label: "NL"},
-        {value: 'ie', label: "IE"},
-        {value: 'lt', label: "LT"},
-        {value: 'lu', label: "LU"},
-        {value: 'mt', label: "MT"},
-        {value: 'mc', label: "MC"},
-        {value: 'de', label: "DE"},
-        {value: 'pt', label: "PT"},
-        {value: 'sk', label: "SK"},
-        {value: 'si', label: "SI"},
-        {value: 'it', label: "IT"},
-        {value: 'lv', label: "LV"}
+        {value: 'at', label: 'AT'},
+        {value: 'be', label: 'BE'},
+        {value: 'cy', label: 'CY'},
+        {value: 'ee', label: 'EE'},
+        {value: 'fi', label: 'FI'},
+        {value: 'fr', label: 'FR'},
+        {value: 'gr', label: 'GR'},
+        {value: 'es', label: 'ES'},
+        {value: 'nl', label: 'NL'},
+        {value: 'ie', label: 'IE'},
+        {value: 'lt', label: 'LT'},
+        {value: 'lu', label: 'LU'},
+        {value: 'mt', label: 'MT'},
+        {value: 'mc', label: 'MC'},
+        {value: 'de', label: 'DE'},
+        {value: 'pt', label: 'PT'},
+        {value: 'sk', label: 'SK'},
+        {value: 'si', label: 'SI'},
+        {value: 'it', label: 'IT'},
+        {value: 'lv', label: 'LV'}
       ]
     },
     tradesNonEuro: {
       type: 'select', label: 'ACCOUNT.CURRENCY.ACCEPTED_TRADES',
       multiple: true,
       options: [
-        {value: 'bg', label: "BG"},
-        {value: 'hr', label: "HR"},
-        {value: 'dk', label: "DK"},
-        {value: 'is', label: "IS"},
-        {value: 'li', label: "LI"},
-        {value: 'no', label: "NO"},
-        {value: 'pl', label: "PL"},
-        {value: 'cz', label: "CZ"},
-        {value: 'ro', label: "RO"},
-        {value: 'ch', label: "CH"},
-        {value: 'se', label: "SE"},
-        {value: 'gb', label: "GB"},
-        {value: 'hu', label: "HU"}
+        {value: 'bg', label: 'BG'},
+        {value: 'hr', label: 'HR'},
+        {value: 'dk', label: 'DK'},
+        {value: 'is', label: 'IS'},
+        {value: 'li', label: 'LI'},
+        {value: 'no', label: 'NO'},
+        {value: 'pl', label: 'PL'},
+        {value: 'cz', label: 'CZ'},
+        {value: 'ro', label: 'RO'},
+        {value: 'ch', label: 'CH'},
+        {value: 'se', label: 'SE'},
+        {value: 'gb', label: 'GB'},
+        {value: 'hu', label: 'HU'}
       ]
     },
     limitations: {
@@ -180,7 +181,7 @@ export class CurrencyComponent {
   formOpen: boolean = false;
   formSelected: string;
 
-  constructor(private translate: TranslateService, private paymentAccountsDAO: PaymentAccountsDAO) {
+  constructor(private translate: TranslateService, private paymentAccountsDAO: PaymentAccountsDAO, private toast: ToastService) {
     this.translate.use('pl');
     this.translate.onLangChange.subscribe(() => {
       this.sepaForm.limitations.value = this.translate.instant('ACCOUNT.CURRENCY.LIMITATION_SEPA');
@@ -208,6 +209,9 @@ export class CurrencyComponent {
     payload.tradeCurrencies = ['GBP'];
     this.paymentAccountsDAO.create(payload).then(() => {
       this.cancel();
+      this.toast.show('TOAST.PAYMENT_METHOD_CREATED', 'info')
+    }).catch(() => {
+      this.toast.show('TOAST.PAYMENT_METHOD_ERROR', 'error')
     });
   }
 

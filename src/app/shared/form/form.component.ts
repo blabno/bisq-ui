@@ -2,6 +2,8 @@ import {Component, Input, Output, EventEmitter, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import _ from 'lodash';
 
+import {ToastService} from '../services/toast.service';
+
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html'
@@ -17,7 +19,7 @@ export class FormComponent implements OnInit {
 
   formGroup: FormGroup;
 
-  constructor() {
+  constructor(private toast: ToastService) {
   }
 
   ngOnInit() {
@@ -43,6 +45,7 @@ export class FormComponent implements OnInit {
     if (this.formGroup.valid) {
       this.onSubmit.emit(_.mapValues(this.formGroup.controls, 'value'));
     } else {
+      this.toast.show('TOAST.FORM_VALIDATION_ERROR', 'error');
       _.forEach(this.formGroup.controls, (control) => control.markAsTouched());
     }
   }
