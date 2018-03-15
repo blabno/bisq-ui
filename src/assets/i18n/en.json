@@ -80,6 +80,18 @@
 	},
 	"NETWORK_INFO": "Network",
 	"OFFERS": {
+		"CREATE": {
+			"AMOUNT": "Amount",
+			"BACK": "Back",
+			"CURRENCY": "Currency",
+			"MINUMUM_VOLUME": "Minimum volume",
+			"PRICE": "Price",
+			"SAVE": "Save",
+			"SECURITY_DEPOSIT": "Security deposit for buyer",
+			"TRADING_ACCOUNT": "Trading account",
+			"VOLUME": "Volume"
+		},
+    "CREATE_BUTTON": "Create",
 		"LIST": {
 			"AMOUNT": "Amount",
 			"BUY": "Buy",

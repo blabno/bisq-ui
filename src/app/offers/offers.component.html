@@ -1,1 +1,4 @@
+<div class="buttons">
+  <button class="btn btn-primary button-md" routerLink="./create">{{ 'OFFERS.CREATE_BUTTON' | translate}}</button>
+</div>
 <app-offers-list [data]="offerList" [type]="listType" (onSelect)="onSelect($event)"></app-offers-list>

@@ -1,0 +1,7 @@
+<div class="buttons">
+  <button class="btn btn-primary button-md" routerLink="..">{{ 'OFFERS.CREATE.BACK' | translate}}</button>
+</div>
+<app-form #createOfferForm [form]="form" (onChange)="onFormChange($event)" (onSubmit)="onSubmit($event)"></app-form>
+<div class="buttons send-form-button">
+  <button class="btn btn-primary button-md" (click)="createOfferForm.submit()">{{ 'OFFERS.CREATE.SAVE' | translate}}</button>
+</div>

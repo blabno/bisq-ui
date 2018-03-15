@@ -11,7 +11,6 @@ import {ToastService} from '../services/toast.service';
 export class FormComponent implements OnInit {
   @Input() title: string;
   @Input() form: any;
-  @Input() data: any;
   @Input() initialValues: any = {};
   @Input() disabled: boolean;
   @Output() onChange = new EventEmitter<any>();
@@ -30,7 +29,7 @@ export class FormComponent implements OnInit {
       value: field.value || this.initialValues[key] || null,
       disabled: field.disabled || this.disabled || false
     }, this.getValidators(field.validators))));
-    this.formGroup.valueChanges.subscribe((values) => this.onChange.emit(values))
+    this.formGroup.valueChanges.subscribe(() => this.onChange.emit(this.formGroup));
   }
 
   getValidators(validators) {
