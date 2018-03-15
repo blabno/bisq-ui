@@ -1,10 +1,10 @@
 <div class="card">
+    <div class="card-header">{{ 'SETTINGS_VIEW.PREFERENCES.GENERAL_PREFERENCES' | translate }}</div>
     <div class="card-body">
-        <div class="card-title">{{ 'SETTINGS_VIEW.PREFERENCES.GENERAL_PREFERENCES' | translate }}</div>
         <ion-item>
             <ion-label>{{ 'SETTINGS_VIEW.PREFERENCES.SELECT_BASE_CURRENCY' | translate }}</ion-label>
-            <ion-select [(ngModel)]="selectedBaseCurrency">
-                <ion-option *ngFor="let currency of baseCurrency" [value]="currency">{{currency}}</ion-option>
+            <ion-select [(ngModel)]="settings.baseCurrency">
+                <ion-option *ngFor="let currency of settings.baseCurrencyValues" [value]="currency">{{currency}}</ion-option>
             </ion-select>
         </ion-item>
         <ion-item>
@@ -15,53 +15,53 @@
         </ion-item>
         <ion-item>
             <ion-label>{{ 'SETTINGS_VIEW.PREFERENCES.COUNTRY' | translate }}</ion-label>
-            <ion-select [(ngModel)]="selectedCountry">
-                <ion-option *ngFor="let country of countries" [value]="country">{{country}}</ion-option>
+            <ion-select [(ngModel)]="settings.country">
+                <ion-option *ngFor="let country of settings.countryValues" [value]="country">{{country}}</ion-option>
             </ion-select>
         </ion-item>
         <ion-item>
             <ion-label>{{'SETTINGS_VIEW.PREFERENCES.BITCOIN_BLOCK_EXPLORER' | translate }}</ion-label>
-            <ion-select [(ngModel)]="selectedBitcoinExplorer">
-                <ion-option *ngFor="let bitcoinExplorer of bitcoinExplorers" [value]="bitcoinExplorer">{{bitcoinExplorer}}</ion-option>
+            <ion-select [(ngModel)]="settings.bitcoinExplorer">
+                <ion-option *ngFor="let bitcoinExplorer of settings.bitcoinExplorerValues" [value]="bitcoinExplorer">{{bitcoinExplorer}}</ion-option>
             </ion-select>
         </ion-item>
         <div class="row">
             <div class="col-sm-6">
                 <ion-item>
                     <ion-label>{{'SETTINGS_VIEW.PREFERENCES.WIDTHDRAWAL_TRANSACTION_FEE' | translate }}</ion-label>
-                    <ion-input type="text" [(ngModel)]="widthdrawalTransactionFee" [disabled]="widthdrawalTransactionFeeDisabled"></ion-input>
+                    <ion-input type="text" [(ngModel)]="settings.widthdrawalTransactionFee" [disabled]="!widthdrawalTransactionFeeEnabled"></ion-input>
                 </ion-item>
             </div>
             <div class="col-sm-6">
                 <ion-item>
                     <label>
-                        <input type="checkbox" [(ngModel)]="widthdrawalTransactionFeeDisabled">{{'SETTINGS_VIEW.PREFERENCES.USE_CUSTOM_VALUE' | translate }}</label>
+                        <input type="checkbox" [(ngModel)]="widthdrawalTransactionFeeEnabled">{{'SETTINGS_VIEW.PREFERENCES.USE_CUSTOM_VALUE' | translate }}</label>
                 </ion-item>
             </div>
         </div>
         <ion-item>
             <ion-label>{{'SETTINGS_VIEW.PREFERENCES.MAX_DEVIATION_FROM_MARKET_PRICE' | translate }}:</ion-label>
-            <ion-input type="text" [(ngModel)]="maxDeviationFromMarketPrice"></ion-input>
+            <ion-input type="text" [(ngModel)]="settings.maxDeviationFromMarketPrice"></ion-input>
         </ion-item>
         <ion-item>
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" [(ngModel)]="autoSelectArbitrators">{{'SETTINGS_VIEW.PREFERENCES.AUTO_SELECT_ARBITRATORS' | translate }}</label>
+                    <input type="checkbox" [(ngModel)]="settings.autoSelectArbitrators">{{'SETTINGS_VIEW.PREFERENCES.AUTO_SELECT_ARBITRATORS' | translate }}</label>
             </div>
         </ion-item>
         <ion-item>
             <ion-label>{{'SETTINGS_VIEW.PREFERENCES.IGNORE_PEERS_WITH_ONION_ADDRESS' | translate }}:</ion-label>
-            <ion-input type="text" [(ngModel)]="ignorePeers"></ion-input>
+            <ion-input type="text" [(ngModel)]="settings.ignoredPeers"></ion-input>
         </ion-item>
     </div>
 </div>
 <div class="card mt-2">
+    <div class="card-header">{{'SETTINGS_VIEW.PREFERENCES.CURRENCIES_IN_MARKET_PRICE_FEED_LIST' | translate }}</div>
     <div class="card-body">
-        <div class="card-title">{{'SETTINGS_VIEW.PREFERENCES.CURRENCIES_IN_MARKET_PRICE_FEED_LIST' | translate }}</div>
         <ion-item>
             <ion-label>{{'SETTINGS_VIEW.PREFERENCES.PREFERED_CURRENCY' | translate }}</ion-label>
-            <ion-select [(ngModel)]="preferedCurrency">
-                <ion-option *ngFor="let currency of baseCurrency" [value]="currency">{{currency}}</ion-option>
+            <ion-select [(ngModel)]="settings.preferedCurrency">
+                <ion-option *ngFor="let currency of currencies" [value]="currency.symbol">{{currency.name}}</ion-option>
             </ion-select>
         </ion-item>
         <div class="row">
@@ -70,8 +70,8 @@
                     <div class="card-body">
                         <ion-item>
                             <ion-label>{{'SETTINGS_VIEW.PREFERENCES.DISPLAY_NATIONAL_CURRENCIES' | translate }}</ion-label>
-                            <ion-select [(ngModel)]="selectedNationalCurrencies" multiple="true">
-                                <ion-option *ngFor="let nationalCurrency of nationalCurrencies" [value]="nationalCurrency.symbol">{{nationalCurrency.name}}</ion-option>
+                            <ion-select [(ngModel)]="settings.displayedNatonalCurrencies" multiple="true">
+                                <ion-option *ngFor="let nationalCurrency of nationalCurrencies" [value]="nationalCurrency.symbol">{{nationalCurrency.symbol}}</ion-option>
                             </ion-select>
                         </ion-item>
                     </div>
@@ -82,8 +82,8 @@
                     <div class="card-body">
                         <ion-item>
                             <ion-label>{{'SETTINGS_VIEW.PREFERENCES.DISPLAY_ALTCOINS' | translate }} </ion-label>
-                            <ion-select [(ngModel)]="selectedCryptoCurrencies" multiple="true">
-                                <ion-option *ngFor="let cryptocCurrency of cryptoCurrencies" [value]="cryptocCurrency.symbol">{{cryptocCurrency.name}}</ion-option>
+                            <ion-select [(ngModel)]="settings.displayedAltcoins" multiple="true">
+                                <ion-option *ngFor="let cryptocCurrency of cryptoCurrencies" [value]="cryptocCurrency.symbol">{{cryptocCurrency.symbol}}</ion-option>
                             </ion-select>
                         </ion-item>
                     </div>
@@ -93,24 +93,25 @@
     </div>
 </div>
 <div class="card mt-2">
+    <div class="card-header">{{'SETTINGS_VIEW.PREFERENCES.DISPLAY_OPTIONS' | translate }}</div>
     <div class="card-body">
         <div class="card-title">{{'SETTINGS_VIEW.PREFERENCES.DISPLAY_OPTIONS' | translate }}</div>
         <ion-item>
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" [(ngModel)]="showMyOwnOffersInOfferBook">{{'SETTINGS_VIEW.PREFERENCES.SHOW_MY_OWN_OFFERS_IN_OFFER_BOOK' | translate }} </label>
+                    <input type="checkbox" [(ngModel)]="settings.showMyOwnOffersInOfferBook">{{'SETTINGS_VIEW.PREFERENCES.SHOW_MY_OWN_OFFERS_IN_OFFER_BOOK' | translate }} </label>
             </div>
         </ion-item>
         <ion-item>
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" [(ngModel)]="useAnimations">{{'SETTINGS_VIEW.PREFERENCES.USE_ANIMATIONS' | translate }} </label>
+                    <input type="checkbox" [(ngModel)]="settings.useAnimations">{{'SETTINGS_VIEW.PREFERENCES.USE_ANIMATIONS' | translate }} </label>
             </div>
         </ion-item>
         <ion-item>
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" [(ngModel)]="sortMarkersLists">{{'SETTINGS_VIEW.PREFERENCES.SORT_MARKERS_LISTS' | translate }} </label>
+                    <input type="checkbox" [(ngModel)]="settings.sortMarkersLists">{{'SETTINGS_VIEW.PREFERENCES.SORT_MARKERS_LISTS' | translate }} </label>
             </div>
         </ion-item>
         <ion-item>
