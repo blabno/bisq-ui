@@ -1,7 +1,7 @@
 import {ErrorHandler, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {RouterModule} from '@angular/router';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
@@ -28,9 +28,13 @@ import {SettingsComponent} from './settings/settings.component';
 import {PreferencesComponent} from './settings/preferences/preferences.component';
 import {NetworkInfoComponent} from './settings/network-info/network-info.component';
 import {AboutComponent} from './settings/about/about.component';
-import {FormComponent} from "./shared/form/form.component";
-import {OffersComponent} from "./offers/offers.component";
-import {OffersListComponent} from "./shared/offersList/offersList.component";
+import {FormComponent} from './shared/form/form.component';
+import {OffersComponent} from './offers/offers.component';
+import {OffersListComponent} from './shared/offersList/offersList.component';
+import {PortfolioComponent} from './portfolio/portfolio.component';
+import {HistoryComponent} from './portfolio/history/history.component';
+import {MyOpenOffersComponent} from './portfolio/myOpenOffers/myOpenOffers.component';
+import {OpenTradesComponent} from './portfolio/openTrades/openTrades.component';
 
 const loadModules = [
   AppComponent,
@@ -51,7 +55,11 @@ const loadModules = [
   AboutComponent,
   FormComponent,
   OffersComponent,
-  OffersListComponent
+  OffersListComponent,
+  PortfolioComponent,
+  HistoryComponent,
+  MyOpenOffersComponent,
+  OpenTradesComponent
 ];
 
 export function createTranslateLoader(http: HttpClient) {
@@ -69,7 +77,7 @@ export function createTranslateLoader(http: HttpClient) {
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-        useFactory: (createTranslateLoader),
+        useFactory: createTranslateLoader,
         deps: [HttpClient]
       }
     })

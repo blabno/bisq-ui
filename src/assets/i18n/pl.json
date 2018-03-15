@@ -93,6 +93,16 @@
 			"SHOW_ALL": "Pokaż wszystko"
 		}
 	},
+	"PORTFOLIO": {
+		"OPEN_TRADES": {
+			"NUMBER_TRADES": "Liczba transkacji"
+		},
+		"SUBMENU": {
+			"HISTORY": "Historia",
+			"MY_OPEN_OFFERS": "Moje otwarte oferty",
+			"OPEN_TRADES": "Aktywne transkacje"
+		}
+	},
 	"PREFERENCES": "Preferencje",
 	"SETTINGS_VIEW": {
 		"PREFERENCES": {
@@ -111,7 +121,7 @@
 			"RESET_ALL": "Zresetuj wszystkie \"Nie pokazuj tego\"",
 			"SELECT_BASE_CURRENCY": "Wybierz podstawową walutę",
 			"SHOW_MY_OWN_OFFERS_IN_OFFER_BOOK": "Pokaż moje własne oferty",
-			"SORT_MARKERS_LISTS": "Posortuj listę zgodnie z ilością ofert/wymian",
+			"SORT_MARKERS_LISTS": "Posortuj listę zgodnie z ilością ofert/transakcji",
 			"USE_ANIMATIONS": "Używaj animacji",
 			"USE_CUSTOM_VALUE": "Użyj własnej wartośći",
 			"WIDTHDRAWAL_TRANSACTION_FEE": "Cena transakcji"
@@ -123,6 +133,9 @@
 			"CANT_FETCH_DATA": "Błąd: Nie można pobrać/odświeżyć listy ofert"
 		},
 		"PAYMENT_METHOD_CREATED": "Metoda płatnosci stworzona pomyślnie",
-		"PAYMENT_METHOD_ERROR": "Błąd podczas tworzenia metody płatnosci"
+		"PAYMENT_METHOD_ERROR": "Błąd podczas tworzenia metody płatnosci",
+		"TRADES": {
+			"CANT_FETCH_DATA": "Błąd: Nie można pobrać/odświeżyć listy transakcji"
+		}
 	}
 }

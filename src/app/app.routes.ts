@@ -3,6 +3,7 @@ import {MarketComponent} from './market/market.component';
 import {AccountComponent} from './account/account.component';
 import {SettingsComponent} from './settings/settings.component';
 import {OffersComponent} from "./offers/offers.component";
+import {PortfolioComponent} from './portfolio/portfolio.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'market', pathMatch: 'full'},
@@ -11,10 +12,11 @@ const appRoutes: Routes = [
   {path: 'offers/:type', component: OffersComponent},
 
 
-  {path: 'portfolio', redirectTo: 'portfolio/offers', pathMatch: 'full'},
-  {path: 'portfolio/offers', component: MarketComponent},
-  {path: 'portfolio/open-trades', component: MarketComponent},
-  {path: 'portfolio/history', component: MarketComponent},
+  {path: 'settings', redirectTo: 'settings/preferences', pathMatch: 'full'},
+  {path: 'settings/:type', component: SettingsComponent},
+
+  {path: 'portfolio', redirectTo: 'portfolio/my-open-offers', pathMatch: 'full'},
+  {path: 'portfolio/:type', component: PortfolioComponent},
 
   {path: 'funds', redirectTo: 'funds/receive', pathMatch: 'full'},
   {path: 'funds/receive', component: MarketComponent},

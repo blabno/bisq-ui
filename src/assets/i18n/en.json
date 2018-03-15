@@ -93,6 +93,16 @@
 			"SHOW_ALL": "Show all"
 		}
 	},
+	"PORTFOLIO": {
+		"OPEN_TRADES": {
+			"NUMBER_TRADES": "Number of trades"
+		},
+		"SUBMENU": {
+			"HISTORY": "History",
+			"MY_OPEN_OFFERS": "My open offers",
+			"OPEN_TRADES": "Open trades"
+		}
+	},
 	"PREFERENCES": "Preferences",
 	"SETTINGS_VIEW": {
 		"PREFERENCES": {
@@ -123,6 +133,9 @@
 			"CANT_FETCH_DATA": "Error: Cant't fetch/refresh offers list"
 		},
 		"PAYMENT_METHOD_CREATED": "Payment method created successfully",
-		"PAYMENT_METHOD_ERROR": "Error during creating payment method"
+		"PAYMENT_METHOD_ERROR": "Error during creating payment method",
+		"TRADES": {
+			"CANT_FETCH_DATA": "Error: Cant't fetch/refresh trades list"
+		}
 	}
 }
