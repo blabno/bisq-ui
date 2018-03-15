@@ -9,6 +9,7 @@ function t(str) {
 t('TOAST.FORM_VALIDATION_ERROR');
 t('TOAST.PAYMENT_METHOD_CREATED');
 t('TOAST.PAYMENT_METHOD_ERROR');
+t('TOAST.OFFERS.CANT_FETCH_DATA');
 
 @Injectable()
 export class ToastService {

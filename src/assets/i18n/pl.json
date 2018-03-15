@@ -83,12 +83,13 @@
 			"AMOUNT": "Wartość",
 			"BUY": "Kup",
 			"FILTER": {
-				"BY_CURRENCY": "Filtruj po walucie",
-				"BY_METHOD": "Filtruj po metodzie płatności"
+				"BY_CURRENCY": "Filtruj wg. waluty",
+				"BY_METHOD": "Filtruj wg. metodzy płatności"
 			},
 			"NO_OFFERS": "Liczba ofert",
 			"PRICE": "Cena",
-			"SELL": "Sprzedaj"
+			"SELL": "Sprzedaj",
+			"SHOW_ALL": "Pokaż wszystko"
 		}
 	},
 	"PREFERENCES": "Preferencje",
@@ -117,6 +118,9 @@
 	},
 	"TOAST": {
 		"FORM_VALIDATION_ERROR": "Brak wszystkich wymaganych pól",
+		"OFFERS": {
+			"CANT_FETCH_DATA": "Błąd: Nie można pobrać/odświeżyć listy ofert"
+		},
 		"PAYMENT_METHOD_CREATED": "Metoda płatnosci stworzona pomyślnie",
 		"PAYMENT_METHOD_ERROR": "Błąd podczas tworzenia metody płatnosci"
 	}

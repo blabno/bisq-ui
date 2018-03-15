@@ -1,14 +1,14 @@
 <div class="sort-method">
   <ion-item>
     <ion-label>{{'OFFERS.LIST.FILTER.BY_CURRENCY' | translate}}</ion-label>
-    <ion-select>
-      <ion-option>Show All</ion-option>
+    <ion-select [(ngModel)]="currencyFilter" (ionChange)="onCurrencyFilterChange()">
+      <ion-option *ngFor="let currency of currencies" [value]="currency">{{currency || ('OFFERS.LIST.SHOW_ALL' | translate)}}</ion-option>
     </ion-select>
   </ion-item>
   <ion-item>
     <ion-label>{{'OFFERS.LIST.FILTER.BY_METHOD' | translate}}</ion-label>
     <ion-select>
-      <ion-option>Show All</ion-option>
+      <ion-option>{{'OFFERS.LIST.SHOW_ALL' | translate}}</ion-option>
     </ion-select>
   </ion-item>
 </div>

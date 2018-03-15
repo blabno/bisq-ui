@@ -12,16 +12,32 @@ export class OffersListComponent implements OnChanges {
   @Output() onSelect = new EventEmitter<any>();
 
   list = [];
-
-  constructor() {
-  }
-
+  currencyFilter=null;
+  currencies = [
+    null,
+    'USD',
+    'PLN',
+    'BTC',
+    'DASH',
+    'ETH'
+  ];
 
   ngOnChanges() {
+    this.filterData();
+  }
+
+  onCurrencyFilterChange(){
+   this.filterData();
+  }
+
+  private filterData(){
     if (this.data && this.type) {
       const dir = this.type === 'sell' ? 'buy' : 'sell'; // Todo: check... probably server returns opposite directions
-      this.list = _.filter(this.data, {direction: dir.toUpperCase()});
-      console.log(this.list);
+      const filter = {direction: dir.toUpperCase()};
+      if(this.currencyFilter){
+        _.set(filter, 'other_currency', this.currencyFilter);
+      }
+      this.list = _.filter(this.data, filter);
     }
   }
 
