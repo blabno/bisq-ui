@@ -8,6 +8,7 @@ import {PaymentAccountsDAO} from './shared/DAO/paymentAccounts.dao';
 import {CurrenciesDAO} from './shared/DAO/currencies.dao';
 import {ToastService} from './shared/services/toast.service';
 import {OffersDAO} from "./shared/DAO/offers.dao";
+import {TradesDAO} from "./shared/DAO/trades.dao";
 
 @Component({
   templateUrl: 'app.html',
@@ -15,7 +16,8 @@ import {OffersDAO} from "./shared/DAO/offers.dao";
     PaymentAccountsDAO,
     CurrenciesDAO,
     ToastService,
-    OffersDAO
+    OffersDAO,
+    TradesDAO
   ]
 })
 export class AppComponent {

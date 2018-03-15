@@ -1,0 +1,5 @@
+<ion-content>
+  <ion-tabs tabsPlacement="top" #portfolioMenu (ionChange)="onTabChange($event)" [selectedIndex]="activeMenuIndex">
+    <ion-tab *ngFor="let menuItem of menuTabs" [root]="menuItem.component" [tabTitle]="menuItem.name | translate" [tabIcon]="menuItem.icon"></ion-tab>
+  </ion-tabs>
+</ion-content>
