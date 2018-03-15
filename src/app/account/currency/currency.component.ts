@@ -180,11 +180,12 @@ export class CurrencyComponent implements OnInit {
     }
   };
 
-  formOpen: boolean;
+  formOpened: boolean;
   formDisabled: boolean;
-  formSelected: string;
+  selectedForm: string;
   accounts = [];
-  initialValues = {};
+  paymentValues = {};
+  detailsValues = {};
 
   constructor(private translate: TranslateService, private paymentAccountsDAO: PaymentAccountsDAO, private toast: ToastService) {
   }
@@ -198,29 +199,33 @@ export class CurrencyComponent implements OnInit {
   }
 
   show(index) {
-    this.initialValues = this.accounts[index];
-    this.formSelected = this.accounts[index].paymentMethod;
+    this.paymentValues = {paymentMethod: this.accounts[index].paymentMethod};
+    this.detailsValues = this.accounts[index];
+    this.selectedForm = this.accounts[index].paymentMethod;
     this.formDisabled = true;
-    this.formOpen = true;
+    this.formOpened = true;
   }
 
   addNew() {
-    this.formDisabled = false;
-    this.formOpen = true;
+    this.cancel();
+    this.formOpened = true;
   }
 
   cancel() {
-    this.formOpen = false;
-    this.formSelected = null;
+    this.formOpened = false;
+    this.formDisabled = false;
+    this.selectedForm = null;
+    this.paymentValues = _.mapValues(this.paymentValues, () => null);
+    this.detailsValues = _.mapValues(this.detailsValues, () => null);
   }
 
   change(form) {
-    this.formSelected = form.value.paymentMethod
+    this.selectedForm = form.value.paymentMethod
   }
 
   submit(values) {
     const payload = _.pick(values, ['holderName', 'iban', 'bic', 'accountName', 'countryCode', 'selectedTradeCurrency', 'accountName']);
-    payload.paymentMethod = this.formSelected;
+    payload.paymentMethod = this.selectedForm;
     payload.tradeCurrencies = ['PLN'];
     this.paymentAccountsDAO.create(payload)
       .then(() => {
