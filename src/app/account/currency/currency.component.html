@@ -1,36 +1,40 @@
-<div class="card">
+<div *ngIf="accounts.length" class="card accounts">
   <div class="card-header">{{'ACCOUNT.MANAGE_ACCOUNTS' | translate}}</div>
   <div class="card-body">
-    <div class="col-md-2">{{'ACCOUNT.CURRENCY.YOUR_ACCOUNTS' | translate}}</div>
-    <div class="col-md-10">
-      <!-- insert list of accounts-->
-    </div>
+    {{'ACCOUNT.CURRENCY.YOUR_ACCOUNTS' | translate}}
+    <ion-list>
+      <button *ngFor="let item of accounts; let i = index" (click)="show(i)" ion-item>
+        {{item.accountName}}
+      </button>
+    </ion-list>
   </div>
 </div>
 <div class="buttons">
   <button class="btn btn-primary button-md" (click)="addNew()">{{'ACCOUNT.ADD_NEW' | translate}}</button>
-  <button class="btn btn-primary button-md">{{'ACCOUNT.EXPORT' | translate}}</button>
-  <button class="btn btn-primary button-md">{{'ACCOUNT.IMPORT' | translate}}</button>
+  <button *ngIf="accounts.length" class="btn btn-primary button-md">{{'ACCOUNT.EXPORT' | translate}}</button>
+  <button *ngIf="accounts.length" class="btn btn-primary button-md">{{'ACCOUNT.IMPORT' | translate}}</button>
 </div>
 
 <div *ngIf="formOpen">
   <div class="card">
     <div class="card-header">{{'ACCOUNT.CREATE_NEW' | translate}}</div>
     <div class="card-body">
-      <app-form [form]="paymentForm" (onChange)="change($event)"></app-form>
-      <app-form #sepaFormElement [hidden]="'SEPA' !== formSelected" [form]="sepaForm"
-                (onSubmit)="submit($event)"></app-form>
-      <app-form #venmoFormElement [hidden]="'Venmo' !== formSelected" [form]="venmoForm"
-                (onSubmit)="submit($event)"></app-form>
+      <app-form [form]="paymentForm" [disabled]="formDisabled" (onChange)="change($event)"></app-form>
+      <app-form #sepaFormElement [hidden]="'SEPA' !== formSelected" [form]="sepaForm" [initialValues]="initialValues"
+                [disabled]="formDisabled" (onSubmit)="submit($event)"></app-form>
+      <app-form #venmoFormElement [hidden]="'Venmo' !== formSelected" [form]="venmoForm" [initialValues]="initialValues"
+                [disabled]="formDisabled" (onSubmit)="submit($event)"></app-form>
     </div>
   </div>
   <div class="buttons">
-    <button *ngIf="'SEPA' === formSelected" class="btn btn-primary button-md" (click)="sepaFormElement.submit()">
-      {{'ACCOUNT.SAVE' | translate}}
-    </button>
-    <button *ngIf="'Venmo' === formSelected" class="btn btn-primary button-md" (click)="venmoFormElement.submit()">
-      {{'ACCOUNT.SAVE' | translate}}
-    </button>
+    <ng-template [ngIf]="!formDisabled">
+      <button *ngIf="'SEPA' === formSelected" class="btn btn-primary button-md" (click)="sepaFormElement.submit()">
+        {{'ACCOUNT.SAVE' | translate}}
+      </button>
+      <button *ngIf="'Venmo' === formSelected" class="btn btn-primary button-md" (click)="venmoFormElement.submit()">
+        {{'ACCOUNT.SAVE' | translate}}
+      </button>
+    </ng-template>
     <button class="btn btn-primary button-md" (click)="cancel()">{{'ACCOUNT.CANCEL' | translate}}</button>
   </div>
 </div>

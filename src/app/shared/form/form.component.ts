@@ -12,6 +12,8 @@ export class FormComponent implements OnInit {
   @Input() title: string;
   @Input() form: any;
   @Input() data: any;
+  @Input() initialValues: any = {};
+  @Input() disabled: boolean;
   @Output() onChange = new EventEmitter<any>();
   @Output() onSubmit = new EventEmitter<any>();
 
@@ -24,9 +26,9 @@ export class FormComponent implements OnInit {
 
   ngOnInit() {
     this.formFields = _.map(this.form, (field, key) => ({...field, key}));
-    this.formGroup = new FormGroup(_.mapValues(this.form, (field) => new FormControl({
-      value: field.value || null,
-      disabled: field.disabled
+    this.formGroup = new FormGroup(_.mapValues(this.form, (field, key) => new FormControl({
+      value: field.value || this.initialValues[key] || null,
+      disabled: field.disabled || this.disabled || false
     }, this.getValidators(field.validators))));
     this.formGroup.valueChanges.subscribe((values) => this.onChange.emit(values))
   }

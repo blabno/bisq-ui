@@ -13,6 +13,7 @@
 			"BANK_COUNTRY": "Country of bank",
 			"COUNTRY_PL": "Poland (PL)",
 			"CURRENCY": "Currency",
+			"CURRENCY_PLN": "Polish Zloty (PLN)",
 			"CURRENCY_USD": "US Dollar (USD)",
 			"LIMITATIONS": "Limitations",
 			"LIMITATION_SEPA": "Max. trade duration: 6 days / Max. trade limit: 0.0625 BTC / Account age: 0 days",
