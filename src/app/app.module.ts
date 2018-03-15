@@ -30,11 +30,12 @@ import {NetworkInfoComponent} from './settings/network-info/network-info.compone
 import {AboutComponent} from './settings/about/about.component';
 import {FormComponent} from './shared/form/form.component';
 import {OffersComponent} from './offers/offers.component';
-import {OffersListComponent} from './shared/offersList/offersList.component';
+import {OffersListComponent} from './offers/offersList/offersList.component';
 import {PortfolioComponent} from './portfolio/portfolio.component';
 import {HistoryComponent} from './portfolio/history/history.component';
 import {MyOpenOffersComponent} from './portfolio/myOpenOffers/myOpenOffers.component';
 import {OpenTradesComponent} from './portfolio/openTrades/openTrades.component';
+import {CreateOffersComponent} from "./offers/createOffers/createOffers.component";
 
 const loadModules = [
   AppComponent,
@@ -54,6 +55,7 @@ const loadModules = [
   NetworkInfoComponent,
   AboutComponent,
   FormComponent,
+  CreateOffersComponent,
   OffersComponent,
   OffersListComponent,
   PortfolioComponent,

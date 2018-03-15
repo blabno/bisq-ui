@@ -4,13 +4,14 @@ import {AccountComponent} from './account/account.component';
 import {SettingsComponent} from './settings/settings.component';
 import {OffersComponent} from "./offers/offers.component";
 import {PortfolioComponent} from './portfolio/portfolio.component';
+import {CreateOffersComponent} from './offers/createOffers/createOffers.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'market', pathMatch: 'full'},
   {path: 'market', component: MarketComponent},
 
+  {path: 'offers/:type/create', component: CreateOffersComponent},
   {path: 'offers/:type', component: OffersComponent},
-
 
   {path: 'settings', redirectTo: 'settings/preferences', pathMatch: 'full'},
   {path: 'settings/:type', component: SettingsComponent},

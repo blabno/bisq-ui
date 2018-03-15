@@ -80,6 +80,18 @@
 	},
 	"NETWORK_INFO": "Sieć",
 	"OFFERS": {
+		"CREATE": {
+			"AMOUNT": "Wartość",
+			"BACK": "Wróć",
+			"CURRENCY": "Waluta",
+			"MINUMUM_VOLUME": "Minimalna ilość",
+			"PRICE": "Cena",
+			"SAVE": "Zapisz",
+			"SECURITY_DEPOSIT": "Depozyt",
+			"TRADING_ACCOUNT": "Konto handlowe",
+			"VOLUME": "Ilość"
+		},
+    "CREATE_BUTTON": "Stwórz",
 		"LIST": {
 			"AMOUNT": "Wartość",
 			"BUY": "Kup",

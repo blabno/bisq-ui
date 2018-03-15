@@ -214,8 +214,8 @@ export class CurrencyComponent implements OnInit {
     this.formSelected = null;
   }
 
-  change(values) {
-    this.formSelected = values.paymentMethod
+  change(form) {
+    this.formSelected = form.value.paymentMethod
   }
 
   submit(values) {

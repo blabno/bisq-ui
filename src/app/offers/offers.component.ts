@@ -23,7 +23,7 @@ export class OffersComponent implements OnInit, OnDestroy {
       this.listType = params['type'];
     });
     this.refreshOffersList();
-    this.daoInterval = setInterval(()=> this.refreshOffersList(), 10*1000) //10 second
+    this.daoInterval = setInterval(()=> this.refreshOffersList(), 10*1000); //10 second
   }
 
   ngOnDestroy() {
