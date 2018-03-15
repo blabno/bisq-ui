@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 import _ from 'lodash';
 
@@ -24,6 +24,7 @@ t('ACCOUNT.CURRENCY.ACCOUNT_NAME');
 t('ACCOUNT.CURRENCY.VENMO_NAME');
 t('ACCOUNT.CURRENCY.CURRENCY');
 t('ACCOUNT.CURRENCY.CURRENCY_USD');
+t('ACCOUNT.CURRENCY.CURRENCY_PLN');
 
 function ibanValidator(control) {
   if (!control.value || (8 !== control.value.length && 11 !== control.value.length)) {
@@ -43,7 +44,7 @@ function bicValidator(control) {
   selector: 'app-currency',
   templateUrl: 'currency.component.html'
 })
-export class CurrencyComponent {
+export class CurrencyComponent implements OnInit {
   paymentForm = {
     paymentMethod: {
       type: 'select', label: 'ACCOUNT.CURRENCY.PAYMENT_METHOD',
@@ -87,9 +88,10 @@ export class CurrencyComponent {
     },
     selectedTradeCurrency: {
       type: 'select', label: 'ACCOUNT.CURRENCY.CURRENCY',
-      value: 'USD',
+      value: 'PLN',
       options: [
-        {value: 'USD', label: 'ACCOUNT.CURRENCY.CURRENCY_USD'}
+        {value: 'USD', label: 'ACCOUNT.CURRENCY.CURRENCY_USD'},
+        {value: 'PLN', label: 'ACCOUNT.CURRENCY.CURRENCY_PLN'}
       ],
       disabled: true,
     },
@@ -178,18 +180,32 @@ export class CurrencyComponent {
     }
   };
 
-  formOpen: boolean = false;
+  formOpen: boolean;
+  formDisabled: boolean;
   formSelected: string;
+  accounts = [];
+  initialValues = {};
 
   constructor(private translate: TranslateService, private paymentAccountsDAO: PaymentAccountsDAO, private toast: ToastService) {
-    this.translate.use('pl');
+  }
+
+  ngOnInit() {
     this.translate.onLangChange.subscribe(() => {
       this.sepaForm.limitations.value = this.translate.instant('ACCOUNT.CURRENCY.LIMITATION_SEPA');
       this.venmoForm.limitations.value = this.translate.instant('ACCOUNT.CURRENCY.LIMITATION_VENMO');
     });
+    this.paymentAccountsDAO.query().then((result: any) => (this.accounts = result.paymentAccounts));
+  }
+
+  show(index) {
+    this.initialValues = this.accounts[index];
+    this.formSelected = this.accounts[index].paymentMethod;
+    this.formDisabled = true;
+    this.formOpen = true;
   }
 
   addNew() {
+    this.formDisabled = false;
     this.formOpen = true;
   }
 
@@ -203,16 +219,19 @@ export class CurrencyComponent {
   }
 
   submit(values) {
-    console.log(values);
     const payload = _.pick(values, ['holderName', 'iban', 'bic', 'accountName', 'countryCode', 'selectedTradeCurrency', 'accountName']);
     payload.paymentMethod = this.formSelected;
-    payload.tradeCurrencies = ['GBP'];
-    this.paymentAccountsDAO.create(payload).then(() => {
-      this.cancel();
-      this.toast.show('TOAST.PAYMENT_METHOD_CREATED', 'info')
-    }).catch(() => {
-      this.toast.show('TOAST.PAYMENT_METHOD_ERROR', 'error')
-    });
+    payload.tradeCurrencies = ['PLN'];
+    this.paymentAccountsDAO.create(payload)
+      .then(() => {
+        this.cancel();
+        this.toast.show('TOAST.PAYMENT_METHOD_CREATED', 'info');
+        return this.paymentAccountsDAO.query();
+      })
+      .then((result: any) => (this.accounts = result.paymentAccounts))
+      .catch(() => {
+        this.toast.show('TOAST.PAYMENT_METHOD_ERROR', 'error')
+      });
   }
 
 }

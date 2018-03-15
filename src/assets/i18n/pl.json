@@ -13,6 +13,7 @@
 			"BANK_COUNTRY": "Kraj banku",
 			"COUNTRY_PL": "Polska (PL)",
 			"CURRENCY": "Waluta",
+			"CURRENCY_PLN": "Polski Złoty (PLN)",
 			"CURRENCY_USD": "Dolar amerykański (USD)",
 			"LIMITATIONS": "Ograniczenia",
 			"LIMITATION_SEPA": "Maks. czas transakcji: 6 dni / Maks. limit transakcji: 0.0625 BTC / aktywność konta: 0 dni",
