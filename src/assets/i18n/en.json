@@ -84,11 +84,12 @@
 			"BUY": "Buy",
 			"FILTER": {
 				"BY_CURRENCY": "Filter by Currency",
-				"BY_METHOD": "Filter by paymaent method"
+				"BY_METHOD": "Filter by payment method"
 			},
 			"NO_OFFERS": "No. of offers",
 			"PRICE": "Price",
-			"SELL": "Sell"
+			"SELL": "Sell",
+			"SHOW_ALL": "Show all"
 		}
 	},
 	"PREFERENCES": "Preferences",
@@ -117,6 +118,9 @@
 	},
 	"TOAST": {
 		"FORM_VALIDATION_ERROR": "Missing required fields",
+		"OFFERS": {
+			"CANT_FETCH_DATA": "Error: Cant't fetch/refresh offers list"
+		},
 		"PAYMENT_METHOD_CREATED": "Payment method created successfully",
 		"PAYMENT_METHOD_ERROR": "Error during creating payment method"
 	}
