@@ -1,4 +1,5 @@
 import {Injectable} from '@angular/core';
+import _ from 'lodash';
 
 enum BaseCurrencies {
   BITCOIN = 'Bitcoin',
@@ -19,14 +20,9 @@ enum BitcoinExplorers {
 @Injectable()
 export class SettingsService {
   public baseCurrency: BaseCurrencies = BaseCurrencies.BITCOIN;
-  public baseCurrencyTypes = BaseCurrencies;
-  public baseCurrencyValues = (<any>Object).values(BaseCurrencies);
+  public language = 'en';
   public country: Countries = Countries.POLAND;
-  public countryTypes = Countries;
-  public countryValues = (<any>Object).values(Countries);
   public bitcoinExplorer: BitcoinExplorers = BitcoinExplorers.BITAPS;
-  public bitcoinExplorerTypes = BitcoinExplorers;
-  public bitcoinExplorerValues = (<any>Object).values(BitcoinExplorers);
   public widthdrawalTransactionFee = 20;
   public maxDeviationFromMarketPrice = 30;
   public autoSelectArbitrators = true;
@@ -37,5 +33,37 @@ export class SettingsService {
   public preferedCurrency = 'BTC';
   public displayedNatonalCurrencies = [];
   public displayedAltcoins = [];
-  constructor() {}
+  get baseCurrencyTypes() {
+    return BaseCurrencies;
+  }
+  get baseCurrencyValues() {
+    return (<any>Object).values(BaseCurrencies);
+  }
+  get countryTypes() {
+    return Countries;
+  }
+  get countryValues() {
+    return (<any>Object).values(Countries);
+  }
+  get bitcoinExplorerTypes() {
+    return BitcoinExplorers;
+  }
+  get bitcoinExplorerValues() {
+    return (<any>Object).values(BitcoinExplorers);
+  }
+  constructor() {
+    this.loadSettings();
+  }
+  loadSettings() {
+    var keys = Object.keys(this);
+    _.forEach(keys, value => {
+      this[value] = localStorage.getItem(value);
+    });
+  }
+  saveSettings() {
+    var keys = Object.keys(this);
+    _.forEach(keys, value => {
+      localStorage.setItem(value, this[value]);
+    });
+  }
 }
