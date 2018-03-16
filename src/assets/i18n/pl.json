@@ -137,6 +137,18 @@
 	},
 	"PREFERENCES": "Preferencje",
 	"SETTINGS_VIEW": {
+		"NETWORK_INFO": {
+			"BITCOIN_CORE_NODES_TO_CONNECT_TO": "Węzeł bitcoin połączony do",
+			"BITCOIN_NETWORK": "Sieć bitcoin",
+			"CONNECTED_PEERS": "Połączenia",
+			"DELETE_SPV_FILE_AND_RESYNC": "Usuń plik SPV i synchronizuj",
+			"MY_ONION_ADDRESS": "Mój adres onion",
+			"OPEN_TOR_SETTINGS": "Otwórz ustawienia TORa",
+			"P2P_NETWORK": "Sieć P2P",
+			"RESYNC_SPV_CHAIN": "Synchronizuj łańcuch SPV",
+			"TOTAL_TRAFFIC": "Ruch całkowity",
+			"USE_TOR_FOR_BITCOIN_NETWORK": "Użyj sieci tor"
+		},
 		"PREFERENCES": {
 			"AUTO_SELECT_ARBITRATORS": "Automatycznie przydziel arbitrów",
 			"BITCOIN_BLOCK_EXPLORER": "Serwis do Bitcoin block",

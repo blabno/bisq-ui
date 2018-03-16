@@ -11,7 +11,7 @@ import {ToastService} from '../../shared/services/toast.service';
 export class OpenTradesComponent implements OnInit, OnDestroy {
   public trades = [];
   public total = 0;
-  constructor(private translate: TranslateService, private tradesDAO: TradesDAO, private toast: ToastService) {
+  constructor(private tradesDAO: TradesDAO, private toast: ToastService) {
   }
 
   ngOnInit() {
