@@ -1,1 +1,99 @@
-<p>Network info works!</p>
+<div class="card">
+    <div class="card-header">{{ 'SETTINGS_VIEW.NETWORK_INFO.BITCOIN_NETWORK' | translate }}</div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm left-label">
+                {{ 'SETTINGS_VIEW.NETWORK_INFO.CONNECTED_PEERS' | translate }}:
+            </div>
+            <div class="col-sm">
+                <ion-scroll scrollY="true" class="peers-scroll">
+                    <ion-grid>
+                        <ion-row *ngFor="let peers of connectedPeers">
+                            <ion-col>{{peers}}</ion-col>
+                        </ion-row>
+                    </ion-grid>
+                </ion-scroll>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm left-label">
+                {{ 'SETTINGS_VIEW.NETWORK_INFO.USE_TOR_FOR_BITCOIN_NETWORK' | translate }}:
+            </div>
+            <div class="col-sm">
+                <input type="checkbox" [(ngModel)]="useTorForBitcoinNetwork">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm left-label">
+                {{ 'SETTINGS_VIEW.NETWORK_INFO.BITCOIN_CORE_NODES_TO_CONNECT_TO' | translate }}:
+            </div>
+            <div class="col-sm">
+                <ion-list radio-group [(ngModel)]="relationship">
+                    <ion-item>
+                        <ion-label>Friends</ion-label>
+                        <ion-radio value="friends" checked></ion-radio>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>Family</ion-label>
+                        <ion-radio value="family"></ion-radio>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>Enemies</ion-label>
+                        <ion-radio value="enemies" [disabled]="isDisabled"></ion-radio>
+                    </ion-item>
+                </ion-list>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm left-label">
+                {{ 'SETTINGS_VIEW.NETWORK_INFO.BITCOIN_CORE_NODES_TO_CONNECT_TO' | translate }}:
+            </div>
+            <div class="col-sm">
+                <ion-input type="text" [(ngModel)]="widthdrawalTransactionFee" placeholder="IP ADDRESS PORT"></ion-input>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm left-label">
+                {{ 'SETTINGS_VIEW.NETWORK_INFO.RESYNC_SPV_CHAIN' | translate }}:
+            </div>
+            <div class="col-sm">
+                <button class="btn btn-primary button-md">{{ 'SETTINGS_VIEW.NETWORK_INFO.DELETE_SPV_FILE_AND_RESYNC' | translate}}</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card mt-2">
+    <div class="card-header">{{'SETTINGS_VIEW.NETWORK_INFO.P2P_NETWORK' | translate }}</div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm left-label">
+                {{ 'SETTINGS_VIEW.NETWORK_INFO.MY_ONION_ADDRESS' | translate }}:
+            </div>
+            <div class="col-sm">
+                <ion-input type="text" [(ngModel)]="myOnionAddress" readonly></ion-input>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm left-label">
+                {{ 'SETTINGS_VIEW.NETWORK_INFO.CONNECTED_PEERS' | translate }}:
+            </div>
+            <div class="col-sm">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm left-label">
+                {{ 'SETTINGS_VIEW.NETWORK_INFO.TOTAL_TRAFFIC' | translate }}:
+            </div>
+            <div class="col-sm">
+                <ion-input type="text" [(ngModel)]="traffic" readonly></ion-input>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm left-label">
+            </div>
+            <div class="col-sm">
+                <button class="btn btn-primary button-md">{{ 'SETTINGS_VIEW.NETWORK_INFO.OPEN_TOR_SETTINGS' | translate}}</button>
+            </div>
+        </div>
+    </div>
+</div>
