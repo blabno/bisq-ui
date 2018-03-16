@@ -5,6 +5,14 @@
 		"ALTCOINS": {
 			"YOUR_ACCOUNTS": "Your altcoins accounts"
 		},
+		"ARBITRATOR": {
+			"ARBITRATOR_ADDRESS": "Arbitrator address",
+			"AUTO_SELECT_ARBITRATORS_WITH_MATCHING_LANGUAGE": "Auto select arbitrators with matching language",
+			"NOMINATE_YOURSELF": "Nominate yourself",
+			"UNSELECT": "Unselect",
+			"WHICH_ARBITRATORS_DO_YOU_ACCEPT": "Which arbitrators do you accept",
+			"WHICH_LANGUAGE_DO_YOU_SPEAK": "Which language do you speak"
+		},
 		"CANCEL": "Cancel",
 		"CREATE_NEW": "Create new Account",
 		"CURRENCY": {
@@ -91,7 +99,7 @@
 			"TRADING_ACCOUNT": "Trading account",
 			"VOLUME": "Volume"
 		},
-    "CREATE_BUTTON": "Create",
+		"CREATE_BUTTON": "Create",
 		"LIST": {
 			"AMOUNT": "Amount",
 			"BUY": "Buy",
