@@ -10,6 +10,7 @@ import {ToastService} from './shared/services/toast.service';
 import {OffersDAO} from "./shared/DAO/offers.dao";
 import {TradesDAO} from "./shared/DAO/trades.dao";
 import {SettingsService} from './shared/services/settings.service';
+import {ArbitratorsDAO} from './shared/DAO/arbitrators.dao'
 
 @Component({
   templateUrl: 'app.html',
@@ -19,7 +20,8 @@ import {SettingsService} from './shared/services/settings.service';
     ToastService,
     OffersDAO,
     TradesDAO,
-    SettingsService
+    SettingsService,
+    ArbitratorsDAO
   ]
 })
 export class AppComponent {

@@ -33,6 +33,8 @@ export class SettingsService {
   public preferedCurrency = 'BTC';
   public displayedNatonalCurrencies = [];
   public displayedAltcoins = [];
+  public languagesSpoken = [];
+  public autoSelectArbitratorsWithMatchingLanguage = true;
   get baseCurrencyTypes() {
     return BaseCurrencies;
   }
@@ -57,7 +59,7 @@ export class SettingsService {
   loadSettings() {
     var keys = Object.keys(this);
     _.forEach(keys, value => {
-      this[value] = localStorage.getItem(value);
+      this[value] = localStorage.getItem(value) || this[value];
     });
   }
   saveSettings() {
