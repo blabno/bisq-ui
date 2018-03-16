@@ -59,7 +59,12 @@ export class SettingsService {
   loadSettings() {
     var keys = Object.keys(this);
     _.forEach(keys, value => {
-      this[value] = localStorage.getItem(value) || this[value];
+      const storageValue = localStorage.getItem(value);
+      if (this[value] instanceof Array && storageValue) {
+        this[value] = storageValue.split(',') || this[value];
+      } else {
+        this[value] = storageValue || this[value];
+      }
     });
   }
   saveSettings() {
