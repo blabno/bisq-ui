@@ -1,4 +1,4 @@
-import {Component, Input, Output, EventEmitter, OnInit} from '@angular/core';
+import {Component, Input, Output, EventEmitter, SimpleChanges, OnInit, OnChanges} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import _ from 'lodash';
 
@@ -8,10 +8,9 @@ import {ToastService} from '../services/toast.service';
   selector: 'app-form',
   templateUrl: './form.component.html'
 })
-export class FormComponent implements OnInit {
-  @Input() title: string;
+export class FormComponent implements OnInit, OnChanges {
   @Input() form: any;
-  @Input() initialValues: any = {};
+  @Input() values: any = {};
   @Input() disabled: boolean;
   @Output() onChange = new EventEmitter<any>();
   @Output() onSubmit = new EventEmitter<any>();
@@ -26,10 +25,16 @@ export class FormComponent implements OnInit {
   ngOnInit() {
     this.formFields = _.map(this.form, (field, key) => ({...field, key}));
     this.formGroup = new FormGroup(_.mapValues(this.form, (field, key) => new FormControl({
-      value: field.value || this.initialValues[key] || null,
+      value: field.value || this.values[key] || null,
       disabled: field.disabled || this.disabled || false
     }, this.getValidators(field.validators))));
     this.formGroup.valueChanges.subscribe(() => this.onChange.emit(this.formGroup));
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (this.formGroup && changes.values) {
+      this.formGroup.patchValue(changes.values.currentValue, {emitEvent: false});
+    }
   }
 
   getValidators(validators) {
