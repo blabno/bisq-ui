@@ -3,17 +3,22 @@ import {ActivatedRoute, Router} from '@angular/router';
 
 import {Tabs} from 'ionic-angular';
 
-import {CurrencyComponent} from './currency/currency.component';
 import {AltcoinsComponent} from './altcoins/altcoins.component';
 import {ArbitratorComponent} from './arbitrator/arbitrator.component';
+import {BackupComponent} from './backup/backup.component';
+import {CurrencyComponent} from './currency/currency.component';
+import {InfoModalService} from '../shared/infoModal/infoModal.service';
 import {WalletPassComponent} from './wallet-pass/wallet-pass.component';
 import {WalletSeedComponent} from './wallet-seed/wallet-seed.component';
-import {BackupComponent} from './backup/backup.component';
 
 function t(str) {
   return str;
 }
 
+t('ACCOUNT.INIT_MODAL.TITLE');
+t('ACCOUNT.INIT_MODAL.PARAGRAPH1');
+t('ACCOUNT.INIT_MODAL.PARAGRAPH2');
+t('ACCOUNT.INIT_MODAL.PARAGRAPH3');
 t('ACCOUNT.SUBMENU.CURRENCY_ACCOUNTS');
 t('ACCOUNT.SUBMENU.ALTCOINS_ACCOUNTS');
 t('ACCOUNT.SUBMENU.ARBITRATOR');
@@ -68,9 +73,19 @@ export class AccountComponent implements OnInit, OnDestroy {
   activeMenuIndex = 0;
   private paramSubscribe: any;
 
-  constructor(private activeRoute: ActivatedRoute, private router: Router) {}
+  constructor(private activeRoute: ActivatedRoute, private router: Router, private initModal: InfoModalService) {
+  }
 
   ngOnInit() {
+    this.initModal.show({
+      id: 'accountInit',
+      title: 'ACCOUNT.INIT_MODAL.TITLE',
+      paragraphs: [
+        'ACCOUNT.INIT_MODAL.PARAGRAPH1',
+        'ACCOUNT.INIT_MODAL.PARAGRAPH2',
+        'ACCOUNT.INIT_MODAL.PARAGRAPH3',
+      ]
+    });
     this.paramSubscribe = this.activeRoute.params.subscribe(params => {
       this.activeMenuIndex = this.menuTabs.findIndex((o) => {
         return o.route === params['type']

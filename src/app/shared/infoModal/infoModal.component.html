@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      {{data.title | translate}}
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <ion-icon name="md-close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="body">
+    <div *ngFor="let paragraph of params.data.paragraphs" class="paragraph">
+      <span>{{paragraph | translate}}</span>
+    </div>
+    <button class="btn btn-primary" (click)="dismissPermanently()">
+      {{'INFO_MODAL.DO_NOT_SHOW_AGAIN' | translate}}
+    </button>
+  </div>
+</ion-content>
