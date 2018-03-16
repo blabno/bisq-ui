@@ -22,11 +22,6 @@ const appRoutes: Routes = [
 
   {path: 'funds', redirectTo: 'funds/receive', pathMatch: 'full'},
   {path: 'funds/:type', component: FundsComponent},
-  // {path: 'funds/receive', component: MarketComponent},
-  // {path: 'funds/send', component: MarketComponent},
-  // {path: 'funds/reserved', component: MarketComponent},
-  // {path: 'funds/locked', component: MarketComponent},
-  // {path: 'funds/transactions', component: MarketComponent},
 
   {path: 'account', redirectTo: 'account/currency', pathMatch: 'full'},
   {path: 'account/:type', component: AccountComponent},

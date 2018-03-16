@@ -8,6 +8,7 @@ import {ToastService} from "../../shared/services/toast.service";
 function t(str) {
   return str;
 }
+
 t('OFFERS.CREATE.TRADING_ACCOUNT');
 t('OFFERS.CREATE.CURRENCY');
 t('OFFERS.CREATE.VOLUME');
@@ -27,15 +28,13 @@ export class CreateOffersComponent implements OnInit, OnDestroy {
   }
 
   private paramSubscribe: any;
+  dataFormLoaded: boolean = false;
   type: 'sell' | 'buy';
   model = {};
   form = {
     accountId: {
       label: 'OFFERS.CREATE.TRADING_ACCOUNT', type: 'select',
-      options: [{
-        value: '193bdf89-bad1-4cf7-bcd9-ea609bcaf117',
-        label: 'MY account'
-      }]
+      options: []
     },
     tradeCurrency: {
       label: 'OFFERS.CREATE.CURRENCY',
@@ -57,9 +56,9 @@ export class CreateOffersComponent implements OnInit, OnDestroy {
     this.paramSubscribe = this.activeRoute.params.subscribe(params => {
       this.type = params['type'];
     });
-    this.paymentsDAO.query().then(res => {
-      // Todo: this method don't work (form.accountId select still empty)
-      // this.form.accountId.options = this.getPaymentAccountList(res.paymentAccounts)
+    this.paymentsDAO.query().then((res: any) => {
+      this.form.accountId.options = this.getPaymentAccountList(res.paymentAccounts);
+      this.dataFormLoaded = true;
     })
   }
 
@@ -68,9 +67,7 @@ export class CreateOffersComponent implements OnInit, OnDestroy {
   }
 
   private getPaymentAccountList(list) {
-    _.map(list, (item) => {
-      return {value: item.id, label: item.accountName}
-    })
+    return _.map(list, (item) => ({value: item.id, label: item.accountName}));
   }
 
   onSubmit(value) {
@@ -83,7 +80,7 @@ export class CreateOffersComponent implements OnInit, OnDestroy {
     });
     this.offersDAO.create(preparedForm).then(res => {
       this.toast.show('SUCCESS', 'success');
-    }).catch(error=>{
+    }).catch(error => {
       this.toast.show(error.message, 'error');
     });
   }
