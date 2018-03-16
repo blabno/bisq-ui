@@ -4,24 +4,27 @@ import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 import {MainComponent} from './main/main.component';
 import {TranslateService} from '@ngx-translate/core';
-import {PaymentAccountsDAO} from './shared/DAO/paymentAccounts.dao';
+
+import {ArbitratorsDAO} from './shared/DAO/arbitrators.dao';
 import {CurrenciesDAO} from './shared/DAO/currencies.dao';
-import {ToastService} from './shared/services/toast.service';
 import {OffersDAO} from "./shared/DAO/offers.dao";
-import {TradesDAO} from "./shared/DAO/trades.dao";
+import {PaymentAccountsDAO} from './shared/DAO/paymentAccounts.dao';
 import {SettingsService} from './shared/services/settings.service';
-import {ArbitratorsDAO} from './shared/DAO/arbitrators.dao'
+import {ToastService} from './shared/services/toast.service';
+import {TradesDAO} from './shared/DAO/trades.dao';
+import {WalletDAO} from './shared/DAO/wallet.dao';
 
 @Component({
   templateUrl: 'app.html',
   providers: [
-    PaymentAccountsDAO,
+    ArbitratorsDAO,
     CurrenciesDAO,
-    ToastService,
     OffersDAO,
-    TradesDAO,
+    PaymentAccountsDAO,
     SettingsService,
-    ArbitratorsDAO
+    ToastService,
+    TradesDAO,
+    WalletDAO
   ]
 })
 export class AppComponent {

@@ -42,6 +42,10 @@ a:hover {
     background: var(--light);
 }
 
+.tabs-md .tab-button {
+  min-height: 55px;
+}
+
 .tabs-md .tab-button[aria-selected=true] {
     color: var(--blue);
     border-top-left-radius: 10px;
