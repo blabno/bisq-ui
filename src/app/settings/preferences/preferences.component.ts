@@ -30,5 +30,7 @@ export class PreferencesComponent implements OnInit, OnDestroy {
 
   langChange(e) {
     this.translate.use(e);
+    this.settings.language = e;
+    this.settings.saveSettings();
   }
 }
