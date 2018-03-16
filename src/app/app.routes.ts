@@ -5,6 +5,7 @@ import {SettingsComponent} from './settings/settings.component';
 import {OffersComponent} from "./offers/offers.component";
 import {PortfolioComponent} from './portfolio/portfolio.component';
 import {CreateOffersComponent} from './offers/createOffers/createOffers.component';
+import {FundsComponent} from "./funds/funds.component";
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'market', pathMatch: 'full'},
@@ -20,11 +21,7 @@ const appRoutes: Routes = [
   {path: 'portfolio/:type', component: PortfolioComponent},
 
   {path: 'funds', redirectTo: 'funds/receive', pathMatch: 'full'},
-  {path: 'funds/receive', component: MarketComponent},
-  {path: 'funds/send', component: MarketComponent},
-  {path: 'funds/reserved', component: MarketComponent},
-  {path: 'funds/locked', component: MarketComponent},
-  {path: 'funds/transactions', component: MarketComponent},
+  {path: 'funds/:type', component: FundsComponent},
 
   {path: 'account', redirectTo: 'account/currency', pathMatch: 'full'},
   {path: 'account/:type', component: AccountComponent},

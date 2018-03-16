@@ -235,7 +235,7 @@ export class CurrencyComponent implements OnInit {
       })
       .then((result: any) => (this.accounts = result.paymentAccounts))
       .catch(() => {
-        this.toast.show('TOAST.PAYMENT_METHOD_ERROR', 'error')
+        this.toast.show('TOAST.PAYMENT_METHOD_ERROR', 'error');
       });
   }
 

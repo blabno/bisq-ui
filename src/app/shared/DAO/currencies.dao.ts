@@ -8,6 +8,6 @@ export class CurrenciesDAO {
   }
 
   query() {
-    return this.http.get('/api/v1/currencies').toPromise()
+    return this.http.get('/api/v1/currencies').toPromise();
   }
 }

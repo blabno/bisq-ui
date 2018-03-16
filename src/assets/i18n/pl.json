@@ -69,6 +69,18 @@
 		}
 	},
 	"FIELD_REQUIRED": "To pole jest wymagane",
+	"FUNDS": {
+		"RECEIVE": {
+			"NEW_ADDRESS": "Wygeneruj nowy adres"
+		},
+		"SUBMENU": {
+			"LOCKED": "Zablokowane",
+			"RECEIVE": "Odebrane",
+			"RESERVED": "Zarezerwowane",
+			"SEND": "Wysłane",
+			"TRANSACTIONS": "Transakcje"
+		}
+	},
 	"MARKET": {
 		"SUMMARY": {
 			"AVAILABLE": "Dostępne",
@@ -79,7 +91,7 @@
 	"MENU": {
 		"ACCOUNT": "Konto",
 		"BUY": "Kup",
-		"FOUNDS": "Fundusze",
+		"FUNDS": "Fundusze",
 		"MARKET": "Market",
 		"PORTFOLIO": "Portfolio",
 		"SELL": "Sprzedaj",
@@ -149,6 +161,7 @@
 	},
 	"TOAST": {
 		"FORM_VALIDATION_ERROR": "Brak wszystkich wymaganych pól",
+		"NEW_ADDRESS_CREATE_ERROR": "Nie można wygenerować nowego adresu",
 		"OFFERS": {
 			"CANT_FETCH_DATA": "Błąd: Nie można pobrać/odświeżyć listy ofert"
 		},

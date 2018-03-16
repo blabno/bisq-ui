@@ -69,6 +69,18 @@
 		}
 	},
 	"FIELD_REQUIRED": "This field is required",
+	"FUNDS": {
+		"RECEIVE": {
+			"NEW_ADDRESS": "Generate new address"
+		},
+		"SUBMENU": {
+			"LOCKED": "Locked",
+			"RECEIVE": "Receive",
+			"RESERVED": "Reserved",
+			"SEND": "Send",
+			"TRANSACTIONS": "Transactions"
+		}
+	},
 	"MARKET": {
 		"SUMMARY": {
 			"AVAILABLE": "Available",
@@ -79,7 +91,7 @@
 	"MENU": {
 		"ACCOUNT": "Account",
 		"BUY": "Buy",
-		"FOUNDS": "Founds",
+		"FUNDS": "Funds",
 		"MARKET": "Market",
 		"PORTFOLIO": "Portfolio",
 		"SELL": "Sell BTC",
@@ -149,6 +161,7 @@
 	},
 	"TOAST": {
 		"FORM_VALIDATION_ERROR": "Missing required fields",
+		"NEW_ADDRESS_CREATE_ERROR": "Unable to create new address",
 		"OFFERS": {
 			"CANT_FETCH_DATA": "Error: Cant't fetch/refresh offers list"
 		},

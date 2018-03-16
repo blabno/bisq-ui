@@ -11,57 +11,69 @@ import appRoutes from './app.routes';
 
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
-
-import {AppComponent} from './app.component';
-import {MainComponent} from './main/main.component';
-import {MenuComponent} from './menu/menu.component';
-import {MarketComponent} from './market/market.component';
-import {SummaryComponent} from './market/summary/summary.component';
-import {AccountComponent} from './account/account.component';
-import {CurrencyComponent} from './account/currency/currency.component';
-import {AltcoinsComponent} from './account/altcoins/altcoins.component';
-import {ArbitratorComponent} from './account/arbitrator/arbitrator.component';
-import {WalletPassComponent} from './account/wallet-pass/wallet-pass.component';
-import {WalletSeedComponent} from './account/wallet-seed/wallet-seed.component';
-import {BackupComponent} from './account/backup/backup.component';
-import {SettingsComponent} from './settings/settings.component';
-import {PreferencesComponent} from './settings/preferences/preferences.component';
-import {NetworkInfoComponent} from './settings/network-info/network-info.component';
 import {AboutComponent} from './settings/about/about.component';
+import {AccountComponent} from './account/account.component';
+import {AltcoinsComponent} from './account/altcoins/altcoins.component';
+import {AppComponent} from './app.component';
+import {ArbitratorComponent} from './account/arbitrator/arbitrator.component';
+import {BackupComponent} from './account/backup/backup.component';
+import {CreateOffersComponent} from './offers/createOffers/createOffers.component';
+import {CurrencyComponent} from './account/currency/currency.component';
 import {FormComponent} from './shared/form/form.component';
+import {FundsComponent} from './funds/funds.component';
+import {HistoryComponent} from './portfolio/history/history.component';
+import {LockedComponent} from './funds/locked/locked.component';
+import {MainComponent} from './main/main.component';
+import {MarketComponent} from './market/market.component';
+import {MenuComponent} from './menu/menu.component';
+import {MyOpenOffersComponent} from './portfolio/myOpenOffers/myOpenOffers.component';
+import {NetworkInfoComponent} from './settings/network-info/network-info.component';
 import {OffersComponent} from './offers/offers.component';
 import {OffersListComponent} from './offers/offersList/offersList.component';
-import {PortfolioComponent} from './portfolio/portfolio.component';
-import {HistoryComponent} from './portfolio/history/history.component';
-import {MyOpenOffersComponent} from './portfolio/myOpenOffers/myOpenOffers.component';
 import {OpenTradesComponent} from './portfolio/openTrades/openTrades.component';
-import {CreateOffersComponent} from "./offers/createOffers/createOffers.component";
+import {PortfolioComponent} from './portfolio/portfolio.component';
+import {PreferencesComponent} from './settings/preferences/preferences.component';
+import {ReceiveComponent} from './funds/receive/receive.component';
+import {ReservedComponent} from './funds/reserved/reserved.component';
+import {SendComponent} from './funds/send/send.component';
+import {SettingsComponent} from './settings/settings.component';
+import {SummaryComponent} from './market/summary/summary.component';
+import {TransactionComponent} from './funds/transactions/transaction.component';
+import {WalletPassComponent} from './account/wallet-pass/wallet-pass.component';
+import {WalletSeedComponent} from './account/wallet-seed/wallet-seed.component';
+
 
 const loadModules = [
-  AppComponent,
-  MainComponent,
-  MenuComponent,
-  MarketComponent,
-  SummaryComponent,
-  AccountComponent,
-  CurrencyComponent,
-  AltcoinsComponent,
-  ArbitratorComponent,
-  WalletPassComponent,
-  WalletSeedComponent,
-  BackupComponent,
-  SettingsComponent,
-  PreferencesComponent,
-  NetworkInfoComponent,
   AboutComponent,
-  FormComponent,
+  AccountComponent,
+  AltcoinsComponent,
+  AppComponent,
+  ArbitratorComponent,
+  BackupComponent,
   CreateOffersComponent,
+  CurrencyComponent,
+  FormComponent,
+  FundsComponent,
+  HistoryComponent,
+  LockedComponent,
+  MainComponent,
+  MarketComponent,
+  MenuComponent,
+  MyOpenOffersComponent,
+  NetworkInfoComponent,
   OffersComponent,
   OffersListComponent,
+  OpenTradesComponent,
   PortfolioComponent,
-  HistoryComponent,
-  MyOpenOffersComponent,
-  OpenTradesComponent
+  PreferencesComponent,
+  ReceiveComponent,
+  ReservedComponent,
+  SendComponent,
+  SettingsComponent,
+  SummaryComponent,
+  TransactionComponent,
+  WalletPassComponent,
+  WalletSeedComponent
 ];
 
 export function createTranslateLoader(http: HttpClient) {
