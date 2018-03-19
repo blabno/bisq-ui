@@ -5,7 +5,9 @@ app-network-info {
 
   .left-label {
     padding: 5px;
-    text-align: right;
+    @media (min-width: 992px) {
+      text-align: right;
+    }
   }
   .row {
     align-items: center;
