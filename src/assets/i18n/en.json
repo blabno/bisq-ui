@@ -1,10 +1,8 @@
 {
 	"ABOUT": "About",
 	"ACCOUNT": {
+		"ACCOUNTS_LIST": "Accounts list",
 		"ADD_NEW": "Add new account",
-		"ALTCOINS": {
-			"YOUR_ACCOUNTS": "Your altcoins accounts"
-		},
 		"ARBITRATOR": {
 			"ARBITRATOR_ADDRESS": "Arbitrator address",
 			"AUTO_SELECT_ARBITRATORS_WITH_MATCHING_LANGUAGE": "Auto select arbitrators with matching language",
@@ -31,8 +29,7 @@
 			"SALT_ACCOUNT_AGE": "Salt for account age verification",
 			"VALIDATION_15_TO_34": "Number must have length 15 to 34 chars",
 			"VALIDATION_8_NOR_11": "Input length is neither 8 nor 11",
-			"VENMO_NAME": "Venmo username",
-			"YOUR_ACCOUNTS": "Your national currency accounts"
+			"VENMO_NAME": "Venmo username"
 		},
 		"EXPORT": "Export Accounts",
 		"IMPORT": "Import Accounts",

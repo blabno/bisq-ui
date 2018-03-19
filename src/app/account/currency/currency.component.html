@@ -1,20 +1,20 @@
-<div *ngIf="accounts.length" class="card accounts">
-  <div class="card-header">{{'ACCOUNT.MANAGE_ACCOUNTS' | translate}}</div>
-  <div class="card-body">
-    {{'ACCOUNT.CURRENCY.YOUR_ACCOUNTS' | translate}}
-    <ion-list>
-      <button *ngFor="let item of accounts; let i = index" (click)="show(i)" ion-item>
-        {{item.accountName}}
-      </button>
-    </ion-list>
+<div *ngIf="!formOpened">
+  <div *ngIf="accounts.length" class="card accounts">
+    <div class="card-header">{{'ACCOUNT.ACCOUNTS_LIST' | translate}}</div>
+    <div class="card-body">
+      <ion-list>
+        <button *ngFor="let item of accounts; let i = index" (click)="show(i)" ion-item>
+          {{item.accountName}}
+        </button>
+      </ion-list>
+    </div>
+  </div>
+  <div class="buttons">
+    <button class="btn btn-primary button-md" (click)="addNew()">{{'ACCOUNT.ADD_NEW' | translate}}</button>
+    <button *ngIf="accounts.length" class="btn btn-primary button-md">{{'ACCOUNT.EXPORT' | translate}}</button>
+    <button *ngIf="accounts.length" class="btn btn-primary button-md">{{'ACCOUNT.IMPORT' | translate}}</button>
   </div>
 </div>
-<div class="buttons">
-  <button class="btn btn-primary button-md" (click)="addNew()">{{'ACCOUNT.ADD_NEW' | translate}}</button>
-  <button *ngIf="accounts.length" class="btn btn-primary button-md">{{'ACCOUNT.EXPORT' | translate}}</button>
-  <button *ngIf="accounts.length" class="btn btn-primary button-md">{{'ACCOUNT.IMPORT' | translate}}</button>
-</div>
-
 <div *ngIf="formOpened">
   <div class="card">
     <div class="card-header">{{'ACCOUNT.CREATE_NEW' | translate}}</div>

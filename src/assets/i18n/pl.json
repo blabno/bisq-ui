@@ -1,10 +1,8 @@
 {
 	"ABOUT": "O programie",
 	"ACCOUNT": {
+		"ACCOUNTS_LIST": "Lista kont",
 		"ADD_NEW": "Dodaj konto",
-		"ALTCOINS": {
-			"YOUR_ACCOUNTS": "Twoje konta altcoins"
-		},
 		"ARBITRATOR": {
 			"ARBITRATOR_ADDRESS": "Adres aribtratora",
 			"AUTO_SELECT_ARBITRATORS_WITH_MATCHING_LANGUAGE": "Automatycznie przydziel arbitra o tym samym języku",
@@ -31,8 +29,7 @@
 			"SALT_ACCOUNT_AGE": "Kod potwierdzający aktywność konta",
 			"VALIDATION_15_TO_34": "Number musi mieć od 15 do 34 znaków",
 			"VALIDATION_8_NOR_11": "Wymagane 8 lub 11 znaków",
-			"VENMO_NAME": "Nazwa konta Venmo",
-			"YOUR_ACCOUNTS": "Twoje konta walutowe"
+			"VENMO_NAME": "Nazwa konta Venmo"
 		},
 		"EXPORT": "Eksportuj konta",
 		"IMPORT": "Importuj konta",
