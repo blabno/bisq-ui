@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, OnDestroy} from '@angular/core';
+import {Platform} from 'ionic-angular';
 import {TranslateService} from '@ngx-translate/core';
 import _ from 'lodash';
 
@@ -44,7 +45,7 @@ function bicValidator(control) {
   selector: 'app-currency',
   templateUrl: 'currency.component.html'
 })
-export class CurrencyComponent implements OnInit {
+export class CurrencyComponent implements OnInit, OnDestroy {
   paymentForm = {
     paymentMethod: {
       type: 'select', label: 'ACCOUNT.CURRENCY.PAYMENT_METHOD',
@@ -186,8 +187,12 @@ export class CurrencyComponent implements OnInit {
   accounts = [];
   paymentValues = {};
   detailsValues = {};
+  unregisterBackButton = _.noop;
 
-  constructor(private translate: TranslateService, private paymentAccountsDAO: PaymentAccountsDAO, private toast: ToastService) {
+  constructor(private translate: TranslateService,
+              private paymentAccountsDAO: PaymentAccountsDAO,
+              private toast: ToastService,
+              private platform: Platform) {
   }
 
   ngOnInit() {
@@ -196,6 +201,18 @@ export class CurrencyComponent implements OnInit {
       this.venmoForm.limitations.value = this.translate.instant('ACCOUNT.CURRENCY.LIMITATION_VENMO');
     });
     this.paymentAccountsDAO.query().then((result: any) => (this.accounts = result.paymentAccounts));
+
+  }
+
+  ngOnDestroy() {
+    this.unregisterBackButton();
+  }
+
+  registerBackButton() {
+    this.unregisterBackButton = this.platform.registerBackButtonAction(() => {
+      this.cancel();
+      this.unregisterBackButton();
+    });
   }
 
   show(index) {
@@ -204,11 +221,13 @@ export class CurrencyComponent implements OnInit {
     this.selectedForm = this.accounts[index].paymentMethod;
     this.formDisabled = true;
     this.formOpened = true;
+    this.registerBackButton();
   }
 
   addNew() {
     this.cancel();
     this.formOpened = true;
+    this.registerBackButton();
   }
 
   cancel() {
@@ -217,6 +236,7 @@ export class CurrencyComponent implements OnInit {
     this.selectedForm = null;
     this.paymentValues = _.mapValues(this.paymentValues, () => null);
     this.detailsValues = _.mapValues(this.detailsValues, () => null);
+    this.unregisterBackButton();
   }
 
   change(form) {
