@@ -1,5 +1,4 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
-import {TranslateService} from '@ngx-translate/core';
 import {TradesDAO} from '../../shared/DAO/trades.dao';
 import _ from 'lodash';
 import {ToastService} from '../../shared/services/toast.service';

@@ -44,6 +44,9 @@ a:hover {
 
 .tabs-md .tab-button {
   min-height: 55px;
+  .tab-button-text {
+    display:block;
+  }
 }
 
 .tabs-md .tab-button[aria-selected=true] {
