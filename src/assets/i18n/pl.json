@@ -11,7 +11,6 @@
 			"WHICH_ARBITRATORS_DO_YOU_ACCEPT": "Których arbitratorów wybierasz",
 			"WHICH_LANGUAGE_DO_YOU_SPEAK": "Wybierz języki, które umiesz"
 		},
-		"CANCEL": "Anuluj",
 		"CREATE_NEW": "Stwórz nowe konto",
 		"CURRENCY": {
 			"ACCEPTED_TRADES": "Akceptowane transakcje",
@@ -39,7 +38,6 @@
 			"PARAGRAPH3": "Prywatność i bezpieczeństwo: \nBisq to zdecentralizowana giełda - co oznacza, że ​​wszystkie twoje dane są przechowywane na komputerze, nie ma serwerów i nie mamy dostępu do twoich danych osobowych, twoich funduszy, a nawet twojego adresu IP. Dane takie jak numery rachunków bankowych, adresy e-mail i bitcoin itp. są udostępniane tylko Twojemu partnerowi handlowemu w celu realizacji zainicjowanych transakcji (w przypadku sporu arbiter zobaczy te same dane, co twój partner handlowy).",
 			"TITLE": "Witaj na Twoim koncie Bisq"
 		},
-		"MANAGE_ACCOUNTS": "Zarządzaj kontami",
 		"SAVE": "Zapisz nowe konto",
 		"SUBMENU": {
 			"ALTCOINS_ACCOUNTS": "Konta alternatywne",
@@ -71,6 +69,8 @@
 			"SEED_WORDS": "Fraza mnemoniczna portfela"
 		}
 	},
+	"BACK": "Wróć",
+	"CANCEL": "Anuluj",
 	"FIELD_REQUIRED": "To pole jest wymagane",
 	"FUNDS": {
 		"RECEIVE": {
@@ -108,7 +108,6 @@
 	"OFFERS": {
 		"CREATE": {
 			"AMOUNT": "Wartość",
-			"BACK": "Wróć",
 			"CURRENCY": "Waluta",
 			"MINUMUM_VOLUME": "Minimalna ilość",
 			"PRICE": "Cena",

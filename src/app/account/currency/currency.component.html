@@ -10,9 +10,12 @@
     </div>
   </div>
   <div class="buttons">
-    <button class="btn btn-primary button-md" (click)="addNew()">{{'ACCOUNT.ADD_NEW' | translate}}</button>
-    <button *ngIf="accounts.length" class="btn btn-primary button-md">{{'ACCOUNT.EXPORT' | translate}}</button>
-    <button *ngIf="accounts.length" class="btn btn-primary button-md">{{'ACCOUNT.IMPORT' | translate}}</button>
+    <button ion-button (click)="addNew()">{{'ACCOUNT.ADD_NEW' | translate}}</button>
+    <div *ngIf="accounts.length" class="float-right">
+      <button ion-button color="light">{{'ACCOUNT.EXPORT' | translate}}</button>
+      <button class="d-block d-md-inline-block" ion-button color="light">{{'ACCOUNT.IMPORT' | translate}}</button>
+    </div>
+
   </div>
 </div>
 <div *ngIf="formOpened">
@@ -29,13 +32,13 @@
   </div>
   <div class="buttons">
     <ng-template [ngIf]="!formDisabled">
-      <button *ngIf="'SEPA' === selectedForm" class="btn btn-primary button-md" (click)="sepaFormElement.submit()">
+      <button *ngIf="'SEPA' === selectedForm" ion-button (click)="sepaFormElement.submit()">
         {{'ACCOUNT.SAVE' | translate}}
       </button>
-      <button *ngIf="'Venmo' === selectedForm" class="btn btn-primary button-md" (click)="venmoFormElement.submit()">
+      <button *ngIf="'Venmo' === selectedForm" ion-button (click)="venmoFormElement.submit()">
         {{'ACCOUNT.SAVE' | translate}}
       </button>
     </ng-template>
-    <button class="btn btn-primary button-md" (click)="cancel()">{{'ACCOUNT.CANCEL' | translate}}</button>
+    <button ion-button color="light" (click)="cancel()">{{'BACK' | translate}}</button>
   </div>
 </div>

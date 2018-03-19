@@ -4,7 +4,7 @@
       <ion-label floating>{{field.label | translate}}</ion-label>
       <ion-input *ngIf="'text' === field.type" type="text" [formControlName]="field.key"></ion-input>
       <ion-select *ngIf="'select' === field.type" [formControlName]="field.key" [multiple]="field.multiple"
-                  cancelText="{{'ACCOUNT.CANCEL' | translate}}">
+                  cancelText="{{'CANCEL' | translate}}">
         <ion-option *ngFor="let option of field.options" [value]="option.value">
           {{option.label | translate}}
         </ion-option>
