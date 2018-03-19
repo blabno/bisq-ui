@@ -36,6 +36,12 @@
 		},
 		"EXPORT": "Eksportuj konta",
 		"IMPORT": "Importuj konta",
+		"INIT_MODAL": {
+			"PARAGRAPH1": "",
+			"PARAGRAPH2": "",
+			"PARAGRAPH3": "",
+			"TITLE": ""
+		},
 		"MANAGE_ACCOUNTS": "Zarządzaj kątami",
 		"SAVE": "Zapisz nowe konto",
 		"SUBMENU": {
@@ -80,6 +86,9 @@
 			"SEND": "Wysłane",
 			"TRANSACTIONS": "Transakcje"
 		}
+	},
+	"INFO_MODAL": {
+		"DO_NOT_SHOW_AGAIN": ""
 	},
 	"MARKET": {
 		"SUMMARY": {

@@ -22,6 +22,7 @@ import {CurrencyComponent} from './account/currency/currency.component';
 import {FormComponent} from './shared/form/form.component';
 import {FundsComponent} from './funds/funds.component';
 import {HistoryComponent} from './portfolio/history/history.component';
+import {InfoModalComponent} from './shared/infoModal/infoModal.component';
 import {LockedComponent} from './funds/locked/locked.component';
 import {MainComponent} from './main/main.component';
 import {MarketComponent} from './market/market.component';
@@ -55,6 +56,7 @@ const loadModules = [
   FormComponent,
   FundsComponent,
   HistoryComponent,
+  InfoModalComponent,
   LockedComponent,
   MainComponent,
   MarketComponent,

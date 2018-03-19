@@ -7,6 +7,7 @@ import {TranslateService} from '@ngx-translate/core';
 
 import {ArbitratorsDAO} from './shared/DAO/arbitrators.dao';
 import {CurrenciesDAO} from './shared/DAO/currencies.dao';
+import {InfoModalService} from './shared/infoModal/infoModal.service';
 import {OffersDAO} from "./shared/DAO/offers.dao";
 import {PaymentAccountsDAO} from './shared/DAO/paymentAccounts.dao';
 import {SettingsService} from './shared/services/settings.service';
@@ -19,6 +20,7 @@ import {WalletDAO} from './shared/DAO/wallet.dao';
   providers: [
     ArbitratorsDAO,
     CurrenciesDAO,
+    InfoModalService,
     OffersDAO,
     PaymentAccountsDAO,
     SettingsService,
