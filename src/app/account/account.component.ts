@@ -5,11 +5,11 @@ import {Tabs} from 'ionic-angular';
 
 import {AltcoinsComponent} from './altcoins/altcoins.component';
 import {ArbitratorComponent} from './arbitrator/arbitrator.component';
-import {BackupComponent} from './backup/backup.component';
+// import {BackupComponent} from './backup/backup.component';
 import {CurrencyComponent} from './currency/currency.component';
 import {InfoModalService} from '../shared/infoModal/infoModal.service';
-import {WalletPassComponent} from './wallet-pass/wallet-pass.component';
-import {WalletSeedComponent} from './wallet-seed/wallet-seed.component';
+// import {WalletPassComponent} from './wallet-pass/wallet-pass.component';
+// import {WalletSeedComponent} from './wallet-seed/wallet-seed.component';
 
 function t(str) {
   return str;
@@ -50,7 +50,7 @@ export class AccountComponent implements OnInit, OnDestroy {
       component: ArbitratorComponent,
       icon: 'md-contacts',
       route: 'arbitrator'
-    },
+    }/*,
     {
       name: 'ACCOUNT.SUBMENU.WALLET_PASSWORD',
       component: WalletPassComponent,
@@ -68,7 +68,7 @@ export class AccountComponent implements OnInit, OnDestroy {
       component: BackupComponent,
       icon: 'md-cloud-download',
       route: 'backup'
-    }
+    }*/
   ];
   activeMenuIndex = 0;
   private paramSubscribe: any;

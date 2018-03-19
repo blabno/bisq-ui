@@ -8,7 +8,7 @@ import {CreateOffersComponent} from './offers/createOffers/createOffers.componen
 import {FundsComponent} from "./funds/funds.component";
 
 const appRoutes: Routes = [
-  {path: '', redirectTo: 'market', pathMatch: 'full'},
+  {path: '', redirectTo: 'offers/buy', pathMatch: 'full'},
   {path: 'market', component: MarketComponent},
 
   {path: 'offers/:type/create', component: CreateOffersComponent},
