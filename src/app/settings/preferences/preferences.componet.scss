@@ -1,8 +1,11 @@
-.padding {
-    padding: 10px
-}
+app-preferences {
+  overflow-x: hidden;
+  .padding {
+    padding: 10px;
+  }
 
-.deskop-max-width {
+  .deskop-max-width {
     margin: auto;
     max-width: 800px;
+  }
 }

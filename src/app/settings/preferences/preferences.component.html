@@ -67,26 +67,22 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="card mt-2 padding">
-                            <div class="card-body">
-                                <ion-item>
-                                    <ion-label>{{'SETTINGS_VIEW.PREFERENCES.DISPLAY_NATIONAL_CURRENCIES' | translate }}</ion-label>
-                                    <ion-select [(ngModel)]="settings.displayedNatonalCurrencies" multiple="true" (ionChange)="settings.saveSettings()">
-                                        <ion-option *ngFor="let nationalCurrency of nationalCurrencies" [value]="nationalCurrency.symbol">{{nationalCurrency.symbol}}</ion-option>
-                                    </ion-select>
-                                </ion-item>
-                            </div>
+                            <ion-item class="card-body">
+                                <ion-label>{{'SETTINGS_VIEW.PREFERENCES.DISPLAY_NATIONAL_CURRENCIES' | translate }}</ion-label>
+                                <ion-select [(ngModel)]="settings.displayedNatonalCurrencies" multiple="true" (ionChange)="settings.saveSettings()">
+                                    <ion-option *ngFor="let nationalCurrency of nationalCurrencies" [value]="nationalCurrency.symbol">{{nationalCurrency.symbol}}</ion-option>
+                                </ion-select>
+                            </ion-item>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="card mt-2 padding">
-                            <div class="card-body">
-                                <ion-item>
-                                    <ion-label>{{'SETTINGS_VIEW.PREFERENCES.DISPLAY_ALTCOINS' | translate }} </ion-label>
-                                    <ion-select [(ngModel)]="settings.displayedAltcoins" multiple="true" (ionChange)="settings.saveSettings()">
-                                        <ion-option *ngFor="let cryptocCurrency of cryptoCurrencies" [value]="cryptocCurrency.symbol">{{cryptocCurrency.symbol}}</ion-option>
-                                    </ion-select>
-                                </ion-item>
-                            </div>
+                            <ion-item class="card-body">
+                                <ion-label>{{'SETTINGS_VIEW.PREFERENCES.DISPLAY_ALTCOINS' | translate }} </ion-label>
+                                <ion-select [(ngModel)]="settings.displayedAltcoins" multiple="true" (ionChange)="settings.saveSettings()">
+                                    <ion-option *ngFor="let cryptocCurrency of cryptoCurrencies" [value]="cryptocCurrency.symbol">{{cryptocCurrency.symbol}}</ion-option>
+                                </ion-select>
+                            </ion-item>
                         </div>
                     </div>
                 </div>

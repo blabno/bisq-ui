@@ -1,1 +1,58 @@
-<p>About works!</p>
+<div class="row">
+    <div class="col col-centered deskop-max-width">
+        <div class="card">
+            <div class="card-header">{{'SETTINGS_VIEW.ABOUT.ABOUT_BISQ' | translate }}</div>
+            <div class="card-body">
+                <p class="main-text">{{'SETTINGS_VIEW.ABOUT.ABOUT_BISQ_TEXT' | translate }}</p>
+
+                <div class="d-flex row-flex align-items-center p-3 link" href="#" onclick="window.open('https://bisq.network/', '_system', 'location=yes'); return false;">
+                    <span class="link">{{'SETTINGS_VIEW.ABOUT.BISQ_WEB_PAGE' | translate }}</span>
+                    <ion-icon class="ml-2" name="md-link"></ion-icon>
+                </div>
+                <div class="d-flex row-flex align-items-center p-3 link" href="#" onclick="window.open('https://github.com/bisq-network/bisq-desktop/', '_system', 'location=yes'); return false;">
+                    <span class="link">{{'SETTINGS_VIEW.ABOUT.SOURCE_CODE' | translate }}</span>
+                    <ion-icon class="ml-2" name="md-link"></ion-icon>
+                </div>
+                <div class="d-flex row-flex align-items-center p-3 link" href="#" onclick="window.open('https://github.com/bisq-network/bisq-desktop/blob/master/LICENSE', '_system', 'location=yes'); return false;">
+                    <span class="link">{{'SETTINGS_VIEW.ABOUT.AGPL_LICENSE' | translate }}</span>
+                    <ion-icon class="ml-2" name="md-link"></ion-icon>
+                </div>
+            </div>
+        </div>
+        <div class="card mt-2">
+            <div class="card-header">{{'SETTINGS_VIEW.ABOUT.SUPPORT_BISQ' | translate }}</div>
+            <div class="card-body">
+                <p class="main-text">{{'SETTINGS_VIEW.ABOUT.BISQ_IS_COMMUNITY' | translate }}</p>
+                <div class="d-flex row-flex align-items-center p-3 link" href="#" onclick="window.open('https://bisq.network/contribute/', '_system', 'location=yes'); return false;">
+                    <span class="link">{{'SETTINGS_VIEW.ABOUT.CONTRIBUTE' | translate }}</span>
+                    <ion-icon class="ml-2" name="md-link"></ion-icon>
+                </div>
+                <div class="d-flex row-flex align-items-center p-3 link" href="#" onclick="window.open('https://bisq.network/contribute/#contribute-via-donation', '_system', 'location=yes'); return false;">
+                    <span class="link">{{'SETTINGS_VIEW.ABOUT.DONATE' | translate }}</span>
+                    <ion-icon class="ml-2" name="md-link"></ion-icon>
+                </div>
+            </div>
+        </div>
+        <div class="card mt-2">
+            <div class="card-header">{{'SETTINGS_VIEW.ABOUT.DATA_PROVIDERS' | translate }}</div>
+            <div class="card-body">
+                <p class="main-text">{{'SETTINGS_VIEW.ABOUT.BISQ_USES_3RD_APIS' | translate }}</p>
+                <div class="mt-2 group">{{'SETTINGS_VIEW.ABOUT.MARKET_PRICES_PROVIDED_BY' | translate }}:</div>
+                <div *ngFor="let provider of marketPricesProviders">
+                    <div>{{provider.name}} ({{provider.www}})</div>
+                </div>
+                <div class="mt-2 group">{{'SETTINGS_VIEW.ABOUT.MINING_FEE_ESTIMATION_PROVIDED_BY' | translate }}:</div>
+                <div *ngFor="let provider of miningFeesEstimationProviders">
+                    <div>{{provider.name}} ({{provider.www}})</div>
+                </div>
+            </div>
+        </div>
+        <div class="card mt-2">
+            <div class="card-header">{{'SETTINGS_VIEW.ABOUT.VERSION_DETAILS' | translate }}</div>
+            <div class="card-body">
+                <p>{{'SETTINGS_VIEW.ABOUT.APPLICATION_VERSION' | translate }}: {{appVersion}}</p>
+                <p>{{'SETTINGS_VIEW.ABOUT.VERSIONS_OF_SUBSYSTEMS' | translate }}: {{getSubsystemsString()}}</p>
+            </div>
+        </div>
+    </div>
+</div>
