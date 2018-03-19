@@ -55,4 +55,13 @@ export class FormComponent implements OnInit, OnChanges {
       _.forEach(this.formGroup.controls, (control) => control.markAsTouched());
     }
   }
+
+  delete() {
+    if (this.formGroup.valid) {
+      this.onSubmit.emit(_.mapValues(this.formGroup.controls, 'value'));
+    } else {
+      this.toast.show('TOAST.FORM_VALIDATION_ERROR', 'error');
+      _.forEach(this.formGroup.controls, (control) => control.markAsTouched());
+    }
+  }
 }

@@ -1,5 +1,5 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
-import {Platform} from 'ionic-angular';
+import {AlertController, Platform} from 'ionic-angular';
 import {TranslateService} from '@ngx-translate/core';
 import _ from 'lodash';
 
@@ -10,6 +10,7 @@ function t(str) {
   return str;
 }
 
+t('ACCOUNT.CURRENCY.PAYMENT_METHOD');
 t('ACCOUNT.CURRENCY.PAYMENT_METHOD');
 t('ACCOUNT.CURRENCY.OWNER_NAME');
 t('ACCOUNT.CURRENCY.VALIDATION_8_NOR_11');
@@ -26,6 +27,7 @@ t('ACCOUNT.CURRENCY.VENMO_NAME');
 t('ACCOUNT.CURRENCY.CURRENCY');
 t('ACCOUNT.CURRENCY.CURRENCY_USD');
 t('ACCOUNT.CURRENCY.CURRENCY_PLN');
+t('ACCOUNT.CURRENCY.DELETE_CONFIRMATION');
 
 function ibanValidator(control) {
   if (!control.value || (8 !== control.value.length && 11 !== control.value.length)) {
@@ -186,17 +188,18 @@ export class CurrencyComponent implements OnInit, OnDestroy {
   selectedForm: string;
   accounts = [];
   paymentValues = {};
-  detailsValues = {};
+  detailsValues = {id: ''};
   unregisterBackButton = _.noop;
 
   constructor(private translate: TranslateService,
               private paymentAccountsDAO: PaymentAccountsDAO,
               private toast: ToastService,
-              private platform: Platform) {
+              private platform: Platform,
+              private alertCtrl: AlertController) {
   }
 
   ngOnInit() {
-    this.translate.onLangChange.subscribe(() => {
+    this.translate.get('T').subscribe(() => {
       this.sepaForm.limitations.value = this.translate.instant('ACCOUNT.CURRENCY.LIMITATION_SEPA');
       this.venmoForm.limitations.value = this.translate.instant('ACCOUNT.CURRENCY.LIMITATION_VENMO');
     });
@@ -255,8 +258,35 @@ export class CurrencyComponent implements OnInit, OnDestroy {
       })
       .then((result: any) => (this.accounts = result.paymentAccounts))
       .catch(() => {
-        this.toast.show('TOAST.PAYMENT_METHOD_ERROR', 'error');
+        this.toast.show('TOAST.PAYMENT_METHOD_CREATE_ERROR', 'error');
       });
+  }
+
+  delete() {
+    this.alertCtrl.create({
+      title: this.translate.instant('WARNING'),
+      message: this.translate.instant('ACCOUNT.CURRENCY.DELETE_CONFIRMATION'),
+      buttons: [
+        {
+          text: this.translate.instant('CANCEL'),
+        },
+        {
+          text: this.translate.instant('CONFIRM'),
+          handler: () => {
+            this.paymentAccountsDAO.delete(this.detailsValues.id)
+              .then(() => {
+                this.cancel();
+                this.toast.show('TOAST.PAYMENT_METHOD_DELETED', 'info');
+                return this.paymentAccountsDAO.query();
+              })
+              .then((result: any) => (this.accounts = result.paymentAccounts))
+              .catch(() => {
+                this.toast.show('TOAST.PAYMENT_METHOD_DELETE_ERROR', 'error');
+              });
+          }
+        }
+      ]
+    }).present()
   }
 
 }

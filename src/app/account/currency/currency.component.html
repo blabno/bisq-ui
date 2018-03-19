@@ -40,5 +40,6 @@
       </button>
     </ng-template>
     <button ion-button color="light" (click)="cancel()">{{'BACK' | translate}}</button>
+    <button *ngIf="formDisabled" ion-button color="danger" (click)="delete()">{{'ACCOUNT.DELETE' | translate}}</button>
   </div>
 </div>

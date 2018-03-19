@@ -15,6 +15,13 @@ import {ToastService} from './shared/services/toast.service';
 import {TradesDAO} from './shared/DAO/trades.dao';
 import {WalletDAO} from './shared/DAO/wallet.dao';
 
+
+function t(str) {
+  return str;
+}
+
+t('WARNING');
+
 @Component({
   templateUrl: 'app.html',
   providers: [
