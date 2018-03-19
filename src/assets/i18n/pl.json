@@ -37,12 +37,12 @@
 		"EXPORT": "Eksportuj konta",
 		"IMPORT": "Importuj konta",
 		"INIT_MODAL": {
-			"PARAGRAPH1": "",
-			"PARAGRAPH2": "",
-			"PARAGRAPH3": "",
-			"TITLE": ""
+			"PARAGRAPH1": "Tutaj możesz ustawić konta handlowe dla walut narodowych i kruptowalut, wybrać arbitrów i wykonać kopię zapasową danych portfela i konta.",
+			"PARAGRAPH2": "Pusty portfel Bitcoin został utworzony przy pierwszym uruchomieniu Bisq.\nPolecamy, abyś zapisał swoje słowa kluczwe portfela Bitcoin (patrz przycisk po lewej) i rozważ dodanie hasła przed finansowaniem. Depozyty i wypłaty bitcoin są zarządzane w sekcji \"Fundusze \"",
+			"PARAGRAPH3": "Prywatność i bezpieczeństwo: \nBisq to zdecentralizowana giełda - co oznacza, że ​​wszystkie twoje dane są przechowywane na komputerze, nie ma serwerów i nie mamy dostępu do twoich danych osobowych, twoich funduszy, a nawet twojego adresu IP. Dane takie jak numery rachunków bankowych, adresy e-mail i bitcoin itp. są udostępniane tylko Twojemu partnerowi handlowemu w celu realizacji zainicjowanych transakcji (w przypadku sporu arbiter zobaczy te same dane, co twój partner handlowy).",
+			"TITLE": "Witaj na Twoim koncie Bisq"
 		},
-		"MANAGE_ACCOUNTS": "Zarządzaj kątami",
+		"MANAGE_ACCOUNTS": "Zarządzaj kontami",
 		"SAVE": "Zapisz nowe konto",
 		"SUBMENU": {
 			"ALTCOINS_ACCOUNTS": "Konta alternatywne",
@@ -88,7 +88,7 @@
 		}
 	},
 	"INFO_MODAL": {
-		"DO_NOT_SHOW_AGAIN": ""
+		"DO_NOT_SHOW_AGAIN": "Nie pokazuj ponownie"
 	},
 	"MARKET": {
 		"SUMMARY": {
