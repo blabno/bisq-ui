@@ -64,6 +64,15 @@ ion-toast {
   }
 }
 
+ion-item.item.item-checkbox {
+  ion-checkbox.checkbox {
+    margin-right: 22px;
+  }
+  ion-label.label {
+    color: #999;
+  }
+}
+
 .alert-message {
   overflow: hidden;
 }

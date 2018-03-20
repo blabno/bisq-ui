@@ -11,13 +11,13 @@ function t(str) {
 }
 
 t('ACCOUNT.CURRENCY.PAYMENT_METHOD');
-t('ACCOUNT.CURRENCY.PAYMENT_METHOD');
 t('ACCOUNT.CURRENCY.OWNER_NAME');
 t('ACCOUNT.CURRENCY.VALIDATION_8_NOR_11');
 t('ACCOUNT.CURRENCY.VALIDATION_15_TO_34');
 t('ACCOUNT.CURRENCY.BANK_COUNTRY');
 t('ACCOUNT.CURRENCY.COUNTRY_PL');
-t('ACCOUNT.CURRENCY.ACCEPTED_TRADES');
+t('ACCOUNT.CURRENCY.ACCEPTED_TRADES_EURO');
+t('ACCOUNT.CURRENCY.ACCEPTED_TRADES_NON_EURO');
 t('ACCOUNT.CURRENCY.LIMITATION_SEPA');
 t('ACCOUNT.CURRENCY.LIMITATION_VENMO');
 t('ACCOUNT.CURRENCY.LIMITATIONS');
@@ -99,7 +99,7 @@ export class CurrencyComponent implements OnInit, OnDestroy {
       disabled: true,
     },
     tradesEuro: {
-      type: 'select', label: 'ACCOUNT.CURRENCY.ACCEPTED_TRADES',
+      type: 'select', label: 'ACCOUNT.CURRENCY.ACCEPTED_TRADES_EURO',
       multiple: true,
       options: [
         {value: 'at', label: 'AT'},
@@ -125,7 +125,7 @@ export class CurrencyComponent implements OnInit, OnDestroy {
       ]
     },
     tradesNonEuro: {
-      type: 'select', label: 'ACCOUNT.CURRENCY.ACCEPTED_TRADES',
+      type: 'select', label: 'ACCOUNT.CURRENCY.ACCEPTED_TRADES_NON_EURO',
       multiple: true,
       options: [
         {value: 'bg', label: 'BG'},
@@ -242,6 +242,11 @@ export class CurrencyComponent implements OnInit, OnDestroy {
     this.unregisterBackButton();
   }
 
+  refreshList() {
+    return this.paymentAccountsDAO.query()
+      .then((result: any) => (this.accounts = result.paymentAccounts))
+  }
+
   change(form) {
     this.selectedForm = form.value.paymentMethod
   }
@@ -253,10 +258,9 @@ export class CurrencyComponent implements OnInit, OnDestroy {
     this.paymentAccountsDAO.create(payload)
       .then(() => {
         this.cancel();
+        this.refreshList();
         this.toast.show('TOAST.PAYMENT_METHOD_CREATED', 'info');
-        return this.paymentAccountsDAO.query();
       })
-      .then((result: any) => (this.accounts = result.paymentAccounts))
       .catch(() => {
         this.toast.show('TOAST.PAYMENT_METHOD_CREATE_ERROR', 'error');
       });
@@ -276,10 +280,9 @@ export class CurrencyComponent implements OnInit, OnDestroy {
             this.paymentAccountsDAO.delete(this.detailsValues.id)
               .then(() => {
                 this.cancel();
+                this.refreshList();
                 this.toast.show('TOAST.PAYMENT_METHOD_DELETED', 'info');
-                return this.paymentAccountsDAO.query();
               })
-              .then((result: any) => (this.accounts = result.paymentAccounts))
               .catch(() => {
                 this.toast.show('TOAST.PAYMENT_METHOD_DELETE_ERROR', 'error');
               });

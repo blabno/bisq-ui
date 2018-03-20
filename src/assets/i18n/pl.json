@@ -13,7 +13,8 @@
 		},
 		"CREATE_NEW": "Stwórz nowe konto",
 		"CURRENCY": {
-			"ACCEPTED_TRADES": "Akceptowane transakcje",
+			"ACCEPTED_TRADES_EURO": "Akceptowane transakcje z krajami w Euro",
+			"ACCEPTED_TRADES_NON_EURO": "Akceptowane transakcje z krajami w innych walutach",
 			"ACCOUNT_NAME": "Nazwa konta",
 			"BANK_COUNTRY": "Kraj banku",
 			"COUNTRY_PL": "Polska (PL)",
@@ -27,7 +28,7 @@
 			"OWNER_NAME": "Imię i nazwisko posiadacza",
 			"PAYMENT_METHOD": "Metoda płatności",
 			"SALT_ACCOUNT_AGE": "Kod potwierdzający aktywność konta",
-			"VALIDATION_15_TO_34": "Number musi mieć od 15 do 34 znaków",
+			"VALIDATION_15_TO_34": "Numer musi mieć od 15 do 34 znaków",
 			"VALIDATION_8_NOR_11": "Wymagane 8 lub 11 znaków",
 			"VENMO_NAME": "Nazwa konta Venmo"
 		},

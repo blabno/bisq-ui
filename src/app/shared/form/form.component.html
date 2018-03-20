@@ -1,7 +1,8 @@
 <form [formGroup]="formGroup" (ngSubmit)="submit()">
   <div *ngFor="let field of formFields">
     <ion-item>
-      <ion-label floating>{{field.label | translate}}</ion-label>
+      <ion-label *ngIf="'checkbox' === field.type">{{field.label | translate}}</ion-label>
+      <ion-label *ngIf="'checkbox' !== field.type" floating>{{field.label | translate}}</ion-label>
       <ion-input *ngIf="'text' === field.type" type="text" [formControlName]="field.key"></ion-input>
       <ion-select *ngIf="'select' === field.type" [formControlName]="field.key" [multiple]="field.multiple"
                   cancelText="{{'CANCEL' | translate}}">

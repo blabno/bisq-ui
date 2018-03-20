@@ -13,7 +13,8 @@
 		},
 		"CREATE_NEW": "Create new Account",
 		"CURRENCY": {
-			"ACCEPTED_TRADES": "Accepted trades",
+			"ACCEPTED_TRADES_EURO": "Accepted trades from Euro countries",
+			"ACCEPTED_TRADES_NON_EURO": "Accepted trades from non-Euro countries",
 			"ACCOUNT_NAME": "Account name",
 			"BANK_COUNTRY": "Country of bank",
 			"COUNTRY_PL": "Poland (PL)",
