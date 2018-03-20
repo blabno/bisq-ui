@@ -11,6 +11,7 @@
 			"WHICH_ARBITRATORS_DO_YOU_ACCEPT": "Which arbitrators do you accept",
 			"WHICH_LANGUAGE_DO_YOU_SPEAK": "Which language do you speak"
 		},
+		"CANCEL": "",
 		"CREATE_NEW": "Create new Account",
 		"CURRENCY": {
 			"ACCEPTED_TRADES_EURO": "Accepted trades from Euro countries",
@@ -151,11 +152,15 @@
 		"CREATE": {
 			"AMOUNT": "Amount",
 			"CURRENCY": "Currency",
+			"FIXED": "Fixed",
 			"MINUMUM_VOLUME": "Minimum volume",
+			"PERCENTAGE": "Percentage",
+			"PERCENT_DISTANCE": "Distance in % from market price",
 			"PRICE": "Price",
 			"SAVE": "Save",
 			"SECURITY_DEPOSIT": "Security deposit for buyer",
 			"TRADING_ACCOUNT": "Trading account",
+			"TYPE": "Price type",
 			"VOLUME": "Volume"
 		},
 		"CREATE_BUTTON": "Create",

@@ -17,10 +17,7 @@ import {TradesDAO} from './shared/DAO/trades.dao';
 import {WalletDAO} from './shared/DAO/wallet.dao';
 
 
-function t(str) {
-  return str;
-}
-
+const t = str => str;
 t('WARNING');
 
 @Component({

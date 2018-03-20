@@ -3,6 +3,11 @@ app-create-offers {
   height: calc(100vh - 76px);
   overflow-y: auto;
   padding: 15px;
+  ion-list-header {
+    border-top: 0 !important;
+    margin-top: 15px;
+    margin-bottom: 0 !important;
+  }
   .send-form-button {
     margin-top: 15px;
   }

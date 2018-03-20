@@ -1,9 +1,65 @@
-<div class="buttons">
-  <button class="btn btn-primary button-md" routerLink="..">{{ 'BACK' | translate}}</button>
-</div>
-<div *ngIf="dataFormLoaded">
-  <app-form #createOfferForm [form]="form" (onChange)="onFormChange($event)" (onSubmit)="onSubmit($event)" ></app-form>
+<div class="col col-centered desktop-max-width">
+  <div class="buttons">
+    <button class="btn btn-primary button-md" routerLink="..">{{ 'BACK' | translate}}</button>
+  </div>
+  <form #createForm="ngForm">
+    <ion-item>
+      <ion-label floating>{{'OFFERS.CREATE.TRADING_ACCOUNT' | translate}}</ion-label>
+      <ion-select name="accountId" [(ngModel)]="model.accountId" cancelText="{{'ACCOUNT.CANCEL' | translate}}"
+                  (ionChange)="onSelectAccount()">
+        <ion-option *ngFor="let option of accountsList" [value]="option.id">{{option.accountName}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>{{'OFFERS.CREATE.CURRENCY' | translate}}</ion-label>
+      <ion-select name="tradeCurrency" [(ngModel)]="model.tradeCurrency" cancelText="{{'ACCOUNT.CANCEL' | translate}}"
+                  (ionChange)="onValueChanges($event)">
+        <ion-option *ngFor="let option of tradeList" [value]="option">{{option}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-list radio-group [(ngModel)]="model.priceType" name="type" (ionChange)="onValueChanges($event)">
+      <ion-list-header>{{'OFFERS.CREATE.TYPE' | translate}}</ion-list-header>
+      <ion-item>
+        <ion-label>{{'OFFERS.CREATE.FIXED' | translate}}</ion-label>
+        <ion-radio checked="true" value="FIXED"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{'OFFERS.CREATE.PERCENTAGE' | translate}}</ion-label>
+        <ion-radio value="PERCENTAGE"></ion-radio>
+      </ion-item>
+    </ion-list>
+    <ion-item>
+      <ion-label floating>{{'OFFERS.CREATE.VOLUME' | translate}}</ion-label>
+      <ion-input type="number" name="amount" [(ngModel)]="model.amount"
+                 (ionChange)="onValueChanges($event)"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>{{'OFFERS.CREATE.PRICE' | translate}}</ion-label>
+      <ion-input type="number" name="fixedPrice" [(ngModel)]="model.fixedPrice"
+                 (ionChange)="onValueChanges($event)"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>{{'OFFERS.CREATE.PERCENT_DISTANCE' | translate}}</ion-label>
+      <ion-input type="number" name="percentageFromMarketPrice" [(ngModel)]="model.percentageFromMarketPrice"
+                 (ionChange)="onValueChanges($event)"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>{{'OFFERS.CREATE.AMOUNT' | translate}}</ion-label>
+      <ion-input type="number" name="calculatedValue" [(ngModel)]="model.calculatedValue"
+                 (ionChange)="onValueChanges($event)"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>{{'OFFERS.CREATE.MINUMUM_VOLUME' | translate}}</ion-label>
+      <ion-input type="number" name="minAmount" [(ngModel)]="model.minAmount"
+                 (ionChange)="onValueChanges($event)"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>{{'OFFERS.CREATE.SECURITY_DEPOSIT' | translate}}</ion-label>
+      <ion-input type="number" name="deposit" [(ngModel)]="model.deposit"
+                 (ionChange)="onValueChanges($event)"></ion-input>
+    </ion-item>
+  </form>
   <div class="buttons send-form-button">
-    <button class="btn btn-primary button-md" (click)="createOfferForm.submit()">{{ 'OFFERS.CREATE.SAVE' | translate}}</button>
+    <button class="btn btn-primary button-md" (click)="submit()">{{ 'OFFERS.CREATE.SAVE' | translate}}</button>
   </div>
 </div>
