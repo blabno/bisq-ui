@@ -1,6 +1,6 @@
 <form [formGroup]="formGroup" (ngSubmit)="submit()">
   <div *ngFor="let field of formFields">
-    <ion-item>
+    <ion-item *ngIf="'footer' !== field.type">
       <ion-label *ngIf="'checkbox' === field.type">{{field.label | translate}}</ion-label>
       <ion-label *ngIf="'checkbox' !== field.type" floating>{{field.label | translate}}</ion-label>
       <ion-input *ngIf="'text' === field.type" type="text" [formControlName]="field.key"></ion-input>
@@ -12,6 +12,11 @@
       </ion-select>
       <ion-checkbox *ngIf="'checkbox' === field.type" [formControlName]="field.key"></ion-checkbox>
     </ion-item>
+    <div *ngIf="'footer' === field.type" class="footer">
+      <hr/>
+      <div class="label">{{field.label | translate}}:</div>
+      <div class="text">{{field.text | translate}}</div>
+    </div>
     <div *ngIf="!formGroup.get(field.key).valid && formGroup.get(field.key).touched">
       <div *ngFor="let validator of field.validators">
         <div *ngIf="formGroup.get(field.key).errors[validator]">

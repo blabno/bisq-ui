@@ -113,15 +113,14 @@ export class CurrencyComponent implements OnInit, OnDestroy {
         {value: 'hu', label: 'HU'}
       ]
     },
-    limitations: {
-      type: 'text', label: 'ACCOUNT.CURRENCY.LIMITATIONS',
-      value: 'ACCOUNT.CURRENCY.LIMITATION_SEPA',
-      disabled: true
-    },
     salt: {type: 'text', label: 'ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE'},
     accountName: {
       type: 'text', label: 'ACCOUNT.CURRENCY.ACCOUNT_NAME',
       validators: ['required']
+    },
+    limitations: {
+      type: 'footer', label: 'ACCOUNT.CURRENCY.LIMITATIONS',
+      text: 'ACCOUNT.CURRENCY.LIMITATION_SEPA'
     }
   };
   venmoForm = {
@@ -141,15 +140,14 @@ export class CurrencyComponent implements OnInit, OnDestroy {
       ],
       disabled: true,
     },
-    limitations: {
-      type: 'text', label: 'ACCOUNT.CURRENCY.LIMITATIONS',
-      value: 'ACCOUNT.CURRENCY.LIMITATION_VENMO',
-      disabled: true
-    },
     salt: {type: 'text', label: 'ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE'},
     accountName: {
       type: 'text', label: 'ACCOUNT.CURRENCY.ACCOUNT_NAME',
       validators: ['required']
+    },
+    limitations: {
+      type: 'footer', label: 'ACCOUNT.CURRENCY.LIMITATIONS',
+      text: 'ACCOUNT.CURRENCY.LIMITATION_VENMO'
     }
   };
 
@@ -169,10 +167,6 @@ export class CurrencyComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.translate.get('T').subscribe(() => {
-      this.sepaForm.limitations.value = this.translate.instant('ACCOUNT.CURRENCY.LIMITATION_SEPA');
-      this.venmoForm.limitations.value = this.translate.instant('ACCOUNT.CURRENCY.LIMITATION_VENMO');
-    });
     this.paymentAccountsDAO.query().then((result: any) => (this.accounts = result.paymentAccounts));
 
   }

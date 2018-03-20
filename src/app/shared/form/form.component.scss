@@ -6,4 +6,13 @@ app-form {
     color: red;
     margin-left: 16px;
   }
+  .footer {
+    margin-top: 32px;
+    hr {
+      background-color: #dedede;
+    }
+    .label {
+      font-weight: bold;
+    }
+  }
 }
