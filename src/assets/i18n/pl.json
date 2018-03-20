@@ -28,8 +28,6 @@
 			"OWNER_NAME": "Imię i nazwisko posiadacza",
 			"PAYMENT_METHOD": "Metoda płatności",
 			"SALT_ACCOUNT_AGE": "Kod potwierdzający aktywność konta",
-			"VALIDATION_15_TO_34": "Numer musi mieć od 15 do 34 znaków",
-			"VALIDATION_8_NOR_11": "Wymagane 8 lub 11 znaków",
 			"VENMO_NAME": "Nazwa konta Venmo"
 		},
 		"DELETE": "Usuń konto",
@@ -75,7 +73,6 @@
 	"BACK": "Wróć",
 	"CANCEL": "Anuluj",
 	"CONFIRM": "Potwierdź",
-	"FIELD_REQUIRED": "To pole jest wymagane",
 	"FUNDS": {
 		"RECEIVE": {
 			"NEW_ADDRESS": "Wygeneruj nowy adres"
@@ -212,6 +209,11 @@
 		"TRADES": {
 			"CANT_FETCH_DATA": "Błąd: Nie można pobrać/odświeżyć listy transakcji"
 		}
+	},
+	"VALIDATION": {
+		"BIC": "Wymagane 8 lub 11 znaków",
+		"IBAN": "Numer musi mieć od 15 do 34 znaków",
+		"REQUIRED": "To pole jest wymagane"
 	},
 	"WARNING": "Ostrzeżenie"
 }

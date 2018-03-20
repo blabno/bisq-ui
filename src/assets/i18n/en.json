@@ -28,8 +28,6 @@
 			"OWNER_NAME": "Account owner full name",
 			"PAYMENT_METHOD": "Payment method",
 			"SALT_ACCOUNT_AGE": "Salt for account age verification",
-			"VALIDATION_15_TO_34": "Number must have length 15 to 34 chars",
-			"VALIDATION_8_NOR_11": "Input length is neither 8 nor 11",
 			"VENMO_NAME": "Venmo username"
 		},
 		"DELETE": "Delete Account",
@@ -75,7 +73,6 @@
 	"BACK": "Back",
 	"CANCEL": "Cancel",
 	"CONFIRM": "Confirm",
-	"FIELD_REQUIRED": "This field is required",
 	"FUNDS": {
 		"RECEIVE": {
 			"NEW_ADDRESS": "Generate new address"
@@ -212,6 +209,11 @@
 		"TRADES": {
 			"CANT_FETCH_DATA": "Error: Cant't fetch/refresh trades list"
 		}
+	},
+	"VALIDATION": {
+		"BIC": "Input length is neither 8 nor 11",
+		"IBAN": "Number must have length 15 to 34 chars",
+		"REQUIRED": "This field is required"
 	},
 	"WARNING": "Warning"
 }

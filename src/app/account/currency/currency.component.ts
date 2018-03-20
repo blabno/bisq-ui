@@ -12,8 +12,6 @@ function t(str) {
 
 t('ACCOUNT.CURRENCY.PAYMENT_METHOD');
 t('ACCOUNT.CURRENCY.OWNER_NAME');
-t('ACCOUNT.CURRENCY.VALIDATION_8_NOR_11');
-t('ACCOUNT.CURRENCY.VALIDATION_15_TO_34');
 t('ACCOUNT.CURRENCY.BANK_COUNTRY');
 t('ACCOUNT.CURRENCY.COUNTRY_PL');
 t('ACCOUNT.CURRENCY.ACCEPTED_TRADES_EURO');
@@ -28,20 +26,6 @@ t('ACCOUNT.CURRENCY.CURRENCY');
 t('ACCOUNT.CURRENCY.CURRENCY_USD');
 t('ACCOUNT.CURRENCY.CURRENCY_PLN');
 t('ACCOUNT.CURRENCY.DELETE_CONFIRMATION');
-
-function ibanValidator(control) {
-  if (!control.value || (8 !== control.value.length && 11 !== control.value.length)) {
-    return {wrongLength: true}
-  }
-  return null;
-}
-
-function bicValidator(control) {
-  if (!control.value || 15 > control.value.length || 36 < control.value.length) {
-    return {wrongLength: true}
-  }
-  return null;
-}
 
 @Component({
   selector: 'app-currency',
@@ -64,25 +48,11 @@ export class CurrencyComponent implements OnInit, OnDestroy {
     },
     iban: {
       type: 'text', label: 'IBAN',
-      validators: [
-        'required',
-        {
-          key: 'wrongLength',
-          message: 'ACCOUNT.CURRENCY.VALIDATION_8_NOR_11',
-          handler: ibanValidator
-        }
-      ]
+      validators: ['required', 'iban']
     },
     bic: {
       type: 'text', label: 'BIC',
-      validators: [
-        'required',
-        {
-          key: 'wrongLength',
-          message: 'ACCOUNT.CURRENCY.VALIDATION_15_TO_34',
-          handler: bicValidator
-        }
-      ]
+      validators: ['required', 'bic']
     },
     countryCode: {
       type: 'select', label: 'ACCOUNT.CURRENCY.BANK_COUNTRY',
