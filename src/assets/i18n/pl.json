@@ -146,6 +146,24 @@
 	},
 	"PREFERENCES": "Preferencje",
 	"SETTINGS_VIEW": {
+		"ABOUT": {
+			"ABOUT_BISQ": "O bisq",
+			"ABOUT_BISQ_TEXT": "Bisq is an open source project and a decentralized network of users who want to exchange Bitcoin with national currencies or alternative crypto currencies in a privacy protecting way. Learn more about Bisq on our project web page.",
+			"AGPL_LICENSE": "Licencja AGPL",
+			"APPLICATION_VERSION": "Wersja aplikacji",
+			"BISQ_IS_COMMUNITY": "Bisq is not a company but a community project and open for participation. If you want to participate or support Bisq please follow the links below.",
+			"BISQ_USES_3RD_APIS": "Bisq uses 3rd party APIs for Fiat and Altcoin market prices as well as for mining fee estimation.",
+			"BISQ_WEB_PAGE": "Strona internetowa bisq",
+			"CONTRIBUTE": "Współpraca",
+			"DATA_PROVIDERS": "Dostawcy danych",
+			"DONATE": "Dotacje",
+			"MARKET_PRICES_PROVIDED_BY": "Market prices provided by",
+			"MINING_FEE_ESTIMATION_PROVIDED_BY": "Mining fee estimation provided by",
+			"SOURCE_CODE": "Kod źródłowy",
+			"SUPPORT_BISQ": "Wspieraj bisq",
+			"VERSIONS_OF_SUBSYSTEMS": "Wersje podsystemów",
+			"VERSION_DETAILS": "Wersje"
+		},
 		"NETWORK_INFO": {
 			"BITCOIN_CORE_NODES_TO_CONNECT_TO": "Węzeł bitcoin połączony do",
 			"BITCOIN_NETWORK": "Sieć bitcoin",
