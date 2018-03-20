@@ -8,7 +8,8 @@ import {TranslateService} from '@ngx-translate/core';
 import {ArbitratorsDAO} from './shared/DAO/arbitrators.dao';
 import {CurrenciesDAO} from './shared/DAO/currencies.dao';
 import {InfoModalService} from './shared/infoModal/infoModal.service';
-import {OffersDAO} from "./shared/DAO/offers.dao";
+import {MarketPrizeService} from './shared/services/marketPrize.service';
+import {OffersDAO} from './shared/DAO/offers.dao';
 import {PaymentAccountsDAO} from './shared/DAO/paymentAccounts.dao';
 import {SettingsService} from './shared/services/settings.service';
 import {ToastService} from './shared/services/toast.service';
@@ -28,6 +29,7 @@ t('WARNING');
     ArbitratorsDAO,
     CurrenciesDAO,
     InfoModalService,
+    MarketPrizeService,
     OffersDAO,
     PaymentAccountsDAO,
     SettingsService,
