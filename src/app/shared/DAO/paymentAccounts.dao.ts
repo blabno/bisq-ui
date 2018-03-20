@@ -14,4 +14,8 @@ export class PaymentAccountsDAO {
   create(payload) {
     return this.http.post('/api/v1/payment-accounts', payload).toPromise();
   }
+
+  delete(id) {
+    return this.http.delete(`/api/v1/payment-accounts/${id}`).toPromise();
+  }
 }

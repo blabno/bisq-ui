@@ -1,10 +1,8 @@
 {
 	"ABOUT": "O programie",
 	"ACCOUNT": {
+		"ACCOUNTS_LIST": "Lista kont",
 		"ADD_NEW": "Dodaj konto",
-		"ALTCOINS": {
-			"YOUR_ACCOUNTS": "Twoje konta altcoins"
-		},
 		"ARBITRATOR": {
 			"ARBITRATOR_ADDRESS": "Adres aribtratora",
 			"AUTO_SELECT_ARBITRATORS_WITH_MATCHING_LANGUAGE": "Automatycznie przydziel arbitra o tym samym języku",
@@ -13,27 +11,67 @@
 			"WHICH_ARBITRATORS_DO_YOU_ACCEPT": "Których arbitratorów wybierasz",
 			"WHICH_LANGUAGE_DO_YOU_SPEAK": "Wybierz języki, które umiesz"
 		},
-		"CANCEL": "Anuluj",
 		"CREATE_NEW": "Stwórz nowe konto",
 		"CURRENCY": {
-			"ACCEPTED_TRADES": "Akceptowane transakcje",
+			"ACCEPTED_TRADES_EURO": "Akceptowane transakcje z krajami w Euro",
+			"ACCEPTED_TRADES_NON_EURO": "Akceptowane transakcje z krajami w innych walutach",
 			"ACCOUNT_NAME": "Nazwa konta",
 			"BANK_COUNTRY": "Kraj banku",
+			"COUNTRY_AT": "Austria (AT)",
+			"COUNTRY_BE": "Belgia (BE)",
+			"COUNTRY_BG": "Bułgaria (BG)",
+			"COUNTRY_CH": "Szwajcaria (CH)",
+			"COUNTRY_CY": "Cypr (CY)",
+			"COUNTRY_CZ": "Republika Czeska (CZ)",
+			"COUNTRY_DE": "Niemcy (DE)",
+			"COUNTRY_DK": "Dania (DK)",
+			"COUNTRY_EE": "Estonia (EE)",
+			"COUNTRY_ES": "Hiszpania (ES)",
+			"COUNTRY_FI": "Finlandia (FI)",
+			"COUNTRY_FR": "Francja (FR)",
+			"COUNTRY_GB": "Wielka Brytania (GB)",
+			"COUNTRY_GR": "Grecja (GR)",
+			"COUNTRY_HR": "Chorwacja (HR)",
+			"COUNTRY_HU": "Węgry (HU)",
+			"COUNTRY_IE": "Irlandia (IE)",
+			"COUNTRY_IS": "Islandia (IS)",
+			"COUNTRY_IT": "Włochy (IT)",
+			"COUNTRY_LI": "Liechtenstein (LI)",
+			"COUNTRY_LT": "Litwa (LT)",
+			"COUNTRY_LU": "Luksemburg (LU)",
+			"COUNTRY_LV": "Łotwa (LV)",
+			"COUNTRY_MC": "Monako (MC)",
+			"COUNTRY_MT": "Malta (MT)",
+			"COUNTRY_NL": "Holandia (NL)",
+			"COUNTRY_NO": "Norwegia (NO)",
 			"COUNTRY_PL": "Polska (PL)",
+			"COUNTRY_PT": "Portugalia (PT)",
+			"COUNTRY_RO": "Rumunia (RO)",
+			"COUNTRY_SE": "Szwecja (SE)",
+			"COUNTRY_SI": "Słowenia (SI)",
+			"COUNTRY_SK": "Słowacja (SK)",
 			"CURRENCY": "Waluta",
-			"CURRENCY_PLN": "Polski Złoty (PLN)",
-			"CURRENCY_USD": "Dolar amerykański (USD)",
+			"CURRENCY_BGN": "Lew bułgarski (BGN)",
+			"CURRENCY_CHF": "Frank szwajcarski (CHF)",
+			"CURRENCY_CZK": "Korona czeska (CZK)",
+			"CURRENCY_DKK": "Duńska korona (DKK)",
+			"CURRENCY_EUR": "Euro (EUR)",
+			"CURRENCY_HUF": "Forint węgierski (HUF)",
+			"CURRENCY_ISK": "Korona islandzka (ISK)",
+			"CURRENCY_NOK": "Korona norweska (NOK)",
+			"CURRENCY_PLN": "Polski złoty (PLN)",
+			"CURRENCY_RON": "Lej rumuński (RON)",
+			"CURRENCY_SEK": "Korona szwedzka (SEK)",
+			"DELETE_CONFIRMATION": "Czy na pewno chcesz usunąć to konto?",
 			"LIMITATIONS": "Ograniczenia",
 			"LIMITATION_SEPA": "Maks. czas transakcji: 6 dni / Maks. limit transakcji: 0.0625 BTC / aktywność konta: 0 dni",
 			"LIMITATION_VENMO": "Maks. czas transakcji: 1 dzień / Maks. limit transakcji: 0.04 BTC / aktywność konta: 0 dni",
 			"OWNER_NAME": "Imię i nazwisko posiadacza",
 			"PAYMENT_METHOD": "Metoda płatności",
 			"SALT_ACCOUNT_AGE": "Kod potwierdzający aktywność konta",
-			"VALIDATION_15_TO_34": "Number musi mieć od 15 do 34 znaków",
-			"VALIDATION_8_NOR_11": "Wymagane 8 lub 11 znaków",
-			"VENMO_NAME": "Nazwa konta Venmo",
-			"YOUR_ACCOUNTS": "Twoje konta walutowe"
+			"VENMO_NAME": "Nazwa konta Venmo"
 		},
+		"DELETE": "Usuń konto",
 		"EXPORT": "Eksportuj konta",
 		"IMPORT": "Importuj konta",
 		"INIT_MODAL": {
@@ -42,7 +80,6 @@
 			"PARAGRAPH3": "Prywatność i bezpieczeństwo: \nBisq to zdecentralizowana giełda - co oznacza, że ​​wszystkie twoje dane są przechowywane na komputerze, nie ma serwerów i nie mamy dostępu do twoich danych osobowych, twoich funduszy, a nawet twojego adresu IP. Dane takie jak numery rachunków bankowych, adresy e-mail i bitcoin itp. są udostępniane tylko Twojemu partnerowi handlowemu w celu realizacji zainicjowanych transakcji (w przypadku sporu arbiter zobaczy te same dane, co twój partner handlowy).",
 			"TITLE": "Witaj na Twoim koncie Bisq"
 		},
-		"MANAGE_ACCOUNTS": "Zarządzaj kontami",
 		"SAVE": "Zapisz nowe konto",
 		"SUBMENU": {
 			"ALTCOINS_ACCOUNTS": "Konta alternatywne",
@@ -74,7 +111,9 @@
 			"SEED_WORDS": "Fraza mnemoniczna portfela"
 		}
 	},
-	"FIELD_REQUIRED": "To pole jest wymagane",
+	"BACK": "Wróć",
+	"CANCEL": "Anuluj",
+	"CONFIRM": "Potwierdź",
 	"FUNDS": {
 		"RECEIVE": {
 			"NEW_ADDRESS": "Wygeneruj nowy adres"
@@ -111,7 +150,6 @@
 	"OFFERS": {
 		"CREATE": {
 			"AMOUNT": "Wartość",
-			"BACK": "Wróć",
 			"CURRENCY": "Waluta",
 			"MINUMUM_VOLUME": "Minimalna ilość",
 			"PRICE": "Cena",
@@ -205,9 +243,17 @@
 			"CANT_FETCH_DATA": "Błąd: Nie można pobrać/odświeżyć listy ofert"
 		},
 		"PAYMENT_METHOD_CREATED": "Metoda płatnosci stworzona pomyślnie",
-		"PAYMENT_METHOD_ERROR": "Błąd podczas tworzenia metody płatnosci",
+		"PAYMENT_METHOD_CREATE_ERROR": "Błąd podczas tworzenia metody płatnosci",
+		"PAYMENT_METHOD_DELETED": "Metoda płatnosci usunięta pomyślnie",
+		"PAYMENT_METHOD_DELETE_ERROR": "Błąd podczas usuwania metody płatnosci",
 		"TRADES": {
 			"CANT_FETCH_DATA": "Błąd: Nie można pobrać/odświeżyć listy transakcji"
 		}
-	}
+	},
+	"VALIDATION": {
+		"BIC": "Wymagane 8 lub 11 znaków",
+		"IBAN": "Numer musi mieć od 15 do 34 znaków",
+		"REQUIRED": "To pole jest wymagane"
+	},
+	"WARNING": "Ostrzeżenie"
 }

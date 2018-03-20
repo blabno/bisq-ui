@@ -1,6 +1,18 @@
 app-form {
+  ion-item.item.item-checkbox {
+    margin-top: 20px;
+  }
   .validation {
     color: red;
     margin-left: 16px;
+  }
+  .footer {
+    margin-top: 32px;
+    hr {
+      background-color: #dedede;
+    }
+    .label {
+      font-weight: bold;
+    }
   }
 }

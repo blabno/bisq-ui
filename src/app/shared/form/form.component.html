@@ -1,21 +1,28 @@
 <form [formGroup]="formGroup" (ngSubmit)="submit()">
   <div *ngFor="let field of formFields">
-    <ion-item>
-      <ion-label floating>{{field.label | translate}}</ion-label>
+    <ion-item *ngIf="'footer' !== field.type">
+      <ion-label *ngIf="'checkbox' === field.type">{{field.label | translate}}</ion-label>
+      <ion-label *ngIf="'checkbox' !== field.type" floating>{{field.label | translate}}</ion-label>
       <ion-input *ngIf="'text' === field.type" type="text" [formControlName]="field.key"></ion-input>
       <ion-select *ngIf="'select' === field.type" [formControlName]="field.key" [multiple]="field.multiple"
-                  cancelText="{{'ACCOUNT.CANCEL' | translate}}">
+                  cancelText="{{'CANCEL' | translate}}">
         <ion-option *ngFor="let option of field.options" [value]="option.value">
           {{option.label | translate}}
         </ion-option>
       </ion-select>
       <ion-checkbox *ngIf="'checkbox' === field.type" [formControlName]="field.key"></ion-checkbox>
     </ion-item>
+    <div *ngIf="'footer' === field.type" class="footer">
+      <hr/>
+      <div class="label">{{field.label | translate}}:</div>
+      <div class="text">{{field.text | translate}}</div>
+    </div>
     <div *ngIf="!formGroup.get(field.key).valid && formGroup.get(field.key).touched">
       <div *ngFor="let validator of field.validators">
-        <div *ngIf="formGroup.get(field.key).errors[validator.key || validator]">
-          <div *ngIf="'required' === validator" class="validation">{{'FIELD_REQUIRED' | translate}}</div>
-          <div *ngIf="'required' !== validator" class="validation">{{validator.message | translate}}</div>
+        <div *ngIf="formGroup.get(field.key).errors[validator]">
+          <div *ngIf="'required' === validator" class="validation">{{'VALIDATION.REQUIRED' | translate}}</div>
+          <div *ngIf="'iban' === validator" class="validation">{{'VALIDATION.IBAN' | translate}}</div>
+          <div *ngIf="'bic' === validator" class="validation">{{'VALIDATION.BIC' | translate}}</div>
         </div>
       </div>
     </div>

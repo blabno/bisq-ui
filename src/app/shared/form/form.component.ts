@@ -4,6 +4,26 @@ import _ from 'lodash';
 
 import {ToastService} from '../services/toast.service';
 
+function ibanValidator(control) {
+  if (!control.value || (8 !== control.value.length && 11 !== control.value.length)) {
+    return {iban: true}
+  }
+  return null;
+}
+
+function bicValidator(control) {
+  if (!control.value || 15 > control.value.length || 36 < control.value.length) {
+    return {bic: true}
+  }
+  return null;
+}
+
+const validatorsMap = {
+  required: Validators.required,
+  iban: ibanValidator,
+  bic: bicValidator
+};
+
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html'
@@ -27,8 +47,8 @@ export class FormComponent implements OnInit, OnChanges {
     this.formGroup = new FormGroup(_.mapValues(this.form, (field, key) => new FormControl({
       value: field.value || this.values[key] || null,
       disabled: field.disabled || this.disabled || false
-    }, this.getValidators(field.validators))));
-    this.formGroup.valueChanges.subscribe(() => this.onChange.emit(this.formGroup));
+    }, _.map(field.validators, validator => validatorsMap[validator]))));
+    this.formGroup.valueChanges.subscribe(() => console.log(this.formGroup) || this.onChange.emit(this.formGroup));
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -37,17 +57,16 @@ export class FormComponent implements OnInit, OnChanges {
     }
   }
 
-  getValidators(validators) {
-    return _.map(validators, (validator) => {
-      if ('required' === validator) {
-        return Validators.required
-      } else {
-        return validator.handler
-      }
-    });
+  submit() {
+    if (this.formGroup.valid) {
+      this.onSubmit.emit(_.mapValues(this.formGroup.controls, 'value'));
+    } else {
+      this.toast.show('TOAST.FORM_VALIDATION_ERROR', 'error');
+      _.forEach(this.formGroup.controls, (control) => control.markAsTouched());
+    }
   }
 
-  submit() {
+  delete() {
     if (this.formGroup.valid) {
       this.onSubmit.emit(_.mapValues(this.formGroup.controls, 'value'));
     } else {
