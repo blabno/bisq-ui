@@ -11,12 +11,14 @@ export class InfoModalService {
   }
 
   show(params) {
-    const isHidden = _.chain(localStorage.getItem('hiddenModals'))
-      .split(',')
-      .includes(params.id)
-      .value();
-    if (!isHidden) {
-      this.modalCtrl.create(InfoModalComponent, params).present();
-    }
+    setTimeout(() => {
+      const isHidden = _.chain(localStorage.getItem('hiddenModals'))
+        .split(',')
+        .includes(params.id)
+        .value();
+      if (!isHidden) {
+        this.modalCtrl.create(InfoModalComponent, params).present();
+      }
+    }, 0);
   }
 }
