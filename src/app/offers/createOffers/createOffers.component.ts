@@ -87,7 +87,7 @@ export class CreateOffersComponent implements OnInit, OnDestroy {
         break;
       case 'fixedPrice':
         this.createForm.controls['calculatedValue'].setValue(values.amount * values.fixedPrice);
-        this.createForm.controls['percentageFromMarketPrice'].setValue(100 - (values.fixedPrice * this.marketPrice) / 100);
+        this.createForm.controls['percentageFromMarketPrice'].setValue((this.marketPrice-values.fixedPrice) / this.marketPrice* 100);
         break;
       case 'percentageFromMarketPrice':
         this.calculateBasedOnPercentageFromMarketPrice();
