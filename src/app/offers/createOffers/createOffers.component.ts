@@ -1,82 +1,125 @@
 import * as _ from 'lodash';
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {PaymentAccountsDAO} from "../../shared/DAO/paymentAccounts.dao";
 import {OffersDAO} from "../../shared/DAO/offers.dao";
 import {ToastService} from "../../shared/services/toast.service";
-
-function t(str) {
-  return str;
-}
-
-t('OFFERS.CREATE.TRADING_ACCOUNT');
-t('OFFERS.CREATE.CURRENCY');
-t('OFFERS.CREATE.VOLUME');
-t('OFFERS.CREATE.PRICE');
-t('OFFERS.CREATE.AMOUNT');
-t('OFFERS.CREATE.MINUMUM_VOLUME');
-t('OFFERS.CREATE.SECURITY_DEPOSIT');
-
+import {MarketPrizeService} from "../../shared/services/marketPrize.service";
 
 @Component({
   selector: 'app-create-offers',
   templateUrl: 'createOffers.component.html'
 })
 export class CreateOffersComponent implements OnInit, OnDestroy {
+  @ViewChild('createForm') createForm;
 
-  constructor(private activeRoute: ActivatedRoute, private paymentsDAO: PaymentAccountsDAO, private offersDAO: OffersDAO, private toast: ToastService) {
+  constructor(private activeRoute: ActivatedRoute, private paymentsDAO: PaymentAccountsDAO, private offersDAO: OffersDAO, private toast: ToastService, private marketPrize: MarketPrizeService) {
   }
 
   private paramSubscribe: any;
-  dataFormLoaded: boolean = false;
+  private marketPrice = 0;
+
   type: 'sell' | 'buy';
-  model = {};
-  form = {
-    accountId: {
-      label: 'OFFERS.CREATE.TRADING_ACCOUNT', type: 'select',
-      options: []
-    },
-    tradeCurrency: {
-      label: 'OFFERS.CREATE.CURRENCY',
-      type: 'text'
-    },
-    amount: {label: 'OFFERS.CREATE.VOLUME', type: 'text'},
-    fixedPrice: {label: 'OFFERS.CREATE.PRICE', type: 'text'},
-    value: {label: 'OFFERS.CREATE.AMOUNT', type: 'text', disabled: true},
-    minAmount: {label: 'OFFERS.CREATE.MINUMUM_VOLUME', type: 'text'},
-    deposit: {label: 'OFFERS.CREATE.SECURITY_DEPOSIT', type: 'text'}
+
+  accountsList;
+  tradeList;
+  model = {
+    accountId: null,
+    tradeCurrency: null,
+    priceType: 'FIXED',
+    percentageFromMarketPrice: 0,
+    amount: 0,
+    fixedPrice: 0,
+    calculatedValue: 0,
+    minAmount: 0,
+    deposit: 0.01
   };
 
-  onFormChange(form) {
-    const value = form.value;
-    form.patchValue({value: value.amount * value.fixedPrice}, {emitEvent: false});
-  }
 
   ngOnInit() {
     this.paramSubscribe = this.activeRoute.params.subscribe(params => {
       this.type = params['type'];
     });
     this.paymentsDAO.query().then((res: any) => {
-      this.form.accountId.options = this.getPaymentAccountList(res.paymentAccounts);
-      this.dataFormLoaded = true;
-    })
+      this.accountsList = res.paymentAccounts;
+    });
   }
 
   ngOnDestroy() {
     this.paramSubscribe.unsubscribe();
   }
 
-  private getPaymentAccountList(list) {
-    return _.map(list, (item) => ({value: item.id, label: item.accountName}));
+  onSelectAccount() {
+    if (!this.model.accountId) {
+      return;
+    }
+    const selectedAccount = _.find(this.accountsList, {id: this.model.accountId});
+    this.tradeList = selectedAccount.tradeCurrencies;
+    this.model.tradeCurrency = selectedAccount.selectedTradeCurrency;
+    this.getMarketPrize(selectedAccount.selectedTradeCurrency);
   }
 
-  onSubmit(value) {
-    const preparedForm = _.merge({}, _.omit(value, ['tradeCurrency', 'value', 'deposit']), {
+  private getMarketPrize(fiatCurrency) {
+    this.marketPrize.get('BTC', fiatCurrency).then(result => {
+      this.marketPrice = result;
+      this.calculateBasedOnPercentageFromMarketPrice();
+    });
+  }
+
+  private calculateBasedOnPercentageFromMarketPrice() {
+    const newFixedPrice = this.marketPrice - (this.createForm.value.percentageFromMarketPrice / 100 * this.marketPrice);
+    this.createForm.controls['fixedPrice'].setValue(newFixedPrice);
+    this.createForm.controls['calculatedValue'].setValue(this.createForm.value.amount * newFixedPrice);
+  }
+
+  onValueChanges(event) {
+    if (_.get(event, '_native.nativeElement') !== document.activeElement) {
+      return;
+    }
+    const elementName = _.get(event, '_native.nativeElement.name');
+    const values = this.createForm.value;
+    switch (elementName) {
+      case 'amount':
+        this.createForm.controls['calculatedValue'].setValue(values.amount * values.fixedPrice);
+        if (values.amount < values.minAmount) {
+          this.createForm.controls['minAmount'].setValue(values.amount);
+        }
+        break;
+      case 'fixedPrice':
+        this.createForm.controls['calculatedValue'].setValue(values.amount * values.fixedPrice);
+        this.createForm.controls['percentageFromMarketPrice'].setValue(100 - (values.fixedPrice * this.marketPrice) / 100);
+        break;
+      case 'percentageFromMarketPrice':
+        this.calculateBasedOnPercentageFromMarketPrice();
+        break;
+      case 'calculatedValue':
+        const newAmount = values.fixedPrice * values.calculatedValue;
+        this.createForm.controls['amount'].setValue(newAmount);
+        if (newAmount < values.minAmount) {
+          this.createForm.controls['minAmount'].setValue(newAmount);
+        }
+        break;
+      case 'minAmount':
+        if (0 > values.minAmount) {
+          this.createForm.controls['minAmount'].setValue(0);
+        }
+        if (values.amount < values.minAmount) {
+          this.createForm.controls['amount'].setValue(values.minAmount);
+        }
+        break;
+      case 'tradeCurrency':
+        this.getMarketPrize(values.priceType);
+        break;
+      default:
+        _.noop();
+    }
+  }
+
+  submit() {
+    const preparedForm = _.merge({}, _.omit(this.model, ['tradeCurrency', 'calculatedValue']), {
       fundUsingBisqWallet: true,
       direction: this.type.toUpperCase(),
-      marketPair: 'BTC_' + value.tradeCurrency,
-      // priceType: 'FIXED',
-      percentageFromMarketPrice: 10
+      marketPair: 'BTC_' + this.model.tradeCurrency
     });
     this.offersDAO.create(preparedForm).then(res => {
       this.toast.show('SUCCESS', 'success');
