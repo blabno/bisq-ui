@@ -16,6 +16,6 @@ export class NetworkInfoComponent {
   public useTorForBitcoinNetwork = true;
   public relationship;
   public myOnionAddress = 'vftomyq6q36h2mwj.onion:9999';
-  public traffic = "Sent: 41.34MB, received: 34.32 MB"
+  public traffic = "Sent: 41.34MB, received: 34.32 MB";
   constructor() {}
 }

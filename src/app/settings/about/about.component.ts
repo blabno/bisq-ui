@@ -26,6 +26,9 @@ export class AboutComponent {
   public getSubsystemsString() {
     return _.map(this.subsystems, system => {
       return `${system.name}: ${system.version}`;
-    }).join('; '); 
+    }).join('; ');
+  }
+  public openLink(url) {
+    window.open(url, '_system', 'location=yes');
   }
 }

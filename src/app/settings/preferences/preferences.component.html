@@ -1,112 +1,124 @@
-<div class="row">
-    <div class="col col-centered desktop-max-width">
-        <div class="card">
-            <div class="card-header">{{ 'SETTINGS_VIEW.PREFERENCES.GENERAL_PREFERENCES' | translate }}</div>
-            <div class="card-body">
-                <ion-item>
-                    <ion-label>{{ 'SETTINGS_VIEW.PREFERENCES.SELECT_BASE_CURRENCY' | translate }}</ion-label>
-                    <ion-select [(ngModel)]="settings.baseCurrency" (ionChange)="settings.saveSettings()" interface="popover">
-                        <ion-option *ngFor="let currency of settings.baseCurrencyValues" [value]="currency">{{currency}}</ion-option>
-                    </ion-select>
-                </ion-item>
-                <ion-item>
-                    <ion-label>{{ 'SETTINGS_VIEW.PREFERENCES.LANGUAGE' | translate }}</ion-label>
-                    <ion-select (ionChange)="langChange($event)" (ionChange)="settings.saveSettings()" interface="popover">
-                        <ion-option *ngFor="let l of translate.getLangs()" [value]="l" [selected]="translate.currentLang === l">{{languagesNames[l]}}</ion-option>
-                    </ion-select>
-                </ion-item>
-                <ion-item>
-                    <ion-label>{{ 'SETTINGS_VIEW.PREFERENCES.COUNTRY' | translate }}</ion-label>
-                    <ion-select [(ngModel)]="settings.country" (ionChange)="settings.saveSettings()" interface="action-sheet">
-                        <ion-option *ngFor="let country of settings.countryValues" [value]="country">{{country}}</ion-option>
-                    </ion-select>
-                </ion-item>
-                <ion-item>
-                    <ion-label>{{'SETTINGS_VIEW.PREFERENCES.BITCOIN_BLOCK_EXPLORER' | translate }}</ion-label>
-                    <ion-select [(ngModel)]="settings.bitcoinExplorer" (ionChange)="settings.saveSettings()" interface="popover">
-                        <ion-option *ngFor="let bitcoinExplorer of settings.bitcoinExplorerValues" [value]="bitcoinExplorer">{{bitcoinExplorer}}</ion-option>
-                    </ion-select>
-                </ion-item>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <ion-item>
-                            <ion-label>{{'SETTINGS_VIEW.PREFERENCES.WIDTHDRAWAL_TRANSACTION_FEE' | translate }}</ion-label>
-                            <ion-input type="text" [(ngModel)]="settings.widthdrawalTransactionFee" [disabled]="!widthdrawalTransactionFeeEnabled" (ionChange)="settings.saveSettings()"></ion-input>
-                        </ion-item>
-                    </div>
-                    <div class="col-sm-6">
-                        <ion-item>
-                            <ion-label>{{'SETTINGS_VIEW.PREFERENCES.USE_CUSTOM_VALUE' | translate }}</ion-label>
-                            <ion-checkbox [(ngModel)]="widthdrawalTransactionFeeEnabled" (ionChange)="settings.saveSettings()"></ion-checkbox>
-                        </ion-item>
-                    </div>
-                </div>
-                <ion-item>
-                    <ion-label>{{'SETTINGS_VIEW.PREFERENCES.MAX_DEVIATION_FROM_MARKET_PRICE' | translate }}:</ion-label>
-                    <ion-input type="text" [(ngModel)]="settings.maxDeviationFromMarketPrice" (ionChange)="settings.saveSettings()"></ion-input>
-                </ion-item>
-                <ion-item>
-                    <ion-label>{{'SETTINGS_VIEW.PREFERENCES.AUTO_SELECT_ARBITRATORS' | translate }}</ion-label>
-                    <ion-checkbox [(ngModel)]="settings.autoSelectArbitrators" (ionChange)="settings.saveSettings()"></ion-checkbox>
-                </ion-item>
-                <ion-item>
-                    <ion-label>{{'SETTINGS_VIEW.PREFERENCES.IGNORE_PEERS_WITH_ONION_ADDRESS' | translate }}:</ion-label>
-                    <ion-input type="text" [(ngModel)]="settings.ignoredPeers" (ionChange)="settings.saveSettings()"></ion-input>
-                </ion-item>
-            </div>
+<div class="col col-centered desktop-max-width">
+  <div class="card">
+    <div class="card-header">{{ 'SETTINGS_VIEW.PREFERENCES.GENERAL_PREFERENCES' | translate }}</div>
+    <div class="card-body">
+      <ion-item>
+        <ion-label>{{ 'SETTINGS_VIEW.PREFERENCES.SELECT_BASE_CURRENCY' | translate }}</ion-label>
+        <ion-select [(ngModel)]="settings.baseCurrency" (ionChange)="settings.saveSettings()" interface="popover">
+          <ion-option *ngFor="let currency of settings.baseCurrencyValues" [value]="currency">{{currency}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{ 'SETTINGS_VIEW.PREFERENCES.LANGUAGE' | translate }}</ion-label>
+        <ion-select (ionChange)="langChange($event)" (ionChange)="settings.saveSettings()" interface="popover">
+          <ion-option *ngFor="let l of translate.getLangs()" [value]="l" [selected]="translate.currentLang === l">
+            {{languagesNames[l]}}
+          </ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{ 'SETTINGS_VIEW.PREFERENCES.COUNTRY' | translate }}</ion-label>
+        <ion-select [(ngModel)]="settings.country" (ionChange)="settings.saveSettings()" interface="action-sheet">
+          <ion-option *ngFor="let country of settings.countryValues" [value]="country">{{country}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{'SETTINGS_VIEW.PREFERENCES.BITCOIN_BLOCK_EXPLORER' | translate }}</ion-label>
+        <ion-select [(ngModel)]="settings.bitcoinExplorer" (ionChange)="settings.saveSettings()" interface="popover">
+          <ion-option *ngFor="let bitcoinExplorer of settings.bitcoinExplorerValues" [value]="bitcoinExplorer">
+            {{bitcoinExplorer}}
+          </ion-option>
+        </ion-select>
+      </ion-item>
+      <div class="row">
+        <div class="col-sm-6">
+          <ion-item>
+            <ion-label>{{'SETTINGS_VIEW.PREFERENCES.WIDTHDRAWAL_TRANSACTION_FEE' | translate }}</ion-label>
+            <ion-input type="text" [(ngModel)]="settings.widthdrawalTransactionFee"
+                       [disabled]="!widthdrawalTransactionFeeEnabled" (ionChange)="settings.saveSettings()"></ion-input>
+          </ion-item>
         </div>
-        <div class="card mt-2">
-            <div class="card-header">{{'SETTINGS_VIEW.PREFERENCES.CURRENCIES_IN_MARKET_PRICE_FEED_LIST' | translate }}</div>
-            <div class="card-body">
-                <ion-item>
-                    <ion-label>{{'SETTINGS_VIEW.PREFERENCES.PREFERED_CURRENCY' | translate }}</ion-label>
-                    <ion-select [(ngModel)]="settings.preferedCurrency" (ionChange)="settings.saveSettings()">
-                        <ion-option *ngFor="let currency of currencies" [value]="currency.symbol">{{currency.name}}</ion-option>
-                    </ion-select>
-                </ion-item>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="card mt-2 padding">
-                            <ion-item class="card-body">
-                                <ion-label>{{'SETTINGS_VIEW.PREFERENCES.DISPLAY_NATIONAL_CURRENCIES' | translate }}</ion-label>
-                                <ion-select [(ngModel)]="settings.displayedNatonalCurrencies" multiple="true" (ionChange)="settings.saveSettings()">
-                                    <ion-option *ngFor="let nationalCurrency of nationalCurrencies" [value]="nationalCurrency.symbol">{{nationalCurrency.symbol}}</ion-option>
-                                </ion-select>
-                            </ion-item>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="card mt-2 padding">
-                            <ion-item class="card-body">
-                                <ion-label>{{'SETTINGS_VIEW.PREFERENCES.DISPLAY_ALTCOINS' | translate }} </ion-label>
-                                <ion-select [(ngModel)]="settings.displayedAltcoins" multiple="true" (ionChange)="settings.saveSettings()">
-                                    <ion-option *ngFor="let cryptocCurrency of cryptoCurrencies" [value]="cryptocCurrency.symbol">{{cryptocCurrency.symbol}}</ion-option>
-                                </ion-select>
-                            </ion-item>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="col-sm-6">
+          <ion-item>
+            <ion-label>{{'SETTINGS_VIEW.PREFERENCES.USE_CUSTOM_VALUE' | translate }}</ion-label>
+            <ion-checkbox [(ngModel)]="widthdrawalTransactionFeeEnabled"
+                          (ionChange)="settings.saveSettings()"></ion-checkbox>
+          </ion-item>
         </div>
-        <div class="card mt-2">
-            <div class="card-header">{{'SETTINGS_VIEW.PREFERENCES.DISPLAY_OPTIONS' | translate }}</div>
-            <div class="card-body">
-                <ion-item>
-                    <ion-label>{{'SETTINGS_VIEW.PREFERENCES.SHOW_MY_OWN_OFFERS_IN_OFFER_BOOK' | translate }}</ion-label>
-                    <ion-checkbox [(ngModel)]="settings.showMyOwnOffersInOfferBook" (ionChange)="settings.saveSettings()"></ion-checkbox>
-                </ion-item>
-                <ion-item>
-                    <ion-label>{{'SETTINGS_VIEW.PREFERENCES.USE_ANIMATIONS' | translate }} </ion-label>
-                    <ion-checkbox [(ngModel)]="settings.useAnimations" (ionChange)="settings.saveSettings()"></ion-checkbox>
-                </ion-item>
-                <ion-item>
-                    <ion-label>{{'SETTINGS_VIEW.PREFERENCES.SORT_MARKERS_LISTS' | translate }}</ion-label>
-                    <ion-checkbox [(ngModel)]="settings.sortMarkersLists" (ionChange)="settings.saveSettings()"></ion-checkbox>
-                </ion-item>
-                <ion-item>
-                    <button ion-button>{{'SETTINGS_VIEW.PREFERENCES.RESET_ALL' | translate }}</button>
-                </ion-item>
-            </div>
-        </div>
+      </div>
+      <ion-item>
+        <ion-label>{{'SETTINGS_VIEW.PREFERENCES.MAX_DEVIATION_FROM_MARKET_PRICE' | translate }}:</ion-label>
+        <ion-input type="text" [(ngModel)]="settings.maxDeviationFromMarketPrice"
+                   (ionChange)="settings.saveSettings()"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{'SETTINGS_VIEW.PREFERENCES.AUTO_SELECT_ARBITRATORS' | translate }}</ion-label>
+        <ion-checkbox [(ngModel)]="settings.autoSelectArbitrators" (ionChange)="settings.saveSettings()"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{'SETTINGS_VIEW.PREFERENCES.IGNORE_PEERS_WITH_ONION_ADDRESS' | translate }}:</ion-label>
+        <ion-input type="text" [(ngModel)]="settings.ignoredPeers" (ionChange)="settings.saveSettings()"></ion-input>
+      </ion-item>
     </div>
+  </div>
+  <div class="card mt-2">
+    <div class="card-header">{{'SETTINGS_VIEW.PREFERENCES.CURRENCIES_IN_MARKET_PRICE_FEED_LIST' | translate }}</div>
+    <div class="card-body">
+      <ion-item>
+        <ion-label>{{'SETTINGS_VIEW.PREFERENCES.PREFERED_CURRENCY' | translate }}</ion-label>
+        <ion-select [(ngModel)]="settings.preferedCurrency" (ionChange)="settings.saveSettings()">
+          <ion-option *ngFor="let currency of currencies" [value]="currency.symbol">{{currency.name}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="card mt-2 padding">
+            <ion-item class="card-body">
+              <ion-label>{{'SETTINGS_VIEW.PREFERENCES.DISPLAY_NATIONAL_CURRENCIES' | translate }}</ion-label>
+              <ion-select [(ngModel)]="settings.displayedNatonalCurrencies" multiple="true"
+                          (ionChange)="settings.saveSettings()">
+                <ion-option *ngFor="let nationalCurrency of nationalCurrencies" [value]="nationalCurrency.symbol">
+                  {{nationalCurrency.symbol}}
+                </ion-option>
+              </ion-select>
+            </ion-item>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card mt-2 padding">
+            <ion-item class="card-body">
+              <ion-label>{{'SETTINGS_VIEW.PREFERENCES.DISPLAY_ALTCOINS' | translate }}</ion-label>
+              <ion-select [(ngModel)]="settings.displayedAltcoins" multiple="true"
+                          (ionChange)="settings.saveSettings()">
+                <ion-option *ngFor="let cryptocCurrency of cryptoCurrencies" [value]="cryptocCurrency.symbol">
+                  {{cryptocCurrency.symbol}}
+                </ion-option>
+              </ion-select>
+            </ion-item>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card mt-2">
+    <div class="card-header">{{'SETTINGS_VIEW.PREFERENCES.DISPLAY_OPTIONS' | translate }}</div>
+    <div class="card-body">
+      <ion-item>
+        <ion-label>{{'SETTINGS_VIEW.PREFERENCES.SHOW_MY_OWN_OFFERS_IN_OFFER_BOOK' | translate }}</ion-label>
+        <ion-checkbox [(ngModel)]="settings.showMyOwnOffersInOfferBook"
+                      (ionChange)="settings.saveSettings()"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{'SETTINGS_VIEW.PREFERENCES.USE_ANIMATIONS' | translate }}</ion-label>
+        <ion-checkbox [(ngModel)]="settings.useAnimations" (ionChange)="settings.saveSettings()"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{'SETTINGS_VIEW.PREFERENCES.SORT_MARKERS_LISTS' | translate }}</ion-label>
+        <ion-checkbox [(ngModel)]="settings.sortMarkersLists" (ionChange)="settings.saveSettings()"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <button ion-button>{{'SETTINGS_VIEW.PREFERENCES.RESET_ALL' | translate }}</button>
+      </ion-item>
+    </div>
+  </div>
 </div>

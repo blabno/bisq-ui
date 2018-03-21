@@ -1,34 +1,38 @@
-<div *ngIf="!formOpened">
-  <ion-list *ngIf="accounts.length">
-    <button *ngFor="let item of accounts; let i = index" (click)="show(i)" ion-item>
-      {{item.accountName}}
-    </button>
-  </ion-list>
-  <div class="buttons">
-    <button ion-button (click)="addNew()">{{'ACCOUNT.ADD_NEW' | translate}}</button>
-    <div *ngIf="accounts.length" class="float-right">
-      <button ion-button color="light">{{'ACCOUNT.EXPORT' | translate}}</button>
-      <button class="d-block d-md-inline-block" ion-button color="light">{{'ACCOUNT.IMPORT' | translate}}</button>
+<div class="col col-centered desktop-max-width">
+  <div *ngIf="!formOpened">
+    <ion-list *ngIf="accounts.length">
+      <button *ngFor="let item of accounts; let i = index" (click)="show(i)" ion-item>
+        {{item.accountName}}
+      </button>
+    </ion-list>
+    <div class="buttons">
+      <button ion-button (click)="addNew()">{{'ACCOUNT.ADD_NEW' | translate}}</button>
+      <div *ngIf="accounts.length" class="float-right">
+        <button ion-button color="light">{{'ACCOUNT.EXPORT' | translate}}</button>
+        <button class="d-block d-md-inline-block" ion-button color="light">{{'ACCOUNT.IMPORT' | translate}}</button>
+      </div>
     </div>
   </div>
-</div>
-<div *ngIf="formOpened">
-  <app-form [form]="paymentForm" [disabled]="formDisabled" [values]="paymentValues"
-            (onChange)="change($event)"></app-form>
-  <app-form #sepaFormElement [hidden]="'SEPA' !== selectedForm" [form]="sepaForm" [values]="detailsValues"
-            [disabled]="formDisabled" (onSubmit)="submit($event)"></app-form>
-  <app-form #venmoFormElement [hidden]="'Venmo' !== selectedForm" [form]="venmoForm" [values]="detailsValues"
-            [disabled]="formDisabled" (onSubmit)="submit($event)"></app-form>
-  <div class="buttons">
-    <ng-template [ngIf]="!formDisabled">
-      <button *ngIf="'SEPA' === selectedForm" ion-button (click)="sepaFormElement.submit()">
-        {{'ACCOUNT.SAVE' | translate}}
+  <div *ngIf="formOpened">
+    <app-form [form]="paymentForm" [disabled]="formDisabled" [values]="paymentValues"
+              (onChange)="change($event)"></app-form>
+    <app-form #sepaFormElement [hidden]="'SEPA' !== selectedForm" [form]="sepaForm" [values]="detailsValues"
+              [disabled]="formDisabled" (onSubmit)="submit($event)"></app-form>
+    <app-form #venmoFormElement [hidden]="'Venmo' !== selectedForm" [form]="venmoForm" [values]="detailsValues"
+              [disabled]="formDisabled" (onSubmit)="submit($event)"></app-form>
+    <div class="buttons">
+      <ng-template [ngIf]="!formDisabled">
+        <button *ngIf="'SEPA' === selectedForm" ion-button (click)="sepaFormElement.submit()">
+          {{'ACCOUNT.SAVE' | translate}}
+        </button>
+        <button *ngIf="'Venmo' === selectedForm" ion-button (click)="venmoFormElement.submit()">
+          {{'ACCOUNT.SAVE' | translate}}
+        </button>
+      </ng-template>
+      <button ion-button color="light" (click)="cancel()">{{'BACK' | translate}}</button>
+      <button *ngIf="formDisabled" ion-button color="danger" (click)="delete()">
+        {{'ACCOUNT.DELETE' | translate}}
       </button>
-      <button *ngIf="'Venmo' === selectedForm" ion-button (click)="venmoFormElement.submit()">
-        {{'ACCOUNT.SAVE' | translate}}
-      </button>
-    </ng-template>
-    <button ion-button color="light" (click)="cancel()">{{'BACK' | translate}}</button>
-    <button *ngIf="formDisabled" ion-button color="danger" (click)="delete()">{{'ACCOUNT.DELETE' | translate}}</button>
+    </div>
   </div>
 </div>
