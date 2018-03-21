@@ -1,26 +1,28 @@
-<div class="card">
-  <div class="card-header">{{'ACCOUNT.ACCOUNTS_LIST' | translate}}</div>
-  <div class="card-body">
-    <div class="col-md-10">
-      <!-- insert list of accounts-->
-    </div>
-  </div>
-</div>
-<div class="buttons">
-  <button class="btn btn-primary button-md" (click)="addNew()">{{'ACCOUNT.ADD_NEW' | translate}}</button>
-  <button class="btn btn-primary button-md">{{'ACCOUNT.EXPORT' | translate}}</button>
-  <button class="btn btn-primary button-md">{{'ACCOUNT.IMPORT' | translate}}</button>
-</div>
-
-<div *ngIf="formOpen">
+<div class="col col-centered desktop-max-width">
   <div class="card">
-    <div class="card-header">{{'ACCOUNT.CREATE_NEW' | translate}}</div>
+    <div class="card-header">{{'ACCOUNT.ACCOUNTS_LIST' | translate}}</div>
     <div class="card-body">
-      <app-form [form]="form"></app-form>
+      <div class="col-md-10">
+        <!-- insert list of accounts-->
+      </div>
     </div>
   </div>
   <div class="buttons">
-    <button class="btn btn-primary button-md">{{'ACCOUNT.SAVE' | translate}}</button>
-    <button class="btn btn-primary button-md" (click)="cancel()">{{'BACK' | translate}}</button>
+    <button class="btn btn-primary button-md" (click)="addNew()">{{'ACCOUNT.ADD_NEW' | translate}}</button>
+    <button class="btn btn-primary button-md">{{'ACCOUNT.EXPORT' | translate}}</button>
+    <button class="btn btn-primary button-md">{{'ACCOUNT.IMPORT' | translate}}</button>
+  </div>
+
+  <div *ngIf="formOpen">
+    <div class="card">
+      <div class="card-header">{{'ACCOUNT.CREATE_NEW' | translate}}</div>
+      <div class="card-body">
+        <app-form [form]="form"></app-form>
+      </div>
+    </div>
+    <div class="buttons">
+      <button class="btn btn-primary button-md">{{'ACCOUNT.SAVE' | translate}}</button>
+      <button class="btn btn-primary button-md" (click)="cancel()">{{'BACK' | translate}}</button>
+    </div>
   </div>
 </div>

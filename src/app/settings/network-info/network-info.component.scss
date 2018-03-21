@@ -4,12 +4,13 @@ app-network-info {
     height: 100px;
   }
   .left-label {
-    padding: 5px;
+    padding-right: 5px;
     @media (min-width: 992px) {
       text-align: right;
     }
   }
   .row {
+    padding-left:5px;
     align-items: center;
   }
   .margin {

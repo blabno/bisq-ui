@@ -13,7 +13,7 @@ export class PreferencesComponent implements OnInit, OnDestroy {
   public widthdrawalTransactionFeeEnabled = false;
   public cryptoCurrencies = [];
   public nationalCurrencies = [];
-  public currencies = []
+  public currencies = [];
   constructor(private translate: TranslateService, private currenciesDAO : CurrenciesDAO, public settings: SettingsService) {
   }
 

@@ -1,31 +1,38 @@
-<ion-item>
+<div class="col col-centered desktop-max-width">
+  <ion-item>
     <ion-label>{{ 'ACCOUNT.ARBITRATOR.WHICH_LANGUAGE_DO_YOU_SPEAK' | translate }}</ion-label>
     <ion-select [(ngModel)]="settings.languagesSpoken" multiple="true" (ionChange)="settings.saveSettings()">
-        <ion-option *ngFor="let lang of languages" [value]="lang">{{lang}}</ion-option>
+      <ion-option *ngFor="let lang of languages" [value]="lang">{{lang}}</ion-option>
     </ion-select>
-</ion-item>
-
-
-<ion-item>
+  </ion-item>
+  <ion-item>
     <div class="checkbox">
-        <label>
-            <input type="checkbox" [(ngModel)]="settings.autoSelectArbitratorsWithMatchingLanguage" (ionChange)="settings.saveSettings()">{{'ACCOUNT.ARBITRATOR.AUTO_SELECT_ARBITRATORS_WITH_MATCHING_LANGUAGE' | translate }} </label>
+      <label>
+        <input type="checkbox" [(ngModel)]="settings.autoSelectArbitratorsWithMatchingLanguage"
+               (ionChange)="settings.saveSettings()">
+        {{'ACCOUNT.ARBITRATOR.AUTO_SELECT_ARBITRATORS_WITH_MATCHING_LANGUAGE' | translate }} </label>
     </div>
-</ion-item>
-<div class="buttons">
-    <button class="btn btn-primary button-md" (click)="nominate()">{{'ACCOUNT.ARBITRATOR.NOMINATE_YOURSELF' | translate}}</button>
-</div>
-<div class="card mt-2">
+  </ion-item>
+  <div class="buttons">
+    <button class="btn btn-primary button-md" (click)="nominate()">
+      {{'ACCOUNT.ARBITRATOR.NOMINATE_YOURSELF' | translate}}
+    </button>
+  </div>
+  <div class="card mt-2">
     <div class="card-header">{{'ACCOUNT.ARBITRATOR.WHICH_ARBITRATORS_DO_YOU_ACCEPT' | translate }}</div>
     <div class="card-body">
-        <div class="row">
-            <div class="col-md-6 col-lg-4" *ngFor="let arbitrator of arbitrators">
-                <div class="card p-2">
-                    <div class="card-header">{{'ACCOUNT.ARBITRATOR.ARBITRATOR_ADDRESS' | translate }} : {{arbitrator.address}}</div>
-                    <div class="buttons">
-                        <button class="btn btn-primary button-md" (click)="select(arbitrator.address)">{{'ACCOUNT.ARBITRATOR.UNSELECT' | translate}}</button>
-                    </div>
-                </div>
+      <div class="row">
+        <div class="col-md-6 col-lg-4" *ngFor="let arbitrator of arbitrators">
+          <div class="card p-2">
+            <div class="card-header">{{'ACCOUNT.ARBITRATOR.ARBITRATOR_ADDRESS' | translate }} : {{arbitrator.address}}
             </div>
+            <div class="buttons">
+              <button class="btn btn-primary button-md" (click)="select(arbitrator.address)">
+                {{'ACCOUNT.ARBITRATOR.UNSELECT' | translate}}
+              </button>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
