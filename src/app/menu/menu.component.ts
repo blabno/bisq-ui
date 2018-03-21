@@ -12,8 +12,8 @@ export class MenuComponent {
   }
 
   onMenuItemClick() {
-    if(992 > window.innerWidth) {
-     this.navbarToggler.nativeElement.click();
+    if (992 > window.innerWidth) {
+      this.navbarToggler.nativeElement.click();
     }
   }
 
