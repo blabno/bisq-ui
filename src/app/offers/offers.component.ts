@@ -40,6 +40,6 @@ export class OffersComponent implements OnInit, OnDestroy {
   }
 
   onSelect(id) {
-    console.log(_.find(this.offerList, { offer_id: id }));
+    console.log(_.find(this.offerList, { id }));
   }
 }
