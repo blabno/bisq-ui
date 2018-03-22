@@ -5,14 +5,14 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ToastService} from '../services/toast.service';
 
 function ibanValidator(control) {
-  if (!control.value || (8 !== control.value.length && 11 !== control.value.length)) {
+  if (!control.value || 15 > control.value.length || 36 < control.value.length) {
     return {iban: true}
   }
   return null;
 }
 
 function bicValidator(control) {
-  if (!control.value || 15 > control.value.length || 36 < control.value.length) {
+  if (!control.value || (8 !== control.value.length && 11 !== control.value.length)) {
     return {bic: true}
   }
   return null;
