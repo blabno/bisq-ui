@@ -1,0 +1,31 @@
+app-trade-status {
+  .root {
+    margin-bottom: 10px;
+    padding: 8px;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 0.25rem;
+    box-shadow: 0 2px 2px 0 rgba(black, 0.14), 0 3px 1px -2px rgba(black, 0.2), 0 1px 5px 0 rgba(black, 0.12);
+    &.done {
+      color: var(--success);
+      border-color: var(--success);
+      box-shadow: 0 2px 2px 0 rgba(#28a745, 0.14), 0 3px 1px -2px rgba(#28a745, 0.2), 0 1px 5px 0 rgba(#28a745, 0.12);
+    }
+    &.current {
+      font-weight: bold;
+      border-width: 2px;
+      color: var(--info);
+      border-color: var(--info);
+      box-shadow: 0 2px 2px 0 rgba(#17a2b8, 0.14), 0 3px 1px -2px rgba(#17a2b8, 0.2), 0 1px 5px 0 rgba(#17a2b8, 0.12);
+    }
+    &.pending {
+      color: var(--light-grey);
+      border-color: var(--light-grey);
+      box-shadow: 0 2px 2px 0 rgba(#bbbbbb, 0.14), 0 3px 1px -2px rgba(#bbbbbb, 0.2), 0 1px 5px 0 rgba(#bbbbbb, 0.12);
+    }
+    i {
+      margin-left: 4px;
+      margin-right: 12px;
+    }
+  }
+}

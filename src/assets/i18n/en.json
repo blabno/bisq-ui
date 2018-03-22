@@ -194,7 +194,13 @@
 	},
 	"PORTFOLIO": {
 		"OPEN_TRADES": {
-			"NUMBER_TRADES": "Number of trades"
+			"NUMBER_TRADES": "Number of trades",
+            "MARKET": "Market",
+            "AMOUNT": "Amount in BTC",
+            "PRICE": "Prize",
+            "PAYMENT_METHOD": "Payment method",
+            "MY_ROLE": "My role",
+            "VOLUME": "Volume"
 		},
 		"SUBMENU": {
 			"HISTORY": "History",

@@ -39,6 +39,7 @@ import {ReservedComponent} from './funds/reserved/reserved.component';
 import {SendComponent} from './funds/send/send.component';
 import {SettingsComponent} from './settings/settings.component';
 import {SummaryComponent} from './market/summary/summary.component';
+import {TradeStatusComponent} from './portfolio/openTrades/tradeStatus.component';
 import {TransactionComponent} from './funds/transactions/transaction.component';
 import {WalletPassComponent} from './account/wallet-pass/wallet-pass.component';
 import {WalletSeedComponent} from './account/wallet-seed/wallet-seed.component';
@@ -74,6 +75,7 @@ const loadModules = [
   SendComponent,
   SettingsComponent,
   SummaryComponent,
+  TradeStatusComponent,
   TransactionComponent,
   WalletPassComponent,
   WalletSeedComponent,
