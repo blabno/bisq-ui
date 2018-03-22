@@ -1,0 +1,18 @@
+app-trade-details {
+  app-trade-status:last-of-type .root {
+    margin-bottom: 24px;
+  }
+  .card {
+    margin-bottom: 24px;
+    .card-header.information {
+      cursor: pointer;
+    }
+    .label {
+      font-weight: bold;
+    }
+  }
+  .button {
+    margin-top: 0;
+  }
+}
+

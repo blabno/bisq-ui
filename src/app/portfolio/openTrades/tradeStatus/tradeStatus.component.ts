@@ -23,6 +23,18 @@ export class TradeStatusComponent {
     }
   }
 
+  getIcon() {
+    const status = this.getStatus();
+
+    if ('done' === status) {
+      return 'fa-check-circle';
+    } else if ('current' === status) {
+      return 'fa-arrow-circle-right\n';
+    } else {
+      return 'fa-spinner';
+    }
+  }
+
   constructor() {
   }
 }

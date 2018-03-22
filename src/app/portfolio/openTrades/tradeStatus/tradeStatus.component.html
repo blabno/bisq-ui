@@ -1,4 +1,4 @@
 <div class="root" [ngClass]="status || getStatus()">
-  <i class="fas fa-download"></i>
+  <i class="fas" [ngClass]="getIcon()"></i>
   <span class="text">{{text}}</span>
 </div>

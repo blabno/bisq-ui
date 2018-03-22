@@ -1,0 +1,51 @@
+<div class="trades-list row">
+  <div class="col-md-6 col-lg-4" *ngFor="let item of trades; let i = index">
+    <div class="card">
+      <div class="card-header">
+        <span>{{item.takeOfferDate | date:'y-MM-dd'}}</span>
+        <span class="float-right">{{item.takeOfferDate | date:'hh:mm:ss'}}</span>
+      </div>
+      <div class="card-body">
+        <div>
+          <span>ID</span>
+          <span class="float-right">{{item.id.substring(0, 20)}}</span>
+        </div>
+        <div>{{'PORTFOLIO.OPEN_TRADES.PRICE' | translate}}
+          <span class="float-right">{{item.tradePrice / 10e3}}</span>
+        </div>
+        <div>{{'PORTFOLIO.OPEN_TRADES.MARKET' | translate}}
+          <span class="float-right">BTC/EUR</span>
+        </div>
+        <div>{{'PORTFOLIO.OPEN_TRADES.AMOUNT' | translate}}
+          <span class="float-right">{{item.tradeAmount / 10e7}}</span>
+        </div>
+        <div>{{'PORTFOLIO.OPEN_TRADES.VOLUME' | translate}}
+          <span class="float-right">{{item.tradePrice * item.tradeAmount / 10e11 | number:'.2-2'}} EUR</span>
+        </div>
+        <div>{{'PORTFOLIO.OPEN_TRADES.PAYMENT_METHOD' | translate}}
+          <span class="float-right">SEPA (PL)</span>
+        </div>
+        <div>{{'PORTFOLIO.OPEN_TRADES.MY_ROLE' | translate}}
+          <span class="float-right">MISSING</span>
+        </div>
+      </div>
+      <div class="progress">
+        <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar"
+             aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{width: 33*(i+1) + '%'}"></div>
+      </div>
+      <div class="btn btn-info rounded-0" (click)="select(item)">
+        <span class="select-button">Wait for blockchain confirmation</span>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="card">
+      <div *ngIf="!trades.length" class="card-header text-justify text-center p-3">{{'PORTFOLIO.OPEN_TRADES.NO_TRADES'}}
+      </div>
+      <div *ngIf="trades.length" class="card-header text-justify text-center p-3">
+        {{'PORTFOLIO.OPEN_TRADES.NUMBER_TRADES' |
+        translate}}: {{trades.length || 0}} of total: {{total}}
+      </div>
+    </div>
+  </div>
+</div>
