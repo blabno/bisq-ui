@@ -35,6 +35,8 @@ export class SettingsService {
   public displayedAltcoins = [];
   public languagesSpoken = [];
   public autoSelectArbitratorsWithMatchingLanguage = true;
+  // OFFERS LIST 
+  public selectedCurrencyOnOfferList = null;
   get baseCurrencyTypes() {
     return BaseCurrencies;
   }

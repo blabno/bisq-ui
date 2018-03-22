@@ -1,16 +1,25 @@
 <div class="sort-method">
-  <ion-item>
-    <ion-label>{{'OFFERS.LIST.FILTER.BY_CURRENCY' | translate}}</ion-label>
-    <ion-select [(ngModel)]="currencyFilter" (ionChange)="onCurrencyFilterChange()">
-      <ion-option *ngFor="let currency of currencies" [value]="currency">{{currency || ('OFFERS.LIST.SHOW_ALL' | translate)}}</ion-option>
-    </ion-select>
-  </ion-item>
-  <ion-item>
-    <ion-label>{{'OFFERS.LIST.FILTER.BY_METHOD' | translate}}</ion-label>
-    <ion-select>
-      <ion-option>{{'OFFERS.LIST.SHOW_ALL' | translate}}</ion-option>
-    </ion-select>
-  </ion-item>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label>{{'OFFERS.LIST.FILTER.BY_CURRENCY' | translate}}</ion-label>
+          <ion-select [(ngModel)]="currencyFilter" (ionChange)="onCurrencyFilterChange($event)" interface="popover">
+            <ion-option [value]="NO_FILTER">{{('OFFERS.LIST.SHOW_ALL' | translate)}}</ion-option>
+            <ion-option *ngFor="let currency of currencies" [value]="currency.value">{{currency.name}}</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item>
+          <ion-label>{{'OFFERS.LIST.FILTER.BY_METHOD' | translate}}</ion-label>
+          <ion-select interface="popover">
+            <ion-option>{{'OFFERS.LIST.SHOW_ALL' | translate}}</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </div>
 <div>{{'OFFERS.LIST.NO_OFFERS' | translate}}: {{list.length || 0}}</div>
 <div class="row">
