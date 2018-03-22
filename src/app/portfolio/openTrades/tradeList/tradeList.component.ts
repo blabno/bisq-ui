@@ -1,7 +1,7 @@
 import {Component, OnInit, EventEmitter, Output} from '@angular/core';
-import {TradesDAO} from '../../../shared/DAO/trades.dao';
-import _ from 'lodash';
+
 import {ToastService} from '../../../shared/services/toast.service';
+import {TradesCacheService} from '../../../shared/services/tradesCache.service';
 
 @Component({
   selector: 'app-trade-list',
@@ -13,18 +13,12 @@ export class TradeListComponent implements OnInit {
   trades = [];
   total = 0;
 
-  constructor(private tradesDAO: TradesDAO, private toast: ToastService) {
+  constructor(private tradesCache: TradesCacheService, private toast: ToastService) {
   }
 
   ngOnInit() {
-    this.tradesDAO.query()
-      .then(res => {
-        this.trades = _.get(res, 'trades') || [];
-        this.total = _.get(res, 'total') || 0;
-      })
-      .catch(() => {
-        this.toast.show('TOAST.TRADES.CANT_FETCH_DATA', 'error');
-      });
+    this.trades = this.tradesCache.list();
+    this.total = this.trades.length;
   }
 
   select(trade) {

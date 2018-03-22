@@ -13,6 +13,7 @@ import {OffersDAO} from './shared/DAO/offers.dao';
 import {PaymentAccountsDAO} from './shared/DAO/paymentAccounts.dao';
 import {SettingsService} from './shared/services/settings.service';
 import {ToastService} from './shared/services/toast.service';
+import {TradesCacheService} from './shared/services/tradesCache.service';
 import {TradesDAO} from './shared/DAO/trades.dao';
 import {WalletDAO} from './shared/DAO/wallet.dao';
 
@@ -31,6 +32,7 @@ t('WARNING');
     PaymentAccountsDAO,
     SettingsService,
     ToastService,
+    TradesCacheService,
     TradesDAO,
     WalletDAO
   ]
@@ -38,10 +40,11 @@ t('WARNING');
 export class AppComponent {
   rootPage: any = MainComponent;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public translate: TranslateService, public settings: SettingsService) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private translate: TranslateService, private settings: SettingsService, private tradesCache: TradesCacheService) {
     translate.setDefaultLang('en');
     translate.use(settings.language);
     translate.addLangs(['pl', 'en']);
+    tradesCache.init();
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
