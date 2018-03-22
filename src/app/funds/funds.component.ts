@@ -8,15 +8,15 @@ import {ReservedComponent} from "./reserved/reserved.component";
 import {LockedComponent} from "./locked/locked.component";
 import {TransactionComponent} from "./transactions/transaction.component";
 
-function t(str) {
-  return str;
-}
+import t from '../shared/defineTextToTranslate';
 
-t('FUNDS.SUBMENU.RECEIVE');
-t('FUNDS.SUBMENU.SEND');
-t('FUNDS.SUBMENU.RESERVED');
-t('FUNDS.SUBMENU.LOCKED');
-t('FUNDS.SUBMENU.TRANSACTIONS');
+t([
+  'FUNDS.SUBMENU.RECEIVE',
+  'FUNDS.SUBMENU.SEND',
+  'FUNDS.SUBMENU.RESERVED',
+  'FUNDS.SUBMENU.LOCKED',
+  'FUNDS.SUBMENU.TRANSACTIONS'
+]);
 
 @Component({
   selector: 'app-funds',

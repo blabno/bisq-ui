@@ -6,10 +6,10 @@ import {Component} from '@angular/core';
 })
 export class WalletPassComponent {
 
+  passwordExist: boolean = false;
+
   constructor() {
   }
-
-  passwordExist: boolean = false;
 
   setPassword() {
     this.passwordExist = true;

@@ -2,17 +2,17 @@ import {Injectable} from '@angular/core';
 import {ToastController} from 'ionic-angular';
 import {TranslateService} from '@ngx-translate/core';
 
-function t(str) {
-  return str;
-}
+import t from '../../shared/defineTextToTranslate';
 
-t('TOAST.FORM_VALIDATION_ERROR');
-t('TOAST.PAYMENT_METHOD_CREATED');
-t('TOAST.PAYMENT_METHOD_CREATE_ERROR');
-t('TOAST.PAYMENT_METHOD_DELETED');
-t('TOAST.PAYMENT_METHOD_DELETE_ERROR');
-t('TOAST.OFFERS.CANT_FETCH_DATA');
-t('TOAST.TRADES.CANT_FETCH_DATA');
+t([
+  'TOAST.FORM_VALIDATION_ERROR',
+  'TOAST.PAYMENT_METHOD_CREATED',
+  'TOAST.PAYMENT_METHOD_CREATE_ERROR',
+  'TOAST.PAYMENT_METHOD_DELETED',
+  'TOAST.PAYMENT_METHOD_DELETE_ERROR',
+  'TOAST.OFFERS.CANT_FETCH_DATA',
+  'TOAST.TRADES.CANT_FETCH_DATA'
+]);
 
 @Injectable()
 export class ToastService {

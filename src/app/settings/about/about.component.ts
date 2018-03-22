@@ -21,13 +21,16 @@ export class AboutComponent {
     {name: 'Trade protocol version', version: '1'}
   ];
   public appVersion = '0.0.1';
-  constructor() {}
+
+  constructor() {
+  }
 
   public getSubsystemsString() {
     return _.map(this.subsystems, system => {
       return `${system.name}: ${system.version}`;
     }).join('; ');
   }
+
   public openLink(url) {
     window.open(url, '_system', 'location=yes');
   }

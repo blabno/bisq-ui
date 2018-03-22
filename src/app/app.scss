@@ -34,30 +34,31 @@
   -ms-animation: none !important;
   animation: none !important;
 }
+
 a:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .tabs-md .tabbar {
-    background: var(--light);
+  background: var(--light);
 }
 
 .tabs-md .tab-button {
   min-height: 55px;
   .tab-button-text {
-    display:block;
+    display: block;
   }
 }
 
 .tabs-md .tab-button[aria-selected=true] {
-    color: var(--blue);
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    background: white;
+  color: var(--blue);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background: white;
 }
 
 .tabs-md .tab-button[aria-selected=true] .tab-button-icon {
-    color: var(--blue);
+  color: var(--blue);
 }
 
 ion-toast {

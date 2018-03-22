@@ -10,20 +10,20 @@ import {ToastService} from "../shared/services/toast.service";
 })
 export class OffersComponent implements OnInit, OnDestroy {
 
-  constructor(private activeRoute: ActivatedRoute, private offersDAO: OffersDAO, private toast:ToastService) {
-  }
-
-  private paramSubscribe: any;
-  private daoInterval: any;
   listType: 'sell' | 'buy';
   offerList = [];
+  private paramSubscribe: any;
+  private daoInterval: any;
+
+  constructor(private activeRoute: ActivatedRoute, private offersDAO: OffersDAO, private toast: ToastService) {
+  }
 
   ngOnInit() {
     this.paramSubscribe = this.activeRoute.params.subscribe(params => {
       this.listType = params['type'];
     });
     this.refreshOffersList();
-    this.daoInterval = setInterval(()=> this.refreshOffersList(), 10*1000); //10 second
+    this.daoInterval = setInterval(() => this.refreshOffersList(), 10 * 1000); //10 second
   }
 
   ngOnDestroy() {
@@ -31,15 +31,15 @@ export class OffersComponent implements OnInit, OnDestroy {
     clearInterval(this.daoInterval);
   }
 
+  onSelect(id) {
+    console.log(_.find(this.offerList, {id}));
+  }
+
   private refreshOffersList() {
     this.offersDAO.query().then(res => {
       this.offerList = res['offers'];
-    }).catch(()=>{
+    }).catch(() => {
       this.toast.show('TOAST.OFFERS.CANT_FETCH_DATA', 'error');
     });
-  }
-
-  onSelect(id) {
-    console.log(_.find(this.offerList, { id }));
   }
 }

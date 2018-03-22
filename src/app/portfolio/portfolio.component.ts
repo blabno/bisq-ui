@@ -6,13 +6,13 @@ import {MyOpenOffersComponent} from './myOpenOffers/myOpenOffers.component';
 import {OpenTradesComponent} from './openTrades/openTrades.component';
 import {HistoryComponent} from './history/history.component';
 
-function t(str) {
-  return str;
-}
+import t from '../shared/defineTextToTranslate';
 
-t('PORTFOLIO.SUBMENU.MY_OPEN_OFFERS');
-t('PORTFOLIO.SUBMENU.OPEN_TRADES');
-t('PORTFOLIO.SUBMENU.HISTORY');
+t([
+  'PORTFOLIO.SUBMENU.MY_OPEN_OFFERS',
+  'PORTFOLIO.SUBMENU.OPEN_TRADES',
+  'PORTFOLIO.SUBMENU.HISTORY'
+]);
 
 @Component({
   selector: 'app-portfolio',
@@ -43,7 +43,7 @@ export class PortfolioComponent implements OnInit, OnDestroy {
   activeMenuIndex = 0;
   private paramSubscribe: any;
 
-  constructor(private activeRoute: ActivatedRoute, private router: Router, ) {
+  constructor(private activeRoute: ActivatedRoute, private router: Router,) {
   }
 
   ngOnInit() {
