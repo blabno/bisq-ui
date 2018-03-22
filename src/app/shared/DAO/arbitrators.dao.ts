@@ -3,7 +3,8 @@ import {Injectable} from '@angular/core';
 
 @Injectable()
 export class ArbitratorsDAO {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   query(acceptedOnly: Boolean = false) {
     let params = new HttpParams().set('acceptedOnly', acceptedOnly.toString());

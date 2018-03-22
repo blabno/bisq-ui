@@ -35,29 +35,37 @@ export class SettingsService {
   public displayedAltcoins = [];
   public languagesSpoken = [];
   public autoSelectArbitratorsWithMatchingLanguage = true;
-  // OFFERS LIST 
+  // OFFERS LIST
   public selectedCurrencyOnOfferList = null;
-  get baseCurrencyTypes() {
-    return BaseCurrencies;
-  }
-  get baseCurrencyValues() {
-    return (<any>Object).values(BaseCurrencies);
-  }
-  get countryTypes() {
-    return Countries;
-  }
-  get countryValues() {
-    return (<any>Object).values(Countries);
-  }
-  get bitcoinExplorerTypes() {
-    return BitcoinExplorers;
-  }
-  get bitcoinExplorerValues() {
-    return (<any>Object).values(BitcoinExplorers);
-  }
+
   constructor() {
     this.loadSettings();
   }
+
+  get baseCurrencyTypes() {
+    return BaseCurrencies;
+  }
+
+  get baseCurrencyValues() {
+    return (<any>Object).values(BaseCurrencies);
+  }
+
+  get countryTypes() {
+    return Countries;
+  }
+
+  get countryValues() {
+    return (<any>Object).values(Countries);
+  }
+
+  get bitcoinExplorerTypes() {
+    return BitcoinExplorers;
+  }
+
+  get bitcoinExplorerValues() {
+    return (<any>Object).values(BitcoinExplorers);
+  }
+
   loadSettings() {
     var keys = Object.keys(this);
     _.forEach(keys, value => {
@@ -69,6 +77,7 @@ export class SettingsService {
       }
     });
   }
+
   saveSettings() {
     var keys = Object.keys(this);
     _.forEach(keys, value => {

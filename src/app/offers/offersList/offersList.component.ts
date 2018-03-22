@@ -1,5 +1,5 @@
-import * as _ from 'lodash';
-import {Component, Input, Output, EventEmitter, OnChanges} from '@angular/core';
+import _ from 'lodash';
+import {Component, EventEmitter, Input, OnChanges, Output} from '@angular/core';
 import {SettingsService} from '../../shared/services/settings.service';
 
 @Component({
@@ -13,8 +13,8 @@ export class OffersListComponent implements OnChanges {
   @Output() onSelect = new EventEmitter<any>();
 
   public NO_FILTER = 'NONE';
+  public currencyFilter = this.NO_FILTER;
   public list = [];
-  public currencyFilter= this.NO_FILTER;
   public currencies = [
     {value: 'USD', name: 'USD'},
     {value: 'PLN', name: 'PLN'},
@@ -31,21 +31,10 @@ export class OffersListComponent implements OnChanges {
     this.filterData();
   }
 
-  onCurrencyFilterChange(e){
+  onCurrencyFilterChange(e) {
     this.filterData();
     this.settings.selectedCurrencyOnOfferList = e;
     this.settings.saveSettings();
-  }
-
-  private filterData(){
-    if (this.data && this.type) {
-      const dir = this.type === 'sell' ? 'buy' : 'sell'; // Todo: check... probably server returns opposite directions
-      const filter = {direction: dir.toUpperCase()};
-      if(this.currencyFilter !== this.NO_FILTER){
-        _.set(filter, 'currencyCode', this.currencyFilter);
-      }
-      this.list = _.filter(this.data, filter);
-    }
   }
 
   getOfferBTCAmount(item) {
@@ -65,5 +54,16 @@ export class OffersListComponent implements OnChanges {
 
   select(id) {
     this.onSelect.emit(id);
+  }
+
+  private filterData() {
+    if (this.data && this.type) {
+      const dir = this.type === 'sell' ? 'buy' : 'sell';
+      const filter = {direction: dir.toUpperCase()};
+      if (this.currencyFilter !== this.NO_FILTER) {
+        _.set(filter, 'currencyCode', this.currencyFilter);
+      }
+      this.list = _.filter(this.data, filter);
+    }
   }
 }

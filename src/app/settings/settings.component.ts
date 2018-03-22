@@ -7,13 +7,13 @@ import {PreferencesComponent} from './preferences/preferences.component';
 import {NetworkInfoComponent} from './network-info/network-info.component';
 import {AboutComponent} from './about/about.component';
 
-function t(str) {
-  return str;
-}
+import t from '../shared/defineTextToTranslate';
 
-t('PREFERENCES');
-t('NETWORK_INFO');
-t('ABOUT');
+t([
+  'PREFERENCES',
+  'NETWORK_INFO',
+  'ABOUT'
+]);
 
 @Component({
   selector: 'app-settings',
@@ -44,7 +44,7 @@ export class SettingsComponent implements OnInit, OnDestroy {
   activeMenuIndex = 0;
   private paramSubscribe: any;
 
-  constructor(private activeRoute: ActivatedRoute, private router: Router, ) {
+  constructor(private activeRoute: ActivatedRoute, private router: Router) {
   }
 
   ngOnInit() {

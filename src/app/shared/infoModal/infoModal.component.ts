@@ -1,10 +1,8 @@
-import {Component} from '@angular/core';
-import {ViewController, NavParams} from 'ionic-angular';
 import _ from 'lodash';
+import {Component} from '@angular/core';
+import {NavParams, ViewController} from 'ionic-angular';
 
-function t(str) {
-  return str;
-}
+import t from '../../shared/defineTextToTranslate';
 
 t('INFO_MODAL.DO_NOT_SHOW_AGAIN');
 

@@ -16,8 +16,8 @@ import {ToastService} from './shared/services/toast.service';
 import {TradesDAO} from './shared/DAO/trades.dao';
 import {WalletDAO} from './shared/DAO/wallet.dao';
 
+import t from './shared/defineTextToTranslate';
 
-const t = str => str;
 t('WARNING');
 
 @Component({

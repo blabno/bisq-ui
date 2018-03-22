@@ -1,4 +1,4 @@
-import  _ from 'lodash';
+import _ from 'lodash';
 import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {PaymentAccountsDAO} from "../../shared/DAO/paymentAccounts.dao";
@@ -12,15 +12,7 @@ import {MarketPrizeService} from "../../shared/services/marketPrize.service";
 })
 export class CreateOffersComponent implements OnInit, OnDestroy {
   @ViewChild('createForm') createForm;
-
-  constructor(private activeRoute: ActivatedRoute, private paymentsDAO: PaymentAccountsDAO, private offersDAO: OffersDAO, private toast: ToastService, private marketPrize: MarketPrizeService) {
-  }
-
-  private paramSubscribe: any;
-  private marketPrice = 0;
-
   type: 'sell' | 'buy';
-
   accountsList;
   tradeList;
   model = {
@@ -34,7 +26,11 @@ export class CreateOffersComponent implements OnInit, OnDestroy {
     minAmount: 0,
     deposit: 0.01
   };
+  private paramSubscribe: any;
+  private marketPrice = 0;
 
+  constructor(private activeRoute: ActivatedRoute, private paymentsDAO: PaymentAccountsDAO, private offersDAO: OffersDAO, private toast: ToastService, private marketPrize: MarketPrizeService) {
+  }
 
   ngOnInit() {
     this.paramSubscribe = this.activeRoute.params.subscribe(params => {
@@ -59,19 +55,6 @@ export class CreateOffersComponent implements OnInit, OnDestroy {
     this.getMarketPrize(selectedAccount.selectedTradeCurrency);
   }
 
-  private getMarketPrize(fiatCurrency) {
-    this.marketPrize.get('BTC', fiatCurrency).then(result => {
-      this.marketPrice = result;
-      this.calculateBasedOnPercentageFromMarketPrice();
-    });
-  }
-
-  private calculateBasedOnPercentageFromMarketPrice() {
-    const newFixedPrice = this.marketPrice - (this.createForm.value.percentageFromMarketPrice / 100 * this.marketPrice);
-    this.createForm.controls['fixedPrice'].setValue(newFixedPrice);
-    this.createForm.controls['calculatedValue'].setValue(this.createForm.value.amount * newFixedPrice);
-  }
-
   onValueChanges(event) {
     if (_.get(event, '_native.nativeElement') !== document.activeElement) {
       return;
@@ -87,7 +70,7 @@ export class CreateOffersComponent implements OnInit, OnDestroy {
         break;
       case 'fixedPrice':
         this.createForm.controls['calculatedValue'].setValue(values.amount * values.fixedPrice);
-        this.createForm.controls['percentageFromMarketPrice'].setValue((this.marketPrice-values.fixedPrice) / this.marketPrice* 100);
+        this.createForm.controls['percentageFromMarketPrice'].setValue((this.marketPrice - values.fixedPrice) / this.marketPrice * 100);
         break;
       case 'percentageFromMarketPrice':
         this.calculateBasedOnPercentageFromMarketPrice();
@@ -126,5 +109,18 @@ export class CreateOffersComponent implements OnInit, OnDestroy {
     }).catch(error => {
       this.toast.show(error.message, 'error');
     });
+  }
+
+  private getMarketPrize(fiatCurrency) {
+    this.marketPrize.get('BTC', fiatCurrency).then(result => {
+      this.marketPrice = result;
+      this.calculateBasedOnPercentageFromMarketPrice();
+    });
+  }
+
+  private calculateBasedOnPercentageFromMarketPrice() {
+    const newFixedPrice = this.marketPrice - (this.createForm.value.percentageFromMarketPrice / 100 * this.marketPrice);
+    this.createForm.controls['fixedPrice'].setValue(newFixedPrice);
+    this.createForm.controls['calculatedValue'].setValue(this.createForm.value.amount * newFixedPrice);
   }
 }

@@ -1,4 +1,8 @@
 <div class="card">
-    <div *ngIf="!trades.length" class="card-header text-justify text-center p-4 h-1">{{'PORTFOLIO.OPEN_TRADES.NO_TRADES'}}</div>
-    <div *ngIf="trades.length" class="card-header text-justify text-center p-3">{{'PORTFOLIO.OPEN_TRADES.NUMBER_TRADES' | translate}}: {{trades.length || 0}} of total: {{total}} </div>
+  <div *ngIf="!trades.length" class="card-header text-justify text-center p-4 h-1">
+    {{'PORTFOLIO.OPEN_TRADES.NO_TRADES'}}
+  </div>
+  <div *ngIf="trades.length" class="card-header text-justify text-center p-3">{{'PORTFOLIO.OPEN_TRADES.NUMBER_TRADES' |
+    translate}}: {{trades.length || 0}} of total: {{total}}
+  </div>
 </div>

@@ -2,7 +2,8 @@ import {Component} from '@angular/core';
 import {WalletDAO} from "../../shared/DAO/wallet.dao";
 import {ToastService} from "../../shared/services/toast.service";
 
-const t = str => str;
+import t from '../../shared/defineTextToTranslate';
+
 t('TOAST.NEW_ADDRESS_CREATE_ERROR');
 
 @Component({
@@ -19,10 +20,10 @@ export class ReceiveComponent {
 
   generateAddress() {
     this.generateInProgress = true;
-    this.walletDao.createNewWallet().then((res:any) => {
+    this.walletDao.createNewWallet().then((res: any) => {
       this.address = res.address;
       this.generateInProgress = false;
-    }).catch((error)=>{
+    }).catch((error) => {
       this.toast.show('TOAST.NEW_ADDRESS_CREATE_ERROR', 'error');
     });
   }

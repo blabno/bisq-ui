@@ -7,7 +7,7 @@ import {Component} from '@angular/core';
 export class AltcoinsComponent {
 
   model = {};
-  formOpen:boolean = false;
+  formOpen: boolean = false;
 
   form = {
     altcoin: {
@@ -17,7 +17,7 @@ export class AltcoinsComponent {
         {value: 'xcn', label: "Cryptonite (XCN)"},
         {value: 'dash', label: "Dash (DASH)"},
         {value: 'eth', label: "Ether (ETH)"}
-        ]
+      ]
     },
     email: {label: 'Email address', type: 'text'},
     limitations: {

@@ -32,7 +32,9 @@
       </div>
       <div class="card-body">
         <div>BTC (min-max)<span class="float-right">{{getOfferBTCAmount(item)}}</span></div>
-        <div>{{'OFFERS.LIST.PRICE' | translate}}<span class="float-right">{{item.price}} ({{item.marketPriceMargin * 100}}%)</span></div>
+        <div>{{'OFFERS.LIST.PRICE' | translate}}
+          <span class="float-right">{{item.price}} ({{item.marketPriceMargin * 100}}%)</span>
+        </div>
         <div>{{'OFFERS.LIST.AMOUNT' | translate}}<span class="float-right">{{getOfferAmount(item)}}</span></div>
       </div>
       <div class="btn rounded-0" (click)="select(item.id)" [ngClass]="{

@@ -10,16 +10,20 @@ import _ from 'lodash';
 export class ArbitratorComponent implements OnInit {
   public languages = ['Polish', 'English'];
   public arbitrators = [];
-  constructor(public settings: SettingsService, private arbitratorsDAO: ArbitratorsDAO) {}
+
+  constructor(public settings: SettingsService, private arbitratorsDAO: ArbitratorsDAO) {
+  }
 
   ngOnInit() {
     this.arbitratorsDAO.query().then(res => {
       this.arbitrators = _.get(res, 'arbitrators') || [];
     });
   }
+
   select(address) {
     // this.arbitratorsDAO.select(address);
   }
+
   nominate() {
     this.arbitratorsDAO.registerYourself(['Polish', 'English']);
   }

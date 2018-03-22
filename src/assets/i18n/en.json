@@ -1,264 +1,264 @@
 {
-	"ABOUT": "About",
-	"ACCOUNT": {
-		"ACCOUNTS_LIST": "Accounts list",
-		"ADD_NEW": "Add new account",
-		"ARBITRATOR": {
-			"ARBITRATOR_ADDRESS": "Arbitrator address",
-			"AUTO_SELECT_ARBITRATORS_WITH_MATCHING_LANGUAGE": "Auto select arbitrators with matching language",
-			"NOMINATE_YOURSELF": "Nominate yourself",
-			"UNSELECT": "Unselect",
-			"WHICH_ARBITRATORS_DO_YOU_ACCEPT": "Which arbitrators do you accept",
-			"WHICH_LANGUAGE_DO_YOU_SPEAK": "Which language do you speak"
-		},
-		"CANCEL": "",
-		"CREATE_NEW": "Create new Account",
-		"CURRENCY": {
-			"ACCEPTED_TRADES_EURO": "Accepted trades from Euro countries",
-			"ACCEPTED_TRADES_NON_EURO": "Accepted trades from non-Euro countries",
-			"ACCOUNT_NAME": "Account name",
-			"BANK_COUNTRY": "Country of bank",
-			"COUNTRY_AT": "Austria (AT)",
-			"COUNTRY_BE": "Belgium (BE)",
-			"COUNTRY_BG": "Bulgaria (BG)",
-			"COUNTRY_CH": "Switzerland (CH)",
-			"COUNTRY_CY": "Cyprus (CY)",
-			"COUNTRY_CZ": "Czech Republic (CZ)",
-			"COUNTRY_DE": "Germany (DE)",
-			"COUNTRY_DK": "Denmark (DK)",
-			"COUNTRY_EE": "Estonia (EE)",
-			"COUNTRY_ES": "Spain (ES)",
-			"COUNTRY_FI": "Finland (FI)",
-			"COUNTRY_FR": "France (FR)",
-			"COUNTRY_GB": "Great Britain (GB)",
-			"COUNTRY_GR": "Greece (GR)",
-			"COUNTRY_HR": "Croatia (HR)",
-			"COUNTRY_HU": "Hungary (HU)",
-			"COUNTRY_IE": "Ireland (IE)",
-			"COUNTRY_IS": "Iceland (IS)",
-			"COUNTRY_IT": "Italy (IT)",
-			"COUNTRY_LI": "Liechtenstein (LI)",
-			"COUNTRY_LT": "Lithuania (LT)",
-			"COUNTRY_LU": "Luxembourg (LU)",
-			"COUNTRY_LV": "Latvia (LV)",
-			"COUNTRY_MC": "Monaco (MC)",
-			"COUNTRY_MT": "Malta (MT)",
-			"COUNTRY_NL": "Netherlands (NL)",
-			"COUNTRY_NO": "Norway (NO)",
-			"COUNTRY_PL": "Poland (PL)",
-			"COUNTRY_PT": "Portugal (PT)",
-			"COUNTRY_RO": "Romania (RO)",
-			"COUNTRY_SE": "Sweden (SE)",
-			"COUNTRY_SI": "Slovenia (SI)",
-			"COUNTRY_SK": "Slovakia (SK)",
-			"CURRENCY": "Currency",
-			"CURRENCY_BGN": "Bulgarian Lev (BGN)",
-			"CURRENCY_CHF": "Swiss Franc (CHF)",
-			"CURRENCY_CZK": "Czech Republic Koruna (CZK)",
-			"CURRENCY_DKK": "Danish Krone (DKK)",
-			"CURRENCY_EUR": "Euro (EUR)",
-			"CURRENCY_HUF": "Hungarian Forint (HUF)",
-			"CURRENCY_ISK": "Icelandic Krona (ISK)",
-			"CURRENCY_NOK": "Norwegian Krone (NOK)",
-			"CURRENCY_PLN": "Polish Zloty (PLN)",
-			"CURRENCY_RON": "Romanian Leu (RON)",
-			"CURRENCY_SEK": "Swedish Krona (SEK)",
-			"DELETE_CONFIRMATION": "Do you really want to delete selected account",
-			"LIMITATIONS": "Limitations",
-			"LIMITATION_SEPA": "Max. trade duration: 6 days / Max. trade limit: 0.0625 BTC / Account age: 0 days",
-			"LIMITATION_VENMO": "Max. trade duration: 1 days / Max. trade limit: 0.04 BTC / Account age: 0 days",
-			"OWNER_NAME": "Account owner full name",
-			"PAYMENT_METHOD": "Payment method",
-			"SALT_ACCOUNT_AGE": "Salt for account age verification",
-			"VENMO_NAME": "Venmo username"
-		},
-		"DELETE": "Delete Account",
-		"EXPORT": "Export Accounts",
-		"IMPORT": "Import Accounts",
-		"INIT_MODAL": {
-			"PARAGRAPH1": "Here you can setup trading accounts for national currencies & altcoins, select arbitrators and backup your wallet & account data.",
-			"PARAGRAPH2": "An empty Bitcoin wallet was created the first time you started Bisq.\nWe recommend that you write down your Bitcoin wallet seed words (see button on the left) and consider adding a password before funding. Bitcoin deposits and withdrawals are managed in the \"Funds\" section.",
-			"PARAGRAPH3": "Privacy & Security:\nBisq is a decentralized exchange – meaning all of your data is kept on your computer, there are no servers and we have no access to your personal info, your funds or even your IP address. Data such as bank account numbers, altcoin & Bitcoin addresses, etc are only shared with your trading partner to fulfill trades you initiate (in case of a dispute the arbitrator will see the same data like your trading peer).",
-			"TITLE": "Welcome to your Bisq Account"
-		},
-		"SAVE": "Save new Account",
-		"SUBMENU": {
-			"ALTCOINS_ACCOUNTS": "Altcoins Accounts",
-			"ARBITRATOR": "Arbitrator",
-			"BACKUP": "Backup",
-			"CURRENCY_ACCOUNTS": "Currency Accounts",
-			"WALLET_PASSWORD": "Wallet password",
-			"WALLET_SEED": "Wallet Seed"
-		},
-		"WALLET_PASS": {
-			"ENTER_PASS": "Enter password",
-			"HEADER": "Set password protection for wallet",
-			"INFORMATION": "Information",
-			"INFORMATION_CONTENT": "The password will be needed when the application is started and when you extract cryptocurrency from the wallet or if you want to see the mnemonic phrase for the wallet.",
-			"REMOVE_HEADER": "Remove password protection for wallet",
-			"REMOVE_PASS": "Remove password",
-			"RE_ENTER_PASS": "Confirm password",
-			"SET_PASS": "Set password"
-		},
-		"WALLET_SEED": {
-			"BACKUP_HEADER": "Backup your wallets mnemonic phrase",
-			"DATE": "Wallet date",
-			"INFORMATION": "Information",
-			"INFORMATION_CONTENT": "Please write down both mnemonic phrase and wallet date! You can recover your wallet any time with those words and the date.",
-			"INFORMATION_CONTENT_2": "The seed words are used for both the BTC and the BSQ wallet.",
-			"INFORMATION_CONTENT_3": "You should write down the phrase on a sheet of paper and not save them on computer.",
-			"RESTORE_BUTTON": "Restore wallet",
-			"RESTORE_HEADER": "Restore wallet from mnemonic phrase",
-			"SEED_WORDS": "Wallet mnemonic phrase"
-		}
-	},
-	"BACK": "Back",
-	"CANCEL": "Cancel",
-	"CONFIRM": "Confirm",
-	"FUNDS": {
-		"RECEIVE": {
-			"NEW_ADDRESS": "Generate new address"
-		},
-		"SUBMENU": {
-			"LOCKED": "Locked",
-			"RECEIVE": "Receive",
-			"RESERVED": "Reserved",
-			"SEND": "Send",
-			"TRANSACTIONS": "Transactions"
-		}
-	},
-	"INFO_MODAL": {
-		"DO_NOT_SHOW_AGAIN": "Don't show again"
-	},
-	"MARKET": {
-		"SUMMARY": {
-			"AVAILABLE": "Available",
-			"LOCKED": "Locked",
-			"RESERVED": "Reserved"
-		}
-	},
-	"MENU": {
-		"ACCOUNT": "Account",
-		"BUY": "Buy",
-		"FUNDS": "Funds",
-		"MARKET": "Market",
-		"PORTFOLIO": "Portfolio",
-		"SELL": "Sell BTC",
-		"SETTINGS": "Settings",
-		"SUPPORT": "Support"
-	},
-	"NETWORK_INFO": "Network",
-	"OFFERS": {
-		"CREATE": {
-			"AMOUNT": "Amount",
-			"CURRENCY": "Currency",
-			"FIXED": "Fixed",
-			"MINUMUM_VOLUME": "Minimum volume",
-			"PERCENTAGE": "Percentage",
-			"PERCENT_DISTANCE": "Distance in % from market price",
-			"PRICE": "Price",
-			"SAVE": "Save",
-			"SECURITY_DEPOSIT": "Security deposit for buyer",
-			"TRADING_ACCOUNT": "Trading account",
-			"TYPE": "Price type",
-			"VOLUME": "Volume"
-		},
-		"CREATE_BUTTON": "Create",
-		"LIST": {
-			"AMOUNT": "Amount",
-			"BUY": "Buy",
-			"FILTER": {
-				"BY_CURRENCY": "Filter by Currency",
-				"BY_METHOD": "Filter by payment method"
-			},
-			"NO_OFFERS": "No. of offers",
-			"PRICE": "Price",
-			"SELL": "Sell",
-			"SHOW_ALL": "Show all"
-		}
-	},
-	"PORTFOLIO": {
-		"OPEN_TRADES": {
-			"NUMBER_TRADES": "Number of trades"
-		},
-		"SUBMENU": {
-			"HISTORY": "History",
-			"MY_OPEN_OFFERS": "My open offers",
-			"OPEN_TRADES": "Open trades"
-		}
-	},
-	"PREFERENCES": "Preferences",
-	"SETTINGS_VIEW": {
-		"ABOUT": {
-			"ABOUT_BISQ": "About bisq",
-			"ABOUT_BISQ_TEXT": "Bisq is an open source project and a decentralized network of users who want to exchange Bitcoin with national currencies or alternative crypto currencies in a privacy protecting way. Learn more about Bisq on our project web page.",
-			"AGPL_LICENSE": "AGPL license",
-			"APPLICATION_VERSION": "Application version",
-			"BISQ_IS_COMMUNITY": "Bisq is not a company but a community project and open for participation. If you want to participate or support Bisq please follow the links below.",
-			"BISQ_USES_3RD_APIS": "Bisq uses 3rd party APIs for Fiat and Altcoin market prices as well as for mining fee estimation.",
-			"BISQ_WEB_PAGE": "Bisq web page",
-			"CONTRIBUTE": "Contribute",
-			"DATA_PROVIDERS": "Data providers",
-			"DONATE": "Donate",
-			"MARKET_PRICES_PROVIDED_BY": "Market prices provided by",
-			"MINING_FEE_ESTIMATION_PROVIDED_BY": "Mining fee estimation provided by",
-			"SOURCE_CODE": "Source code",
-			"SUPPORT_BISQ": "Support bisq",
-			"VERSIONS_OF_SUBSYSTEMS": "Versions of subsystems",
-			"VERSION_DETAILS": "Version details"
-		},
-		"NETWORK_INFO": {
-			"BITCOIN_CORE_NODES_TO_CONNECT_TO": "Bitcoin core nodes to connect to",
-			"BITCOIN_NETWORK": "Bitcoin network",
-			"CONNECTED_PEERS": "Connected peers",
-			"DELETE_SPV_FILE_AND_RESYNC": "Delete SPV file and resync",
-			"MY_ONION_ADDRESS": "My onion address",
-			"OPEN_TOR_SETTINGS": "Open tor settings",
-			"P2P_NETWORK": "P2P network",
-			"RESYNC_SPV_CHAIN": "Resync SPV chain",
-			"TOTAL_TRAFFIC": "Total traffic",
-			"USE_TOR_FOR_BITCOIN_NETWORK": "Use tor for bitcoin network"
-		},
-		"PREFERENCES": {
-			"AUTO_SELECT_ARBITRATORS": "Auto select arbitrators",
-			"BITCOIN_BLOCK_EXPLORER": "Bitcoin block explorer",
-			"COUNTRY": "Country",
-			"CURRENCIES_IN_MARKET_PRICE_FEED_LIST": "Currencies in market price feed list",
-			"DISPLAY_ALTCOINS": "Display altcoins",
-			"DISPLAY_NATIONAL_CURRENCIES": "Display national currencies",
-			"DISPLAY_OPTIONS": "Display options",
-			"GENERAL_PREFERENCES": "General preferences",
-			"IGNORE_PEERS_WITH_ONION_ADDRESS": "Ignore peers with onion address (comma sep.)",
-			"LANGUAGE": "Language",
-			"MAX_DEVIATION_FROM_MARKET_PRICE": "Max. deviation from market price",
-			"PREFERED_CURRENCY": "Prefered currency",
-			"RESET_ALL": "Reset all \"Don't show again\" flags",
-			"SELECT_BASE_CURRENCY": "Select base currency",
-			"SHOW_MY_OWN_OFFERS_IN_OFFER_BOOK": "Show my own offers in offer book",
-			"SORT_MARKERS_LISTS": "Sort markers lists with no. of offers/trades",
-			"USE_ANIMATIONS": "Use animations",
-			"USE_CUSTOM_VALUE": "Use custom value",
-			"WIDTHDRAWAL_TRANSACTION_FEE": "Widthdrawal transaction fee"
-		}
-	},
-	"TOAST": {
-		"FORM_VALIDATION_ERROR": "Missing required fields",
-		"NEW_ADDRESS_CREATE_ERROR": "Unable to create new address",
-		"OFFERS": {
-			"CANT_FETCH_DATA": "Error: Cant't fetch/refresh offers list"
-		},
-		"PAYMENT_METHOD_CREATED": "Payment method created successfully",
-		"PAYMENT_METHOD_CREATE_ERROR": "Error during creating payment method",
-		"PAYMENT_METHOD_DELETED": "Payment method deleted successfully",
-		"PAYMENT_METHOD_DELETE_ERROR": "Error during deleting payment method",
-		"TRADES": {
-			"CANT_FETCH_DATA": "Error: Cant't fetch/refresh trades list"
-		}
-	},
-	"VALIDATION": {
-		"BIC": "Input length is neither 8 nor 11",
-		"IBAN": "Number must have length 15 to 34 chars",
-		"REQUIRED": "This field is required"
-	},
-	"WARNING": "Warning"
+  "ABOUT": "About",
+  "ACCOUNT": {
+    "ACCOUNTS_LIST": "Accounts list",
+    "ADD_NEW": "Add new account",
+    "ARBITRATOR": {
+      "ARBITRATOR_ADDRESS": "Arbitrator address",
+      "AUTO_SELECT_ARBITRATORS_WITH_MATCHING_LANGUAGE": "Auto select arbitrators with matching language",
+      "NOMINATE_YOURSELF": "Nominate yourself",
+      "UNSELECT": "Unselect",
+      "WHICH_ARBITRATORS_DO_YOU_ACCEPT": "Which arbitrators do you accept",
+      "WHICH_LANGUAGE_DO_YOU_SPEAK": "Which language do you speak"
+    },
+    "CANCEL": "",
+    "CREATE_NEW": "Create new Account",
+    "CURRENCY": {
+      "ACCEPTED_TRADES_EURO": "Accepted trades from Euro countries",
+      "ACCEPTED_TRADES_NON_EURO": "Accepted trades from non-Euro countries",
+      "ACCOUNT_NAME": "Account name",
+      "BANK_COUNTRY": "Country of bank",
+      "COUNTRY_AT": "Austria (AT)",
+      "COUNTRY_BE": "Belgium (BE)",
+      "COUNTRY_BG": "Bulgaria (BG)",
+      "COUNTRY_CH": "Switzerland (CH)",
+      "COUNTRY_CY": "Cyprus (CY)",
+      "COUNTRY_CZ": "Czech Republic (CZ)",
+      "COUNTRY_DE": "Germany (DE)",
+      "COUNTRY_DK": "Denmark (DK)",
+      "COUNTRY_EE": "Estonia (EE)",
+      "COUNTRY_ES": "Spain (ES)",
+      "COUNTRY_FI": "Finland (FI)",
+      "COUNTRY_FR": "France (FR)",
+      "COUNTRY_GB": "Great Britain (GB)",
+      "COUNTRY_GR": "Greece (GR)",
+      "COUNTRY_HR": "Croatia (HR)",
+      "COUNTRY_HU": "Hungary (HU)",
+      "COUNTRY_IE": "Ireland (IE)",
+      "COUNTRY_IS": "Iceland (IS)",
+      "COUNTRY_IT": "Italy (IT)",
+      "COUNTRY_LI": "Liechtenstein (LI)",
+      "COUNTRY_LT": "Lithuania (LT)",
+      "COUNTRY_LU": "Luxembourg (LU)",
+      "COUNTRY_LV": "Latvia (LV)",
+      "COUNTRY_MC": "Monaco (MC)",
+      "COUNTRY_MT": "Malta (MT)",
+      "COUNTRY_NL": "Netherlands (NL)",
+      "COUNTRY_NO": "Norway (NO)",
+      "COUNTRY_PL": "Poland (PL)",
+      "COUNTRY_PT": "Portugal (PT)",
+      "COUNTRY_RO": "Romania (RO)",
+      "COUNTRY_SE": "Sweden (SE)",
+      "COUNTRY_SI": "Slovenia (SI)",
+      "COUNTRY_SK": "Slovakia (SK)",
+      "CURRENCY": "Currency",
+      "CURRENCY_BGN": "Bulgarian Lev (BGN)",
+      "CURRENCY_CHF": "Swiss Franc (CHF)",
+      "CURRENCY_CZK": "Czech Republic Koruna (CZK)",
+      "CURRENCY_DKK": "Danish Krone (DKK)",
+      "CURRENCY_EUR": "Euro (EUR)",
+      "CURRENCY_HUF": "Hungarian Forint (HUF)",
+      "CURRENCY_ISK": "Icelandic Krona (ISK)",
+      "CURRENCY_NOK": "Norwegian Krone (NOK)",
+      "CURRENCY_PLN": "Polish Zloty (PLN)",
+      "CURRENCY_RON": "Romanian Leu (RON)",
+      "CURRENCY_SEK": "Swedish Krona (SEK)",
+      "DELETE_CONFIRMATION": "Do you really want to delete selected account",
+      "LIMITATIONS": "Limitations",
+      "LIMITATION_SEPA": "Max. trade duration: 6 days / Max. trade limit: 0.0625 BTC / Account age: 0 days",
+      "LIMITATION_VENMO": "Max. trade duration: 1 days / Max. trade limit: 0.04 BTC / Account age: 0 days",
+      "OWNER_NAME": "Account owner full name",
+      "PAYMENT_METHOD": "Payment method",
+      "SALT_ACCOUNT_AGE": "Salt for account age verification",
+      "VENMO_NAME": "Venmo username"
+    },
+    "DELETE": "Delete Account",
+    "EXPORT": "Export Accounts",
+    "IMPORT": "Import Accounts",
+    "INIT_MODAL": {
+      "PARAGRAPH1": "Here you can setup trading accounts for national currencies & altcoins, select arbitrators and backup your wallet & account data.",
+      "PARAGRAPH2": "An empty Bitcoin wallet was created the first time you started Bisq.\nWe recommend that you write down your Bitcoin wallet seed words (see button on the left) and consider adding a password before funding. Bitcoin deposits and withdrawals are managed in the \"Funds\" section.",
+      "PARAGRAPH3": "Privacy & Security:\nBisq is a decentralized exchange – meaning all of your data is kept on your computer, there are no servers and we have no access to your personal info, your funds or even your IP address. Data such as bank account numbers, altcoin & Bitcoin addresses, etc are only shared with your trading partner to fulfill trades you initiate (in case of a dispute the arbitrator will see the same data like your trading peer).",
+      "TITLE": "Welcome to your Bisq Account"
+    },
+    "SAVE": "Save new Account",
+    "SUBMENU": {
+      "ALTCOINS_ACCOUNTS": "Altcoins Accounts",
+      "ARBITRATOR": "Arbitrator",
+      "BACKUP": "Backup",
+      "CURRENCY_ACCOUNTS": "Currency Accounts",
+      "WALLET_PASSWORD": "Wallet password",
+      "WALLET_SEED": "Wallet Seed"
+    },
+    "WALLET_PASS": {
+      "ENTER_PASS": "Enter password",
+      "HEADER": "Set password protection for wallet",
+      "INFORMATION": "Information",
+      "INFORMATION_CONTENT": "The password will be needed when the application is started and when you extract cryptocurrency from the wallet or if you want to see the mnemonic phrase for the wallet.",
+      "REMOVE_HEADER": "Remove password protection for wallet",
+      "REMOVE_PASS": "Remove password",
+      "RE_ENTER_PASS": "Confirm password",
+      "SET_PASS": "Set password"
+    },
+    "WALLET_SEED": {
+      "BACKUP_HEADER": "Backup your wallets mnemonic phrase",
+      "DATE": "Wallet date",
+      "INFORMATION": "Information",
+      "INFORMATION_CONTENT": "Please write down both mnemonic phrase and wallet date! You can recover your wallet any time with those words and the date.",
+      "INFORMATION_CONTENT_2": "The seed words are used for both the BTC and the BSQ wallet.",
+      "INFORMATION_CONTENT_3": "You should write down the phrase on a sheet of paper and not save them on computer.",
+      "RESTORE_BUTTON": "Restore wallet",
+      "RESTORE_HEADER": "Restore wallet from mnemonic phrase",
+      "SEED_WORDS": "Wallet mnemonic phrase"
+    }
+  },
+  "BACK": "Back",
+  "CANCEL": "Cancel",
+  "CONFIRM": "Confirm",
+  "FUNDS": {
+    "RECEIVE": {
+      "NEW_ADDRESS": "Generate new address"
+    },
+    "SUBMENU": {
+      "LOCKED": "Locked",
+      "RECEIVE": "Receive",
+      "RESERVED": "Reserved",
+      "SEND": "Send",
+      "TRANSACTIONS": "Transactions"
+    }
+  },
+  "INFO_MODAL": {
+    "DO_NOT_SHOW_AGAIN": "Don't show again"
+  },
+  "MARKET": {
+    "SUMMARY": {
+      "AVAILABLE": "Available",
+      "LOCKED": "Locked",
+      "RESERVED": "Reserved"
+    }
+  },
+  "MENU": {
+    "ACCOUNT": "Account",
+    "BUY": "Buy",
+    "FUNDS": "Funds",
+    "MARKET": "Market",
+    "PORTFOLIO": "Portfolio",
+    "SELL": "Sell BTC",
+    "SETTINGS": "Settings",
+    "SUPPORT": "Support"
+  },
+  "NETWORK_INFO": "Network",
+  "OFFERS": {
+    "CREATE": {
+      "AMOUNT": "Amount",
+      "CURRENCY": "Currency",
+      "FIXED": "Fixed",
+      "MINUMUM_VOLUME": "Minimum volume",
+      "PERCENTAGE": "Percentage",
+      "PERCENT_DISTANCE": "Distance in % from market price",
+      "PRICE": "Price",
+      "SAVE": "Save",
+      "SECURITY_DEPOSIT": "Security deposit for buyer",
+      "TRADING_ACCOUNT": "Trading account",
+      "TYPE": "Price type",
+      "VOLUME": "Volume"
+    },
+    "CREATE_BUTTON": "Create",
+    "LIST": {
+      "AMOUNT": "Amount",
+      "BUY": "Buy",
+      "FILTER": {
+        "BY_CURRENCY": "Filter by Currency",
+        "BY_METHOD": "Filter by payment method"
+      },
+      "NO_OFFERS": "No. of offers",
+      "PRICE": "Price",
+      "SELL": "Sell",
+      "SHOW_ALL": "Show all"
+    }
+  },
+  "PORTFOLIO": {
+    "OPEN_TRADES": {
+      "NUMBER_TRADES": "Number of trades"
+    },
+    "SUBMENU": {
+      "HISTORY": "History",
+      "MY_OPEN_OFFERS": "My open offers",
+      "OPEN_TRADES": "Open trades"
+    }
+  },
+  "PREFERENCES": "Preferences",
+  "SETTINGS_VIEW": {
+    "ABOUT": {
+      "ABOUT_BISQ": "About bisq",
+      "ABOUT_BISQ_TEXT": "Bisq is an open source project and a decentralized network of users who want to exchange Bitcoin with national currencies or alternative crypto currencies in a privacy protecting way. Learn more about Bisq on our project web page.",
+      "AGPL_LICENSE": "AGPL license",
+      "APPLICATION_VERSION": "Application version",
+      "BISQ_IS_COMMUNITY": "Bisq is not a company but a community project and open for participation. If you want to participate or support Bisq please follow the links below.",
+      "BISQ_USES_3RD_APIS": "Bisq uses 3rd party APIs for Fiat and Altcoin market prices as well as for mining fee estimation.",
+      "BISQ_WEB_PAGE": "Bisq web page",
+      "CONTRIBUTE": "Contribute",
+      "DATA_PROVIDERS": "Data providers",
+      "DONATE": "Donate",
+      "MARKET_PRICES_PROVIDED_BY": "Market prices provided by",
+      "MINING_FEE_ESTIMATION_PROVIDED_BY": "Mining fee estimation provided by",
+      "SOURCE_CODE": "Source code",
+      "SUPPORT_BISQ": "Support bisq",
+      "VERSIONS_OF_SUBSYSTEMS": "Versions of subsystems",
+      "VERSION_DETAILS": "Version details"
+    },
+    "NETWORK_INFO": {
+      "BITCOIN_CORE_NODES_TO_CONNECT_TO": "Bitcoin core nodes to connect to",
+      "BITCOIN_NETWORK": "Bitcoin network",
+      "CONNECTED_PEERS": "Connected peers",
+      "DELETE_SPV_FILE_AND_RESYNC": "Delete SPV file and resync",
+      "MY_ONION_ADDRESS": "My onion address",
+      "OPEN_TOR_SETTINGS": "Open tor settings",
+      "P2P_NETWORK": "P2P network",
+      "RESYNC_SPV_CHAIN": "Resync SPV chain",
+      "TOTAL_TRAFFIC": "Total traffic",
+      "USE_TOR_FOR_BITCOIN_NETWORK": "Use tor for bitcoin network"
+    },
+    "PREFERENCES": {
+      "AUTO_SELECT_ARBITRATORS": "Auto select arbitrators",
+      "BITCOIN_BLOCK_EXPLORER": "Bitcoin block explorer",
+      "COUNTRY": "Country",
+      "CURRENCIES_IN_MARKET_PRICE_FEED_LIST": "Currencies in market price feed list",
+      "DISPLAY_ALTCOINS": "Display altcoins",
+      "DISPLAY_NATIONAL_CURRENCIES": "Display national currencies",
+      "DISPLAY_OPTIONS": "Display options",
+      "GENERAL_PREFERENCES": "General preferences",
+      "IGNORE_PEERS_WITH_ONION_ADDRESS": "Ignore peers with onion address (comma sep.)",
+      "LANGUAGE": "Language",
+      "MAX_DEVIATION_FROM_MARKET_PRICE": "Max. deviation from market price",
+      "PREFERED_CURRENCY": "Prefered currency",
+      "RESET_ALL": "Reset all \"Don't show again\" flags",
+      "SELECT_BASE_CURRENCY": "Select base currency",
+      "SHOW_MY_OWN_OFFERS_IN_OFFER_BOOK": "Show my own offers in offer book",
+      "SORT_MARKERS_LISTS": "Sort markers lists with no. of offers/trades",
+      "USE_ANIMATIONS": "Use animations",
+      "USE_CUSTOM_VALUE": "Use custom value",
+      "WIDTHDRAWAL_TRANSACTION_FEE": "Widthdrawal transaction fee"
+    }
+  },
+  "TOAST": {
+    "FORM_VALIDATION_ERROR": "Missing required fields",
+    "NEW_ADDRESS_CREATE_ERROR": "Unable to create new address",
+    "OFFERS": {
+      "CANT_FETCH_DATA": "Error: Cant't fetch/refresh offers list"
+    },
+    "PAYMENT_METHOD_CREATED": "Payment method created successfully",
+    "PAYMENT_METHOD_CREATE_ERROR": "Error during creating payment method",
+    "PAYMENT_METHOD_DELETED": "Payment method deleted successfully",
+    "PAYMENT_METHOD_DELETE_ERROR": "Error during deleting payment method",
+    "TRADES": {
+      "CANT_FETCH_DATA": "Error: Cant't fetch/refresh trades list"
+    }
+  },
+  "VALIDATION": {
+    "BIC": "Input length is neither 8 nor 11",
+    "IBAN": "Number must have length 15 to 34 chars",
+    "REQUIRED": "This field is required"
+  },
+  "WARNING": "Warning"
 }

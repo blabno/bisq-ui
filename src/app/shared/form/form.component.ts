@@ -1,6 +1,6 @@
-import {Component, Input, Output, EventEmitter, SimpleChanges, OnInit, OnChanges} from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
 import _ from 'lodash';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 import {ToastService} from '../services/toast.service';
 

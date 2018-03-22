@@ -11,20 +11,20 @@ import {InfoModalService} from '../shared/infoModal/infoModal.service';
 // import {WalletPassComponent} from './wallet-pass/wallet-pass.component';
 // import {WalletSeedComponent} from './wallet-seed/wallet-seed.component';
 
-function t(str) {
-  return str;
-}
+import t from '../shared/defineTextToTranslate';
 
-t('ACCOUNT.INIT_MODAL.TITLE');
-t('ACCOUNT.INIT_MODAL.PARAGRAPH1');
-t('ACCOUNT.INIT_MODAL.PARAGRAPH2');
-t('ACCOUNT.INIT_MODAL.PARAGRAPH3');
-t('ACCOUNT.SUBMENU.CURRENCY_ACCOUNTS');
-t('ACCOUNT.SUBMENU.ALTCOINS_ACCOUNTS');
-t('ACCOUNT.SUBMENU.ARBITRATOR');
-t('ACCOUNT.SUBMENU.WALLET_PASSWORD');
-t('ACCOUNT.SUBMENU.WALLET_SEED');
-t('ACCOUNT.SUBMENU.BACKUP');
+t([
+  'ACCOUNT.INIT_MODAL.TITLE',
+  'ACCOUNT.INIT_MODAL.PARAGRAPH1',
+  'ACCOUNT.INIT_MODAL.PARAGRAPH2',
+  'ACCOUNT.INIT_MODAL.PARAGRAPH3',
+  'ACCOUNT.SUBMENU.CURRENCY_ACCOUNTS',
+  'ACCOUNT.SUBMENU.ALTCOINS_ACCOUNTS',
+  'ACCOUNT.SUBMENU.ARBITRATOR',
+  'ACCOUNT.SUBMENU.WALLET_PASSWORD',
+  'ACCOUNT.SUBMENU.WALLET_SEED',
+  'ACCOUNT.SUBMENU.BACKUP'
+]);
 
 @Component({
   selector: 'app-account',
