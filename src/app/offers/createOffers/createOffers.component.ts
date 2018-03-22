@@ -1,4 +1,4 @@
-import * as _ from 'lodash';
+import  _ from 'lodash';
 import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {PaymentAccountsDAO} from "../../shared/DAO/paymentAccounts.dao";
@@ -116,7 +116,7 @@ export class CreateOffersComponent implements OnInit, OnDestroy {
   }
 
   submit() {
-    const preparedForm = _.merge({}, _.omit(this.model, ['tradeCurrency', 'calculatedValue']), {
+    const preparedForm = _.merge({}, _.omit(this.model, ['tradeCurrency', 'calculatedValue', 'deposit']), {
       fundUsingBisqWallet: true,
       direction: this.type.toUpperCase(),
       marketPair: 'BTC_' + this.model.tradeCurrency

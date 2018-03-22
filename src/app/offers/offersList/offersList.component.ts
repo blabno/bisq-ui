@@ -42,25 +42,25 @@ export class OffersListComponent implements OnChanges {
       const dir = this.type === 'sell' ? 'buy' : 'sell'; // Todo: check... probably server returns opposite directions
       const filter = {direction: dir.toUpperCase()};
       if(this.currencyFilter !== this.NO_FILTER){
-        _.set(filter, 'other_currency', this.currencyFilter);
+        _.set(filter, 'currencyCode', this.currencyFilter);
       }
       this.list = _.filter(this.data, filter);
     }
   }
 
   getOfferBTCAmount(item) {
-    if (item.min_btc_amount === false || Number(item.min_btc_amount) != Number(item.btc_amount)) {
-      return item.min_btc_amount + ' - ' + item.btc_amount;
+    if (item.minAmount === false || Number(item.minAmount) != Number(item.amount)) {
+      return item.minAmount + ' - ' + item.amount;
     }
-    return item.btc_amount;
+    return item.amount;
   }
 
   getOfferAmount(item) {
-    if (item.min_btc_amount === false || Number(item.min_btc_amount) != Number(item.btc_amount)) {
-      return _.round(Number(item.min_btc_amount) * Number(item.other_amount), 2) + ' - ' +
-        _.round(Number(item.btc_amount) * Number(item.other_amount), 2);
+    if (item.minAmount === false || Number(item.minAmount) != Number(item.amount)) {
+      return _.round(Number(item.minAmount) * Number(item.price), 2) + ' - ' +
+        _.round(Number(item.amount) * Number(item.price), 2);
     }
-    return _.round(Number(item.btc_amount) * Number(item.other_amount), 2);
+    return _.round(Number(item.amount) * Number(item.price), 2);
   }
 
   select(id) {
