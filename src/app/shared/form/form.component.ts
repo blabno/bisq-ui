@@ -48,7 +48,7 @@ export class FormComponent implements OnInit, OnChanges {
       value: field.value || this.values[key] || null,
       disabled: field.disabled || this.disabled || false
     }, _.map(field.validators, validator => validatorsMap[validator]))));
-    this.formGroup.valueChanges.subscribe(() => console.log(this.formGroup) || this.onChange.emit(this.formGroup));
+    this.formGroup.valueChanges.subscribe(() => this.onChange.emit(this.formGroup));
   }
 
   ngOnChanges(changes: SimpleChanges) {
