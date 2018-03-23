@@ -1,264 +1,264 @@
 {
-  "ABOUT": "O programie",
-  "ACCOUNT": {
-    "ACCOUNTS_LIST": "Lista kont",
-    "ADD_NEW": "Dodaj konto",
-    "ARBITRATOR": {
-      "ARBITRATOR_ADDRESS": "Adres aribtratora",
-      "AUTO_SELECT_ARBITRATORS_WITH_MATCHING_LANGUAGE": "Automatycznie przydziel arbitra o tym samym języku",
-      "NOMINATE_YOURSELF": "Nominuj siebie",
-      "UNSELECT": "Odznacz",
-      "WHICH_ARBITRATORS_DO_YOU_ACCEPT": "Których arbitratorów wybierasz",
-      "WHICH_LANGUAGE_DO_YOU_SPEAK": "Wybierz języki, które umiesz"
-    },
-    "CANCEL": "",
-    "CREATE_NEW": "Stwórz nowe konto",
-    "CURRENCY": {
-      "ACCEPTED_TRADES_EURO": "Akceptowane transakcje z krajami w Euro",
-      "ACCEPTED_TRADES_NON_EURO": "Akceptowane transakcje z krajami w innych walutach",
-      "ACCOUNT_NAME": "Nazwa konta",
-      "BANK_COUNTRY": "Kraj banku",
-      "COUNTRY_AT": "Austria (AT)",
-      "COUNTRY_BE": "Belgia (BE)",
-      "COUNTRY_BG": "Bułgaria (BG)",
-      "COUNTRY_CH": "Szwajcaria (CH)",
-      "COUNTRY_CY": "Cypr (CY)",
-      "COUNTRY_CZ": "Republika Czeska (CZ)",
-      "COUNTRY_DE": "Niemcy (DE)",
-      "COUNTRY_DK": "Dania (DK)",
-      "COUNTRY_EE": "Estonia (EE)",
-      "COUNTRY_ES": "Hiszpania (ES)",
-      "COUNTRY_FI": "Finlandia (FI)",
-      "COUNTRY_FR": "Francja (FR)",
-      "COUNTRY_GB": "Wielka Brytania (GB)",
-      "COUNTRY_GR": "Grecja (GR)",
-      "COUNTRY_HR": "Chorwacja (HR)",
-      "COUNTRY_HU": "Węgry (HU)",
-      "COUNTRY_IE": "Irlandia (IE)",
-      "COUNTRY_IS": "Islandia (IS)",
-      "COUNTRY_IT": "Włochy (IT)",
-      "COUNTRY_LI": "Liechtenstein (LI)",
-      "COUNTRY_LT": "Litwa (LT)",
-      "COUNTRY_LU": "Luksemburg (LU)",
-      "COUNTRY_LV": "Łotwa (LV)",
-      "COUNTRY_MC": "Monako (MC)",
-      "COUNTRY_MT": "Malta (MT)",
-      "COUNTRY_NL": "Holandia (NL)",
-      "COUNTRY_NO": "Norwegia (NO)",
-      "COUNTRY_PL": "Polska (PL)",
-      "COUNTRY_PT": "Portugalia (PT)",
-      "COUNTRY_RO": "Rumunia (RO)",
-      "COUNTRY_SE": "Szwecja (SE)",
-      "COUNTRY_SI": "Słowenia (SI)",
-      "COUNTRY_SK": "Słowacja (SK)",
-      "CURRENCY": "Waluta",
-      "CURRENCY_BGN": "Lew bułgarski (BGN)",
-      "CURRENCY_CHF": "Frank szwajcarski (CHF)",
-      "CURRENCY_CZK": "Korona czeska (CZK)",
-      "CURRENCY_DKK": "Duńska korona (DKK)",
-      "CURRENCY_EUR": "Euro (EUR)",
-      "CURRENCY_HUF": "Forint węgierski (HUF)",
-      "CURRENCY_ISK": "Korona islandzka (ISK)",
-      "CURRENCY_NOK": "Korona norweska (NOK)",
-      "CURRENCY_PLN": "Polski złoty (PLN)",
-      "CURRENCY_RON": "Lej rumuński (RON)",
-      "CURRENCY_SEK": "Korona szwedzka (SEK)",
-      "DELETE_CONFIRMATION": "Czy na pewno chcesz usunąć to konto?",
-      "LIMITATIONS": "Ograniczenia",
-      "LIMITATION_SEPA": "Maks. czas transakcji: 6 dni / Maks. limit transakcji: 0.0625 BTC / aktywność konta: 0 dni",
-      "LIMITATION_VENMO": "Maks. czas transakcji: 1 dzień / Maks. limit transakcji: 0.04 BTC / aktywność konta: 0 dni",
-      "OWNER_NAME": "Imię i nazwisko posiadacza",
-      "PAYMENT_METHOD": "Metoda płatności",
-      "SALT_ACCOUNT_AGE": "Kod potwierdzający aktywność konta",
-      "VENMO_NAME": "Nazwa konta Venmo"
-    },
-    "DELETE": "Usuń konto",
-    "EXPORT": "Eksportuj konta",
-    "IMPORT": "Importuj konta",
-    "INIT_MODAL": {
-      "PARAGRAPH1": "Tutaj możesz ustawić konta handlowe dla walut narodowych i kruptowalut, wybrać arbitrów i wykonać kopię zapasową danych portfela i konta.",
-      "PARAGRAPH2": "Pusty portfel Bitcoin został utworzony przy pierwszym uruchomieniu Bisq.\nPolecamy, abyś zapisał swoje słowa kluczwe portfela Bitcoin (patrz przycisk po lewej) i rozważ dodanie hasła przed finansowaniem. Depozyty i wypłaty bitcoin są zarządzane w sekcji \"Fundusze \"",
-      "PARAGRAPH3": "Prywatność i bezpieczeństwo: \nBisq to zdecentralizowana giełda - co oznacza, że ​​wszystkie twoje dane są przechowywane na komputerze, nie ma serwerów i nie mamy dostępu do twoich danych osobowych, twoich funduszy, a nawet twojego adresu IP. Dane takie jak numery rachunków bankowych, adresy e-mail i bitcoin itp. są udostępniane tylko Twojemu partnerowi handlowemu w celu realizacji zainicjowanych transakcji (w przypadku sporu arbiter zobaczy te same dane, co twój partner handlowy).",
-      "TITLE": "Witaj na Twoim koncie Bisq"
-    },
-    "SAVE": "Zapisz nowe konto",
-    "SUBMENU": {
-      "ALTCOINS_ACCOUNTS": "Konta alternatywne",
-      "ARBITRATOR": "Arbitrator",
-      "BACKUP": "Kopia zapasowa",
-      "CURRENCY_ACCOUNTS": "Konta walutowe",
-      "WALLET_PASSWORD": "Hasło portfela",
-      "WALLET_SEED": "Seed portfela"
-    },
-    "WALLET_PASS": {
-      "ENTER_PASS": "Wprowadź haslo",
-      "HEADER": "Ustaw hasło zabezpieczeń portfela",
-      "INFORMATION": "Informacja",
-      "INFORMATION_CONTENT": "Hasło potrzebe będzie podczas uruchamiania aplikacji oraz w przypadku wyciągania kryptowaluty z portfela lub jeśli zechcesz zobaczyć frazę mnemoniczną dla portfela.",
-      "REMOVE_HEADER": "Usuń hasło zabezpieczeń portfela",
-      "REMOVE_PASS": "Usuń hasło",
-      "RE_ENTER_PASS": "Potwierdź hasło",
-      "SET_PASS": "Ustaw hasło"
-    },
-    "WALLET_SEED": {
-      "BACKUP_HEADER": "Zrób kopię zapasową frazy",
-      "DATE": "Data portfela",
-      "INFORMATION": "Informacja",
-      "INFORMATION_CONTENT": "Zapisz obie wartości: frazę mnemoniczną oraz datę! Możesz odzyskać swój portfel używając obu tych wartości.",
-      "INFORMATION_CONTENT_2": "Fraza używana jest dla obu porfeli, BTC oraz BSQ. ",
-      "INFORMATION_CONTENT_3": "Powinienieć zapisać frazę na karce papieru i nie przechowywać na komputerze.",
-      "RESTORE_BUTTON": "Przywróć portfel",
-      "RESTORE_HEADER": "Przywróć portfel na podstawie frazy",
-      "SEED_WORDS": "Fraza mnemoniczna portfela"
-    }
-  },
-  "BACK": "Wróć",
-  "CANCEL": "Anuluj",
-  "CONFIRM": "Potwierdź",
-  "FUNDS": {
-    "RECEIVE": {
-      "NEW_ADDRESS": "Wygeneruj nowy adres"
-    },
-    "SUBMENU": {
-      "LOCKED": "Zablokowane",
-      "RECEIVE": "Odebrane",
-      "RESERVED": "Zarezerwowane",
-      "SEND": "Wysłane",
-      "TRANSACTIONS": "Transakcje"
-    }
-  },
-  "INFO_MODAL": {
-    "DO_NOT_SHOW_AGAIN": "Nie pokazuj ponownie"
-  },
-  "MARKET": {
-    "SUMMARY": {
-      "AVAILABLE": "Dostępne",
-      "LOCKED": "Zablokowane",
-      "RESERVED": "Zarezerwowane"
-    }
-  },
-  "MENU": {
-    "ACCOUNT": "Konto",
-    "BUY": "Kup",
-    "FUNDS": "Fundusze",
-    "MARKET": "Market",
-    "PORTFOLIO": "Portfolio",
-    "SELL": "Sprzedaj",
-    "SETTINGS": "Ustawienia",
-    "SUPPORT": "Wsparcie"
-  },
-  "NETWORK_INFO": "Sieć",
-  "OFFERS": {
-    "CREATE": {
-      "AMOUNT": "Wartość",
-      "CURRENCY": "Waluta",
-      "FIXED": "Stała",
-      "MINUMUM_VOLUME": "Minimalna ilość",
-      "PERCENTAGE": "Procentowa",
-      "PERCENT_DISTANCE": "Odchylenie od ceny rynkowej (%)",
-      "PRICE": "Cena",
-      "SAVE": "Zapisz",
-      "SECURITY_DEPOSIT": "Depozyt",
-      "TRADING_ACCOUNT": "Konto handlowe",
-      "TYPE": "Typ ceny",
-      "VOLUME": "Ilość"
-    },
-    "CREATE_BUTTON": "Stwórz",
-    "LIST": {
-      "AMOUNT": "Wartość",
-      "BUY": "Kup",
-      "FILTER": {
-        "BY_CURRENCY": "Filtruj wg. waluty",
-        "BY_METHOD": "Filtruj wg. metodzy płatności"
-      },
-      "NO_OFFERS": "Liczba ofert",
-      "PRICE": "Cena",
-      "SELL": "Sprzedaj",
-      "SHOW_ALL": "Pokaż wszystko"
-    }
-  },
-  "PORTFOLIO": {
-    "OPEN_TRADES": {
-      "NUMBER_TRADES": "Liczba transkacji"
-    },
-    "SUBMENU": {
-      "HISTORY": "Historia",
-      "MY_OPEN_OFFERS": "Moje otwarte oferty",
-      "OPEN_TRADES": "Aktywne transkacje"
-    }
-  },
-  "PREFERENCES": "Preferencje",
-  "SETTINGS_VIEW": {
-    "ABOUT": {
-      "ABOUT_BISQ": "O bisq",
-      "ABOUT_BISQ_TEXT": "Bisq to projekt typu open source i zdecentralizowana sieć użytkowników, którzy chcą wymieniać bitcoiny z walutami krajowymi lub alternatywnymi kryptowalutami w sposób zapewniający ochronę prywatności. Dowiedz się więcej o Bisq na naszej stronie internetowej projektu.",
-      "AGPL_LICENSE": "Licencja AGPL",
-      "APPLICATION_VERSION": "Wersja aplikacji",
-      "BISQ_IS_COMMUNITY": "Bisq nie jest firmą, ale projektem społecznościowym i otwartym na współpracę. Jeśli chcesz wziąć udział lub wesprzeć Bisq, skorzystaj z poniższych linków.",
-      "BISQ_USES_3RD_APIS": "Bisq korzysta z zewnętrznych interfejsów API dla cen rynkowych Fiat i Altcoin, a także dla szacowania opłat eksploatacyjnych.",
-      "BISQ_WEB_PAGE": "Strona internetowa bisq",
-      "CONTRIBUTE": "Współpraca",
-      "DATA_PROVIDERS": "Dostawcy danych",
-      "DONATE": "Dotacje",
-      "MARKET_PRICES_PROVIDED_BY": "Ceny rynkowe dostarczane przez",
-      "MINING_FEE_ESTIMATION_PROVIDED_BY": "Szacunek wartośći wydobycia przekazany przez",
-      "SOURCE_CODE": "Kod źródłowy",
-      "SUPPORT_BISQ": "Wspieraj bisq",
-      "VERSIONS_OF_SUBSYSTEMS": "Wersje podsystemów",
-      "VERSION_DETAILS": "Wersje"
-    },
-    "NETWORK_INFO": {
-      "BITCOIN_CORE_NODES_TO_CONNECT_TO": "Węzeł bitcoin połączony do",
-      "BITCOIN_NETWORK": "Sieć bitcoin",
-      "CONNECTED_PEERS": "Połączenia",
-      "DELETE_SPV_FILE_AND_RESYNC": "Usuń plik SPV i synchronizuj",
-      "MY_ONION_ADDRESS": "Mój adres onion",
-      "OPEN_TOR_SETTINGS": "Otwórz ustawienia TORa",
-      "P2P_NETWORK": "Sieć P2P",
-      "RESYNC_SPV_CHAIN": "Synchronizuj łańcuch SPV",
-      "TOTAL_TRAFFIC": "Ruch całkowity",
-      "USE_TOR_FOR_BITCOIN_NETWORK": "Użyj sieci tor"
-    },
-    "PREFERENCES": {
-      "AUTO_SELECT_ARBITRATORS": "Automatycznie przydziel arbitrów",
-      "BITCOIN_BLOCK_EXPLORER": "Serwis do Bitcoin block",
-      "COUNTRY": "Kraj",
-      "CURRENCIES_IN_MARKET_PRICE_FEED_LIST": "Lista dostępnych walut",
-      "DISPLAY_ALTCOINS": "Pokazywane kryptowaluty",
-      "DISPLAY_NATIONAL_CURRENCIES": "Pokazywane waluty krajowe",
-      "DISPLAY_OPTIONS": "Opcje wyświetlania",
-      "GENERAL_PREFERENCES": "Ogólne",
-      "IGNORE_PEERS_WITH_ONION_ADDRESS": "Ignorowane połączenia",
-      "LANGUAGE": "Język",
-      "MAX_DEVIATION_FROM_MARKET_PRICE": "Maks. różnica od ceny",
-      "PREFERED_CURRENCY": "Preferowana waluta",
-      "RESET_ALL": "Zresetuj wszystkie \"Nie pokazuj tego\"",
-      "SELECT_BASE_CURRENCY": "Wybierz podstawową walutę",
-      "SHOW_MY_OWN_OFFERS_IN_OFFER_BOOK": "Pokaż moje własne oferty",
-      "SORT_MARKERS_LISTS": "Posortuj listę zgodnie z ilością ofert/transakcji",
-      "USE_ANIMATIONS": "Używaj animacji",
-      "USE_CUSTOM_VALUE": "Użyj własnej wartośći",
-      "WIDTHDRAWAL_TRANSACTION_FEE": "Cena transakcji"
-    }
-  },
-  "TOAST": {
-    "FORM_VALIDATION_ERROR": "Brak wszystkich wymaganych pól",
-    "NEW_ADDRESS_CREATE_ERROR": "Nie można wygenerować nowego adresu",
-    "OFFERS": {
-      "CANT_FETCH_DATA": "Błąd: Nie można pobrać/odświeżyć listy ofert"
-    },
-    "PAYMENT_METHOD_CREATED": "Metoda płatnosci stworzona pomyślnie",
-    "PAYMENT_METHOD_CREATE_ERROR": "Błąd podczas tworzenia metody płatnosci",
-    "PAYMENT_METHOD_DELETED": "Metoda płatnosci usunięta pomyślnie",
-    "PAYMENT_METHOD_DELETE_ERROR": "Błąd podczas usuwania metody płatnosci",
-    "TRADES": {
-      "CANT_FETCH_DATA": "Błąd: Nie można pobrać/odświeżyć listy transakcji"
-    }
-  },
-  "VALIDATION": {
-    "BIC": "Wymagane 8 lub 11 znaków",
-    "IBAN": "Numer musi mieć od 15 do 34 znaków",
-    "REQUIRED": "To pole jest wymagane"
-  },
-  "WARNING": "Ostrzeżenie"
+	"ABOUT": "O programie",
+	"ACCOUNT": {
+		"ACCOUNTS_LIST": "Lista kont",
+		"ADD_NEW": "Dodaj konto",
+		"ARBITRATOR": {
+			"ARBITRATOR_ADDRESS": "Adres aribtratora",
+			"AUTO_SELECT_ARBITRATORS_WITH_MATCHING_LANGUAGE": "Automatycznie przydziel arbitra o tym samym języku",
+			"NOMINATE_YOURSELF": "Nominuj siebie",
+			"UNSELECT": "Odznacz",
+			"WHICH_ARBITRATORS_DO_YOU_ACCEPT": "Których arbitratorów wybierasz",
+			"WHICH_LANGUAGE_DO_YOU_SPEAK": "Wybierz języki, które umiesz"
+		},
+		"CANCEL": "",
+		"CREATE_NEW": "Stwórz nowe konto",
+		"CURRENCY": {
+			"ACCEPTED_TRADES_EURO": "Akceptowane transakcje z krajami w Euro",
+			"ACCEPTED_TRADES_NON_EURO": "Akceptowane transakcje z krajami w innych walutach",
+			"ACCOUNT_NAME": "Nazwa konta",
+			"BANK_COUNTRY": "Kraj banku",
+			"COUNTRY_AT": "Austria (AT)",
+			"COUNTRY_BE": "Belgia (BE)",
+			"COUNTRY_BG": "Bułgaria (BG)",
+			"COUNTRY_CH": "Szwajcaria (CH)",
+			"COUNTRY_CY": "Cypr (CY)",
+			"COUNTRY_CZ": "Republika Czeska (CZ)",
+			"COUNTRY_DE": "Niemcy (DE)",
+			"COUNTRY_DK": "Dania (DK)",
+			"COUNTRY_EE": "Estonia (EE)",
+			"COUNTRY_ES": "Hiszpania (ES)",
+			"COUNTRY_FI": "Finlandia (FI)",
+			"COUNTRY_FR": "Francja (FR)",
+			"COUNTRY_GB": "Wielka Brytania (GB)",
+			"COUNTRY_GR": "Grecja (GR)",
+			"COUNTRY_HR": "Chorwacja (HR)",
+			"COUNTRY_HU": "Węgry (HU)",
+			"COUNTRY_IE": "Irlandia (IE)",
+			"COUNTRY_IS": "Islandia (IS)",
+			"COUNTRY_IT": "Włochy (IT)",
+			"COUNTRY_LI": "Liechtenstein (LI)",
+			"COUNTRY_LT": "Litwa (LT)",
+			"COUNTRY_LU": "Luksemburg (LU)",
+			"COUNTRY_LV": "Łotwa (LV)",
+			"COUNTRY_MC": "Monako (MC)",
+			"COUNTRY_MT": "Malta (MT)",
+			"COUNTRY_NL": "Holandia (NL)",
+			"COUNTRY_NO": "Norwegia (NO)",
+			"COUNTRY_PL": "Polska (PL)",
+			"COUNTRY_PT": "Portugalia (PT)",
+			"COUNTRY_RO": "Rumunia (RO)",
+			"COUNTRY_SE": "Szwecja (SE)",
+			"COUNTRY_SI": "Słowenia (SI)",
+			"COUNTRY_SK": "Słowacja (SK)",
+			"CURRENCY": "Waluta",
+			"CURRENCY_BGN": "Lew bułgarski (BGN)",
+			"CURRENCY_CHF": "Frank szwajcarski (CHF)",
+			"CURRENCY_CZK": "Korona czeska (CZK)",
+			"CURRENCY_DKK": "Duńska korona (DKK)",
+			"CURRENCY_EUR": "Euro (EUR)",
+			"CURRENCY_HUF": "Forint węgierski (HUF)",
+			"CURRENCY_ISK": "Korona islandzka (ISK)",
+			"CURRENCY_NOK": "Korona norweska (NOK)",
+			"CURRENCY_PLN": "Polski złoty (PLN)",
+			"CURRENCY_RON": "Lej rumuński (RON)",
+			"CURRENCY_SEK": "Korona szwedzka (SEK)",
+			"DELETE_CONFIRMATION": "Czy na pewno chcesz usunąć to konto?",
+			"LIMITATIONS": "Ograniczenia",
+			"LIMITATION_SEPA": "Maks. czas transakcji: 6 dni / Maks. limit transakcji: 0.0625 BTC / aktywność konta: 0 dni",
+			"LIMITATION_VENMO": "Maks. czas transakcji: 1 dzień / Maks. limit transakcji: 0.04 BTC / aktywność konta: 0 dni",
+			"OWNER_NAME": "Imię i nazwisko posiadacza",
+			"PAYMENT_METHOD": "Metoda płatności",
+			"SALT_ACCOUNT_AGE": "Kod potwierdzający aktywność konta",
+			"VENMO_NAME": "Nazwa konta Venmo"
+		},
+		"DELETE": "Usuń konto",
+		"EXPORT": "Eksportuj konta",
+		"IMPORT": "Importuj konta",
+		"INIT_MODAL": {
+			"PARAGRAPH1": "Tutaj możesz ustawić konta handlowe dla walut narodowych i kruptowalut, wybrać arbitrów i wykonać kopię zapasową danych portfela i konta.",
+			"PARAGRAPH2": "Pusty portfel Bitcoin został utworzony przy pierwszym uruchomieniu Bisq.\nPolecamy, abyś zapisał swoje słowa kluczwe portfela Bitcoin (patrz przycisk po lewej) i rozważ dodanie hasła przed finansowaniem. Depozyty i wypłaty bitcoin są zarządzane w sekcji \"Fundusze \"",
+			"PARAGRAPH3": "Prywatność i bezpieczeństwo: \nBisq to zdecentralizowana giełda - co oznacza, że ​​wszystkie twoje dane są przechowywane na komputerze, nie ma serwerów i nie mamy dostępu do twoich danych osobowych, twoich funduszy, a nawet twojego adresu IP. Dane takie jak numery rachunków bankowych, adresy e-mail i bitcoin itp. są udostępniane tylko Twojemu partnerowi handlowemu w celu realizacji zainicjowanych transakcji (w przypadku sporu arbiter zobaczy te same dane, co twój partner handlowy).",
+			"TITLE": "Witaj na Twoim koncie Bisq"
+		},
+		"SAVE": "Zapisz nowe konto",
+		"SUBMENU": {
+			"ALTCOINS_ACCOUNTS": "Konta alternatywne",
+			"ARBITRATOR": "Arbitrator",
+			"BACKUP": "Kopia zapasowa",
+			"CURRENCY_ACCOUNTS": "Konta walutowe",
+			"WALLET_PASSWORD": "Hasło portfela",
+			"WALLET_SEED": "Seed portfela"
+		},
+		"WALLET_PASS": {
+			"ENTER_PASS": "Wprowadź haslo",
+			"HEADER": "Ustaw hasło zabezpieczeń portfela",
+			"INFORMATION": "Informacja",
+			"INFORMATION_CONTENT": "Hasło potrzebe będzie podczas uruchamiania aplikacji oraz w przypadku wyciągania kryptowaluty z portfela lub jeśli zechcesz zobaczyć frazę mnemoniczną dla portfela.",
+			"REMOVE_HEADER": "Usuń hasło zabezpieczeń portfela",
+			"REMOVE_PASS": "Usuń hasło",
+			"RE_ENTER_PASS": "Potwierdź hasło",
+			"SET_PASS": "Ustaw hasło"
+		},
+		"WALLET_SEED": {
+			"BACKUP_HEADER": "Zrób kopię zapasową frazy",
+			"DATE": "Data portfela",
+			"INFORMATION": "Informacja",
+			"INFORMATION_CONTENT": "Zapisz obie wartości: frazę mnemoniczną oraz datę! Możesz odzyskać swój portfel używając obu tych wartości.",
+			"INFORMATION_CONTENT_2": "Fraza używana jest dla obu porfeli, BTC oraz BSQ. ",
+			"INFORMATION_CONTENT_3": "Powinienieć zapisać frazę na karce papieru i nie przechowywać na komputerze.",
+			"RESTORE_BUTTON": "Przywróć portfel",
+			"RESTORE_HEADER": "Przywróć portfel na podstawie frazy",
+			"SEED_WORDS": "Fraza mnemoniczna portfela"
+		}
+	},
+	"BACK": "Wróć",
+	"CANCEL": "Anuluj",
+	"CONFIRM": "Potwierdź",
+	"FUNDS": {
+		"RECEIVE": {
+			"NEW_ADDRESS": "Wygeneruj nowy adres"
+		},
+		"SUBMENU": {
+			"LOCKED": "Zablokowane",
+			"RECEIVE": "Odebrane",
+			"RESERVED": "Zarezerwowane",
+			"SEND": "Wysłane",
+			"TRANSACTIONS": "Transakcje"
+		}
+	},
+	"INFO_MODAL": {
+		"DO_NOT_SHOW_AGAIN": "Nie pokazuj ponownie"
+	},
+	"MARKET": {
+		"SUMMARY": {
+			"AVAILABLE": "Dostępne",
+			"LOCKED": "Zablokowane",
+			"RESERVED": "Zarezerwowane"
+		}
+	},
+	"MENU": {
+		"ACCOUNT": "Konto",
+		"BUY": "Kup",
+		"FUNDS": "Fundusze",
+		"MARKET": "Market",
+		"PORTFOLIO": "Portfolio",
+		"SELL": "Sprzedaj",
+		"SETTINGS": "Ustawienia",
+		"SUPPORT": "Wsparcie"
+	},
+	"NETWORK_INFO": "Sieć",
+	"OFFERS": {
+		"CREATE": {
+			"AMOUNT": "Wartość",
+			"CURRENCY": "Waluta",
+			"FIXED": "Stała",
+			"MINUMUM_AMOUNT": "Minimalna ilość",
+			"PERCENTAGE": "Procentowa",
+			"PERCENT_DISTANCE": "Odchylenie od ceny rynkowej (%)",
+			"PRICE": "Cena",
+			"PRICE_OVERALL": "Koszt całkowity",
+			"SAVE": "Zapisz",
+			"SECURITY_DEPOSIT": "Depozyt",
+			"TRADING_ACCOUNT": "Konto handlowe",
+			"TYPE": "Typ ceny"
+		},
+		"CREATE_BUTTON": "Stwórz",
+		"LIST": {
+			"AMOUNT": "Wartość",
+			"BUY": "Kup",
+			"FILTER": {
+				"BY_CURRENCY": "Filtruj wg. waluty",
+				"BY_METHOD": "Filtruj wg. metodzy płatności"
+			},
+			"NO_OFFERS": "Liczba ofert",
+			"PRICE": "Cena",
+			"SELL": "Sprzedaj",
+			"SHOW_ALL": "Pokaż wszystko"
+		}
+	},
+	"PORTFOLIO": {
+		"OPEN_TRADES": {
+			"NUMBER_TRADES": "Liczba transkacji"
+		},
+		"SUBMENU": {
+			"HISTORY": "Historia",
+			"MY_OPEN_OFFERS": "Moje otwarte oferty",
+			"OPEN_TRADES": "Aktywne transkacje"
+		}
+	},
+	"PREFERENCES": "Preferencje",
+	"SETTINGS_VIEW": {
+		"ABOUT": {
+			"ABOUT_BISQ": "O bisq",
+			"ABOUT_BISQ_TEXT": "Bisq to projekt typu open source i zdecentralizowana sieć użytkowników, którzy chcą wymieniać bitcoiny z walutami krajowymi lub alternatywnymi kryptowalutami w sposób zapewniający ochronę prywatności. Dowiedz się więcej o Bisq na naszej stronie internetowej projektu.",
+			"AGPL_LICENSE": "Licencja AGPL",
+			"APPLICATION_VERSION": "Wersja aplikacji",
+			"BISQ_IS_COMMUNITY": "Bisq nie jest firmą, ale projektem społecznościowym i otwartym na współpracę. Jeśli chcesz wziąć udział lub wesprzeć Bisq, skorzystaj z poniższych linków.",
+			"BISQ_USES_3RD_APIS": "Bisq korzysta z zewnętrznych interfejsów API dla cen rynkowych Fiat i Altcoin, a także dla szacowania opłat eksploatacyjnych.",
+			"BISQ_WEB_PAGE": "Strona internetowa bisq",
+			"CONTRIBUTE": "Współpraca",
+			"DATA_PROVIDERS": "Dostawcy danych",
+			"DONATE": "Dotacje",
+			"MARKET_PRICES_PROVIDED_BY": "Ceny rynkowe dostarczane przez",
+			"MINING_FEE_ESTIMATION_PROVIDED_BY": "Szacunek wartośći wydobycia przekazany przez",
+			"SOURCE_CODE": "Kod źródłowy",
+			"SUPPORT_BISQ": "Wspieraj bisq",
+			"VERSIONS_OF_SUBSYSTEMS": "Wersje podsystemów",
+			"VERSION_DETAILS": "Wersje"
+		},
+		"NETWORK_INFO": {
+			"BITCOIN_CORE_NODES_TO_CONNECT_TO": "Węzeł bitcoin połączony do",
+			"BITCOIN_NETWORK": "Sieć bitcoin",
+			"CONNECTED_PEERS": "Połączenia",
+			"DELETE_SPV_FILE_AND_RESYNC": "Usuń plik SPV i synchronizuj",
+			"MY_ONION_ADDRESS": "Mój adres onion",
+			"OPEN_TOR_SETTINGS": "Otwórz ustawienia TORa",
+			"P2P_NETWORK": "Sieć P2P",
+			"RESYNC_SPV_CHAIN": "Synchronizuj łańcuch SPV",
+			"TOTAL_TRAFFIC": "Ruch całkowity",
+			"USE_TOR_FOR_BITCOIN_NETWORK": "Użyj sieci tor"
+		},
+		"PREFERENCES": {
+			"AUTO_SELECT_ARBITRATORS": "Automatycznie przydziel arbitrów",
+			"BITCOIN_BLOCK_EXPLORER": "Serwis do Bitcoin block",
+			"COUNTRY": "Kraj",
+			"CURRENCIES_IN_MARKET_PRICE_FEED_LIST": "Lista dostępnych walut",
+			"DISPLAY_ALTCOINS": "Pokazywane kryptowaluty",
+			"DISPLAY_NATIONAL_CURRENCIES": "Pokazywane waluty krajowe",
+			"DISPLAY_OPTIONS": "Opcje wyświetlania",
+			"GENERAL_PREFERENCES": "Ogólne",
+			"IGNORE_PEERS_WITH_ONION_ADDRESS": "Ignorowane połączenia",
+			"LANGUAGE": "Język",
+			"MAX_DEVIATION_FROM_MARKET_PRICE": "Maks. różnica od ceny",
+			"PREFERED_CURRENCY": "Preferowana waluta",
+			"RESET_ALL": "Zresetuj wszystkie \"Nie pokazuj tego\"",
+			"SELECT_BASE_CURRENCY": "Wybierz podstawową walutę",
+			"SHOW_MY_OWN_OFFERS_IN_OFFER_BOOK": "Pokaż moje własne oferty",
+			"SORT_MARKERS_LISTS": "Posortuj listę zgodnie z ilością ofert/transakcji",
+			"USE_ANIMATIONS": "Używaj animacji",
+			"USE_CUSTOM_VALUE": "Użyj własnej wartośći",
+			"WIDTHDRAWAL_TRANSACTION_FEE": "Cena transakcji"
+		}
+	},
+	"TOAST": {
+		"FORM_VALIDATION_ERROR": "Brak wszystkich wymaganych pól",
+		"NEW_ADDRESS_CREATE_ERROR": "Nie można wygenerować nowego adresu",
+		"OFFERS": {
+			"CANT_FETCH_DATA": "Błąd: Nie można pobrać/odświeżyć listy ofert"
+		},
+		"PAYMENT_METHOD_CREATED": "Metoda płatnosci stworzona pomyślnie",
+		"PAYMENT_METHOD_CREATE_ERROR": "Błąd podczas tworzenia metody płatnosci",
+		"PAYMENT_METHOD_DELETED": "Metoda płatnosci usunięta pomyślnie",
+		"PAYMENT_METHOD_DELETE_ERROR": "Błąd podczas usuwania metody płatnosci",
+		"TRADES": {
+			"CANT_FETCH_DATA": "Błąd: Nie można pobrać/odświeżyć listy transakcji"
+		}
+	},
+	"VALIDATION": {
+		"BIC": "Wymagane 8 lub 11 znaków",
+		"IBAN": "Numer musi mieć od 15 do 34 znaków",
+		"REQUIRED": "To pole jest wymagane"
+	},
+	"WARNING": "Ostrzeżenie"
 }
