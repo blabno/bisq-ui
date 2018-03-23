@@ -13,7 +13,7 @@ t('');
 @Injectable()
 export class TradesCacheService {
 
-  trades = [];
+  trades;
 
   constructor(private toast: ToastService, private translate: TranslateService, private tradesDAO: TradesDAO) {
   }
@@ -24,9 +24,10 @@ export class TradesCacheService {
   }
 
   refresh() {
-    this.tradesDAO.query()
+    return this.tradesDAO.query()
       .then((result: any) => {
         this.trades = result.trades;
+        return this.trades;
       })
       .catch(() => {
         this.toast.show('TOAST.TRADES.CANT_FETCH_DATA', 'error');
@@ -34,6 +35,10 @@ export class TradesCacheService {
   }
 
   list() {
-    return this.trades
+    if (this.trades) {
+      return Promise.resolve(this.trades);
+    } else {
+      return this.refresh();
+    }
   }
 }

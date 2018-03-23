@@ -13,14 +13,14 @@ export class TradesDAO {
   }
 
   paymentStarted(id) {
-    return this.http.post(`/api/v1/trades/${id}/payment-started`, null).toPromise();
+    return this.http.post(`/api/v1/trades/${id}/payment-started`, null, {responseType: 'text'}).toPromise();
   }
 
   paymentReceived(id) {
-    return this.http.post(`/api/v1/trades/${id}/payment-received`, null).toPromise();
+    return this.http.post(`/api/v1/trades/${id}/payment-received`, null, {responseType: 'text'}).toPromise();
   }
 
   paymentWithdraw(id) {
-    return this.http.post(`/api/v1/trades/${id}/move-funds-to-bisq-wallet`, null).toPromise();
+    return this.http.post(`/api/v1/trades/${id}/move-funds-to-bisq-wallet`, null, {responseType: 'text'}).toPromise();
   }
 }
