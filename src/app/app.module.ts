@@ -42,6 +42,7 @@ import {SummaryComponent} from './market/summary/summary.component';
 import {TransactionComponent} from './funds/transactions/transaction.component';
 import {WalletPassComponent} from './account/wallet-pass/wallet-pass.component';
 import {WalletSeedComponent} from './account/wallet-seed/wallet-seed.component';
+import {TakeOfferComponent} from './offers/takeOffer/takeOffer.component';
 
 
 const loadModules = [
@@ -75,7 +76,8 @@ const loadModules = [
   SummaryComponent,
   TransactionComponent,
   WalletPassComponent,
-  WalletSeedComponent
+  WalletSeedComponent,
+  TakeOfferComponent
 ];
 
 export function createTranslateLoader(http: HttpClient) {

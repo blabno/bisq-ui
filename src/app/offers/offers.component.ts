@@ -31,10 +31,6 @@ export class OffersComponent implements OnInit, OnDestroy {
     clearInterval(this.daoInterval);
   }
 
-  onSelect(id) {
-    console.log(_.find(this.offerList, {id}));
-  }
-
   private refreshOffersList() {
     this.offersDAO.query().then(res => {
       this.offerList = res['offers'];

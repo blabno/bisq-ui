@@ -6,12 +6,14 @@ import {OffersComponent} from "./offers/offers.component";
 import {PortfolioComponent} from './portfolio/portfolio.component';
 import {CreateOffersComponent} from './offers/createOffers/createOffers.component';
 import {FundsComponent} from "./funds/funds.component";
+import {TakeOfferComponent} from './offers/takeOffer/takeOffer.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'offers/buy', pathMatch: 'full'},
   {path: 'market', component: MarketComponent},
 
   {path: 'offers/:type/create', component: CreateOffersComponent},
+  {path: 'offers/:type/take/:offerId', component: TakeOfferComponent},
   {path: 'offers/:type', component: OffersComponent},
 
   {path: 'settings', redirectTo: 'settings/preferences', pathMatch: 'full'},
