@@ -26,7 +26,12 @@
           <span class="float-right">{{item.offer.paymentMethodId}} ({{item.offer.countryCode}})</span>
         </div>
         <div>{{'PORTFOLIO.OPEN_TRADES.MY_ROLE' | translate}}
-          <span class="float-right">MISSING</span>
+          <span class="float-right">
+            {{item.offer.baseCurrencyCode}}
+            {{item.tradeRole}}
+            {{'AS' | translate}}
+            {{item.offerRole}}
+          </span>
         </div>
       </div>
       <div class="progress">
@@ -40,11 +45,8 @@
   </div>
   <div class="col-md-12">
     <div class="card">
-      <div *ngIf="!trades.length" class="card-header text-justify text-center p-3">{{'PORTFOLIO.OPEN_TRADES.NO_TRADES'}}
-      </div>
-      <div *ngIf="trades.length" class="card-header text-justify text-center p-3">
-        {{'PORTFOLIO.OPEN_TRADES.NUMBER_TRADES' |
-        translate}}: {{trades.length || 0}} of total: {{total}}
+      <div *ngIf="!trades.length" class="card-header text-justify text-center p-3">{{'PORTFOLIO.OPEN_TRADES.NO_TRADES' |
+        translate}}
       </div>
     </div>
   </div>

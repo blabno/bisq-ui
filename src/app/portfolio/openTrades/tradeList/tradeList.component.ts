@@ -16,13 +16,28 @@ export class TradeListComponent implements OnInit {
   constructor(private tradesCache: TradesCacheService, private toast: ToastService) {
   }
 
-  // TODO this function temporary until we find out better way to determine user role in trade
-  getMyTradeRole(trade) {
-    if ((trade.takerPaymentAccountId && 'BUY' === trade.offer.direction) ||
-      (!trade.takerPaymentAccountId && 'SELL' === trade.offer.direction)) {
-      return 'seller';
+  getMyRoles(trade) {
+    if (trade.takerPaymentAccountId && 'BUY' === trade.offer.direction) {
+      return {
+        tradeRole: 'seller',
+        offerRole: 'taker'
+      };
+    } else if (!trade.takerPaymentAccountId && 'SELL' === trade.offer.direction) {
+      return {
+        tradeRole: 'seller',
+        offerRole: 'maker'
+      };
+    }
+    if (trade.takerPaymentAccountId && 'SELL' === trade.offer.direction) {
+      return {
+        tradeRole: 'seller',
+        offerRole: 'taker'
+      };
     } else {
-      return 'buyer';
+      return {
+        tradeRole: 'buyer',
+        offerRole: 'maker'
+      };
     }
   }
 
@@ -31,9 +46,7 @@ export class TradeListComponent implements OnInit {
       .then(result => {
         this.trades = result.map(trade => ({
           ...trade,
-          offer: {},
-          buyerPaymentAccount: {},
-          role: this.getMyTradeRole(trade)
+          ...this.getMyRoles(trade)
         }));
         this.total = this.trades.length;
       });

@@ -2,6 +2,7 @@ import {Component, OnInit, Input, EventEmitter, Output} from '@angular/core';
 import moment from 'moment';
 
 import {ToastService} from '../../../shared/services/toast.service';
+import {TradesCacheService} from '../../../shared/services/tradesCache.service';
 import {TradesDAO} from '../../../shared/DAO/trades.dao';
 
 const stepsMap = {
@@ -23,18 +24,18 @@ export class TradeDetailsComponent implements OnInit {
   @Input() trade: any;
   @Output() onCancel = new EventEmitter<any>();
 
-  selectedTradeStep = 0;
-  selectedTradeRole = 'buyer';
+  selectedTradeStep;
+  selectedTradeRole;
 
   endDate;
   tradeDuration;
   remainingDuration;
 
-  constructor(private toast: ToastService, private tradesDAO: TradesDAO) {
+  constructor(private toast: ToastService, private tradesCache: TradesCacheService, private tradesDAO: TradesDAO) {
   }
 
   ngOnInit() {
-    this.selectedTradeRole = this.trade.role;
+    this.selectedTradeRole = this.trade.tradeRole;
     this.selectedTradeStep = stepsMap[this.trade.state];
     this.endDate = moment(this.trade.offer.date + this.trade.offer.maxTradePeriod);
     this.tradeDuration = moment.duration(this.trade.offer.maxTradePeriod);
@@ -43,20 +44,26 @@ export class TradeDetailsComponent implements OnInit {
 
   confirmPaymentStarted() {
     this.tradesDAO.paymentStarted(this.trade.id)
+      .then(() => this.tradesCache.refresh())
+      .then(() => this.toast.show('PORTFOLIO.OPEN_TRADES.PAYMENT_STARTED', 'info'))
       .then(() => (this.selectedTradeStep++))
-      .catch((error) => console.log(error) || this.showErrorToast());
+      .catch(() => this.showErrorToast());
   }
 
   confirmPaymentReceived() {
     this.tradesDAO.paymentReceived(this.trade.id)
+      .then(() => this.tradesCache.refresh())
+      .then(() => this.toast.show('PORTFOLIO.OPEN_TRADES.PAYMENT_RECEIVED', 'info'))
       .then(() => (this.selectedTradeStep++))
-      .catch((error) => console.log(error) || this.showErrorToast());
+      .catch(() => this.showErrorToast());
   }
 
   withdraw() {
     this.tradesDAO.paymentWithdraw(this.trade.id)
+      .then(() => this.tradesCache.refresh())
+      .then(() => this.toast.show('PORTFOLIO.OPEN_TRADES.WITHDRAW_SUCCESS', 'info'))
       .then(() => (this.selectedTradeStep++))
-      .catch((error) => console.log(error) || this.showErrorToast());
+      .catch(() => this.showErrorToast());
   }
 
   cancel() {
