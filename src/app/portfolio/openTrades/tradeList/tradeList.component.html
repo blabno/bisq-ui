@@ -8,13 +8,13 @@
       <div class="card-body">
         <div>
           <span>ID</span>
-          <span class="float-right">{{item.id.substring(0, 20)}}</span>
+          <span class="float-right">{{item.id.substring(0, 8)}}</span>
         </div>
         <div>{{'PORTFOLIO.OPEN_TRADES.PRICE' | translate}}
           <span class="float-right">{{item.tradePrice / 10e3}}</span>
         </div>
         <div>{{'PORTFOLIO.OPEN_TRADES.MARKET' | translate}}
-          <span class="float-right">BTC/EUR</span>
+          <span class="float-right">{{item.offer.baseCurrencyCode}}/{{item.offer.counterCurrencyCode}}</span>
         </div>
         <div>{{'PORTFOLIO.OPEN_TRADES.AMOUNT' | translate}}
           <span class="float-right">{{item.tradeAmount / 10e7}}</span>
@@ -23,7 +23,7 @@
           <span class="float-right">{{item.tradePrice * item.tradeAmount / 10e11 | number:'.2-2'}} EUR</span>
         </div>
         <div>{{'PORTFOLIO.OPEN_TRADES.PAYMENT_METHOD' | translate}}
-          <span class="float-right">SEPA (PL)</span>
+          <span class="float-right">{{item.offer.paymentMethodId}} ({{item.offer.countryCode}})</span>
         </div>
         <div>{{'PORTFOLIO.OPEN_TRADES.MY_ROLE' | translate}}
           <span class="float-right">MISSING</span>

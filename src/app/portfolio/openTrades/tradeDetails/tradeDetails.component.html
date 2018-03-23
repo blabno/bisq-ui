@@ -22,9 +22,14 @@
           <div class="label">Deposit transaction ID</div>
           <div>{{trade.depositTxId}}</div>
           <div class="label">Max. allowed trade period</div>
-          <div>6 days</div>
+          <div>{{tradeDuration.asDays()}} days</div>
           <div class="label">Remaining time</div>
-          <div>5 days, 22 hours, 52 minutes</div>
+          <div>
+            {{remainingDuration.days()}} days,
+            {{remainingDuration.hours()}} hours,
+            {{remainingDuration.minutes()}} minutes
+            (until {{endDate.format('YYYY-MM-DD HH:mm:ss')}})
+          </div>
         </div>
       </div>
     </div>
@@ -56,15 +61,25 @@
     <ng-template [ngIf]="2 === selectedTradeStep && 'buyer' === selectedTradeRole">
       <div class="card">
         <div class="card-header">
-          Start payment using SEPA
+          Start payment using {{trade.offer.paymentMethodId}}
         </div>
         <div class="card-body">
           <div class="label">Amount to transfer</div>
-          <div>{{trade.tradePrice * trade.tradeAmount / 10e11 | number:'.2-2'}} EUR</div>
-          <div class="label">...</div>
+          <div>{{trade.tradePrice * trade.tradeAmount / 10e11 | number:'.2-2'}} {{trade.offer.counterCurrencyCode}}
+          </div>
+          <div class="label">Account owner full name</div>
+          <div>{{trade.buyerPaymentAccount.paymentDetails}}</div>
+          <div class="label">Country of bank</div>
+          <div>{{trade.buyerPaymentAccount.countryCode}}</div>
+          <div class="label">IBAN</div>
+          <div>{{trade.buyerPaymentAccount.iban}}</div>
+          <div class="label">BIC</div>
+          <div>{{trade.buyerPaymentAccount.bic}}</div>
+          <div class="label">Reason for payment</div>
+          <div>{{trade.id.substring(0, 8)}}</div>
         </div>
       </div>
-      <button ion-button>Payment started</button>
+      <button ion-button (click)="confirmPaymentStarted()">Payment started</button>
     </ng-template>
     <ng-template [ngIf]="2 === selectedTradeStep && 'seller' === selectedTradeRole">
       <div class="card">
@@ -97,14 +112,14 @@
           <div class="label">Amount to receive</div>
           <div>{{trade.tradePrice * trade.tradeAmount / 10e11 | number:'.2-2'}} EUR</div>
           <div class="label">Your trading account</div>
-          <div>SEPA - Holder name: account name ...</div>
+          <div>{{trade.buyerPaymentAccount.paymentDetails}}</div>
           <div class="label">Buyers trading account</div>
-          <div>SEPA - Holder name: account name ...</div>
+          <div>{{trade.buyerPaymentAccount.paymentDetails}}</div>
           <div class="label">Confirm payment receipt</div>
-          <div>rgZz6Nf</div>
+          <div>{{trade.id.substring(0, 8)}}</div>
         </div>
       </div>
-      <button ion-button>Confirm payment received</button>
+      <button ion-button (click)="confirmPaymentReceived()">Confirm payment received</button>
     </ng-template>
     <ng-template [ngIf]="4 === selectedTradeStep">
       <div class="card">
@@ -133,7 +148,7 @@
           <div>{{trade.tradeAmount / 10e7 + 77}}</div>
         </div>
       </div>
-      <button ion-button>Withdraw</button>
+      <button ion-button (click)="withdraw()">Withdraw</button>
     </ng-template>
     <button ion-button color="light" (click)="cancel()">{{'BACK' | translate}}</button>
   </div>
