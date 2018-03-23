@@ -39,17 +39,19 @@ export class OffersListComponent implements OnChanges {
 
   getOfferBTCAmount(item) {
     if (item.minAmount === false || Number(item.minAmount) != Number(item.amount)) {
-      return item.minAmount + ' - ' + item.amount;
+      return item.minAmount / 100000000 + ' - ' + item.amount / 100000000;
     }
-    return item.amount;
+    return item.amount / 100000000;
   }
 
   getOfferAmount(item) {
-    if (item.minAmount === false || Number(item.minAmount) != Number(item.amount)) {
-      return _.round(Number(item.minAmount) * Number(item.price), 2) + ' - ' +
-        _.round(Number(item.amount) * Number(item.price), 2);
+    let amount = Number(item.amount) / 100000000;
+    let price = Number(item.price) / 100000000;
+    if (!item.minAmount || Number(item.minAmount) != Number(item.amount)) {
+      let minAmount = Number(item.minAmount) / 100000000;
+      return _.round(minAmount * price, 2) + ' - ' + _.round(amount * price, 2);
     }
-    return _.round(Number(item.amount) * Number(item.price), 2);
+    return _.round(amount * price, 2);
   }
 
   select(id) {

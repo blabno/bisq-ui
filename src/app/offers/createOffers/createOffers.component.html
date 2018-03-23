@@ -10,7 +10,7 @@
         <ion-option *ngFor="let option of accountsList" [value]="option.id">{{option.accountName}}</ion-option>
       </ion-select>
     </ion-item>
-    <ion-item>
+    <ion-item *ngIf="model.accountId">
       <ion-label floating>{{'OFFERS.CREATE.CURRENCY' | translate}}</ion-label>
       <ion-select name="tradeCurrency" [(ngModel)]="model.tradeCurrency" cancelText="{{'ACCOUNT.CANCEL' | translate}}"
                   (ionChange)="onValueChanges($event)">
@@ -29,7 +29,7 @@
       </ion-item>
     </ion-list>
     <ion-item>
-      <ion-label floating>{{'OFFERS.CREATE.VOLUME' | translate}}</ion-label>
+      <ion-label floating>{{'OFFERS.CREATE.AMOUNT' | translate}}</ion-label>
       <ion-input type="number" name="amount" [(ngModel)]="model.amount"
                  (ionChange)="onValueChanges($event)"></ion-input>
     </ion-item>
@@ -44,12 +44,12 @@
                  (ionChange)="onValueChanges($event)"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label floating>{{'OFFERS.CREATE.AMOUNT' | translate}}</ion-label>
+      <ion-label floating>{{'OFFERS.CREATE.PRICE_OVERALL' | translate}}</ion-label>
       <ion-input type="number" name="calculatedValue" [(ngModel)]="model.calculatedValue"
                  (ionChange)="onValueChanges($event)"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label floating>{{'OFFERS.CREATE.MINUMUM_VOLUME' | translate}}</ion-label>
+      <ion-label floating>{{'OFFERS.CREATE.MINUMUM_AMOUNT' | translate}}</ion-label>
       <ion-input type="number" name="minAmount" [(ngModel)]="model.minAmount"
                  (ionChange)="onValueChanges($event)"></ion-input>
     </ion-item>

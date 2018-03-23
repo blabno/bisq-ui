@@ -99,11 +99,14 @@ export class CreateOffersComponent implements OnInit, OnDestroy {
   }
 
   submit() {
-    const preparedForm = _.merge({}, _.omit(this.model, ['tradeCurrency', 'calculatedValue', 'deposit']), {
+    let preparedForm = _.merge({}, _.omit(this.model, ['tradeCurrency', 'calculatedValue', 'deposit']), {
       fundUsingBisqWallet: true,
       direction: this.type.toUpperCase(),
       marketPair: 'BTC_' + this.model.tradeCurrency
     });
+    preparedForm.amount *= 100000000;
+    preparedForm.minAmount *= 100000000;
+    preparedForm.fixedPrice *= 100000000;
     this.offersDAO.create(preparedForm).then(res => {
       this.toast.show('SUCCESS', 'success');
     }).catch(error => {

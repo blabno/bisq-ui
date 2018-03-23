@@ -25,6 +25,6 @@ export class ArbitratorComponent implements OnInit {
   }
 
   nominate() {
-    this.arbitratorsDAO.registerYourself(['Polish', 'English']);
+    this.arbitratorsDAO.registerYourself(['pl', 'en']);
   }
 }
