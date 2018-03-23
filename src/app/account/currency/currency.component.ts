@@ -151,7 +151,7 @@ export class CurrencyComponent implements OnInit, OnDestroy {
       ],
       validators: ['required']
     },
-    tradesEuro: {
+    acceptedCountriesEuro: {
       type: 'select', label: 'ACCOUNT.CURRENCY.ACCEPTED_TRADES_EURO',
       multiple: true,
       value: ['AT', 'BE', 'CY', 'EE', 'FI', 'FR', 'GR', 'ES', 'NL', 'IE', 'LT', 'LU', 'MT', 'MC', 'DE', 'PT', 'SK', 'SI', 'IT', 'LV'],
@@ -178,7 +178,7 @@ export class CurrencyComponent implements OnInit, OnDestroy {
         {value: 'LV', label: 'LV'}
       ]
     },
-    tradesNonEuro: {
+    acceptedCountriesNonEuro: {
       type: 'select', label: 'ACCOUNT.CURRENCY.ACCEPTED_TRADES_NON_EURO',
       multiple: true,
       value: ['BG', 'HR', 'DK', 'IS', 'LI', 'NO', 'PL', 'CZ', 'RO', 'CH', 'SE', 'GB', 'HU'],
@@ -304,6 +304,7 @@ export class CurrencyComponent implements OnInit, OnDestroy {
     const payload = _.pick(values, ['holderName', 'iban', 'bic', 'accountName', 'countryCode', 'selectedTradeCurrency', 'accountName']);
     payload.paymentMethod = this.selectedForm;
     payload.tradeCurrencies = ['PLN'];
+    payload.acceptedCountries =  _.concat(values.acceptedCountriesEuro, values.acceptedCountriesNonEuro);
     this.paymentAccountsDAO.create(payload)
       .then(() => {
         this.cancel();
