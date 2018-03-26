@@ -175,6 +175,18 @@
 			"PRICE": "Cena",
 			"SELL": "Sprzedaj",
 			"SHOW_ALL": "Pokaż wszystko"
+		},
+		"TAKE_OFFER": {
+			"AMOUNT_IN_PLN_TO_RECEIVE": "Kwota w PLN do otrzymania",
+			"AMOUNT_OF_BTC_TO_SELL": "Kwota BTC do sprzedania",
+			"PAYMENT_INFO": "Informacje o płatności",
+			"PRICE_IN_PLN_FOR_BTC": "Cena za BTC w PLN",
+			"SET_AMOUNT": "Ustaw kwotę",
+			"TAKE_OFFER": "Weź ofertę",
+			"TRADE_CURRENCY": "Waluta",
+			"TRADING_ACCOUNT": "Konto",
+			"TAKE_OFFER_SUCCESS": "Transakcja udana",
+			"TAKE_OFFER_ERROR": "Błąd w transakcji"
 		}
 	},
 	"PORTFOLIO": {

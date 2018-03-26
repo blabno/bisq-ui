@@ -3,35 +3,35 @@
     <button class="btn button-md mb-3" routerLink="../..">{{ 'BACK' | translate}}</button>
   </div>
   <div class="card">
-    <div class="card-header">Payment info</div>
+    <div class="card-header">{{'OFFERS.TAKE_OFFER.PAYMENT_INFO' | translate}}</div>
     <div class="card-body">
       <ion-item>
-        <ion-label floating>{{'OFFERS.CREATE.TRADING_ACCOUNT' | translate}}</ion-label>
-        <ion-select [(ngModel)]="accountId" cancelText="{{'ACCOUNT.CANCEL' | translate}}">
+        <ion-label floating>{{'OFFERS.TAKE_OFFER.TRADING_ACCOUNT' | translate}}</ion-label>
+        <ion-select [(ngModel)]="accountId">
           <ion-option *ngFor="let option of supportedAccountsList" [value]="option.id">{{option.accountName}}</ion-option>
         </ion-select>
       </ion-item>
       <ion-item>
         <ion-item>
-          <ion-label color="primary" stacked>Trade currency</ion-label>
+          <ion-label color="primary" stacked>{{'OFFERS.TAKE_OFFER.TRADE_CURRENCY' | translate}}</ion-label>
           <ion-input readonly></ion-input>
         </ion-item>
       </ion-item>
     </div>
   </div>
   <div class="card mt-2">
-    <div class="card-header">Set amount</div>
+    <div class="card-header">{{'OFFERS.TAKE_OFFER.SET_AMOUNT' | translate}}</div>
     <div class="card-body">
       <ion-item>
-        <ion-label color="primary" stacked>Amount of BTC to sell</ion-label>
+        <ion-label color="primary" stacked>{{'OFFERS.TAKE_OFFER.AMOUNT_OF_BTC_TO_SELL' | translate}}</ion-label>
         <ion-input type="number" [min]="amountToSellMin" [max]="amountToSell" [(ngModel)]="amountToSell" (ngModelChange)="changeAmountToSell($event)"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label color="primary" stacked>Price in PLN for BTC</ion-label>
+        <ion-label color="primary" stacked>{{'OFFERS.TAKE_OFFER.PRICE_IN_PLN_FOR_BTC' | translate}}</ion-label>
         <ion-input value="{{costOfBTC | currency:'PLN' }}" readonly></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label color="primary" stacked>Amount in PLN to receive</ion-label>
+        <ion-label color="primary" stacked>{{'OFFERS.TAKE_OFFER.AMOUNT_IN_PLN_TO_RECEIVE' | translate}}</ion-label>
         <ion-input value="{{amountToReceive | currency:'PLN' }}" readonly></ion-input>
       </ion-item>
     </div>
@@ -72,7 +72,7 @@
 </div>-->
   <div class="row mt-3">
     <div class="col-sm">
-      <button class="btn button-md" ion-button full (click)="takeOffer()">Take offer </button>
+      <button class="btn button-md" ion-button full (click)="takeOffer()">{{'OFFERS.TAKE_OFFER.TAKE_OFFER' | translate}}</button>
     </div>
     <!-- <div class="col-sm">
       <button class="btn button-md" ion-button full>Use Bisq wallet </button>
