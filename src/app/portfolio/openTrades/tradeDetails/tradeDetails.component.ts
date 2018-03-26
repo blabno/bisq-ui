@@ -62,6 +62,6 @@ export class TradeDetailsComponent implements OnInit {
   }
 
   showErrorToast() {
-    this.toast.show('TOAST.SOMETHING_WENT_WRONG', 'error');
+    this.toast.show(t('TOAST.SOMETHING_WENT_WRONG'), 'error');
   }
 }

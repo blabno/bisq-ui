@@ -12,20 +12,20 @@
   <div class="col-lg-8">
     <div class="card" *ngIf="4 !== selectedTradeStep">
       <div class="card-header information" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false">
-        Trade information
+        {{'PORTFOLIO.OPEN_TRADES.TRADE_INFORMATION' | translate}}
       </div>
       <div id="collapseOne" class="collapse">
         <div class="card-body">
-          <div class="label">Deposit transaction ID</div>
+          <div class="label">{{'PORTFOLIO.OPEN_TRADES.DEPOSIT_ID' | translate}}</div>
           <div>{{trade.depositTxId}}</div>
-          <div class="label">Max. allowed trade period</div>
-          <div>{{tradeDuration.asDays()}} days</div>
-          <div class="label">Remaining time</div>
+          <div class="label">{{'PORTFOLIO.OPEN_TRADES.MAX_ALLOWED_PERIOD' | translate}}</div>
+          <div>{{tradeDuration.asDays()}} {{'PORTFOLIO.OPEN_TRADES.DAYS' | translate}}</div>
+          <div class="label">{{'PORTFOLIO.OPEN_TRADES.REMAINING_TIME' | translate}}</div>
           <div>
-            {{remainingDuration.days()}} days,
-            {{remainingDuration.hours()}} hours,
-            {{remainingDuration.minutes()}} minutes
-            (until {{endDate.format('YYYY-MM-DD HH:mm:ss')}})
+            {{remainingDuration.days()}} {{'PORTFOLIO.OPEN_TRADES.DAYS' | translate}},
+            {{remainingDuration.hours()}} {{'PORTFOLIO.OPEN_TRADES.HOURS' | translate}},
+            {{remainingDuration.minutes()}} {{'PORTFOLIO.OPEN_TRADES.MINUTES' | translate}}
+            ({{'PORTFOLIO.OPEN_TRADES.UNTIL' | translate}} {{endDate.format('YYYY-MM-DD HH:mm:ss')}})
           </div>
         </div>
       </div>
@@ -33,118 +33,128 @@
     <ng-template [ngIf]="1 === selectedTradeStep && 'buyer' === selectedTradeRole">
       <div class="card">
         <div class="card-header">
-          Wait for blockchain confirmation
+          {{'PORTFOLIO.OPEN_TRADES.STEP1_BUYER_LABEL' | translate}}
         </div>
         <div class="card-body">
-          <div>Deposit transaction has been publihed.<br/>You need to wait for at least one blockchain confirmation
-            before starting the payment.
-          </div>
+          {{'PORTFOLIO.OPEN_TRADES.STEP1_BUYER_DESCRIPTION' | translate}}
         </div>
       </div>
     </ng-template>
     <ng-template [ngIf]="1 === selectedTradeStep && 'seller' === selectedTradeRole">
       <div class="card">
         <div class="card-header">
-          Wait for blockchain confirmation
+          {{'PORTFOLIO.OPEN_TRADES.STEP1_SELLER_LABEL' | translate}}
         </div>
         <div class="card-body">
-          <div>Deposit transaction has been publihed.<br/>The BTC buyer need to wait for at least one blockchain
-            confirmation before starting the payment.
-          </div>
+          {{'PORTFOLIO.OPEN_TRADES.STEP1_BUYER_DESCRIPTION' | translate}}
         </div>
       </div>
     </ng-template>
     <ng-template [ngIf]="2 === selectedTradeStep && 'buyer' === selectedTradeRole">
       <div class="card">
         <div class="card-header">
-          Start payment using {{trade.offer.paymentMethodId}}
+          {{'PORTFOLIO.OPEN_TRADES.START_PAYMENT_USING' | translate}} {{trade.offer.paymentMethodId}}
         </div>
         <div class="card-body">
-          <div class="label">Amount to transfer</div>
+          <div class="label">{{'PORTFOLIO.OPEN_TRADES.AMOUNT_TO_TRANSFER' | translate}}</div>
           <div>{{trade.tradePrice * trade.tradeAmount / 10e11 | number:'.2-2'}} {{trade.offer.counterCurrencyCode}}
           </div>
-          <div class="label">Account owner full name</div>
+          <div class="label">{{'PORTFOLIO.OPEN_TRADES.BUYER_DETAILS' | translate}}</div>
           <div>{{trade.buyerPaymentAccount.paymentDetails}}</div>
-          <div class="label">Country of bank</div>
+          <div class="label">{{'PORTFOLIO.OPEN_TRADES.COUNTRY_OF_BANK' | translate}}</div>
           <div>{{trade.buyerPaymentAccount.countryCode}}</div>
           <div class="label">IBAN</div>
           <div>{{trade.buyerPaymentAccount.iban}}</div>
           <div class="label">BIC</div>
           <div>{{trade.buyerPaymentAccount.bic}}</div>
-          <div class="label">Reason for payment</div>
+          <div class="label">{{'PORTFOLIO.OPEN_TRADES.REASON_FOR_PAYMENT' | translate}}</div>
           <div>{{trade.id.split('-')[0]}}</div>
         </div>
       </div>
-      <button ion-button (click)="confirmPaymentStarted()">Payment started</button>
+      <button ion-button (click)="confirmPaymentStarted()">{{'PORTFOLIO.OPEN_TRADES.PAYMENT_STARTED' | translate}}
+      </button>
     </ng-template>
     <ng-template [ngIf]="2 === selectedTradeStep && 'seller' === selectedTradeRole">
       <div class="card">
         <div class="card-header">
-          Wait for payment
+          {{'PORTFOLIO.OPEN_TRADES.WAIT_FOR_PAYMENT' | translate}}
         </div>
         <div class="card-body">
-          <div>The deposit transaction has at least one blockchain confirmation.<br/>You need to wait until the BTC
-            buyer starts the EUR payment.
-          </div>
+          {{'PORTFOLIO.OPEN_TRADES.STEP2_SELLER_DESCRIPTION' | translate}}
         </div>
       </div>
     </ng-template>
     <ng-template [ngIf]="3 === selectedTradeStep && 'buyer' === selectedTradeRole">
       <div class="card">
         <div class="card-header">
-          Wait for BTC seller's payment confirmation
+          {{'PORTFOLIO.OPEN_TRADES.WAIT_FOR_SELLER' | translate}}
         </div>
         <div class="card-body">
-          <div>Waiting for the BTC seller's confirmation for the receipt of the ERR payment.</div>
+          {{'PORTFOLIO.OPEN_TRADES.STEP2_BUYER_DESCRIPTION' | translate}}
         </div>
       </div>
     </ng-template>
     <ng-template [ngIf]="3 === selectedTradeStep && 'seller' === selectedTradeRole">
       <div class="card">
         <div class="card-header">
-          Confirm payment received
+          {{'PORTFOLIO.OPEN_TRADES.STEP3_SELLER_LABEL' | translate}}
         </div>
         <div class="card-body">
           <div class="label">Amount to receive</div>
-          <div>{{trade.tradePrice * trade.tradeAmount / 10e11 | number:'.2-2'}} EUR</div>
-          <div class="label">Your trading account</div>
+          <div>
+            {{trade.tradePrice * trade.tradeAmount / 10e11 | number:'.2-2'}} {{trade.offer.counterCurrencyCode}}
+          </div>
+          <div class="label">{{'PORTFOLIO.OPEN_TRADES.YOUR_DETAILS' | translate}}</div>
           <div>{{trade.sellerPaymentAccount.paymentDetails}}</div>
-          <div class="label">Buyers trading account</div>
+          <div class="label">{{'PORTFOLIO.OPEN_TRADES.BUYERS_DETAILS' | translate}}</div>
           <div>{{trade.buyerPaymentAccount.paymentDetails}}</div>
-          <div class="label">Confirm payment receipt</div>
+          <div class="label">{{'PORTFOLIO.OPEN_TRADES.STEP3_SELLER_LABEL' | translate}}</div>
           <div>{{trade.id.split('-')[0]}}</div>
         </div>
       </div>
-      <button ion-button (click)="confirmPaymentReceived()">Confirm payment received</button>
+      <button ion-button (click)="confirmPaymentReceived()">{{'PORTFOLIO.OPEN_TRADES.STEP3_SELLER_LABEL' | translate}}
+      </button>
     </ng-template>
     <ng-template [ngIf]="4 === selectedTradeStep">
       <div class="card">
         <div class="card-header">
-          Summary of completed trade
+          {{'PORTFOLIO.OPEN_TRADES.SUMMARY_OF_TRADE' | translate}}
         </div>
         <div class="card-body">
-          <div class="label">{{'buyer' === selectedTradeRole ? 'You have bought' : 'You have sold'}}</div>
+          <div *ngIf="'buyer' === selectedTradeRole" class="label">
+            {{'PORTFOLIO.OPEN_TRADES.YOU_HAVE_BOUGHT' | translate}}
+          </div>
+          <div *ngIf="'seller' === selectedTradeRole" class="label">
+            {{'PORTFOLIO.OPEN_TRADES.YOU_HAVE_SOLD' | translate}}
+          </div>
           <div>{{trade.tradeAmount / 10e7}}</div>
-          <div class="label">{{'buyer' === selectedTradeRole ? 'You have paid' : 'You have received'}}</div>
-          <div>{{trade.tradePrice * trade.tradeAmount / 10e11 | number:'.2-2'}} EUR</div>
-          <div class="label">Refunded security deposit</div>
+          <div *ngIf="'buyer' === selectedTradeRole" class="label">
+            {{'PORTFOLIO.OPEN_TRADES.YOU_HAVE_PAID' | translate}}
+          </div>
+          <div *ngIf="'seller' === selectedTradeRole" class="label">
+            {{'PORTFOLIO.OPEN_TRADES.YOU_HAVE_RECEIVED' | translate}}
+          </div>
+          <div>
+            {{trade.tradePrice * trade.tradeAmount / 10e11 | number:'.2-2'}} {{trade.offer.counterCurrencyCode}}
+          </div>
+          <div class="label">{{'PORTFOLIO.OPEN_TRADES.REFUNDED_SECURITY' | translate}}</div>
           <div>...</div>
-          <div class="label">Trade fee</div>
+          <div class="label">{{'PORTFOLIO.OPEN_TRADES.TRADE_FEE' | translate}}</div>
           <div>{{trade.takerFee / 10e7}}</div>
-          <div class="label">Total mining fees</div>
+          <div class="label">{{'PORTFOLIO.OPEN_TRADES.MINING_FEE' | translate}}</div>
           <div>...</div>
         </div>
       </div>
       <div class="card">
         <div class="card-header">
-          Withdraw your bitcoin
+          {{'PORTFOLIO.OPEN_TRADES.WITHDRAW_BITCOIN' | translate}}
         </div>
         <div class="card-body">
-          <div class="label">Amount to withdraw</div>
+          <div class="label">{{'PORTFOLIO.OPEN_TRADES.AMOUNT_TO_WITHDRAW' | translate}}</div>
           <div>{{trade.tradeAmount / 10e7 + 77}}</div>
         </div>
       </div>
-      <button ion-button (click)="withdraw()">Withdraw</button>
+      <button ion-button (click)="withdraw()">{{'PORTFOLIO.OPEN_TRADES.WITHDRAW' | translate}}</button>
     </ng-template>
     <button ion-button color="light" (click)="cancel()">{{'BACK' | translate}}</button>
   </div>

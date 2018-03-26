@@ -24,56 +24,53 @@ export class TradesCacheService {
   showInfoModal(trade) {
     let modalOptions;
     if ('DEPOSIT_CONFIRMED_IN_BLOCK_CHAIN' === trade.state && 'buyer' === trade.tradeRole) {
-      this.initModal.show({
+      modalOptions = {
         title: t('TRADES_CACHE.TRADE_CONFIRMED_IN_BLOCKCHAIN_TITLE'),
         text: t('TRADES_CACHE.TRADE_CONFIRMED_IN_BLOCKCHAIN_BUYER_TEXT'),
-        textParams: {
+        translateParams: {
+          id: trade.id.split('-')[0],
           volume: _.round(trade.tradePrice * trade.tradeAmount / 10e11, 2),
           counterCurrency: trade.offer.counterCurrencyCode,
           baseCurrency: trade.offer.baseCurrencyCode,
           sellerPaymentDetails: trade.sellerPaymentAccount.paymentDetails,
-          id: trade.id.split('-')[0],
-        },
-        redirectButton: {
-          text: t('TRADES_CACHE.REDIRECT_TO_OPEN_TRADES'),
-          path: '/portfolio/open-trades'
         }
-      });
+      };
     }
     if ('DEPOSIT_CONFIRMED_IN_BLOCK_CHAIN' === trade.state && 'seller' === trade.tradeRole) {
-      this.initModal.show({
+      modalOptions = {
         title: t('TRADES_CACHE.TRADE_CONFIRMED_IN_BLOCKCHAIN_TITLE'),
         text: t('TRADES_CACHE.TRADE_CONFIRMED_IN_BLOCKCHAIN_SELLER_TEXT'),
-        redirectButton: {
-          text: t('TRADES_CACHE.REDIRECT_TO_OPEN_TRADES'),
-          path: '/portfolio/open-trades'
+        translateParams: {
+          id: trade.id.split('-')[0]
         }
-      });
+      };
     }
     if ('SELLER_RECEIVED_FIAT_PAYMENT_INITIATED_MSG' === trade.state && 'seller' === trade.tradeRole) {
-      this.initModal.show({
+      modalOptions = {
         title: t('TRADES_CACHE.TRADE_PAYMENT_INITIATED_TITLE'),
         text: t('TRADES_CACHE.TRADE_PAYMENT_INITIATED_TEXT'),
-        textParams: {
+        translateParams: {
+          id: trade.id.split('-')[0],
           counterCurrency: trade.offer.counterCurrencyCode,
           volume: _.round(trade.tradePrice * trade.tradeAmount / 10e11, 2),
           baseCurrency: trade.offer.baseCurrencyCode,
-          id: trade.id.split('-')[0],
           buyerPaymentName: trade.buyerPaymentAccount.holderName,
-        },
-        redirectButton: {
-          text: t('TRADES_CACHE.REDIRECT_TO_OPEN_TRADES'),
-          path: '/portfolio/open-trades'
         }
-      });
+      }
     }
     if ('BUYER_RECEIVED_PAYOUT_TX_PUBLISHED_MSG' === trade.state && 'buyer' === trade.tradeRole) {
-      this.initModal.show({
+      modalOptions = {
         title: t('TRADES_CACHE.TRADE_COMPLETED_TITLE'),
         text: t('TRADES_CACHE.TRADE_COMPLETED_TEXT'),
-        textParams: {
+        translateParams: {
+          id: trade.id.split('-')[0],
           baseCurrency: trade.offer.baseCurrencyCode
-        },
+        }
+      };
+    }
+    if (modalOptions) {
+      this.initModal.show({
+        ...modalOptions,
         redirectButton: {
           text: t('TRADES_CACHE.REDIRECT_TO_OPEN_TRADES'),
           path: '/portfolio/open-trades'

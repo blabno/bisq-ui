@@ -6,10 +6,6 @@ import {OffersDAO} from '../../shared/DAO/offers.dao';
 import {ToastService} from '../../shared/services/toast.service';
 import t from '../../shared/defineTextToTranslate';
 
-t([
-  'OFFERS.TAKE_OFFER.TAKE_OFFER_SUCCESS',
-  'OFFERS.TAKE_OFFER.TAKE_OFFER_ERROR'
-]);
 @Component({
   selector: 'app-take-offer',
   templateUrl: 'takeOffer.component.html'

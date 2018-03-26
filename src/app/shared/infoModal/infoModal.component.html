@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      {{data.title | translate}}
+      {{data.title | translate:data.translateParams}}
     </ion-title>
     <ion-buttons start>
       <button ion-button (click)="dismiss()">
@@ -13,7 +13,7 @@
 
 <ion-content>
   <div class="body">
-    <div><span>{{data.text | translate:data.textParams}}</span></div>
+    <div><span>{{data.text | translate:data.translateParams}}</span></div>
     <button *ngIf="doNotShowButton" class="btn" (click)="dismissPermanently()">
       {{'INFO_MODAL.DO_NOT_SHOW_AGAIN' | translate}}
     </button>

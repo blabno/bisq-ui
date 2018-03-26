@@ -21,7 +21,7 @@ export class InfoModalComponent {
     this.data = {
       title: params.data.title,
       text: params.data.text,
-      textParams: params.data.textParams
+      translateParams: params.data.translateParams
     };
     this.id = params.data.id;
     this.doNotShowButton = params.data.doNotShowButton;
