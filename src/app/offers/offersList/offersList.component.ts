@@ -1,6 +1,8 @@
 import _ from 'lodash';
 import {Component, EventEmitter, Input, OnChanges, Output} from '@angular/core';
 import {SettingsService} from '../../shared/services/settings.service';
+import {PaymentAccountsDAO} from '../../shared/DAO/paymentAccounts.dao';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-offers-list',
@@ -10,7 +12,6 @@ export class OffersListComponent implements OnChanges {
 
   @Input() data: Array<Object>;
   @Input() type: 'sell' | 'buy';
-  @Output() onSelect = new EventEmitter<any>();
 
   public NO_FILTER = 'NONE';
   public currencyFilter = this.NO_FILTER;
@@ -22,8 +23,14 @@ export class OffersListComponent implements OnChanges {
     {value: 'DASH', name: 'DASH'},
     {value: 'ETH', name: 'ETH'}
   ];
+  public accountsList = [];
+  public supportedPaymentsMethods = [];
 
-  constructor(public settings: SettingsService) {
+  constructor(public settings: SettingsService, private paymentsDAO: PaymentAccountsDAO, private router: Router) {
+    this.paymentsDAO.query().then((res: any) => {
+      this.accountsList = res.paymentAccounts;
+      this.supportedPaymentsMethods = _.map(this.accountsList, 'paymentMethod');
+    });
     this.currencyFilter = settings.selectedCurrencyOnOfferList;
   }
 
@@ -54,8 +61,13 @@ export class OffersListComponent implements OnChanges {
     return _.round(amount * price, 2);
   }
 
-  select(id) {
-    this.onSelect.emit(id);
+  takeOffer(offer) {
+    if(this.checkIfValidPaymentAccount)
+      this.router.navigateByUrl(`offers/${this.type}/take/${offer.id}`);
+  }
+
+  checkIfValidPaymentAccount(paymentMethodId) {
+    return this.supportedPaymentsMethods.indexOf(paymentMethodId) >= 0;
   }
 
   private filterData() {

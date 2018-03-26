@@ -1,0 +1,13 @@
+app-take-offer {
+  display: block;
+  height: calc(100vh - 76px);
+  overflow-y: auto;
+  padding: 15px;
+  .send-form-button {
+    margin-top: 15px;
+  }
+  ion-spinner * {
+    stroke: var(--blue);
+    fill: var(--blue);
+  }
+}
