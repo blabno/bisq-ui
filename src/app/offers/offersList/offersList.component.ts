@@ -62,8 +62,10 @@ export class OffersListComponent implements OnChanges {
   }
 
   takeOffer(offer) {
-    if(this.checkIfValidPaymentAccount)
-      this.router.navigateByUrl(`offers/${this.type}/take/${offer.id}`);
+    if(!this.checkIfValidPaymentAccount(offer.paymentMethodId))
+      return;
+
+    this.router.navigateByUrl(`offers/${this.type}/take/${offer.id}`);
   }
 
   checkIfValidPaymentAccount(paymentMethodId) {
