@@ -151,9 +151,12 @@
 	"OFFERS": {
 		"CREATE": {
 			"AMOUNT": "Wartość",
+			"AMOUNT_MUST_BE_POSITIVE": "Wartość musi być dodatnia",
 			"CURRENCY": "Waluta",
+			"FILL_ALL_REQUIRED_FIELDS": "Uzupełnij wszystkie wymagane pola",
 			"FIXED": "Stała",
 			"MINUMUM_AMOUNT": "Minimalna ilość",
+			"MIN_AMOUNT_MUST_BE_BIGGER_THAN_AMOUNT": "Wartość minimalna musi być większa od wartośći",
 			"PERCENTAGE": "Procentowa",
 			"PERCENT_DISTANCE": "Odchylenie od ceny rynkowej (%)",
 			"PRICE": "Cena",
@@ -183,10 +186,10 @@
 			"PRICE_IN_PLN_FOR_BTC": "Cena za BTC w PLN",
 			"SET_AMOUNT": "Ustaw kwotę",
 			"TAKE_OFFER": "Weź ofertę",
-			"TRADE_CURRENCY": "Waluta",
-			"TRADING_ACCOUNT": "Konto",
+			"TAKE_OFFER_ERROR": "Błąd w transakcji",
 			"TAKE_OFFER_SUCCESS": "Transakcja udana",
-			"TAKE_OFFER_ERROR": "Błąd w transakcji"
+			"TRADE_CURRENCY": "Waluta",
+			"TRADING_ACCOUNT": "Konto"
 		}
 	},
 	"PORTFOLIO": {

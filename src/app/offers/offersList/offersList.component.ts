@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import {Component, EventEmitter, Input, OnChanges, Output} from '@angular/core';
+import {Component, Input, OnChanges} from '@angular/core';
 import {SettingsService} from '../../shared/services/settings.service';
 import {PaymentAccountsDAO} from '../../shared/DAO/paymentAccounts.dao';
 import {Router} from '@angular/router';
