@@ -125,6 +125,9 @@
 			"RESERVED": "Reserved",
 			"SEND": "Send",
 			"TRANSACTIONS": "Transactions"
+		},
+		"TRANSACTIONS": {
+			"TRANSACTION_ID": "Transaction ID"
 		}
 	},
 	"INFO_MODAL": {
