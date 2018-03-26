@@ -1,0 +1,15 @@
+app-funds-transaction {
+    .red-icon {
+        color: red
+    }
+    .green-icon {
+        color: green
+    }
+    .transaction-id {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        color: blue;
+        text-decoration: underline;
+    }
+ }
