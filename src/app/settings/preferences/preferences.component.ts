@@ -15,11 +15,13 @@ export class PreferencesComponent implements OnInit, OnDestroy {
   public cryptoCurrencies = [];
   public nationalCurrencies = [];
   public currencies = [];
+  public backendUrl: string;
 
   constructor(private translate: TranslateService, private currenciesDAO: CurrenciesDAO, public settings: SettingsService) {
   }
 
   ngOnInit() {
+    this.backendUrl = this.settings.backendUrl;
     this.currenciesDAO.query().then(res => {
       this.currencies = _.get(res, 'currencies') || [];
       this.cryptoCurrencies = _.filter(this.currencies, {type: 'crypto'});
@@ -33,6 +35,11 @@ export class PreferencesComponent implements OnInit, OnDestroy {
   langChange(e) {
     this.translate.use(e);
     this.settings.language = e;
+    this.settings.saveSettings();
+  }
+
+  saveBackendUrl() {
+    this.settings.backendUrl = this.backendUrl;
     this.settings.saveSettings();
   }
 }

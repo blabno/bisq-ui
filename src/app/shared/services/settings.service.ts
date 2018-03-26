@@ -19,6 +19,7 @@ enum BitcoinExplorers {
 
 @Injectable()
 export class SettingsService {
+  public backendUrl = 'http://localhost:8100';
   public baseCurrency: BaseCurrencies = BaseCurrencies.BITCOIN;
   public language = 'en';
   public country: Countries = Countries.POLAND;
@@ -67,21 +68,21 @@ export class SettingsService {
   }
 
   loadSettings() {
-    var keys = Object.keys(this);
-    _.forEach(keys, value => {
-      const storageValue = localStorage.getItem(value);
-      if (this[value] instanceof Array && storageValue) {
-        this[value] = storageValue.split(',') || this[value];
+    const keys = Object.keys(this);
+    _.forEach(keys, key => {
+      const storageValue = localStorage.getItem(key);
+      if (this[key] instanceof Array && storageValue) {
+        this[key] = storageValue.split(',') || this[key];
       } else {
-        this[value] = storageValue || this[value];
+        this[key] = storageValue || this[key];
       }
     });
   }
 
   saveSettings() {
-    var keys = Object.keys(this);
-    _.forEach(keys, value => {
-      localStorage.setItem(value, this[value]);
+    const keys = Object.keys(this);
+    _.forEach(keys, key => {
+      localStorage.setItem(key, this[key]);
     });
   }
 }
