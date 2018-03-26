@@ -36,10 +36,11 @@
       </div>
       <div class="progress">
         <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar"
-             aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{width: 33*(i+1) + '%'}"></div>
+             aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
+             [ngStyle]="{width: stepsMap[item.state].percentage + '%'}"></div>
       </div>
       <div class="btn btn-info rounded-0" (click)="select(item)">
-        <span class="select-button">Wait for blockchain confirmation</span>
+        <span class="select-button">{{stepsMap[item.state].labels[item.tradeRole] | translate}}</span>
       </div>
     </div>
   </div>

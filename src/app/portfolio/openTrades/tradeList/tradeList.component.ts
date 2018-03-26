@@ -1,4 +1,4 @@
-import {Component, OnInit, EventEmitter, Output} from '@angular/core';
+import {Component, OnInit, EventEmitter, Output, Input} from '@angular/core';
 
 import {ToastService} from '../../../shared/services/toast.service';
 import {TradesCacheService} from '../../../shared/services/tradesCache.service';
@@ -8,6 +8,7 @@ import {TradesCacheService} from '../../../shared/services/tradesCache.service';
   templateUrl: 'tradeList.component.html'
 })
 export class TradeListComponent implements OnInit {
+  @Input() stepsMap: any;
   @Output() onSelect = new EventEmitter<any>();
 
   trades = [];

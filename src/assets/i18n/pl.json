@@ -1,4 +1,5 @@
 {
+	"0": "",
 	"ABOUT": "O programie",
 	"ACCOUNT": {
 		"ACCOUNTS_LIST": "Lista kont",
@@ -112,6 +113,7 @@
 			"SEED_WORDS": "Fraza mnemoniczna portfela"
 		}
 	},
+	"AS": "",
 	"BACK": "Wróć",
 	"CANCEL": "Anuluj",
 	"CONFIRM": "Potwierdź",
@@ -194,7 +196,21 @@
 	},
 	"PORTFOLIO": {
 		"OPEN_TRADES": {
-			"NUMBER_TRADES": "Liczba transkacji"
+			"AMOUNT": "",
+			"MARKET": "",
+			"MY_ROLE": "",
+			"NO_TRADES": "",
+			"PAYMENT_METHOD": "",
+			"PRICE": "",
+			"STEP1_BUYER_LABEL": "",
+			"STEP1_SELLER_LABEL": "",
+			"STEP2_BUYER_LABEL": "",
+			"STEP2_SELLER_LABEL": "",
+			"STEP3_BUYER_LABEL": "",
+			"STEP3_SELLER_LABEL": "",
+			"STEP4_BUYER_LABEL": "",
+			"STEP4_SELLER_LABEL": "",
+			"VOLUME": ""
 		},
 		"SUBMENU": {
 			"HISTORY": "Historia",

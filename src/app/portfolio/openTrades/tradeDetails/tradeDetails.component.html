@@ -1,16 +1,13 @@
 <div class="row">
   <div class="col-lg-4">
-    <app-trade-status text="Wait for blockchain confirmation" [currentStep]="selectedTradeStep"
+    <app-trade-status [text]="stepsMap.steps[0].labels[selectedTradeRole]" [currentStep]="selectedTradeStep"
                       definedStep="1"></app-trade-status>
-    <app-trade-status *ngIf="'buyer' ===selectedTradeRole" text="Start payment" [currentStep]="selectedTradeStep"
+    <app-trade-status [text]="stepsMap.steps[1].labels[selectedTradeRole]" [currentStep]="selectedTradeStep"
                       definedStep="2"></app-trade-status>
-    <app-trade-status *ngIf="'seller' ===selectedTradeRole" text="Wait until payment has started"
-                      [currentStep]="selectedTradeStep" definedStep="2"></app-trade-status>
-    <app-trade-status *ngIf="'buyer' ===selectedTradeRole" text="Wait until payment arrived"
-                      [currentStep]="selectedTradeStep" definedStep="3"></app-trade-status>
-    <app-trade-status *ngIf="'seller' ===selectedTradeRole" text="Confirm payment received"
-                      [currentStep]="selectedTradeStep" definedStep="3"></app-trade-status>
-    <app-trade-status text="Completed" [currentStep]="selectedTradeStep" definedStep="4"></app-trade-status>
+    <app-trade-status [text]="stepsMap.steps[2].labels[selectedTradeRole]" [currentStep]="selectedTradeStep"
+                      definedStep="3"></app-trade-status>
+    <app-trade-status [text]="stepsMap.steps[3].labels[selectedTradeRole]" [currentStep]="selectedTradeStep"
+                      definedStep="4"></app-trade-status>
   </div>
   <div class="col-lg-8">
     <div class="card" *ngIf="4 !== selectedTradeStep">

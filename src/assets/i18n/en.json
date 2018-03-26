@@ -1,4 +1,5 @@
 {
+	"0": "",
 	"ABOUT": "About",
 	"ACCOUNT": {
 		"ACCOUNTS_LIST": "Accounts list",
@@ -112,6 +113,7 @@
 			"SEED_WORDS": "Wallet mnemonic phrase"
 		}
 	},
+	"AS": "as",
 	"BACK": "Back",
 	"CANCEL": "Cancel",
 	"CONFIRM": "Confirm",
@@ -194,13 +196,21 @@
 	},
 	"PORTFOLIO": {
 		"OPEN_TRADES": {
-			"NUMBER_TRADES": "Number of trades",
-            "MARKET": "Market",
-            "AMOUNT": "Amount in BTC",
-            "PRICE": "Prize",
-            "PAYMENT_METHOD": "Payment method",
-            "MY_ROLE": "My role",
-            "VOLUME": "Volume"
+			"AMOUNT": "Amount in BTC",
+			"MARKET": "Market",
+			"MY_ROLE": "My role",
+			"NO_TRADES": "You don't have open trades",
+			"PAYMENT_METHOD": "Payment method",
+			"PRICE": "Prize",
+			"STEP1_BUYER_LABEL": "Wait for blockchain confirmation",
+			"STEP1_SELLER_LABEL": "Wait for blockchain confirmation",
+			"STEP2_BUYER_LABEL": "Start payment",
+			"STEP2_SELLER_LABEL": "Wait until payment has started",
+			"STEP3_BUYER_LABEL": "Wait until payment arrived",
+			"STEP3_SELLER_LABEL": "Confirm payment received",
+			"STEP4_BUYER_LABEL": "Completed",
+			"STEP4_SELLER_LABEL": "Completed",
+			"VOLUME": "Volume"
 		},
 		"SUBMENU": {
 			"HISTORY": "History",

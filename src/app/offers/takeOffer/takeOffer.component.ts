@@ -78,11 +78,11 @@ export class TakeOfferComponent implements OnInit, OnDestroy {
         paymentAccountId: this.accountId,
         amount: this.amountToSell * 100000000
       })
-      .then((res: any) => {
-        this.toast.show('OFFERS.TAKE_OFFER.TAKE_OFFER_SUCCESS', 'success');
+      .then(() => {
+        this.toast.show(t('OFFERS.TAKE_OFFER.TAKE_OFFER_SUCCESS'), 'success');
       })
-      .catch(err => {
-        this.toast.show('OFFERS.TAKE_OFFER.TAKE_OFFER_ERROR', 'error');
+      .catch(() => {
+        this.toast.show(t('OFFERS.TAKE_OFFER.TAKE_OFFER_ERROR'), 'error');
       });
   }
 }
