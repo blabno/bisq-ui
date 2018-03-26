@@ -1,29 +1,29 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {SettingsService} from "../services/settings.service";
 
 @Injectable()
 export class WalletDAO {
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private settings: SettingsService) {
   }
 
   query() {
-    return this.http.get('/api/v1/wallet').toPromise();
+    return this.http.get(`${this.settings.backendUrl}/api/v1/wallet`).toPromise();
   }
 
   getTransactions() {
-    return this.http.get('/api/v1/wallet/transactions').toPromise();
+    return this.http.get(`${this.settings.backendUrl}/api/v1/wallet/transactions`).toPromise();
   }
 
   getAddresses() {
-    return this.http.get('/api/v1/wallet/addresses').toPromise();
+    return this.http.get(`${this.settings.backendUrl}/api/v1/wallet/addresses`).toPromise();
   }
 
   createNewWallet() {
-    return this.http.post('/api/v1/wallet/btc/addresses', {
+    return this.http.post(`${this.settings.backendUrl}/api/v1/wallet/btc/addresses`, {
       context: 'ARBITRATOR',
       unused: true
     }).toPromise();
-
   }
 }
