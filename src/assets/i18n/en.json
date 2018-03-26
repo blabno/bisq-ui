@@ -175,6 +175,18 @@
 			"PRICE": "Price",
 			"SELL": "Sell",
 			"SHOW_ALL": "Show all"
+		},
+		"TAKE_OFFER": {
+			"AMOUNT_IN_PLN_TO_RECEIVE": "amount in pln to receive",
+			"AMOUNT_OF_BTC_TO_SELL": "Amount of BTC to sell",
+			"PAYMENT_INFO": "Payment info",
+			"PRICE_IN_PLN_FOR_BTC": "Price in pln for BTC",
+			"SET_AMOUNT": "Set amount",
+			"TAKE_OFFER": "Take offer",
+			"TRADE_CURRENCY": "Trade currency",
+			"TRADING_ACCOUNT": "Trading account",
+			"TAKE_OFFER_SUCCESS": "Take offer success",
+			"TAKE_OFFER_ERROR": "Take offer error"
 		}
 	},
 	"PORTFOLIO": {
