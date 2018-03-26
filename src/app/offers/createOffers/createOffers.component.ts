@@ -5,7 +5,13 @@ import {PaymentAccountsDAO} from "../../shared/DAO/paymentAccounts.dao";
 import {OffersDAO} from "../../shared/DAO/offers.dao";
 import {ToastService} from "../../shared/services/toast.service";
 import {MarketPrizeService} from "../../shared/services/marketPrize.service";
+import t from '../../shared/defineTextToTranslate';
 
+t([
+  'OFFERS.CREATE.FILL_ALL_REQUIRED_FIELDS',
+  'OFFERS.CREATE.AMOUNT_MUST_BE_POSITIVE',
+  'OFFERS.CREATE.MIN_AMOUNT_MUST_BE_BIGGER_THAN_AMOUNT'
+]);
 @Component({
   selector: 'app-create-offers',
   templateUrl: 'createOffers.component.html'
@@ -99,11 +105,23 @@ export class CreateOffersComponent implements OnInit, OnDestroy {
   }
 
   submit() {
+    if(!this.createForm.valid) {
+      this.toast.show('OFFERS.CREATE.FILL_ALL_REQUIRED_FIELDS', 'error');
+      return;
+    }
     let preparedForm = _.merge({}, _.omit(this.model, ['tradeCurrency', 'calculatedValue', 'deposit']), {
       fundUsingBisqWallet: true,
       direction: this.type.toUpperCase(),
       marketPair: 'BTC_' + this.model.tradeCurrency
     });
+    if(!preparedForm.amount) {
+      this.toast.show('OFFERS.CREATE.AMOUNT_MUST_BE_POSITIVE', 'error');
+      return;
+    }
+    if(preparedForm.amount < preparedForm.minAmount) {
+      this.toast.show('OFFERS.CREATE.MIN_AMOUNT_MUST_BE_BIGGER_THAN_AMOUNT', 'error');
+      return;
+    }
     preparedForm.amount *= 100000000;
     preparedForm.minAmount *= 100000000;
     preparedForm.fixedPrice *= 100000000;
