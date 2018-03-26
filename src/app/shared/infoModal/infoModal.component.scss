@@ -1,11 +1,11 @@
 app-info-modal {
   .body {
     margin: 16px;
-    .paragraph {
-      margin-bottom: 16px;
-      span {
-        white-space: pre-line;
-      }
+    span {
+      white-space: pre-line;
+    }
+    button {
+      margin-top: 16px;
     }
   }
 }

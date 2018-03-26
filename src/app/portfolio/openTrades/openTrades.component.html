@@ -1,8 +1,3 @@
-<div class="card">
-  <div *ngIf="!trades.length" class="card-header text-justify text-center p-4 h-1">
-    {{'PORTFOLIO.OPEN_TRADES.NO_TRADES'}}
-  </div>
-  <div *ngIf="trades.length" class="card-header text-justify text-center p-3">{{'PORTFOLIO.OPEN_TRADES.NUMBER_TRADES' |
-    translate}}: {{trades.length || 0}} of total: {{total}}
-  </div>
-</div>
+<app-trade-list *ngIf="isListVisible" [stepsMap]="stepsMap" (onSelect)="selectTrade($event)"></app-trade-list>
+<app-trade-details *ngIf="!isListVisible" [trade]="selectedTrade" [stepsMap]="stepsMap"
+                   (onCancel)="cancel()"></app-trade-details>

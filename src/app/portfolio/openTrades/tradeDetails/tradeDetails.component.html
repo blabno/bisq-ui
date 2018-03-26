@@ -1,0 +1,161 @@
+<div class="row">
+  <div class="col-lg-4">
+    <app-trade-status [text]="stepsMap.steps[0].labels[selectedTradeRole]" [currentStep]="selectedTradeStep"
+                      definedStep="1"></app-trade-status>
+    <app-trade-status [text]="stepsMap.steps[1].labels[selectedTradeRole]" [currentStep]="selectedTradeStep"
+                      definedStep="2"></app-trade-status>
+    <app-trade-status [text]="stepsMap.steps[2].labels[selectedTradeRole]" [currentStep]="selectedTradeStep"
+                      definedStep="3"></app-trade-status>
+    <app-trade-status [text]="stepsMap.steps[3].labels[selectedTradeRole]" [currentStep]="selectedTradeStep"
+                      definedStep="4"></app-trade-status>
+  </div>
+  <div class="col-lg-8">
+    <div class="card" *ngIf="4 !== selectedTradeStep">
+      <div class="card-header information" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false">
+        {{'PORTFOLIO.OPEN_TRADES.TRADE_INFORMATION' | translate}}
+      </div>
+      <div id="collapseOne" class="collapse">
+        <div class="card-body">
+          <div class="label">{{'PORTFOLIO.OPEN_TRADES.DEPOSIT_ID' | translate}}</div>
+          <div>{{trade.depositTxId}}</div>
+          <div class="label">{{'PORTFOLIO.OPEN_TRADES.MAX_ALLOWED_PERIOD' | translate}}</div>
+          <div>{{tradeDuration.asDays()}} {{'PORTFOLIO.OPEN_TRADES.DAYS' | translate}}</div>
+          <div class="label">{{'PORTFOLIO.OPEN_TRADES.REMAINING_TIME' | translate}}</div>
+          <div>
+            {{remainingDuration.days()}} {{'PORTFOLIO.OPEN_TRADES.DAYS' | translate}},
+            {{remainingDuration.hours()}} {{'PORTFOLIO.OPEN_TRADES.HOURS' | translate}},
+            {{remainingDuration.minutes()}} {{'PORTFOLIO.OPEN_TRADES.MINUTES' | translate}}
+            ({{'PORTFOLIO.OPEN_TRADES.UNTIL' | translate}} {{endDate.format('YYYY-MM-DD HH:mm:ss')}})
+          </div>
+        </div>
+      </div>
+    </div>
+    <ng-template [ngIf]="1 === selectedTradeStep && 'buyer' === selectedTradeRole">
+      <div class="card">
+        <div class="card-header">
+          {{'PORTFOLIO.OPEN_TRADES.STEP1_BUYER_LABEL' | translate}}
+        </div>
+        <div class="card-body">
+          {{'PORTFOLIO.OPEN_TRADES.STEP1_BUYER_DESCRIPTION' | translate}}
+        </div>
+      </div>
+    </ng-template>
+    <ng-template [ngIf]="1 === selectedTradeStep && 'seller' === selectedTradeRole">
+      <div class="card">
+        <div class="card-header">
+          {{'PORTFOLIO.OPEN_TRADES.STEP1_SELLER_LABEL' | translate}}
+        </div>
+        <div class="card-body">
+          {{'PORTFOLIO.OPEN_TRADES.STEP1_BUYER_DESCRIPTION' | translate}}
+        </div>
+      </div>
+    </ng-template>
+    <ng-template [ngIf]="2 === selectedTradeStep && 'buyer' === selectedTradeRole">
+      <div class="card">
+        <div class="card-header">
+          {{'PORTFOLIO.OPEN_TRADES.START_PAYMENT_USING' | translate}} {{trade.offer.paymentMethodId}}
+        </div>
+        <div class="card-body">
+          <div class="label">{{'PORTFOLIO.OPEN_TRADES.AMOUNT_TO_TRANSFER' | translate}}</div>
+          <div>{{trade.tradePrice * trade.tradeAmount / 10e11 | number:'.2-2'}} {{trade.offer.counterCurrencyCode}}
+          </div>
+          <div class="label">{{'PORTFOLIO.OPEN_TRADES.BUYER_DETAILS' | translate}}</div>
+          <div>{{trade.buyerPaymentAccount.paymentDetails}}</div>
+          <div class="label">{{'PORTFOLIO.OPEN_TRADES.COUNTRY_OF_BANK' | translate}}</div>
+          <div>{{trade.buyerPaymentAccount.countryCode}}</div>
+          <div class="label">IBAN</div>
+          <div>{{trade.buyerPaymentAccount.iban}}</div>
+          <div class="label">BIC</div>
+          <div>{{trade.buyerPaymentAccount.bic}}</div>
+          <div class="label">{{'PORTFOLIO.OPEN_TRADES.REASON_FOR_PAYMENT' | translate}}</div>
+          <div>{{trade.id.split('-')[0]}}</div>
+        </div>
+      </div>
+      <button ion-button (click)="confirmPaymentStarted()">{{'PORTFOLIO.OPEN_TRADES.PAYMENT_STARTED' | translate}}
+      </button>
+    </ng-template>
+    <ng-template [ngIf]="2 === selectedTradeStep && 'seller' === selectedTradeRole">
+      <div class="card">
+        <div class="card-header">
+          {{'PORTFOLIO.OPEN_TRADES.WAIT_FOR_PAYMENT' | translate}}
+        </div>
+        <div class="card-body">
+          {{'PORTFOLIO.OPEN_TRADES.STEP2_SELLER_DESCRIPTION' | translate}}
+        </div>
+      </div>
+    </ng-template>
+    <ng-template [ngIf]="3 === selectedTradeStep && 'buyer' === selectedTradeRole">
+      <div class="card">
+        <div class="card-header">
+          {{'PORTFOLIO.OPEN_TRADES.WAIT_FOR_SELLER' | translate}}
+        </div>
+        <div class="card-body">
+          {{'PORTFOLIO.OPEN_TRADES.STEP2_BUYER_DESCRIPTION' | translate}}
+        </div>
+      </div>
+    </ng-template>
+    <ng-template [ngIf]="3 === selectedTradeStep && 'seller' === selectedTradeRole">
+      <div class="card">
+        <div class="card-header">
+          {{'PORTFOLIO.OPEN_TRADES.STEP3_SELLER_LABEL' | translate}}
+        </div>
+        <div class="card-body">
+          <div class="label">Amount to receive</div>
+          <div>
+            {{trade.tradePrice * trade.tradeAmount / 10e11 | number:'.2-2'}} {{trade.offer.counterCurrencyCode}}
+          </div>
+          <div class="label">{{'PORTFOLIO.OPEN_TRADES.YOUR_DETAILS' | translate}}</div>
+          <div>{{trade.sellerPaymentAccount.paymentDetails}}</div>
+          <div class="label">{{'PORTFOLIO.OPEN_TRADES.BUYERS_DETAILS' | translate}}</div>
+          <div>{{trade.buyerPaymentAccount.paymentDetails}}</div>
+          <div class="label">{{'PORTFOLIO.OPEN_TRADES.STEP3_SELLER_LABEL' | translate}}</div>
+          <div>{{trade.id.split('-')[0]}}</div>
+        </div>
+      </div>
+      <button ion-button (click)="confirmPaymentReceived()">{{'PORTFOLIO.OPEN_TRADES.STEP3_SELLER_LABEL' | translate}}
+      </button>
+    </ng-template>
+    <ng-template [ngIf]="4 === selectedTradeStep">
+      <div class="card">
+        <div class="card-header">
+          {{'PORTFOLIO.OPEN_TRADES.SUMMARY_OF_TRADE' | translate}}
+        </div>
+        <div class="card-body">
+          <div *ngIf="'buyer' === selectedTradeRole" class="label">
+            {{'PORTFOLIO.OPEN_TRADES.YOU_HAVE_BOUGHT' | translate}}
+          </div>
+          <div *ngIf="'seller' === selectedTradeRole" class="label">
+            {{'PORTFOLIO.OPEN_TRADES.YOU_HAVE_SOLD' | translate}}
+          </div>
+          <div>{{trade.tradeAmount / 10e7}}</div>
+          <div *ngIf="'buyer' === selectedTradeRole" class="label">
+            {{'PORTFOLIO.OPEN_TRADES.YOU_HAVE_PAID' | translate}}
+          </div>
+          <div *ngIf="'seller' === selectedTradeRole" class="label">
+            {{'PORTFOLIO.OPEN_TRADES.YOU_HAVE_RECEIVED' | translate}}
+          </div>
+          <div>
+            {{trade.tradePrice * trade.tradeAmount / 10e11 | number:'.2-2'}} {{trade.offer.counterCurrencyCode}}
+          </div>
+          <div class="label">{{'PORTFOLIO.OPEN_TRADES.REFUNDED_SECURITY' | translate}}</div>
+          <div>...</div>
+          <div class="label">{{'PORTFOLIO.OPEN_TRADES.TRADE_FEE' | translate}}</div>
+          <div>{{trade.takerFee / 10e7}}</div>
+          <div class="label">{{'PORTFOLIO.OPEN_TRADES.MINING_FEE' | translate}}</div>
+          <div>...</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          {{'PORTFOLIO.OPEN_TRADES.WITHDRAW_BITCOIN' | translate}}
+        </div>
+        <div class="card-body">
+          <div class="label">{{'PORTFOLIO.OPEN_TRADES.AMOUNT_TO_WITHDRAW' | translate}}</div>
+          <div>{{trade.tradeAmount / 10e7 + 77}}</div>
+        </div>
+      </div>
+      <button ion-button (click)="withdraw()">{{'PORTFOLIO.OPEN_TRADES.WITHDRAW' | translate}}</button>
+    </ng-template>
+    <button ion-button color="light" (click)="cancel()">{{'BACK' | translate}}</button>
+  </div>
+</div>

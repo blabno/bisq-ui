@@ -15,9 +15,7 @@ import t from '../shared/defineTextToTranslate';
 
 t([
   'ACCOUNT.INIT_MODAL.TITLE',
-  'ACCOUNT.INIT_MODAL.PARAGRAPH1',
-  'ACCOUNT.INIT_MODAL.PARAGRAPH2',
-  'ACCOUNT.INIT_MODAL.PARAGRAPH3',
+  'ACCOUNT.INIT_MODAL.TEXT',
   'ACCOUNT.SUBMENU.CURRENCY_ACCOUNTS',
   'ACCOUNT.SUBMENU.ALTCOINS_ACCOUNTS',
   'ACCOUNT.SUBMENU.ARBITRATOR',
@@ -80,11 +78,8 @@ export class AccountComponent implements OnInit, OnDestroy {
     this.initModal.show({
       id: 'accountInit',
       title: 'ACCOUNT.INIT_MODAL.TITLE',
-      paragraphs: [
-        'ACCOUNT.INIT_MODAL.PARAGRAPH1',
-        'ACCOUNT.INIT_MODAL.PARAGRAPH2',
-        'ACCOUNT.INIT_MODAL.PARAGRAPH3',
-      ]
+      text: 'ACCOUNT.INIT_MODAL.TEXT',
+      doNotShowButton: true
     });
     this.paramSubscribe = this.activeRoute.params.subscribe(params => {
       this.activeMenuIndex = this.menuTabs.findIndex((o) => {
