@@ -49,8 +49,7 @@
         </div>
         <div class="card-body">
           <div>Deposit transaction has been publihed.<br/>The BTC buyer need to wait for at least one blockchain
-            confirmation
-            before starting the payment.
+            confirmation before starting the payment.
           </div>
         </div>
       </div>
@@ -73,7 +72,7 @@
           <div class="label">BIC</div>
           <div>{{trade.buyerPaymentAccount.bic}}</div>
           <div class="label">Reason for payment</div>
-          <div>{{trade.id.substring(0, 8)}}</div>
+          <div>{{trade.id.split('-')[0]}}</div>
         </div>
       </div>
       <button ion-button (click)="confirmPaymentStarted()">Payment started</button>
@@ -109,11 +108,11 @@
           <div class="label">Amount to receive</div>
           <div>{{trade.tradePrice * trade.tradeAmount / 10e11 | number:'.2-2'}} EUR</div>
           <div class="label">Your trading account</div>
-          <div>{{trade.buyerPaymentAccount.paymentDetails}}</div>
+          <div>{{trade.sellerPaymentAccount.paymentDetails}}</div>
           <div class="label">Buyers trading account</div>
           <div>{{trade.buyerPaymentAccount.paymentDetails}}</div>
           <div class="label">Confirm payment receipt</div>
-          <div>{{trade.id.substring(0, 8)}}</div>
+          <div>{{trade.id.split('-')[0]}}</div>
         </div>
       </div>
       <button ion-button (click)="confirmPaymentReceived()">Confirm payment received</button>

@@ -4,6 +4,7 @@ import moment from 'moment';
 import {ToastService} from '../../../shared/services/toast.service';
 import {TradesCacheService} from '../../../shared/services/tradesCache.service';
 import {TradesDAO} from '../../../shared/DAO/trades.dao';
+import t from '../../../shared/defineTextToTranslate';
 
 @Component({
   selector: 'app-trade-details',
@@ -35,7 +36,7 @@ export class TradeDetailsComponent implements OnInit {
   confirmPaymentStarted() {
     this.tradesDAO.paymentStarted(this.trade.id)
       .then(() => this.tradesCache.refresh())
-      .then(() => this.toast.show('PORTFOLIO.OPEN_TRADES.PAYMENT_STARTED', 'info'))
+      .then(() => this.toast.show(t('PORTFOLIO.OPEN_TRADES.PAYMENT_STARTED'), 'info'))
       .then(() => (this.selectedTradeStep++))
       .catch(() => this.showErrorToast());
   }
@@ -43,7 +44,7 @@ export class TradeDetailsComponent implements OnInit {
   confirmPaymentReceived() {
     this.tradesDAO.paymentReceived(this.trade.id)
       .then(() => this.tradesCache.refresh())
-      .then(() => this.toast.show('PORTFOLIO.OPEN_TRADES.PAYMENT_RECEIVED', 'info'))
+      .then(() => this.toast.show(t('PORTFOLIO.OPEN_TRADES.PAYMENT_RECEIVED'), 'info'))
       .then(() => (this.selectedTradeStep++))
       .catch(() => this.showErrorToast());
   }
@@ -51,7 +52,7 @@ export class TradeDetailsComponent implements OnInit {
   withdraw() {
     this.tradesDAO.paymentWithdraw(this.trade.id)
       .then(() => this.tradesCache.refresh())
-      .then(() => this.toast.show('PORTFOLIO.OPEN_TRADES.WITHDRAW_SUCCESS', 'info'))
+      .then(() => this.toast.show(t('PORTFOLIO.OPEN_TRADES.WITHDRAW_SUCCESS'), 'info'))
       .then(() => (this.selectedTradeStep++))
       .catch(() => this.showErrorToast());
   }

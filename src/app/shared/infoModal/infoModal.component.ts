@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import {Component} from '@angular/core';
+import {Router} from '@angular/router';
 import {NavParams, ViewController} from 'ionic-angular';
 
 import t from '../../shared/defineTextToTranslate';
@@ -11,12 +12,25 @@ t('INFO_MODAL.DO_NOT_SHOW_AGAIN');
   templateUrl: './infoModal.component.html'
 })
 export class InfoModalComponent {
-  id;
   data;
+  id;
+  doNotShowButton;
+  redirectButton;
 
-  constructor(private viewCtrl: ViewController, public params: NavParams) {
+  constructor(private viewCtrl: ViewController, public params: NavParams, private router: Router) {
+    this.data = {
+      title: params.data.title,
+      text: params.data.text,
+      textParams: params.data.textParams
+    };
     this.id = params.data.id;
-    this.data = params.data;
+    this.doNotShowButton = params.data.doNotShowButton;
+    this.redirectButton = params.data.redirectButton;
+  }
+
+  redirect() {
+    this.router.navigateByUrl(this.redirectButton.path);
+    this.viewCtrl.dismiss();
   }
 
   dismiss() {

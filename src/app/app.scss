@@ -65,6 +65,12 @@ a:hover {
   color: var(--blue);
 }
 
+ion-content {
+  .scroll-content {
+    overflow-y: auto;
+  }
+}
+
 ion-toast {
   &.error .toast-wrapper {
     background-color: var(--red);

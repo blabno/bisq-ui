@@ -13,11 +13,12 @@
 
 <ion-content>
   <div class="body">
-    <div *ngFor="let paragraph of params.data.paragraphs" class="paragraph">
-      <span>{{paragraph | translate}}</span>
-    </div>
-    <button class="btn btn-primary" (click)="dismissPermanently()">
+    <div><span>{{data.text | translate:data.textParams}}</span></div>
+    <button *ngIf="doNotShowButton" class="btn" (click)="dismissPermanently()">
       {{'INFO_MODAL.DO_NOT_SHOW_AGAIN' | translate}}
+    </button>
+    <button *ngIf="redirectButton" class="btn btn-primary" (click)="redirect()">
+      {{redirectButton.text | translate}}
     </button>
   </div>
 </ion-content>

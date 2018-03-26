@@ -1,5 +1,4 @@
 {
-	"0": "",
 	"ABOUT": "About",
 	"ACCOUNT": {
 		"ACCOUNTS_LIST": "Accounts list",
@@ -77,9 +76,7 @@
 		"EXPORT": "Export Accounts",
 		"IMPORT": "Import Accounts",
 		"INIT_MODAL": {
-			"PARAGRAPH1": "Here you can setup trading accounts for national currencies & altcoins, select arbitrators and backup your wallet & account data.",
-			"PARAGRAPH2": "An empty Bitcoin wallet was created the first time you started Bisq.\nWe recommend that you write down your Bitcoin wallet seed words (see button on the left) and consider adding a password before funding. Bitcoin deposits and withdrawals are managed in the \"Funds\" section.",
-			"PARAGRAPH3": "Privacy & Security:\nBisq is a decentralized exchange – meaning all of your data is kept on your computer, there are no servers and we have no access to your personal info, your funds or even your IP address. Data such as bank account numbers, altcoin & Bitcoin addresses, etc are only shared with your trading partner to fulfill trades you initiate (in case of a dispute the arbitrator will see the same data like your trading peer).",
+			"TEXT": "Here you can setup trading accounts for national currencies & altcoins, select arbitrators and backup your wallet & account data.\n\nAn empty Bitcoin wallet was created the first time you started Bisq.\nWe recommend that you write down your Bitcoin wallet seed words (see button on the left) and consider adding a password before funding. Bitcoin deposits and withdrawals are managed in the \"Funds\" section.\n\nPrivacy & Security:\nBisq is a decentralized exchange – meaning all of your data is kept on your computer, there are no servers and we have no access to your personal info, your funds or even your IP address. Data such as bank account numbers, altcoin & Bitcoin addresses, etc are only shared with your trading partner to fulfill trades you initiate (in case of a dispute the arbitrator will see the same data like your trading peer).",
 			"TITLE": "Welcome to your Bisq Account"
 		},
 		"SAVE": "Save new Account",
@@ -287,6 +284,16 @@
 		"TRADES": {
 			"CANT_FETCH_DATA": "Error: Cant't fetch/refresh trades list"
 		}
+	},
+	"TRADES_CACHE": {
+		"REDIRECT_TO_OPEN_TRADES": "Go to \"Portfolio/Open trades\"",
+		"TRADE_COMPLETED_TEXT": "The {{baseCurrency}} seller confirmed payment received. The trade is now completed and you can withdraw your funds.",
+		"TRADE_COMPLETED_TITLE": "Your trade has finished",
+		"TRADE_CONFIRMED_IN_BLOCKCHAIN_BUYER_TEXT": "Your trade has reached at least one blockchain confirmation.\n(You can wait for more confirmations if you want - 6 confirmations are considered as very secure.)\n\nPlease go to your online banking web page and pay {{volume}} {{counterCurrency}} to the {{baseCurrency}} seller.\n\nHere are the trade account details of the {{baseCurrency}} seller:\n{{sellerPaymentDetails}}\n\nPlease don't forget to add the trade ID \"{{id}}\" as \"reason for payment\" so the receiver can assign your payment to this trade.\n\nDO NOT use any additional notice in the \"reason for payment\" text like Bitcoin, BTC or Bisq.\n\nIf your bank charges fees you have to cover those fees.",
+		"TRADE_CONFIRMED_IN_BLOCKCHAIN_SELLER_TEXT": "Your trade has at least one blockchain confirmation.\nYou need to wait until the buyer starts the payment.",
+		"TRADE_CONFIRMED_IN_BLOCKCHAIN_TITLE": "Offer confirmed in blockchain",
+		"TRADE_PAYMENT_INITIATED_TEXT": "Your trading partner has confirmed that he initiated the {{counterCurrency}} payment.\n\nPlease go to your online banking web page and check if you have received {{volume}} {{counterCurrency}} from the {{baseCurrency}} buyer.\n\n The trade ID (\"reason for payment\" text) of the transaction is \"{{id}}\".\n\nPlease also verify that the senders name in your bank statement mathces that one from the trade contract:\nSenders name: {{buyerPaymentName}}\n\nIf the name is not the same as the one displayed here, please don't confirm but open a dispute.",
+		"TRADE_PAYMENT_INITIATED_TITLE": "Offer payment initiated"
 	},
 	"VALIDATION": {
 		"BIC": "Input length is neither 8 nor 11",

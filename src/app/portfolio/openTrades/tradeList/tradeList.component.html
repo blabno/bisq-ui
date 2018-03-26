@@ -8,7 +8,7 @@
       <div class="card-body">
         <div>
           <span>ID</span>
-          <span class="float-right">{{item.id.substring(0, 8)}}</span>
+          <span class="float-right">{{item.id.split('-')[0]}}</span>
         </div>
         <div>{{'PORTFOLIO.OPEN_TRADES.PRICE' | translate}}
           <span class="float-right">{{item.tradePrice / 10e3}}</span>

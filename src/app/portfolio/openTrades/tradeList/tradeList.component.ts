@@ -1,6 +1,5 @@
 import {Component, OnInit, EventEmitter, Output, Input} from '@angular/core';
 
-import {ToastService} from '../../../shared/services/toast.service';
 import {TradesCacheService} from '../../../shared/services/tradesCache.service';
 
 @Component({
@@ -14,41 +13,13 @@ export class TradeListComponent implements OnInit {
   trades = [];
   total = 0;
 
-  constructor(private tradesCache: TradesCacheService, private toast: ToastService) {
-  }
-
-  getMyRoles(trade) {
-    if (trade.takerPaymentAccountId && 'BUY' === trade.offer.direction) {
-      return {
-        tradeRole: 'seller',
-        offerRole: 'taker'
-      };
-    } else if (!trade.takerPaymentAccountId && 'SELL' === trade.offer.direction) {
-      return {
-        tradeRole: 'seller',
-        offerRole: 'maker'
-      };
-    }
-    if (trade.takerPaymentAccountId && 'SELL' === trade.offer.direction) {
-      return {
-        tradeRole: 'seller',
-        offerRole: 'taker'
-      };
-    } else {
-      return {
-        tradeRole: 'buyer',
-        offerRole: 'maker'
-      };
-    }
+  constructor(private tradesCache: TradesCacheService) {
   }
 
   ngOnInit() {
     this.tradesCache.list()
       .then(result => {
-        this.trades = result.map(trade => ({
-          ...trade,
-          ...this.getMyRoles(trade)
-        }));
+        this.trades = result;
         this.total = this.trades.length;
       });
   }
