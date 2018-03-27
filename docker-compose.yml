@@ -1,0 +1,9 @@
+version: '2'
+services:
+  bisq-ui:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    image: bisq-ui
+    ports:
+      - 8888:8888
