@@ -4,6 +4,7 @@ import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 import {MainComponent} from './main/main.component';
 import {TranslateService} from '@ngx-translate/core';
+import {ClipboardService} from './shared/services/clipboard.service';
 
 import {ArbitratorsDAO} from './shared/DAO/arbitrators.dao';
 import {CurrenciesDAO} from './shared/DAO/currencies.dao';
@@ -36,7 +37,8 @@ t('WARNING');
     ToastService,
     TradesCacheService,
     TradesDAO,
-    WalletDAO
+    WalletDAO,
+    ClipboardService
   ]
 })
 export class AppComponent {

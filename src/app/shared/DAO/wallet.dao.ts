@@ -22,7 +22,7 @@ export class WalletDAO {
 
   createNewWallet() {
     return this.http.post(`${this.settings.backendUrl}/api/v1/wallet/btc/addresses`, {
-      context: 'ARBITRATOR',
+      context: 'AVAILABLE',
       unused: true
     }).toPromise();
   }
