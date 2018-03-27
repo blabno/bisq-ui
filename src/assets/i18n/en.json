@@ -1,5 +1,4 @@
 {
-	"ABOUT": "About",
 	"ACCOUNT": {
 		"ACCOUNTS_LIST": "Accounts list",
 		"ADD_NEW": "Add new account",
@@ -83,10 +82,7 @@
 		"SUBMENU": {
 			"ALTCOINS_ACCOUNTS": "Altcoins Accounts",
 			"ARBITRATOR": "Arbitrator",
-			"BACKUP": "Backup",
-			"CURRENCY_ACCOUNTS": "Currency Accounts",
-			"WALLET_PASSWORD": "Wallet password",
-			"WALLET_SEED": "Wallet Seed"
+			"CURRENCY_ACCOUNTS": "Currency Accounts"
 		},
 		"WALLET_PASS": {
 			"ENTER_PASS": "Enter password",
@@ -145,15 +141,12 @@
 	},
 	"MENU": {
 		"ACCOUNT": "Account",
-		"BUY": "Buy",
+		"BUY": "Buy BTC",
 		"FUNDS": "Funds",
-		"MARKET": "Market",
 		"PORTFOLIO": "Portfolio",
 		"SELL": "Sell BTC",
-		"SETTINGS": "Settings",
-		"SUPPORT": "Support"
+		"SETTINGS": "Settings"
 	},
-	"NETWORK_INFO": "Network",
 	"OFFERS": {
 		"CREATE": {
 			"AMOUNT": "Amount",
@@ -256,7 +249,13 @@
 			"OPEN_TRADES": "Open trades"
 		}
 	},
-	"PREFERENCES": "Preferences",
+	"SETTINGS": {
+		"SUBMENU": {
+			"ABOUT": "About",
+			"NETWORK_INFO": "Network",
+			"PREFERENCES": "Preferences"
+		}
+	},
 	"SETTINGS_VIEW": {
 		"ABOUT": {
 			"ABOUT_BISQ": "About bisq",

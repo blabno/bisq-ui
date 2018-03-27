@@ -1,5 +1,4 @@
 {
-	"ABOUT": "O programie",
 	"ACCOUNT": {
 		"ACCOUNTS_LIST": "Lista kont",
 		"ADD_NEW": "Dodaj konto",
@@ -83,10 +82,7 @@
 		"SUBMENU": {
 			"ALTCOINS_ACCOUNTS": "Konta alternatywne",
 			"ARBITRATOR": "Arbitrator",
-			"BACKUP": "Kopia zapasowa",
-			"CURRENCY_ACCOUNTS": "Konta walutowe",
-			"WALLET_PASSWORD": "Hasło portfela",
-			"WALLET_SEED": "Seed portfela"
+			"CURRENCY_ACCOUNTS": "Konta walutowe"
 		},
 		"WALLET_PASS": {
 			"ENTER_PASS": "Wprowadź haslo",
@@ -147,13 +143,10 @@
 		"ACCOUNT": "Konto",
 		"BUY": "Kup",
 		"FUNDS": "Fundusze",
-		"MARKET": "Market",
 		"PORTFOLIO": "Portfolio",
 		"SELL": "Sprzedaj",
-		"SETTINGS": "Ustawienia",
-		"SUPPORT": "Wsparcie"
+		"SETTINGS": "Ustawienia"
 	},
-	"NETWORK_INFO": "Sieć",
 	"OFFERS": {
 		"CREATE": {
 			"AMOUNT": "Wartość",
@@ -256,7 +249,13 @@
 			"OPEN_TRADES": "Aktywne transkacje"
 		}
 	},
-	"PREFERENCES": "Preferencje",
+	"SETTINGS": {
+		"SUBMENU": {
+			"ABOUT": "O programie",
+			"NETWORK_INFO": "Sieć",
+			"PREFERENCES": "Preferencje"
+		}
+	},
 	"SETTINGS_VIEW": {
 		"ABOUT": {
 			"ABOUT_BISQ": "O bisq",

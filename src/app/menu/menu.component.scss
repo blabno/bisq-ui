@@ -1,51 +1,56 @@
 .menu-component {
-  padding: 12px 0;
+  padding: 0;
+  z-index: 10;
   .toggler {
     margin: 13px;
   }
-  .menu-content {
-    top: 76px;
+  .collapsing {
+    transition: height .15s;
+  }
+  .section-title {
     position: absolute;
-    width: 100%;
-    background-color: #f8f9fa;
-    z-index: 10;
-    overflow-x: auto;
-    max-height: calc(100vh - 76px);
-    hr {
-      background: silver;
-    }
+    right: 32px;
+    font-size: 18px;
+  }
+  .menu-content {
     .menu-item {
-      height: 52px;
       &:hover {
         color: #6c757d;
         cursor: pointer;
       }
+      &.dropdown {
+        .header {
+          overflow: auto;
+        }
+      }
       .menu-icon {
         padding: 12px;
         font-size: 28px;
+        width: 60px;
         float: left;
+      }
+      .menu-icon-nested {
+        width: 16px;
+        margin-right: 8px;
       }
       .item-label {
         float: left;
-        margin-top: 16px;
+        margin-top: 15px;
       }
     }
   }
-
-  .prices-dropdown {
-    margin-left: 20px;
-    margin-right: 20px;
-    .dropdown-item {
-      font-size: 14px;
-    }
-    button {
-      font-size: 14px;
-    }
+  .dropdown-item {
+    font-size: 14px;
   }
 
   @media (min-width: 992px) {
+    .section-title {
+      top: 22px;
+      right: 26px;
+    }
     .menu-content {
       position: static;
+      overflow: visible;
       hr {
         width: 1px;
         height: 50px;
@@ -55,13 +60,53 @@
       .menu-item {
         width: 80px;
         text-align: center;
+        padding: 10px 0;
         .menu-icon {
-          padding: 0;
+          padding: 1px;
           float: none;
         }
         .item-label {
           float: none;
           margin-top: 0;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 992px) {
+    .section-title {
+      top: 12px;
+      right: 16px;
+    }
+    .menu-content {
+      .menu-item {
+        border-top: 1px solid rgba(0, 0, 0, 0.15);
+        &:last-of-type {
+          border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+        }
+        &.dropdown {
+          .dropdown-menu {
+            margin: 0;
+            padding: 0;
+            border-radius: 0;
+            border-right: 0;
+            border-left: 0;
+            border-bottom: 0;
+            .dropdown-item {
+              padding-left: 82px;
+              padding-top: 15px;
+              padding-bottom: 15px;
+              border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+              &:last-of-type {
+                border-bottom: 0;
+              }
+              .menu-icon-nested {
+                position: absolute;
+                font-size: 28px;
+                left: 30px;
+              }
+            }
+          }
         }
       }
     }

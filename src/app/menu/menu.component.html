@@ -3,54 +3,125 @@
           aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation" #navbarToggler>
     <span class="navbar-toggler-icon"></span>
   </button>
+  <div class="section-title">{{sectionTitle}}</div>
   <div class="collapse navbar-collapse menu-content" id="navbarToggle">
-    <ul class="navbar-nav mr-auto" (click)="onMenuItemClick()">
-      <!--<li class="nav-item menu-item" routerLinkActive="text-primary" routerLink="/market">-->
-      <!--<i class="fas fa-globe menu-icon"></i>-->
-      <!--<div class="item-label">{{ 'MENU.MARKET' | translate }}</div>-->
-      <!--</li>-->
-      <li class="nav-item menu-item" routerLinkActive="text-primary" routerLink="/offers/buy">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item menu-item" routerLinkActive="text-primary" routerLink="/offers/buy"
+          (click)="onMenuItemClick(['MENU.BUY'])">
         <i class="fas fa-download menu-icon"></i>
         <div class="item-label">{{ 'MENU.BUY' | translate }}</div>
       </li>
-      <li class="nav-item menu-item" routerLinkActive="text-primary" routerLink="/offers/sell">
+      <li class="nav-item menu-item" routerLinkActive="text-primary" routerLink="/offers/sell"
+          (click)="onMenuItemClick(['MENU.SELL'])">
         <i class="fas fa-upload menu-icon"></i>
         <div class="item-label">{{ 'MENU.SELL' | translate }}</div>
       </li>
-      <li class="nav-item menu-item" routerLinkActive="text-primary" routerLink="/portfolio">
-        <i class="fas fa-folder-open menu-icon"></i>
-        <div class="item-label">{{ 'MENU.PORTFOLIO' | translate }}</div>
+      <li class="nav-item menu-item dropdown" routerLinkActive="text-primary">
+        <div class="header" id="navbarDropdownPortfolio" role="button" data-toggle="dropdown" aria-haspopup="true"
+             aria-expanded="false">
+          <i class="fas fa-folder-open menu-icon"></i>
+          <div class="item-label">{{ 'MENU.PORTFOLIO' | translate }}</div>
+        </div>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownPortfolio">
+          <a class="dropdown-item" routerLinkActive="text-primary" routerLink="/portfolio/my-open-offers"
+             (click)="onMenuItemClick(['MENU.PORTFOLIO', 'PORTFOLIO.SUBMENU.MY_OPEN_OFFERS'])">
+            <i class="fas fa-newspaper menu-icon-nested"></i>
+            {{'PORTFOLIO.SUBMENU.MY_OPEN_OFFERS' | translate}}
+          </a>
+          <a class="dropdown-item" routerLinkActive="text-primary" routerLink="/portfolio/open-trades"
+             (click)="onMenuItemClick(['MENU.PORTFOLIO', 'PORTFOLIO.SUBMENU.OPEN_TRADES'])">
+            <i class="fas fa-suitcase menu-icon-nested"></i>
+            {{'PORTFOLIO.SUBMENU.OPEN_TRADES' | translate}}
+          </a>
+          <a class="dropdown-item" routerLinkActive="text-primary" routerLink="/portfolio/history"
+             (click)="onMenuItemClick(['MENU.PORTFOLIO', 'PORTFOLIO.SUBMENU.HISTORY'])">
+            <i class="fas fa-clock menu-icon-nested"></i>
+            {{'PORTFOLIO.SUBMENU.HISTORY' | translate}}
+          </a>
+        </div>
       </li>
-      <li class="nav-item menu-item" routerLinkActive="text-primary" routerLink="/funds">
-        <i class="fas fa-briefcase menu-icon"></i>
-        <div class="item-label">{{ 'MENU.FUNDS' | translate }}</div>
+      <li class="nav-item menu-item dropdown" routerLinkActive="text-primary">
+        <div class="header" id="navbarDropdownFunds" role="button" data-toggle="dropdown" aria-haspopup="true"
+             aria-expanded="false">
+          <i class="fas fa-briefcase menu-icon"></i>
+          <div class="item-label">{{ 'MENU.FUNDS' | translate }}</div>
+        </div>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownFunds">
+          <a class="dropdown-item" routerLinkActive="text-primary" routerLink="/funds/receive"
+             (click)="onMenuItemClick(['MENU.FUNDS', 'FUNDS.SUBMENU.RECEIVE'])">
+            <i class="fas fa-cloud-download-alt menu-icon-nested"></i>
+            {{'FUNDS.SUBMENU.RECEIVE' | translate}}
+          </a>
+          <a class="dropdown-item" routerLinkActive="text-primary" routerLink="/funds/send"
+             (click)="onMenuItemClick(['MENU.FUNDS', 'FUNDS.SUBMENU.SEND'])">
+            <i class="fas fa-cloud-upload-alt menu-icon-nested"></i>
+            {{'FUNDS.SUBMENU.SEND' | translate}}
+          </a>
+          <a class="dropdown-item" routerLinkActive="text-primary" routerLink="/funds/reserved"
+             (click)="onMenuItemClick(['MENU.FUNDS', 'FUNDS.SUBMENU.RESERVED'])">
+            <i class="fas fa-bookmark menu-icon-nested"></i>
+            {{'FUNDS.SUBMENU.RESERVED' | translate}}
+          </a>
+          <a class="dropdown-item" routerLinkActive="text-primary" routerLink="/funds/locked"
+             (click)="onMenuItemClick(['MENU.FUNDS', 'FUNDS.SUBMENU.LOCKED'])">
+            <i class="fas fa-lock menu-icon-nested"></i>
+            {{'FUNDS.SUBMENU.LOCKED' | translate}}
+          </a>
+          <a class="dropdown-item" routerLinkActive="text-primary" routerLink="/funds/transaction"
+             (click)="onMenuItemClick(['MENU.FUNDS', 'FUNDS.SUBMENU.TRANSACTIONS'])">
+            <i class="fas fa-dollar-sign menu-icon-nested"></i>
+            {{'FUNDS.SUBMENU.TRANSACTIONS' | translate}}
+          </a>
+        </div>
       </li>
-      <!--<li class="nav-item menu-item">-->
-      <!--<i class="fas fa-comments menu-icon"></i>-->
-      <!--<div class="item-label">{{ 'MENU.SUPPORT' | translate }}</div>-->
-      <!--</li>-->
-      <li>
-        <hr>
+      <li class="nav-item menu-item dropdown" routerLinkActive="text-primary">
+        <div class="header" id="navbarDropdownSettings" role="button" data-toggle="dropdown" aria-haspopup="true"
+             aria-expanded="false">
+          <i class="fas fa-cog menu-icon"></i>
+          <div class="item-label">{{ 'MENU.SETTINGS' | translate }}</div>
+        </div>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownSettings">
+          <a class="dropdown-item" routerLinkActive="text-primary" routerLink="/settings/preferences"
+             (click)="onMenuItemClick(['MENU.SETTINGS', 'SETTINGS.SUBMENU.PREFERENCES'])">
+            <i class="fas fa-cog menu-icon-nested"></i>
+            {{'SETTINGS.SUBMENU.PREFERENCES' | translate}}
+          </a>
+          <a class="dropdown-item" routerLinkActive="text-primary" routerLink="/settings/network-info"
+             (click)="onMenuItemClick(['MENU.SETTINGS', 'SETTINGS.SUBMENU.NETWORK_INFO'])">
+            <i class="fas fa-users menu-icon-nested"></i>
+            {{'SETTINGS.SUBMENU.NETWORK_INFO' | translate}}
+          </a>
+          <a class="dropdown-item" routerLinkActive="text-primary" routerLink="/settings/about"
+             (click)="onMenuItemClick(['MENU.SETTINGS', 'SETTINGS.SUBMENU.ABOUT'])">
+            <i class="fas fa-info-circle menu-icon-nested"></i>
+            {{'SETTINGS.SUBMENU.ABOUT' | translate}}
+          </a>
+        </div>
       </li>
-      <li class="nav-item menu-item" routerLinkActive="text-primary" routerLink="/settings">
-        <i class="fas fa-cog menu-icon"></i>
-        <div class="item-label">{{ 'MENU.SETTINGS' | translate }}</div>
-      </li>
-      <li class="nav-item menu-item" routerLinkActive="text-primary" routerLink="/account">
-        <i class="fas fa-user menu-icon"></i>
-        <div class="item-label">{{ 'MENU.ACCOUNT' | translate }}</div>
+      <li class="nav-item menu-item dropdown" routerLinkActive="text-primary">
+        <div class="header" id="navbarDropdownAccount" role="button" data-toggle="dropdown" aria-haspopup="true"
+             aria-expanded="false">
+          <i class="fas fa-user menu-icon"></i>
+          <div class="item-label">{{ 'MENU.ACCOUNT' | translate }}</div>
+        </div>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownAccount">
+          <a class="dropdown-item" routerLinkActive="text-primary" routerLink="/account/currency"
+             (click)="onMenuItemClick(['MENU.ACCOUNT', 'ACCOUNT.SUBMENU.CURRENCY_ACCOUNTS'])">
+            <i class="fas fa-money-bill-alt menu-icon-nested"></i>
+            {{'ACCOUNT.SUBMENU.CURRENCY_ACCOUNTS' | translate}}
+          </a>
+          <a class="dropdown-item" routerLinkActive="text-primary" routerLink="/account/altcoins"
+             (click)="onMenuItemClick(['MENU.ACCOUNT', 'ACCOUNT.SUBMENU.ALTCOINS_ACCOUNTS'])">
+            <i class="fas fa-link menu-icon-nested"></i>
+            {{'ACCOUNT.SUBMENU.ALTCOINS_ACCOUNTS' | translate}}
+          </a>
+          <a class="dropdown-item" routerLinkActive="text-primary" routerLink="/account/arbitrator"
+             (click)="onMenuItemClick(['MENU.ACCOUNT', 'ACCOUNT.SUBMENU.ARBITRATOR'])">
+            <i class="fas fa-gavel menu-icon-nested"></i>
+            {{'ACCOUNT.SUBMENU.ARBITRATOR' | translate}}
+          </a>
+        </div>
       </li>
     </ul>
-  </div>
-  <div class="dropdown prices-dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="menuDropdown" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-      BTC/USD 8994.12
-    </button>
-    <div class="dropdown-menu" aria-labelledby="menuDropdown">
-      <a class="dropdown-item">BTC/USD</a>
-      <a class="dropdown-item">BTC/EUR</a>
-      <a class="dropdown-item">BTC/PLN</a>
-    </div>
   </div>
 </nav>
