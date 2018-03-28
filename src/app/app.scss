@@ -101,3 +101,14 @@ ion-toast {
 button ion-spinner {
   margin-left: 10px;
 }
+
+.no-results-card {
+  text-align: center;
+  color: gray;
+  .card-body {
+    padding: 2.25rem;
+  }
+  span {
+    font-size: medium
+  }
+}

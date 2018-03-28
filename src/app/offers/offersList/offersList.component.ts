@@ -12,6 +12,7 @@ export class OffersListComponent implements OnChanges {
 
   @Input() data: Array<Object>;
   @Input() type: 'sell' | 'buy';
+  @Input() loading: Boolean;
 
   public NO_FILTER = 'NONE';
   public currencyFilter = this.NO_FILTER;

@@ -2,7 +2,10 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <ion-item>
+        <button ion-button color="light" routerLink="./create">{{ 'OFFERS.CREATE_BUTTON' | translate}}</button>
+      </ion-col>
+      <ion-col>
+        <ion-item class="filter-item">
           <ion-label>{{'OFFERS.LIST.FILTER.BY_CURRENCY' | translate}}</ion-label>
           <ion-select [(ngModel)]="currencyFilter" (ionChange)="onCurrencyFilterChange($event)" interface="popover">
             <ion-option [value]="NO_FILTER">{{('OFFERS.LIST.SHOW_ALL' | translate)}}</ion-option>
@@ -11,7 +14,7 @@
         </ion-item>
       </ion-col>
       <ion-col>
-        <ion-item>
+        <ion-item class="filter-item">
           <ion-label>{{'OFFERS.LIST.FILTER.BY_METHOD' | translate}}</ion-label>
           <ion-select interface="popover">
             <ion-option>{{'OFFERS.LIST.SHOW_ALL' | translate}}</ion-option>
@@ -22,28 +25,45 @@
   </ion-grid>
 </div>
 <div>{{'OFFERS.LIST.NO_OFFERS' | translate}}: {{list.length || 0}}</div>
-<div class="row">
+<div *ngIf="loading" class="d-flex justify-content-center align-items-center m-4 loading">
+  <h1>Loading..</h1>
+  <ion-spinner></ion-spinner>
+</div>
+<div *ngIf="!list.length" class="card no-results-card">
+  <div class="card-body">
+     <span>There are no offers to show, try to change your filters</span>
+  </div>
+</div>
+<div *ngIf="list.length" class="row">
   <div class="col-md-6 col-lg-4" *ngFor="let item of list">
     <div class="card">
       <div class="card-header">
         <i class="fas fa-user-circle" title="Onion adress: {{item.offerer}}"></i>
         {{item.market}}
-        <span class="float-right">{{item.method}} <i class="fas fa-info-circle info"></i></span>
+        <span class="float-right">{{item.method}}
+          <i class="fas fa-info-circle info"></i>
+        </span>
       </div>
       <div class="card-body">
-        <div>BTC (min-max)<span class="float-right">{{getOfferBTCAmount(item)}}</span></div>
+        <div>BTC (min-max)
+          <span class="float-right">{{getOfferBTCAmount(item)}}</span>
+        </div>
         <div>{{'OFFERS.LIST.PRICE' | translate}}
           <span class="float-right">{{item.price / 10000}} ({{item.marketPriceMargin}}%)</span>
         </div>
-        <div>{{'OFFERS.LIST.AMOUNT' | translate}}<span class="float-right">{{getOfferAmount(item)}}</span></div>
+        <div>{{'OFFERS.LIST.AMOUNT' | translate}}
+          <span class="float-right">{{getOfferAmount(item)}}</span>
+        </div>
       </div>
       <div (click)="takeOffer(item)" class="btn rounded-0" [ngClass]="{
             'btn-primary': 'buy' === type,
             'btn-warning': 'sell' === type,
             'disabled': !checkIfValidPaymentAccount(item.paymentMethodId)
             }">
-        <span *ngIf="'buy' === type" class="select-button"><i class="fas fa-download menu-icon" ></i>{{'OFFERS.LIST.BUY' | translate}}</span>
-        <span *ngIf="'sell' === type" class="select-button"><i class="fas fa-upload menu-icon"  ></i>{{'OFFERS.LIST.SELL' | translate}}</span>
+        <span *ngIf="'buy' === type" class="select-button">
+          <i class="fas fa-download menu-icon"></i>{{'OFFERS.LIST.BUY' | translate}}</span>
+        <span *ngIf="'sell' === type" class="select-button">
+          <i class="fas fa-upload menu-icon"></i>{{'OFFERS.LIST.SELL' | translate}}</span>
       </div>
     </div>
   </div>
