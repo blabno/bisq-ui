@@ -116,6 +116,10 @@
 	"CONFIRM": "Confirm",
 	"FUNDS": {
 		"RECEIVE": {
+			"ADDRESS": "Address",
+			"AMOUNT_IN_BTC": "Amount in BTC (Optional)",
+			"BACK": "Back",
+			"FUND_YOUR_WALLET": "Fund your wallet",
 			"NEW_ADDRESS": "Generate new address"
 		},
 		"SUBMENU": {
@@ -309,6 +313,7 @@
 		}
 	},
 	"TOAST": {
+		"ADDRESS_COPIED_TO_CLIPBOARD": "Address copied to clipboard",
 		"FORM_VALIDATION_ERROR": "Missing required fields",
 		"NEW_ADDRESS_CREATE_ERROR": "Unable to create new address",
 		"OFFERS": {

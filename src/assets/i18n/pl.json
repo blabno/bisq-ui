@@ -116,6 +116,10 @@
 	"CONFIRM": "Potwierdź",
 	"FUNDS": {
 		"RECEIVE": {
+			"ADDRESS": "Adres",
+			"AMOUNT_IN_BTC": "Kwota w BTC (Opcjonalne)",
+			"BACK": "Powrót",
+			"FUND_YOUR_WALLET": "Zasil konto",
 			"NEW_ADDRESS": "Wygeneruj nowy adres"
 		},
 		"SUBMENU": {
@@ -309,6 +313,7 @@
 		}
 	},
 	"TOAST": {
+		"ADDRESS_COPIED_TO_CLIPBOARD": "Adres skopiowany do schowka",
 		"FORM_VALIDATION_ERROR": "Brak wszystkich wymaganych pól",
 		"NEW_ADDRESS_CREATE_ERROR": "Nie można wygenerować nowego adresu",
 		"OFFERS": {

@@ -6,6 +6,8 @@ import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {NgxQRCodeModule} from 'ngx-qrcode2';
+import {Clipboard} from '@ionic-native/clipboard';
 
 import appRoutes from './app.routes';
 
@@ -46,7 +48,6 @@ import {TransactionComponent} from './funds/transactions/transaction.component';
 import {WalletPassComponent} from './account/wallet-pass/wallet-pass.component';
 import {WalletSeedComponent} from './account/wallet-seed/wallet-seed.component';
 import {TakeOfferComponent} from './offers/takeOffer/takeOffer.component';
-
 
 const loadModules = [
   AboutComponent,
@@ -105,11 +106,13 @@ export function createTranslateLoader(http: HttpClient) {
         useFactory: createTranslateLoader,
         deps: [HttpClient]
       }
-    })
+    }),
+    NgxQRCodeModule
   ],
   bootstrap: [IonicApp],
   entryComponents: loadModules,
   providers: [
+    Clipboard,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}

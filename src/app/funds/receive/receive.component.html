@@ -1,6 +1,55 @@
-<div class="buttons">
-  <button class="btn btn-primary button-md" (click)="generateAddress()" [disabled]="generateInProgress">
-    {{'FUNDS.RECEIVE.NEW_ADDRESS' | translate}}
-  </button>
+<div class="col col-centered desktop-max-width">
+  <div *ngIf="!selectedWallet.id" class="row">
+    <div class="col-md-6 col-lg-4 mb-2" *ngFor="let wallet of mockedWallets">
+      <div class="card clickable" (click)="selectWallet(wallet)">
+        <div class="card-header wallet-address" [ngClass]="{'selected-wallet': wallet.id === selectedWallet.id}">
+          {{wallet.address}}
+        </div>
+        <div class="card-body">
+          <div>{{wallet.balance}} BTC</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="selectedWallet.id" class="card">
+    <div class="card-header">{{'FUNDS.RECEIVE.FUND_YOUR_WALLET' | translate}}</div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-4">
+        </div>
+        <div class="col-8">
+          <ngx-qrcode *ngIf="address" [qrc-value]="qrCode" qrc-errorCorrectionLevel="L"></ngx-qrcode>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4 field-label">
+          {{'FUNDS.RECEIVE.ADDRESS' | translate}}:
+        </div>
+        <div class="col-8">
+          <ion-item (click)="addressSelect($event)">
+            <ion-input type="text" [value]="selectedWallet.address || address" readonly></ion-input>
+          </ion-item>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4 field-label">
+          {{'FUNDS.RECEIVE.AMOUNT_IN_BTC' | translate}}:
+        </div>
+        <div class="col-8">
+          <ion-item>
+            <ion-input type="number" [(ngModel)]="amount" (ionChange)="updateQrCode()" min='0'></ion-input>
+          </ion-item>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="buttons">
+    <button *ngIf="selectedWallet.id" ion-button (click)="getBack()">
+      {{'FUNDS.RECEIVE.BACK' | translate}}
+    </button>
+    <button ion-button color="light" (click)="generateAddress()" [disabled]="generateInProgress">
+      {{'FUNDS.RECEIVE.NEW_ADDRESS' | translate}}
+      <ion-spinner *ngIf="generateInProgress" item-end></ion-spinner>
+    </button>
+  </div>
 </div>
-<pre>{{address}}</pre>
