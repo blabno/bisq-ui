@@ -1,4 +1,4 @@
-<div class="col col-centered desktop-max-width">
+<div class="desktop-max-width">
   <div *ngIf="!selectedWallet.address" class="row">
     <div class="col-md-6 col-lg-4 mb-2" *ngFor="let wallet of walletAddresses">
       <div class="card clickable" (click)="selectWallet(wallet)">

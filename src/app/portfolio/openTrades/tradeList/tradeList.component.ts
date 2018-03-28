@@ -1,5 +1,4 @@
 import {Component, OnInit, EventEmitter, Output, Input} from '@angular/core';
-import _ from 'lodash';
 
 import {TradesCacheService} from '../../../shared/services/tradesCache.service';
 

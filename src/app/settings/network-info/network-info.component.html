@@ -1,10 +1,10 @@
-<div class="col col-centered desktop-max-width">
+<div class="desktop-max-width">
   <div class="card">
-    <div class="card-header">{{ 'SETTINGS_VIEW.NETWORK_INFO.BITCOIN_NETWORK' | translate }}</div>
+    <div class="card-header">{{ 'SETTINGS.NETWORK_INFO.BITCOIN_NETWORK' | translate }}</div>
     <div class="card-body">
       <div class="row">
         <div class="col-sm left-label">
-          {{ 'SETTINGS_VIEW.NETWORK_INFO.CONNECTED_PEERS' | translate }}:
+          {{ 'SETTINGS.NETWORK_INFO.CONNECTED_PEERS' | translate }}:
         </div>
         <div class="col-sm">
           <ion-scroll scrollY="true" class="peers-scroll">
@@ -18,7 +18,7 @@
       </div>
       <div class="row">
         <div class="col-sm left-label">
-          {{ 'SETTINGS_VIEW.NETWORK_INFO.USE_TOR_FOR_BITCOIN_NETWORK' | translate }}:
+          {{ 'SETTINGS.NETWORK_INFO.USE_TOR_FOR_BITCOIN_NETWORK' | translate }}:
         </div>
         <ion-item class="col-sm margin">
           <ion-checkbox [(ngModel)]="useTorForBitcoinNetwork"></ion-checkbox>
@@ -26,7 +26,7 @@
       </div>
       <div class="row">
         <div class="col-sm left-label">
-          {{ 'SETTINGS_VIEW.NETWORK_INFO.BITCOIN_CORE_NODES_TO_CONNECT_TO' | translate }}:
+          {{ 'SETTINGS.NETWORK_INFO.BITCOIN_CORE_NODES_TO_CONNECT_TO' | translate }}:
         </div>
         <div class="col-sm">
           <ion-list radio-group [(ngModel)]="relationship">
@@ -47,7 +47,7 @@
       </div>
       <div class="row">
         <div class="col-sm left-label">
-          {{ 'SETTINGS_VIEW.NETWORK_INFO.BITCOIN_CORE_NODES_TO_CONNECT_TO' | translate }}:
+          {{ 'SETTINGS.NETWORK_INFO.BITCOIN_CORE_NODES_TO_CONNECT_TO' | translate }}:
         </div>
         <div class="col-sm">
           <ion-input type="text" [(ngModel)]="widthdrawalTransactionFee" placeholder="IP ADDRESS PORT"></ion-input>
@@ -55,22 +55,22 @@
       </div>
       <div class="row">
         <div class="col-sm left-label">
-          {{ 'SETTINGS_VIEW.NETWORK_INFO.RESYNC_SPV_CHAIN' | translate }}:
+          {{ 'SETTINGS.NETWORK_INFO.RESYNC_SPV_CHAIN' | translate }}:
         </div>
         <div class="col-sm">
-          <button class="btn btn-primary button-md">{{ 'SETTINGS_VIEW.NETWORK_INFO.DELETE_SPV_FILE_AND_RESYNC' |
-            translate}}
+          <button class="btn btn-primary button-md">
+            {{ 'SETTINGS.NETWORK_INFO.DELETE_SPV_FILE_AND_RESYNC' | translate}}
           </button>
         </div>
       </div>
     </div>
   </div>
   <div class="card mt-2">
-    <div class="card-header">{{'SETTINGS_VIEW.NETWORK_INFO.P2P_NETWORK' | translate }}</div>
+    <div class="card-header">{{'SETTINGS.NETWORK_INFO.P2P_NETWORK' | translate }}</div>
     <div class="card-body">
       <div class="row">
         <div class="col-sm left-label">
-          {{ 'SETTINGS_VIEW.NETWORK_INFO.MY_ONION_ADDRESS' | translate }}:
+          {{ 'SETTINGS.NETWORK_INFO.MY_ONION_ADDRESS' | translate }}:
         </div>
         <div class="col-sm">
           <ion-input type="text" [(ngModel)]="myOnionAddress" readonly></ion-input>
@@ -78,13 +78,13 @@
       </div>
       <div class="row">
         <div class="col-sm left-label">
-          {{ 'SETTINGS_VIEW.NETWORK_INFO.CONNECTED_PEERS' | translate }}:
+          {{ 'SETTINGS.NETWORK_INFO.CONNECTED_PEERS' | translate }}:
         </div>
         <div class="col-sm"></div>
       </div>
       <div class="row">
         <div class="col-sm left-label">
-          {{ 'SETTINGS_VIEW.NETWORK_INFO.TOTAL_TRAFFIC' | translate }}:
+          {{ 'SETTINGS.NETWORK_INFO.TOTAL_TRAFFIC' | translate }}:
         </div>
         <div class="col-sm">
           <ion-input type="text" [(ngModel)]="traffic" readonly></ion-input>
@@ -93,7 +93,7 @@
       <div class="row">
         <div class="col-sm left-label"></div>
         <div class="col-sm">
-          <button class="btn btn-primary button-md">{{ 'SETTINGS_VIEW.NETWORK_INFO.OPEN_TOR_SETTINGS' | translate}}
+          <button class="btn btn-primary button-md">{{ 'SETTINGS.NETWORK_INFO.OPEN_TOR_SETTINGS' | translate}}
           </button>
         </div>
       </div>

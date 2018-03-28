@@ -249,14 +249,8 @@
 			"OPEN_TRADES": "Open trades"
 		}
 	},
+	"SAVE": "Save",
 	"SETTINGS": {
-		"SUBMENU": {
-			"ABOUT": "About",
-			"NETWORK_INFO": "Network",
-			"PREFERENCES": "Preferences"
-		}
-	},
-	"SETTINGS_VIEW": {
 		"ABOUT": {
 			"ABOUT_BISQ": "About bisq",
 			"ABOUT_BISQ_TEXT": "Bisq is an open source project and a decentralized network of users who want to exchange Bitcoin with national currencies or alternative crypto currencies in a privacy protecting way. Learn more about Bisq on our project web page.",
@@ -275,6 +269,14 @@
 			"VERSIONS_OF_SUBSYSTEMS": "Versions of subsystems",
 			"VERSION_DETAILS": "Version details"
 		},
+		"BACKEND_URL_MISSING_REDIRECT": "Go to setup",
+		"BACKEND_URL_MISSING_TEXT": "This application requires correct URL address to running BISQ server.",
+		"BACKEND_URL_MISSING_TITLE": "Server address is undefined",
+		"BACKEND_URL_PLACEHOLDER": "Type or select server address",
+		"BACKEND_URL_REQUIRED": "Server address cannot be empty",
+		"BACKEND_URL_UNAVAILABLE": "Server unavailable on provided address",
+		"BACKEND_URL_UPDATED": "Server address updated successfully",
+		"BACKEND_URL_WRONG_FORMAT": "Wrong address format",
 		"NETWORK_INFO": {
 			"BITCOIN_CORE_NODES_TO_CONNECT_TO": "Bitcoin core nodes to connect to",
 			"BITCOIN_NETWORK": "Bitcoin network",
@@ -289,7 +291,6 @@
 		},
 		"PREFERENCES": {
 			"AUTO_SELECT_ARBITRATORS": "Auto select arbitrators",
-			"BACKEND_URL": "Server address",
 			"BITCOIN_BLOCK_EXPLORER": "Bitcoin block explorer",
 			"COUNTRY": "Country",
 			"CURRENCIES_IN_MARKET_PRICE_FEED_LIST": "Currencies in market price feed list",
@@ -302,13 +303,18 @@
 			"MAX_DEVIATION_FROM_MARKET_PRICE": "Max. deviation from market price",
 			"PREFERED_CURRENCY": "Prefered currency",
 			"RESET_ALL": "Reset all \"Don't show again\" flags",
-			"SAVE_BACKEND_URL": "Save server URL",
 			"SELECT_BASE_CURRENCY": "Select base currency",
 			"SHOW_MY_OWN_OFFERS_IN_OFFER_BOOK": "Show my own offers in offer book",
 			"SORT_MARKERS_LISTS": "Sort markers lists with no. of offers/trades",
 			"USE_ANIMATIONS": "Use animations",
 			"USE_CUSTOM_VALUE": "Use custom value",
 			"WIDTHDRAWAL_TRANSACTION_FEE": "Widthdrawal transaction fee"
+		},
+		"SUBMENU": {
+			"ABOUT": "About",
+			"BACKEND": "Backend",
+			"NETWORK_INFO": "Network",
+			"PREFERENCES": "Preferences"
 		}
 	},
 	"TOAST": {

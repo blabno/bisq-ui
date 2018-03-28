@@ -17,6 +17,7 @@ import {AboutComponent} from './settings/about/about.component';
 import {AltcoinsComponent} from './account/altcoins/altcoins.component';
 import {AppComponent} from './app.component';
 import {ArbitratorComponent} from './account/arbitrator/arbitrator.component';
+import {BackendUrlComponent} from './settings/backendUrl/backendUrl.component';
 import {BackupComponent} from './account/backup/backup.component';
 import {CreateOffersComponent} from './offers/createOffers/createOffers.component';
 import {CurrencyComponent} from './account/currency/currency.component';
@@ -51,6 +52,7 @@ const loadModules = [
   AppComponent,
   ArbitratorComponent,
   BackupComponent,
+  BackendUrlComponent,
   CreateOffersComponent,
   CurrencyComponent,
   FormComponent,

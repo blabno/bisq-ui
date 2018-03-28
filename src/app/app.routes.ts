@@ -14,6 +14,7 @@ import {HistoryComponent} from './portfolio/history/history.component';
 import {PreferencesComponent} from './settings/preferences/preferences.component';
 import {NetworkInfoComponent} from './settings/network-info/network-info.component';
 import {AboutComponent} from './settings/about/about.component';
+import {BackendUrlComponent} from './settings/backendUrl/backendUrl.component';
 import {CurrencyComponent} from './account/currency/currency.component';
 import {AltcoinsComponent} from './account/altcoins/altcoins.component';
 import {ArbitratorComponent} from './account/arbitrator/arbitrator.component';
@@ -47,6 +48,7 @@ const appRoutes: Routes = [
   {path: 'settings/preferences', component: PreferencesComponent},
   {path: 'settings/network-info', component: NetworkInfoComponent},
   {path: 'settings/about', component: AboutComponent},
+  {path: 'settings/backend-url', component: BackendUrlComponent},
 
   {path: 'network', component: MarketComponent},
   {path: 'about', component: MarketComponent},

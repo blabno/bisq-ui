@@ -17,8 +17,11 @@
     <button *ngIf="doNotShowButton" class="btn" (click)="dismissPermanently()">
       {{'INFO_MODAL.DO_NOT_SHOW_AGAIN' | translate}}
     </button>
-    <button *ngIf="redirectButton" class="btn btn-primary" (click)="redirect()">
-      {{redirectButton.text | translate}}
-    </button>
+    <div class="button-wrapper" [ngClass]="redirectButton.class">
+      <button *ngIf="redirectButton" class="btn btn-primary" (click)="redirect()">
+        {{redirectButton.text | translate}}
+      </button>
+    </div>
+
   </div>
 </ion-content>
