@@ -47,7 +47,6 @@ export class ReceiveComponent implements OnInit {
     if (this.selectedWallet) {
       let qrCode = `bitcoin:${this.selectedWallet.address}?label=${this.label}`;
       this.qrCode = this.amount ? qrCode + `&amount=${this.amount}` : qrCode;
-      console.log(this.qrCode);
     }
   }
 

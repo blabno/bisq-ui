@@ -32,7 +32,6 @@ import {MyOpenOffersComponent} from './portfolio/myOpenOffers/myOpenOffers.compo
 import {NetworkInfoComponent} from './settings/network-info/network-info.component';
 import {OffersComponent} from './offers/offers.component';
 import {OffersListComponent} from './offers/offersList/offersList.component';
-import {OpenTradesComponent} from './portfolio/openTrades/openTrades.component';
 import {PreferencesComponent} from './settings/preferences/preferences.component';
 import {ReceiveComponent} from './funds/receive/receive.component';
 import {ReservedComponent} from './funds/reserved/reserved.component';
@@ -66,7 +65,6 @@ const loadModules = [
   NetworkInfoComponent,
   OffersComponent,
   OffersListComponent,
-  OpenTradesComponent,
   PreferencesComponent,
   ReceiveComponent,
   ReservedComponent,

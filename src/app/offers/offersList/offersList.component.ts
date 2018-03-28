@@ -30,6 +30,9 @@ export class OffersListComponent implements OnChanges {
     this.paymentsDAO.query().then((res: any) => {
       this.accountsList = res.paymentAccounts;
       this.supportedPaymentsMethods = _.map(this.accountsList, 'paymentMethod');
+    }).catch(error => {
+      // TODO: handle this error in better way. This is temporary fix to handle missing backend URL in settings
+      console.error(error)
     });
     this.currencyFilter = settings.selectedCurrencyOnOfferList;
   }
