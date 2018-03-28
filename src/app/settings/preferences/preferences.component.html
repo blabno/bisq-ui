@@ -2,13 +2,13 @@
   <div class="card">
     <div class="card-header">{{ 'SETTINGS_VIEW.PREFERENCES.GENERAL_PREFERENCES' | translate }}</div>
     <div class="card-body">
-      <ion-item floating>
-        <ion-label>{{ 'SETTINGS_VIEW.PREFERENCES.BACKEND_URL' | translate }}</ion-label>
+      <ion-item>
+        <ion-label floating>{{ 'SETTINGS_VIEW.PREFERENCES.BACKEND_URL' | translate }}</ion-label>
         <ion-input type="text" [(ngModel)]="backendUrl"></ion-input>
+        <button item-end class="btn btn-danger save-url-btn" *ngIf="backendUrl != settings.backendUrl" (click)="saveBackendUrl()">
+          {{ 'SETTINGS_VIEW.PREFERENCES.SAVE_BACKEND_URL' | translate }}
+        </button>
       </ion-item>
-      <button class="btn btn-danger save-url-btn" *ngIf="backendUrl != settings.backendUrl" (click)="saveBackendUrl()">
-        {{ 'SETTINGS_VIEW.PREFERENCES.SAVE_BACKEND_URL' | translate }}
-      </button>
       <ion-item>
         <ion-label>{{ 'SETTINGS_VIEW.PREFERENCES.SELECT_BASE_CURRENCY' | translate }}</ion-label>
         <ion-select [(ngModel)]="settings.baseCurrency" (ionChange)="settings.saveSettings()" interface="popover">
@@ -63,7 +63,7 @@
         <ion-checkbox [(ngModel)]="settings.autoSelectArbitrators" (ionChange)="settings.saveSettings()"></ion-checkbox>
       </ion-item>
       <ion-item>
-        <ion-label>{{'SETTINGS_VIEW.PREFERENCES.IGNORE_PEERS_WITH_ONION_ADDRESS' | translate }}:</ion-label>
+        <ion-label floating>{{'SETTINGS_VIEW.PREFERENCES.IGNORE_PEERS_WITH_ONION_ADDRESS' | translate }}:</ion-label>
         <ion-input type="text" [(ngModel)]="settings.ignoredPeers" (ionChange)="settings.saveSettings()"></ion-input>
       </ion-item>
     </div>
