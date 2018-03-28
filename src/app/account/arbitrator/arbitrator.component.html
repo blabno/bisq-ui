@@ -14,8 +14,9 @@
     </div>
   </ion-item>
   <div class="buttons">
-    <button class="btn btn-primary button-md" (click)="nominate()">
+    <button class="btn btn-primary button-md" (click)="nominateYourself()" [disabled]="nominatingInProgress">
       {{'ACCOUNT.ARBITRATOR.NOMINATE_YOURSELF' | translate}}
+      <ion-spinner *ngIf="nominatingInProgress" item-end></ion-spinner>
     </button>
   </div>
   <div class="card mt-2">

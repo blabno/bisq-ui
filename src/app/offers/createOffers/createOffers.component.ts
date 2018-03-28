@@ -34,6 +34,7 @@ export class CreateOffersComponent implements OnInit, OnDestroy {
   };
   private paramSubscribe: any;
   private marketPrice = 0;
+  public creatingOffer;
 
   constructor(private activeRoute: ActivatedRoute, private paymentsDAO: PaymentAccountsDAO, private offersDAO: OffersDAO, private toast: ToastService, private marketPrize: MarketPrizeService) {
   }
@@ -109,6 +110,7 @@ export class CreateOffersComponent implements OnInit, OnDestroy {
       this.toast.show('OFFERS.CREATE.FILL_ALL_REQUIRED_FIELDS', 'error');
       return;
     }
+    this.creatingOffer = true;
     let preparedForm = _.merge({}, _.omit(this.model, ['tradeCurrency', 'calculatedValue', 'deposit']), {
       fundUsingBisqWallet: true,
       direction: this.type.toUpperCase(),
@@ -127,8 +129,10 @@ export class CreateOffersComponent implements OnInit, OnDestroy {
     preparedForm.fixedPrice *= 100000000;
     this.offersDAO.create(preparedForm).then(res => {
       this.toast.show('SUCCESS', 'success');
+      this.creatingOffer = false;
     }).catch(error => {
       this.toast.show(error.message, 'error');
+      this.creatingOffer = false;
     });
   }
 
