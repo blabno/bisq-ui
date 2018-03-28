@@ -1,17 +1,18 @@
 <div class="col col-centered desktop-max-width">
-  <div *ngIf="!selectedWallet.id" class="row">
-    <div class="col-md-6 col-lg-4 mb-2" *ngFor="let wallet of mockedWallets">
+  <div *ngIf="!selectedWallet.address" class="row">
+    <div class="col-md-6 col-lg-4 mb-2" *ngFor="let wallet of walletAddresses">
       <div class="card clickable" (click)="selectWallet(wallet)">
-        <div class="card-header wallet-address" [ngClass]="{'selected-wallet': wallet.id === selectedWallet.id}">
-          {{wallet.address}}
+        <div class="card-header" [ngClass]="{'selected-wallet': wallet.address === selectedWallet.address}">
+          <div class="row">
+            <div class="col-8 wallet-address"> {{wallet.address}}</div>
+            <div class="col-4"> {{wallet.balance}} BTC </div>
+          </div>
         </div>
-        <div class="card-body">
-          <div>{{wallet.balance}} BTC</div>
-        </div>
+        <div class="card-body confirmations">Confirmations: {{wallet.confirmations}}</div>
       </div>
     </div>
   </div>
-  <div *ngIf="selectedWallet.id" class="card">
+  <div *ngIf="selectedWallet.address" class="card">
     <div class="card-header">{{'FUNDS.RECEIVE.FUND_YOUR_WALLET' | translate}}</div>
     <div class="card-body">
       <div class="row">
@@ -27,7 +28,7 @@
         </div>
         <div class="col-8">
           <ion-item (click)="addressSelect($event)">
-            <ion-input type="text" [value]="selectedWallet.address || address" readonly></ion-input>
+            <ion-input type="text" [value]="selectedWallet.address" readonly></ion-input>
           </ion-item>
         </div>
       </div>
@@ -44,7 +45,7 @@
     </div>
   </div>
   <div class="buttons">
-    <button *ngIf="selectedWallet.id" ion-button (click)="getBack()">
+    <button *ngIf="selectedWallet.address" ion-button (click)="getBack()">
       {{'FUNDS.RECEIVE.BACK' | translate}}
     </button>
     <button ion-button color="light" (click)="generateAddress()" [disabled]="generateInProgress">
