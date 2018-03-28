@@ -14,7 +14,6 @@ import appRoutes from './app.routes';
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 import {AboutComponent} from './settings/about/about.component';
-import {AccountComponent} from './account/account.component';
 import {AltcoinsComponent} from './account/altcoins/altcoins.component';
 import {AppComponent} from './app.component';
 import {ArbitratorComponent} from './account/arbitrator/arbitrator.component';
@@ -22,7 +21,6 @@ import {BackupComponent} from './account/backup/backup.component';
 import {CreateOffersComponent} from './offers/createOffers/createOffers.component';
 import {CurrencyComponent} from './account/currency/currency.component';
 import {FormComponent} from './shared/form/form.component';
-import {FundsComponent} from './funds/funds.component';
 import {HistoryComponent} from './portfolio/history/history.component';
 import {InfoModalComponent} from './shared/infoModal/infoModal.component';
 import {LockedComponent} from './funds/locked/locked.component';
@@ -34,12 +32,10 @@ import {NetworkInfoComponent} from './settings/network-info/network-info.compone
 import {OffersComponent} from './offers/offers.component';
 import {OffersListComponent} from './offers/offersList/offersList.component';
 import {OpenTradesComponent} from './portfolio/openTrades/openTrades.component';
-import {PortfolioComponent} from './portfolio/portfolio.component';
 import {PreferencesComponent} from './settings/preferences/preferences.component';
 import {ReceiveComponent} from './funds/receive/receive.component';
 import {ReservedComponent} from './funds/reserved/reserved.component';
 import {SendComponent} from './funds/send/send.component';
-import {SettingsComponent} from './settings/settings.component';
 import {SummaryComponent} from './market/summary/summary.component';
 import {TradeDetailsComponent} from './portfolio/openTrades/tradeDetails/tradeDetails.component';
 import {TradeListComponent} from './portfolio/openTrades/tradeList/tradeList.component';
@@ -51,7 +47,6 @@ import {TakeOfferComponent} from './offers/takeOffer/takeOffer.component';
 
 const loadModules = [
   AboutComponent,
-  AccountComponent,
   AltcoinsComponent,
   AppComponent,
   ArbitratorComponent,
@@ -59,7 +54,6 @@ const loadModules = [
   CreateOffersComponent,
   CurrencyComponent,
   FormComponent,
-  FundsComponent,
   HistoryComponent,
   InfoModalComponent,
   LockedComponent,
@@ -71,12 +65,10 @@ const loadModules = [
   OffersComponent,
   OffersListComponent,
   OpenTradesComponent,
-  PortfolioComponent,
   PreferencesComponent,
   ReceiveComponent,
   ReservedComponent,
   SendComponent,
-  SettingsComponent,
   SummaryComponent,
   TradeDetailsComponent,
   TradeListComponent,

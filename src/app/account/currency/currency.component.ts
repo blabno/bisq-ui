@@ -3,9 +3,9 @@ import {AlertController, Platform} from 'ionic-angular';
 import {TranslateService} from '@ngx-translate/core';
 import _ from 'lodash';
 
+import {InfoModalService} from '../../shared/infoModal/infoModal.service';
 import {PaymentAccountsDAO} from '../../shared/DAO/paymentAccounts.dao';
 import {ToastService} from '../../shared/services/toast.service';
-
 import t from '../../shared/defineTextToTranslate';
 
 t([
@@ -244,7 +244,8 @@ export class CurrencyComponent implements OnInit, OnDestroy {
   detailsValues = {id: ''};
   unregisterBackButton = _.noop;
 
-  constructor(private translate: TranslateService,
+  constructor(private initModal: InfoModalService,
+              private translate: TranslateService,
               private paymentAccountsDAO: PaymentAccountsDAO,
               private toast: ToastService,
               private platform: Platform,
@@ -253,7 +254,12 @@ export class CurrencyComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.paymentAccountsDAO.query().then((result: any) => (this.accounts = result.paymentAccounts));
-
+    this.initModal.show({
+      id: 'accountInit',
+      title: t('ACCOUNT.INIT_MODAL.TITLE'),
+      text: t('ACCOUNT.INIT_MODAL.TEXT'),
+      doNotShowButton: true
+    });
   }
 
   ngOnDestroy() {

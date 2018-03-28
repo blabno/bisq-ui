@@ -65,9 +65,20 @@ a:hover {
   color: var(--blue);
 }
 
-ion-content {
-  .scroll-content {
-    overflow-y: auto;
+.view {
+  padding: 15px;
+  ion-content {
+    .scroll-content {
+      overflow-y: auto;
+    }
+  }
+  ion-item.item.item-checkbox {
+    ion-checkbox.checkbox {
+      margin-right: 22px;
+    }
+    ion-label.label {
+      color: #999;
+    }
   }
 }
 
@@ -75,15 +86,6 @@ ion-toast {
   &.error .toast-wrapper {
     background-color: var(--red);
     color: black;
-  }
-}
-
-ion-item.item.item-checkbox {
-  ion-checkbox.checkbox {
-    margin-right: 22px;
-  }
-  ion-label.label {
-    color: #999;
   }
 }
 
