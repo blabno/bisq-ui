@@ -15,23 +15,26 @@
   </div>
   <div *ngIf="formOpened">
     <app-form [form]="paymentForm" [disabled]="formDisabled" [values]="paymentValues"
-              (onChange)="change($event)"></app-form>
+      (onChange)="change($event)"></app-form>
     <app-form #sepaFormElement [hidden]="'SEPA' !== selectedForm" [form]="sepaForm" [values]="detailsValues"
-              [disabled]="formDisabled" (onSubmit)="submit($event)"></app-form>
-    <app-form #venmoFormElement [hidden]="'Venmo' !== selectedForm" [form]="venmoForm" [values]="detailsValues"
-              [disabled]="formDisabled" (onSubmit)="submit($event)"></app-form>
+      [disabled]="formDisabled" (onSubmit)="submit($event)"></app-form>
+    <app-form #venmoFormElement [hidden]="'Venmo' !== selectedForm" [form]="venmoForm"
+      [values]="detailsValues" [disabled]="formDisabled" (onSubmit)="submit($event)"></app-form>
     <div class="buttons">
       <ng-template [ngIf]="!formDisabled">
-        <button *ngIf="'SEPA' === selectedForm" ion-button (click)="sepaFormElement.submit()">
+        <button *ngIf="'SEPA' === selectedForm" ion-button (click)="sepaFormElement.submit()" [disabled]="creatingAccount">
           {{'ACCOUNT.SAVE' | translate}}
+          <ion-spinner *ngIf="creatingAccount" item-end></ion-spinner>
         </button>
-        <button *ngIf="'Venmo' === selectedForm" ion-button (click)="venmoFormElement.submit()">
+        <button *ngIf="'Venmo' === selectedForm" ion-button (click)="venmoFormElement.submit()" [disabled]="creatingAccount">
           {{'ACCOUNT.SAVE' | translate}}
+          <ion-spinner *ngIf="creatingAccount" item-end></ion-spinner>
         </button>
       </ng-template>
       <button ion-button color="light" (click)="cancel()">{{'BACK' | translate}}</button>
-      <button *ngIf="formDisabled" ion-button color="danger" (click)="delete()">
+      <button *ngIf="formDisabled" ion-button color="danger" (click)="delete()" [disabled]="deletingAccount">
         {{'ACCOUNT.DELETE' | translate}}
+        <ion-spinner *ngIf="deletingAccount" item-end></ion-spinner>
       </button>
     </div>
   </div>

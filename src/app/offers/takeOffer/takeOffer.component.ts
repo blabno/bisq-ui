@@ -33,6 +33,7 @@ export class TakeOfferComponent implements OnInit, OnDestroy {
 
   public accountsList = [];
   public supportedAccountsList = [];
+  public takingOffer;
   ngOnInit() {
     this.paramSubscribe = this.activeRoute.params.subscribe(params => {
       this.type = params['type'];
@@ -69,15 +70,18 @@ export class TakeOfferComponent implements OnInit, OnDestroy {
   }
 
   public takeOffer() {
+    this.takingOffer = true;
     this.offersDAO
       .take(this.offerId, {
         paymentAccountId: this.accountId,
         amount: this.amountToSell * 100000000
       })
       .then(() => {
+        this.takingOffer = false;
         this.toast.show(t('OFFERS.TAKE_OFFER.TAKE_OFFER_SUCCESS'), 'success');
       })
       .catch(() => {
+        this.takingOffer = false;
         this.toast.show(t('OFFERS.TAKE_OFFER.TAKE_OFFER_ERROR'), 'error');
       });
   }

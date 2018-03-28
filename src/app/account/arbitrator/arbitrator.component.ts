@@ -10,6 +10,7 @@ import _ from 'lodash';
 export class ArbitratorComponent implements OnInit {
   public languages = ['Polish', 'English'];
   public arbitrators = [];
+  public nominatingInProgress;
 
   constructor(public settings: SettingsService, private arbitratorsDAO: ArbitratorsDAO) {
   }
@@ -24,7 +25,10 @@ export class ArbitratorComponent implements OnInit {
     // this.arbitratorsDAO.select(address);
   }
 
-  nominate() {
-    this.arbitratorsDAO.registerYourself(['pl', 'en']);
+  nominateYourself() {
+    this.nominatingInProgress = true;
+    this.arbitratorsDAO.registerYourself(['pl', 'en']).then(() =>{
+      this.nominatingInProgress = false;
+    });
   }
 }
