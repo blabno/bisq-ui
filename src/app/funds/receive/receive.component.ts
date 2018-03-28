@@ -2,45 +2,17 @@ import {Component, OnInit} from '@angular/core';
 import {WalletDAO} from '../../shared/DAO/wallet.dao';
 import {ToastService} from '../../shared/services/toast.service';
 import {ClipboardService} from '../../shared/services/clipboard.service';
+import _ from 'lodash';
 
 import t from '../../shared/defineTextToTranslate';
-
 @Component({
   selector: 'app-funds-receive',
   templateUrl: 'receive.component.html'
 })
 export class ReceiveComponent implements OnInit {
-
-  public mockedWallets= [
-    {
-      id: "1",
-      address: "e8TFTW8tGb4fmQF5GDmYsT8OgOwJ985m",
-      balance: 0.00
-    }, {
-      id: "2",
-      address: "eajfaMFvmDN2PBt6dnPdmvurYIiJYhpO",
-      balance: 0.00
-    }, {
-      id: "3",
-      address: "b2LUk5LxDqSYHfiNT8Uaw8jDo9DIOUHW",
-      balance: 0.02
-    }, {
-      id: "4",
-      address: "e8TFTW8tGb4fmQF5GDmYsT8OgOwJ985m",
-      balance: 0.054
-    }, {
-      id: "5",
-      address: "eajfaMFvmDN2PBt6dnPdmvurYIiJYhpO",
-      balance: 0.00
-    }, {
-      id: "6",
-      address: "b2LUk5LxDqSYHfiNT8Uaw8jDo9DIOUHW",
-      balance: 0.0001
-    }
-  ]
+  public walletAddresses = [];
   public generateInProgress = false;
   public selectedWallet: any = {};
-  public address;
   public amount;
   public label = 'Fund Bisq wallet';
   public qrCode;
@@ -49,6 +21,13 @@ export class ReceiveComponent implements OnInit {
 
   ngOnInit() {
     this.generateAddress();
+    this.getAddressesData();
+  }
+
+  getAddressesData() {
+    this.walletDao.getAddresses('RECEIVE_FUNDS').then(res => {
+      this.walletAddresses = _.get(res, 'walletAddresses');
+    });
   }
 
   generateAddress() {
@@ -56,8 +35,7 @@ export class ReceiveComponent implements OnInit {
     this.walletDao
       .createNewWallet()
       .then((res: any) => {
-        this.address = res.address;
-        this.updateQrCode();
+        this.getAddressesData();
         this.generateInProgress = false;
       })
       .catch(error => {
@@ -66,8 +44,11 @@ export class ReceiveComponent implements OnInit {
   }
 
   updateQrCode() {
-    let qrCode = `bitcoin:${this.selectedWallet && this.selectedWallet.address || this.address}?label=${this.label}`;
-    this.qrCode = this.amount ? qrCode + `&amount=${this.amount}` : qrCode;
+    if (this.selectedWallet) {
+      let qrCode = `bitcoin:${this.selectedWallet.address}?label=${this.label}`;
+      this.qrCode = this.amount ? qrCode + `&amount=${this.amount}` : qrCode;
+      console.log(this.qrCode);
+    }
   }
 
   selectWallet(wallet) {
@@ -82,7 +63,7 @@ export class ReceiveComponent implements OnInit {
 
   async addressSelect(event) {
     if (event && event.target && event.target.select) event.target.select();
-    await this.clipboard.copy(this.address);
+    await this.clipboard.copy(this.selectedWallet.address);
     this.toast.show(t('TOAST.ADDRESS_COPIED_TO_CLIPBOARD'), 'info');
   }
 }

@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import {SettingsService} from "../services/settings.service";
 
 @Injectable()
@@ -16,8 +16,9 @@ export class WalletDAO {
     return this.http.get(`${this.settings.backendUrl}/api/v1/wallet/transactions`).toPromise();
   }
 
-  getAddresses() {
-    return this.http.get(`${this.settings.backendUrl}/api/v1/wallet/addresses`).toPromise();
+  getAddresses(purpose) {
+    let params = new HttpParams().set('purpose', purpose);
+    return this.http.get(`${this.settings.backendUrl}/api/v1/wallet/addresses`, {params}).toPromise();
   }
 
   createNewWallet() {
