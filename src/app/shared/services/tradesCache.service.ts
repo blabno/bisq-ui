@@ -10,6 +10,7 @@ import t from '../defineTextToTranslate';
 export class TradesCacheService {
 
   trades;
+  interval;
 
   constructor(private initModal: InfoModalService,
               private toast: ToastService,
@@ -17,8 +18,12 @@ export class TradesCacheService {
   }
 
   init() {
-    this.refresh();
-    setInterval(() => this.refresh(), 10 * 1000);
+    this.stop();
+    this.interval = setInterval(() => this.refresh(), 10 * 1000);
+  }
+
+  stop() {
+    clearInterval(this.interval);
   }
 
   showInfoModal(trade) {
@@ -126,6 +131,7 @@ export class TradesCacheService {
       })
       .catch(() => {
         this.toast.show('TOAST.TRADES.CANT_FETCH_DATA', 'error');
+        clearInterval(this.interval);
       });
   }
 

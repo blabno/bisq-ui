@@ -249,14 +249,8 @@
 			"OPEN_TRADES": "Aktywne transkacje"
 		}
 	},
+	"SAVE": "Zapisz",
 	"SETTINGS": {
-		"SUBMENU": {
-			"ABOUT": "O programie",
-			"NETWORK_INFO": "Sieć",
-			"PREFERENCES": "Preferencje"
-		}
-	},
-	"SETTINGS_VIEW": {
 		"ABOUT": {
 			"ABOUT_BISQ": "O bisq",
 			"ABOUT_BISQ_TEXT": "Bisq to projekt typu open source i zdecentralizowana sieć użytkowników, którzy chcą wymieniać bitcoiny z walutami krajowymi lub alternatywnymi kryptowalutami w sposób zapewniający ochronę prywatności. Dowiedz się więcej o Bisq na naszej stronie internetowej projektu.",
@@ -275,6 +269,14 @@
 			"VERSIONS_OF_SUBSYSTEMS": "Wersje podsystemów",
 			"VERSION_DETAILS": "Wersje"
 		},
+		"BACKEND_URL_MISSING_REDIRECT": "Przejdź do ustawień ",
+		"BACKEND_URL_MISSING_TEXT": "Ta aplikacja wymaga prawidłowego adresu URL do działającego serwera BISQ",
+		"BACKEND_URL_MISSING_TITLE": "Brak adresu serwera",
+		"BACKEND_URL_PLACEHOLDER": "Wpisz lub wybierz adres serwera",
+		"BACKEND_URL_REQUIRED": "Adres serwera nie może być pusty",
+		"BACKEND_URL_UNAVAILABLE": "Serwer jest niedostepny pod tym adresem",
+		"BACKEND_URL_UPDATED": "Adres serwera został zmieniony",
+		"BACKEND_URL_WRONG_FORMAT": "Zły format adresu",
 		"NETWORK_INFO": {
 			"BITCOIN_CORE_NODES_TO_CONNECT_TO": "Węzeł bitcoin połączony do",
 			"BITCOIN_NETWORK": "Sieć bitcoin",
@@ -289,7 +291,6 @@
 		},
 		"PREFERENCES": {
 			"AUTO_SELECT_ARBITRATORS": "Automatycznie przydziel arbitrów",
-			"BACKEND_URL": "Adres serwera",
 			"BITCOIN_BLOCK_EXPLORER": "Serwis do Bitcoin block",
 			"COUNTRY": "Kraj",
 			"CURRENCIES_IN_MARKET_PRICE_FEED_LIST": "Lista dostępnych walut",
@@ -302,13 +303,18 @@
 			"MAX_DEVIATION_FROM_MARKET_PRICE": "Maks. różnica od ceny",
 			"PREFERED_CURRENCY": "Preferowana waluta",
 			"RESET_ALL": "Zresetuj wszystkie \"Nie pokazuj tego\"",
-			"SAVE_BACKEND_URL": "Zapisz adres serwera",
 			"SELECT_BASE_CURRENCY": "Wybierz podstawową walutę",
 			"SHOW_MY_OWN_OFFERS_IN_OFFER_BOOK": "Pokaż moje własne oferty",
 			"SORT_MARKERS_LISTS": "Posortuj listę zgodnie z ilością ofert/transakcji",
 			"USE_ANIMATIONS": "Używaj animacji",
 			"USE_CUSTOM_VALUE": "Użyj własnej wartośći",
 			"WIDTHDRAWAL_TRANSACTION_FEE": "Cena transakcji"
+		},
+		"SUBMENU": {
+			"ABOUT": "O programie",
+			"BACKEND": "Backend",
+			"NETWORK_INFO": "Sieć",
+			"PREFERENCES": "Preferencje"
 		}
 	},
 	"TOAST": {

@@ -91,6 +91,11 @@
             <i class="fas fa-users menu-icon-nested"></i>
             {{'SETTINGS.SUBMENU.NETWORK_INFO' | translate}}
           </a>
+          <a class="dropdown-item" routerLinkActive="text-primary" routerLink="/settings/backend-url"
+             (click)="onMenuItemClick(['MENU.SETTINGS', 'SETTINGS.SUBMENU.BACKEND'])">
+            <i class="fas fa-server menu-icon-nested"></i>
+            {{'SETTINGS.SUBMENU.BACKEND' | translate}}
+          </a>
           <a class="dropdown-item" routerLinkActive="text-primary" routerLink="/settings/about"
              (click)="onMenuItemClick(['MENU.SETTINGS', 'SETTINGS.SUBMENU.ABOUT'])">
             <i class="fas fa-info-circle menu-icon-nested"></i>
