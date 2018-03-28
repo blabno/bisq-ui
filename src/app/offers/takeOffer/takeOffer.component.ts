@@ -42,7 +42,7 @@ export class TakeOfferComponent implements OnInit, OnDestroy {
         this.offerDetailsRaw = res;
         this.amountToSell = parseFloat(res.amount) / 100000000;
         this.amountToSellMin = parseFloat(res.minAmount) / 100000000;
-        this.costOfBTC = parseFloat(res.price) / 100000000;
+        this.costOfBTC = parseFloat(res.price) / 10000;
         this.paymentMethodId = res.paymentMethodId;
         this.calculateAmountToReceive();
         this.paymentsDAO.query().then((res: any) => {

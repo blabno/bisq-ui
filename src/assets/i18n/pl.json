@@ -149,7 +149,7 @@
 	},
 	"OFFERS": {
 		"CREATE": {
-			"AMOUNT": "Wartość",
+			"AMOUNT": "Ilość",
 			"AMOUNT_MUST_BE_POSITIVE": "Wartość musi być dodatnia",
 			"CURRENCY": "Waluta",
 			"FILL_ALL_REQUIRED_FIELDS": "Uzupełnij wszystkie wymagane pola",

@@ -21,6 +21,7 @@
         </div>
         <div>{{'PORTFOLIO.OPEN_TRADES.VOLUME' | translate}}
           <span class="float-right">{{item.tradePrice * item.tradeAmount / 10e11 | number:'.2-2'}} EUR</span>
+          <!-- Todo: Change EUR to used currency in trade-->
         </div>
         <div>{{'PORTFOLIO.OPEN_TRADES.PAYMENT_METHOD' | translate}}
           <span class="float-right">{{item.offer.paymentMethodId}} ({{item.offer.countryCode}})</span>
