@@ -126,7 +126,7 @@ export class CreateOffersComponent implements OnInit, OnDestroy {
     }
     preparedForm.amount *= 100000000;
     preparedForm.minAmount *= 100000000;
-    preparedForm.fixedPrice *= 100000000;
+    preparedForm.fixedPrice *= 10000;
     this.offersDAO.create(preparedForm).then(res => {
       this.toast.show('SUCCESS', 'success');
       this.creatingOffer = false;

@@ -138,7 +138,8 @@
             {{trade.tradePrice * trade.tradeAmount / 10e11 | number:'.2-2'}} {{trade.offer.counterCurrencyCode}}
           </div>
           <div class="label">{{'PORTFOLIO.OPEN_TRADES.REFUNDED_SECURITY' | translate}}</div>
-          <div>...</div>
+          <div *ngIf="'buyer' === selectedTradeRole">{{trade.offer.buyerSecurityDeposit / 10e7}}</div>
+          <div *ngIf="'seller' === selectedTradeRole">{{trade.offer.sellerSecurityDeposit / 10e7}}</div>
           <div class="label">{{'PORTFOLIO.OPEN_TRADES.TRADE_FEE' | translate}}</div>
           <div>{{trade.takerFee / 10e7}}</div>
           <div class="label">{{'PORTFOLIO.OPEN_TRADES.MINING_FEE' | translate}}</div>
@@ -151,7 +152,9 @@
         </div>
         <div class="card-body">
           <div class="label">{{'PORTFOLIO.OPEN_TRADES.AMOUNT_TO_WITHDRAW' | translate}}</div>
-          <div>{{trade.tradeAmount / 10e7 + 77}}</div>
+          <div *ngIf="'buyer' === selectedTradeRole">{{(trade.offer.buyerSecurityDeposit + trade.tradeAmount) / 10e7}}
+          </div>
+          <div *ngIf="'seller' === selectedTradeRole">{{trade.offer.sellerSecurityDeposit / 10e7}}</div>
         </div>
       </div>
       <button ion-button (click)="withdraw()">{{'PORTFOLIO.OPEN_TRADES.WITHDRAW' | translate}}</button>

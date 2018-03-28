@@ -53,7 +53,7 @@ export class OffersListComponent implements OnChanges {
 
   getOfferAmount(item) {
     let amount = Number(item.amount) / 100000000;
-    let price = Number(item.price) / 100000000;
+    let price = Number(item.price) / 10000;
     if (!item.minAmount || Number(item.minAmount) != Number(item.amount)) {
       let minAmount = Number(item.minAmount) / 100000000;
       return _.round(minAmount * price, 2) + ' - ' + _.round(amount * price, 2);
