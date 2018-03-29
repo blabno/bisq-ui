@@ -27,6 +27,8 @@
               (onChange)="change($event)"></app-form>
     <app-form #aliPayFormElement [hidden]="'ALI_PAY' !== selectedForm" [form]="aliPayForm" [values]="detailsValues"
               [disabled]="formDisabled" (onSubmit)="submit($event)"></app-form>
+    <app-form #cachAppFormElement [hidden]="'CASH_APP' !== selectedForm" [form]="cachAppForm" [values]="detailsValues"
+              [disabled]="formDisabled" (onSubmit)="submit($event)"></app-form>
     <app-form #sepaFormElement [hidden]="'SEPA' !== selectedForm" [form]="sepaForm" [values]="detailsValues"
               [disabled]="formDisabled" (onSubmit)="submitSepa($event)"></app-form>
     <app-form #venmoFormElement [hidden]="'VENMO' !== selectedForm" [form]="venmoForm" [values]="detailsValues"
@@ -34,6 +36,11 @@
     <div class="buttons">
       <ng-template [ngIf]="!formDisabled">
         <button *ngIf="'ALI_PAY' === selectedForm" ion-button (click)="aliPayFormElement.submit()"
+                [disabled]="creatingAccount">
+          {{'ACCOUNT.SAVE' | translate}}
+          <ion-spinner *ngIf="creatingAccount" item-end></ion-spinner>
+        </button>
+        <button *ngIf="'CASH_APP' === selectedForm" ion-button (click)="cachAppFormElement.submit()"
                 [disabled]="creatingAccount">
           {{'ACCOUNT.SAVE' | translate}}
           <ion-spinner *ngIf="creatingAccount" item-end></ion-spinner>

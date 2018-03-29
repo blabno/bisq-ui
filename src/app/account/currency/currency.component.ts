@@ -18,6 +18,7 @@ export class CurrencyComponent implements OnInit, OnDestroy {
       type: 'select', label: t('ACCOUNT.CURRENCY.PAYMENT_METHOD'),
       options: [
         {value: 'ALI_PAY', label: 'AliPay'},
+        {value: 'CASH_APP', label: 'Cash App'},
         {value: 'SEPA', label: 'SEPA'},
         {value: 'VENMO', label: 'Venmo'}
       ]
@@ -53,6 +54,38 @@ export class CurrencyComponent implements OnInit, OnDestroy {
     limitations: {
       type: 'footer', label: t('ACCOUNT.CURRENCY.LIMITATIONS'),
       text: t('ACCOUNT.CURRENCY.LIMITATION_ALI_PAY')
+    }
+  };
+  cachAppForm = {
+    cashTag: {
+      type: 'text', label: t('ACCOUNT.CURRENCY.ALI_PAY_NR'),
+      validators: ['required']
+    },
+    selectedTradeCurrency: {
+      type: 'select', label: t('ACCOUNT.CURRENCY.CURRENCY'),
+      value: 'USD',
+      options: [
+        {value: 'USD', label: t('ACCOUNT.CURRENCY.CURRENCY_USD')}
+      ],
+      disabled: true,
+    },
+    tradeCurrencies: {
+      type: 'select',
+      multiple: true,
+      value: ['USD'],
+      options: [
+        {value: 'USD', label: t('ACCOUNT.CURRENCY.CURRENCY_USD')}
+      ],
+      hidden: true
+    },
+    salt: {type: 'text', label: t('ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE')},
+    accountName: {
+      type: 'text', label: t('ACCOUNT.CURRENCY.ACCOUNT_NAME'),
+      validators: ['required']
+    },
+    limitations: {
+      type: 'footer', label: t('ACCOUNT.CURRENCY.LIMITATIONS'),
+      text: t('ACCOUNT.CURRENCY.LIMITATION_CASH_APP')
     }
   };
   sepaForm = {
