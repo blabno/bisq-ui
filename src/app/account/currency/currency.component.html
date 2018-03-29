@@ -29,6 +29,8 @@
               [disabled]="formDisabled" (onSubmit)="submit($event)"></app-form>
     <app-form #cachAppFormElement [hidden]="'CASH_APP' !== selectedForm" [form]="cachAppForm" [values]="detailsValues"
               [disabled]="formDisabled" (onSubmit)="submit($event)"></app-form>
+    <app-form #cachDepositFormElement [hidden]="'CASH_DEPOSIT' !== selectedForm" [form]="cachDepositForm" [values]="detailsValues"
+              [disabled]="formDisabled" (onSubmit)="submit($event)"></app-form>
     <app-form #sepaFormElement [hidden]="'SEPA' !== selectedForm" [form]="sepaForm" [values]="detailsValues"
               [disabled]="formDisabled" (onSubmit)="submitSepa($event)"></app-form>
     <app-form #venmoFormElement [hidden]="'VENMO' !== selectedForm" [form]="venmoForm" [values]="detailsValues"
@@ -41,6 +43,11 @@
           <ion-spinner *ngIf="creatingAccount" item-end></ion-spinner>
         </button>
         <button *ngIf="'CASH_APP' === selectedForm" ion-button (click)="cachAppFormElement.submit()"
+                [disabled]="creatingAccount">
+          {{'ACCOUNT.SAVE' | translate}}
+          <ion-spinner *ngIf="creatingAccount" item-end></ion-spinner>
+        </button>
+        <button *ngIf="'CASH_DEPOSIT' === selectedForm" ion-button (click)="cachDepositFormElement.submit()"
                 [disabled]="creatingAccount">
           {{'ACCOUNT.SAVE' | translate}}
           <ion-spinner *ngIf="creatingAccount" item-end></ion-spinner>

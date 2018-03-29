@@ -20,6 +20,7 @@ function bicValidator(control) {
 
 const validatorsMap = {
   required: Validators.required,
+  email: Validators.email,
   iban: ibanValidator,
   bic: bicValidator
 };

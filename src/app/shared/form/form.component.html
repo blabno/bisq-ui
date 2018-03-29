@@ -22,6 +22,7 @@
       <div *ngFor="let validator of field.validators">
         <div *ngIf="formGroup.get(field.key).errors[validator]">
           <div *ngIf="'required' === validator" class="validation">{{'VALIDATION.REQUIRED' | translate}}</div>
+          <div *ngIf="'email' === validator" class="validation">{{'VALIDATION.EMAIL' | translate}}</div>
           <div *ngIf="'iban' === validator" class="validation">{{'VALIDATION.IBAN' | translate}}</div>
           <div *ngIf="'bic' === validator" class="validation">{{'VALIDATION.BIC' | translate}}</div>
         </div>
