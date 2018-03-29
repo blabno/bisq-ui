@@ -1,11 +1,11 @@
 <div class="desktop-max-width">
-  <div *ngIf="!selectedWallet.address" class="row">
+  <div *ngIf="!selectedWallet.address && !loading" class="row">
     <div class="col-md-6 col-lg-4 mb-2" *ngFor="let wallet of walletAddresses">
       <div class="card clickable" (click)="selectWallet(wallet)">
         <div class="card-header" [ngClass]="{'selected-wallet': wallet.address === selectedWallet.address}">
           <div class="row">
-            <div class="col-8 wallet-address"> {{wallet.address}}</div>
-            <div class="col-4"> {{wallet.balance / 100000000}} BTC </div>
+            <div class="col-6 wallet-address"> {{wallet.address}}</div>
+            <div class="col-6"> {{wallet.balance / 100000000}} BTC </div>
           </div>
         </div>
         <div class="card-body confirmations">Confirmations: {{wallet.confirmations}}</div>
@@ -42,6 +42,15 @@
           </ion-item>
         </div>
       </div>
+    </div>
+  </div>
+  <div *ngIf="loading" class="d-flex justify-content-center align-items-center m-4 loading">
+    <h1>{{'SHARED.LOADING' | translate}}..</h1>
+    <ion-spinner></ion-spinner>
+  </div>
+  <div *ngIf="!walletAddresses.length && !loading" class="card no-results-card">
+    <div class="card-body">
+      <span>{{'FUNDS.RECEIVE.NO_RESULTS' | translate}}</span>
     </div>
   </div>
   <div class="buttons">

@@ -28,28 +28,26 @@
         </div>
         <div>{{'PORTFOLIO.OPEN_TRADES.MY_ROLE' | translate}}
           <span class="float-right">
-            {{item.offer.baseCurrencyCode}}
-            {{item.tradeRole}}
-            {{'AS' | translate}}
-            {{item.offerRole}}
+            {{item.offer.baseCurrencyCode}} {{item.tradeRole}} {{'AS' | translate}} {{item.offerRole}}
           </span>
         </div>
       </div>
       <div class="progress">
-        <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar"
-             aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
-             [ngStyle]="{width: stepsMap[item.state].percentage + '%'}"></div>
+        <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0"
+          aria-valuemax="100" [ngStyle]="{width: stepsMap[item.state].percentage + '%'}"></div>
       </div>
       <div class="btn btn-info rounded-0" [routerLink]="'/portfolio/open-trades/'+item.id">
         <span class="select-button">{{stepsMap[item.state].labels[item.tradeRole] | translate}}</span>
       </div>
     </div>
   </div>
-  <div class="col-md-12">
-    <div class="card">
-      <div *ngIf="!trades.length" class="card-header text-justify text-center p-3">
-        {{'PORTFOLIO.OPEN_TRADES.NO_TRADES' | translate}}
-      </div>
-    </div>
+</div>
+<div *ngIf="loading" class="d-flex justify-content-center align-items-center m-4 loading">
+  <h1>{{'SHARED.LOADING' | translate}}..</h1>
+  <ion-spinner></ion-spinner>
+</div>
+<div *ngIf="!trades.length && !loading" class="card no-results-card">
+  <div class="card-body">
+    <span> {{'PORTFOLIO.OPEN_TRADES.NO_RESULTS' | translate}}</span>
   </div>
 </div>

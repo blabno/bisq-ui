@@ -26,12 +26,12 @@
 </div>
 <div>{{'OFFERS.LIST.NO_OFFERS' | translate}}: {{list.length || 0}}</div>
 <div *ngIf="loading" class="d-flex justify-content-center align-items-center m-4 loading">
-  <h1>Loading..</h1>
+  <h1>{{'SHARED.LOADING' | translate}}..</h1>
   <ion-spinner></ion-spinner>
 </div>
-<div *ngIf="!list.length" class="card no-results-card">
+<div *ngIf="!list.length && !loading" class="card no-results-card">
   <div class="card-body">
-     <span>There are no offers to show, try to change your filters</span>
+     <span>{{'OFFERS.LIST.NO_RESULTS' | translate}}</span>
   </div>
 </div>
 <div *ngIf="list.length" class="row">

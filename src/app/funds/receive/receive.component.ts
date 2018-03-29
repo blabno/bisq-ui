@@ -16,6 +16,7 @@ export class ReceiveComponent implements OnInit {
   public amount;
   public label = 'Fund Bisq wallet';
   public qrCode;
+  public loading = true;
 
   constructor(private walletDao: WalletDAO, private toast: ToastService, private clipboard: ClipboardService) {}
 
@@ -25,8 +26,10 @@ export class ReceiveComponent implements OnInit {
   }
 
   getAddressesData() {
+    this.loading = true;
     this.walletDao.getAddresses('RECEIVE_FUNDS').then(res => {
       this.walletAddresses = _.get(res, 'walletAddresses');
+      this.loading = false;
     });
   }
 
