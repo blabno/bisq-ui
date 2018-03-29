@@ -19,7 +19,7 @@ enum BitcoinExplorers {
 
 @Injectable()
 export class SettingsService {
-  public backendUrl = 'http://localhost:8100';
+  public backendUrl = '';
   public baseCurrency: BaseCurrencies = BaseCurrencies.BITCOIN;
   public language = 'en';
   public country: Countries = Countries.POLAND;

@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {OffersDAO} from "../shared/DAO/offers.dao";
@@ -13,7 +12,6 @@ export class OffersComponent implements OnInit, OnDestroy {
   listType: 'sell' | 'buy';
   offerList = [];
   private paramSubscribe: any;
-  private daoInterval: any;
   public loading = false;
 
   constructor(private activeRoute: ActivatedRoute, private offersDAO: OffersDAO, private toast: ToastService) {
@@ -24,12 +22,10 @@ export class OffersComponent implements OnInit, OnDestroy {
       this.listType = params['type'];
     });
     this.refreshOffersList();
-    this.daoInterval = setInterval(() => this.refreshOffersList(), 10 * 1000); //10 second
   }
 
   ngOnDestroy() {
     this.paramSubscribe.unsubscribe();
-    clearInterval(this.daoInterval);
   }
 
   private refreshOffersList() {

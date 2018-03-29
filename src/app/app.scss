@@ -43,35 +43,12 @@ a:hover {
   text-decoration: none;
 }
 
-.tabs-md .tabbar {
-  background: var(--light);
-}
-
-.tabs-md .tab-button {
-  min-height: 55px;
-  .tab-button-text {
-    display: block;
-  }
-}
-
-.tabs-md .tab-button[aria-selected=true] {
-  color: var(--blue);
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  background: white;
-}
-
-.tabs-md .tab-button[aria-selected=true] .tab-button-icon {
-  color: var(--blue);
+.card {
+  margin-bottom: 15px;
 }
 
 .view {
   padding: 15px;
-  ion-content {
-    .scroll-content {
-      overflow-y: auto;
-    }
-  }
   ion-item.item.item-checkbox {
     ion-checkbox.checkbox {
       margin-right: 22px;
@@ -82,10 +59,16 @@ a:hover {
   }
 }
 
+.scroll-content {
+  overflow-y: auto;
+}
+
 ion-toast {
   &.error .toast-wrapper {
     background-color: var(--red);
-    color: black;
+  }
+  &.success .toast-wrapper {
+    background-color: var(--success);
   }
 }
 

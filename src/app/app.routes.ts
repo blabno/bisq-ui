@@ -9,11 +9,13 @@ import {ReservedComponent} from './funds/reserved/reserved.component';
 import {LockedComponent} from './funds/locked/locked.component';
 import {TransactionComponent} from './funds/transactions/transaction.component';
 import {MyOpenOffersComponent} from './portfolio/myOpenOffers/myOpenOffers.component';
-import {OpenTradesComponent} from './portfolio/openTrades/openTrades.component';
+import {TradeListComponent} from './portfolio/openTrades/tradeList/tradeList.component';
+import {TradeDetailsComponent} from './portfolio/openTrades/tradeDetails/tradeDetails.component';
 import {HistoryComponent} from './portfolio/history/history.component';
 import {PreferencesComponent} from './settings/preferences/preferences.component';
 import {NetworkInfoComponent} from './settings/network-info/network-info.component';
 import {AboutComponent} from './settings/about/about.component';
+import {BackendUrlComponent} from './settings/backendUrl/backendUrl.component';
 import {CurrencyComponent} from './account/currency/currency.component';
 import {AltcoinsComponent} from './account/altcoins/altcoins.component';
 import {ArbitratorComponent} from './account/arbitrator/arbitrator.component';
@@ -28,7 +30,8 @@ const appRoutes: Routes = [
 
   {path: 'portfolio', redirectTo: 'portfolio/my-open-offers', pathMatch: 'full'},
   {path: 'portfolio/my-open-offers', component: MyOpenOffersComponent},
-  {path: 'portfolio/open-trades', component: OpenTradesComponent},
+  {path: 'portfolio/open-trades', component: TradeListComponent},
+  {path: 'portfolio/open-trades/:id', component: TradeDetailsComponent},
   {path: 'portfolio/history', component: HistoryComponent},
 
   {path: 'funds', redirectTo: 'funds/receive', pathMatch: 'full'},
@@ -47,6 +50,7 @@ const appRoutes: Routes = [
   {path: 'settings/preferences', component: PreferencesComponent},
   {path: 'settings/network-info', component: NetworkInfoComponent},
   {path: 'settings/about', component: AboutComponent},
+  {path: 'settings/backend-url', component: BackendUrlComponent},
 
   {path: 'network', component: MarketComponent},
   {path: 'about', component: MarketComponent},

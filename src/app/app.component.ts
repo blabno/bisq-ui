@@ -44,11 +44,29 @@ t('WARNING');
 export class AppComponent {
   rootPage: any = MainComponent;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private translate: TranslateService, private settings: SettingsService, private tradesCache: TradesCacheService) {
-    translate.setDefaultLang('en');
-    translate.use(settings.language);
-    translate.addLangs(['pl', 'en']);
-    tradesCache.init();
+  constructor(platform: Platform,
+              statusBar: StatusBar,
+              splashScreen: SplashScreen,
+              private initModal: InfoModalService,
+              private settings: SettingsService,
+              private tradesCache: TradesCacheService,
+              private translate: TranslateService) {
+    this.translate.setDefaultLang('en');
+    this.translate.use(settings.language);
+    this.translate.addLangs(['pl', 'en']);
+    this.tradesCache.init();
+    if (!this.settings.backendUrl) {
+      this.initModal.show({
+        title: t('SETTINGS.BACKEND_URL_MISSING_TITLE'),
+        text: t('SETTINGS.BACKEND_URL_MISSING_TEXT'),
+        redirectButton: {
+          text: t('SETTINGS.BACKEND_URL_MISSING_REDIRECT'),
+          path: '/settings/backend-url',
+          class: 'large center'
+        }
+      });
+    }
+
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.

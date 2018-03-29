@@ -1,5 +1,4 @@
-import {Component, OnInit, EventEmitter, Output, Input} from '@angular/core';
-import _ from 'lodash';
+import {Component, OnInit} from '@angular/core';
 
 import {TradesCacheService} from '../../../shared/services/tradesCache.service';
 
@@ -8,9 +7,7 @@ import {TradesCacheService} from '../../../shared/services/tradesCache.service';
   templateUrl: 'tradeList.component.html'
 })
 export class TradeListComponent implements OnInit {
-  @Input() stepsMap: any;
-  @Output() onSelect = new EventEmitter<any>();
-
+  stepsMap;
   trades = [];
   total = 0;
 
@@ -18,14 +15,11 @@ export class TradeListComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.stepsMap = this.tradesCache.stepsMap;
     this.tradesCache.list()
       .then(result => {
         this.trades = result;
         this.total = this.trades.length;
       });
-  }
-
-  select(trade) {
-    this.onSelect.emit(trade);
   }
 }

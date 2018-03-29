@@ -1,0 +1,11 @@
+<div class="desktop-max-width">
+  <ion-searchbar [(ngModel)]="settings.backendUrl" placeholder="{{'SETTINGS.BACKEND_URL_PLACEHOLDER' | translate}}"
+                 [debounce]="0" [ngClass]="{invalid: invalidUrl}" (ionChange)="change()"
+                 (search)="save()"></ion-searchbar>
+  <button class="save" ion-button (click)="save()">{{'SAVE' | translate}}</button>
+  <ion-list>
+    <button *ngFor="let item of items" ion-item (click)="selectUrl(item)">
+      {{item}}
+    </button>
+  </ion-list>
+</div>
