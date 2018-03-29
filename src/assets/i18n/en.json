@@ -67,6 +67,7 @@
 			"LIMITATIONS": "Limitations",
 			"LIMITATION_SEPA": "Max. trade duration: 6 days / Max. trade limit: 0.0625 BTC / Account age: 0 days",
 			"LIMITATION_VENMO": "Max. trade duration: 1 days / Max. trade limit: 0.04 BTC / Account age: 0 days",
+			"NO_RESULTS": "There are no accounts to show",
 			"OWNER_NAME": "Account owner full name",
 			"PAYMENT_METHOD": "Payment method",
 			"SALT_ACCOUNT_AGE": "Salt for account age verification",

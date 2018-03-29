@@ -67,6 +67,7 @@
 			"LIMITATIONS": "Ograniczenia",
 			"LIMITATION_SEPA": "Maks. czas transakcji: 6 dni / Maks. limit transakcji: 0.0625 BTC / aktywność konta: 0 dni",
 			"LIMITATION_VENMO": "Maks. czas transakcji: 1 dzień / Maks. limit transakcji: 0.04 BTC / aktywność konta: 0 dni",
+			"NO_RESULTS": "Brak kont do wyświetlenia",
 			"OWNER_NAME": "Imię i nazwisko posiadacza",
 			"PAYMENT_METHOD": "Metoda płatności",
 			"SALT_ACCOUNT_AGE": "Kod potwierdzający aktywność konta",
