@@ -2,6 +2,9 @@
 	"ACCOUNT": {
 		"ACCOUNTS_LIST": "Lista kont",
 		"ADD_NEW": "Dodaj konto",
+		"ALTCOINS": {
+			"NO_RESULTS": "Brak altcoinow do wyświetlenia"
+		},
 		"ARBITRATOR": {
 			"ARBITRATOR_ADDRESS": "Adres aribtratora",
 			"AUTO_SELECT_ARBITRATORS_WITH_MATCHING_LANGUAGE": "Automatycznie przydziel arbitra o tym samym języku",

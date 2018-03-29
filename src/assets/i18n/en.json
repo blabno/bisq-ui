@@ -2,6 +2,9 @@
 	"ACCOUNT": {
 		"ACCOUNTS_LIST": "Accounts list",
 		"ADD_NEW": "Add new account",
+		"ALTCOINS": {
+			"NO_RESULTS": "There are no altcoins to show"
+		},
 		"ARBITRATOR": {
 			"ARBITRATOR_ADDRESS": "Arbitrator address",
 			"AUTO_SELECT_ARBITRATORS_WITH_MATCHING_LANGUAGE": "Auto select arbitrators with matching language",
