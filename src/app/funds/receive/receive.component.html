@@ -5,7 +5,7 @@
         <div class="card-header" [ngClass]="{'selected-wallet': wallet.address === selectedWallet.address}">
           <div class="row">
             <div class="col-8 wallet-address"> {{wallet.address}}</div>
-            <div class="col-4"> {{wallet.balance}} BTC </div>
+            <div class="col-4"> {{wallet.balance / 100000000}} BTC </div>
           </div>
         </div>
         <div class="card-body confirmations">Confirmations: {{wallet.confirmations}}</div>

@@ -12,6 +12,7 @@ export class OffersComponent implements OnInit, OnDestroy {
   listType: 'sell' | 'buy';
   offerList = [];
   private paramSubscribe: any;
+  public loading = false;
 
   constructor(private activeRoute: ActivatedRoute, private offersDAO: OffersDAO, private toast: ToastService) {
   }
@@ -28,10 +29,13 @@ export class OffersComponent implements OnInit, OnDestroy {
   }
 
   private refreshOffersList() {
+    this.loading = true;
     this.offersDAO.query().then(res => {
       this.offerList = res['offers'];
+      this.loading = false;
     }).catch(() => {
       this.toast.show('TOAST.OFFERS.CANT_FETCH_DATA', 'error');
+      this.loading = false;
     });
   }
 }
