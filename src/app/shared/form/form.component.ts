@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
+import {Component, OnInit, OnChanges, OnDestroy, Input, Output, EventEmitter, SimpleChanges} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 import {ToastService} from '../services/toast.service';
@@ -36,6 +36,7 @@ export class FormComponent implements OnInit, OnChanges {
   @Output() onChange = new EventEmitter<any>();
   @Output() onSubmit = new EventEmitter<any>();
 
+  changeSubscriber;
   formFields;
 
   formGroup: FormGroup;
@@ -44,18 +45,31 @@ export class FormComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
+    this.init();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    console.log(changes);
+    if (this.formGroup && changes.values) {
+      this.formGroup.patchValue(changes.values.currentValue, {emitEvent: false});
+    }
+    if (this.formGroup && changes.form) {
+      this.changeSubscriber.unsubscribe();
+      this.init();
+    }
+  }
+
+  ngOnDestroy() {
+    this.changeSubscriber.unsubscribe();
+  }
+
+  init() {
     this.formFields = _.map(this.form, (field, key) => ({...field, key}));
     this.formGroup = new FormGroup(_.mapValues(this.form, (field, key) => new FormControl({
       value: field.value || this.values[key] || null,
       disabled: field.disabled || this.disabled || false
     }, _.map(field.validators, validator => validatorsMap[validator]))));
-    this.formGroup.valueChanges.subscribe(() => this.onChange.emit(this.formGroup));
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
-    if (this.formGroup && changes.values) {
-      this.formGroup.patchValue(changes.values.currentValue, {emitEvent: false});
-    }
+    this.changeSubscriber = this.formGroup.valueChanges.subscribe(() => this.onChange.emit(this.formGroup));
   }
 
   submit() {
