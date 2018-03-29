@@ -6,10 +6,11 @@
 			"NO_RESULTS": "Brak altcoinow do wyświetlenia"
 		},
 		"ARBITRATOR": {
-			"ARBITRATOR_ADDRESS": "Adres aribtratora",
+			"ARBITRATOR_ADDRESS": "Adres",
 			"AUTO_SELECT_ARBITRATORS_WITH_MATCHING_LANGUAGE": "Automatycznie przydziel arbitra o tym samym języku",
 			"NOMINATE_YOURSELF": "Nominuj siebie",
-			"UNSELECT": "Odznacz",
+			"NO_RESULTS": "Brak zarejestrowanych arbitrów",
+			"SELECTED": "Wybrany",
 			"WHICH_ARBITRATORS_DO_YOU_ACCEPT": "Których arbitratorów wybierasz",
 			"WHICH_LANGUAGE_DO_YOU_SPEAK": "Wybierz języki, które umiesz"
 		},

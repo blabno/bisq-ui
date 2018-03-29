@@ -34,7 +34,7 @@ export class SettingsService {
   public preferedCurrency = 'BTC';
   public displayedNatonalCurrencies = [];
   public displayedAltcoins = [];
-  public languagesSpoken = [];
+  public languagesSpoken = ['en'];
   public autoSelectArbitratorsWithMatchingLanguage = true;
   // OFFERS LIST
   public selectedCurrencyOnOfferList = null;
