@@ -1,9 +1,15 @@
 <div class="desktop-max-width">
-  <ion-searchbar [(ngModel)]="settings.backendUrl" placeholder="{{'SETTINGS.BACKEND_URL_PLACEHOLDER' | translate}}"
-                 [debounce]="0" [ngClass]="{invalid: invalidUrl}" (ionChange)="change()"
-                 (search)="save()"></ion-searchbar>
-  <button class="save" ion-button (click)="save()">{{'SAVE' | translate}}</button>
+  <ion-item>
+    <ion-label stacked>TYPE SERVER ADDRESS</ion-label>
+    <ion-input [(ngModel)]="settings.backendUrl" [ngClass]="{invalid: invalidUrl}" (ionChange)="change()"
+      (keypress)="addressKeyHandler($event.keyCode)"></ion-input>
+    <button *ngIf="!isSavingAlready"  ion-button item-end (click)="save()">{{'SAVE' | translate}}</button>
+    <ion-spinner *ngIf="isSavingAlready" item-end></ion-spinner>
+  </ion-item>
   <ion-list>
+    <ion-list-header>
+      Or pick address from preset:
+    </ion-list-header>
     <button *ngFor="let item of items" ion-item (click)="selectUrl(item)">
       {{item}}
     </button>

@@ -18,6 +18,7 @@ export class BackendUrlComponent implements OnInit, OnDestroy {
     'http://localhost:8080'
   ];
   invalidUrl = false;
+  isSavingAlready = false;
 
   constructor(public settings: SettingsService,
               private p2pDAO: P2pDAO,
@@ -39,6 +40,8 @@ export class BackendUrlComponent implements OnInit, OnDestroy {
   }
 
   save() {
+    if(this.isSavingAlready) return;
+
     if (!this.settings.backendUrl) {
       this.invalidUrl = true;
       this.toast.show(t('SETTINGS.BACKEND_URL_REQUIRED'), 'error');
@@ -49,17 +52,26 @@ export class BackendUrlComponent implements OnInit, OnDestroy {
       this.toast.show(t('SETTINGS.BACKEND_URL_WRONG_FORMAT'), 'error');
       return;
     }
+    this.isSavingAlready = true;
     this.p2pDAO.status()
       .then(() => {
         this.invalidUrl = false;
         this.toast.show(t('SETTINGS.BACKEND_URL_UPDATED'), 'success');
         this.router.navigateByUrl('/offers/buy');
+        this.isSavingAlready = false;
       })
       .catch(() => {
         this.invalidUrl = true;
         this.toast.show(t('SETTINGS.BACKEND_URL_UNAVAILABLE'), 'error');
+        this.isSavingAlready = false;
       });
     this.settings.saveSettings();
+  }
+
+  addressKeyHandler(keyCode) {
+    if(keyCode === 13 && !this.isSavingAlready) {
+      this.save()
+    }
   }
 
   selectUrl(url) {
