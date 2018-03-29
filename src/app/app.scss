@@ -49,11 +49,6 @@ a:hover {
 
 .view {
   padding: 15px;
-  ion-content {
-    .scroll-content {
-      overflow-y: auto;
-    }
-  }
   ion-item.item.item-checkbox {
     ion-checkbox.checkbox {
       margin-right: 22px;
@@ -62,6 +57,10 @@ a:hover {
       color: #999;
     }
   }
+}
+
+.scroll-content {
+  overflow-y: auto;
 }
 
 ion-toast {

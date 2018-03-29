@@ -1,3 +1,0 @@
-<app-trade-list *ngIf="isListVisible" [stepsMap]="stepsMap" (onSelect)="selectTrade($event)"></app-trade-list>
-<app-trade-details *ngIf="!isListVisible" [trade]="selectedTrade" [stepsMap]="stepsMap"
-                   (onCancel)="cancel()"></app-trade-details>

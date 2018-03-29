@@ -40,7 +40,7 @@
              aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
              [ngStyle]="{width: stepsMap[item.state].percentage + '%'}"></div>
       </div>
-      <div class="btn btn-info rounded-0" (click)="select(item)">
+      <div class="btn btn-info rounded-0" [routerLink]="'/portfolio/open-trades/'+item.id">
         <span class="select-button">{{stepsMap[item.state].labels[item.tradeRole] | translate}}</span>
       </div>
     </div>

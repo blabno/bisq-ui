@@ -1,4 +1,4 @@
-<div class="row">
+<div *ngIf="trade" class="row">
   <div class="col-lg-4">
     <app-trade-status [text]="stepsMap.steps[0].labels[selectedTradeRole]" [currentStep]="selectedTradeStep"
                       definedStep="1"></app-trade-status>
@@ -159,6 +159,6 @@
       </div>
       <button ion-button (click)="withdraw()">{{'PORTFOLIO.OPEN_TRADES.WITHDRAW' | translate}}</button>
     </ng-template>
-    <button ion-button color="light" (click)="cancel()">{{'BACK' | translate}}</button>
+    <button ion-button color="light" routerLink="/portfolio/open-trades">{{'BACK' | translate}}</button>
   </div>
 </div>
