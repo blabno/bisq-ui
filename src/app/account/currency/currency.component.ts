@@ -25,6 +25,7 @@ export class CurrencyComponent implements OnInit, OnDestroy {
         {value: 'CHASE_QUICK_PAY', label: 'Chase QuickPay'},
         {value: 'FASTER_PAYMENTS', label: 'Faster Payments'},
         {value: 'INTERAC_E_TRANSFER', label: 'Interac e-Transfer'},
+        {value: 'MONEY_BEAM', label: 'MoneyBeam (N26)'},
       ]
     }
   };
@@ -470,6 +471,29 @@ export class CurrencyComponent implements OnInit, OnDestroy {
       limitations: {
         type: 'footer', label: t('ACCOUNT.CURRENCY.LIMITATIONS'),
         text: t('ACCOUNT.CURRENCY.LIMITATION_1_0625_0')
+      }
+    },
+    MONEY_BEAM: {
+      accountId: {
+        type: 'text', label: t('ACCOUNT.CURRENCY.EMAIL_OR_MOBILE'),
+        validators: ['required']
+      },
+      selectedTradeCurrency: {
+        type: 'select', label: t('ACCOUNT.CURRENCY.CURRENCY'),
+        value: 'EUR',
+        options: [
+          {value: 'EUR', label: t('ACCOUNT.CURRENCY.CURRENCY_EUR')}
+        ],
+        disabled: true,
+      },
+      salt: {type: 'text', label: t('ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE')},
+      accountName: {
+        type: 'text', label: t('ACCOUNT.CURRENCY.ACCOUNT_NAME'),
+        validators: ['required']
+      },
+      limitations: {
+        type: 'footer', label: t('ACCOUNT.CURRENCY.LIMITATIONS'),
+        text: t('ACCOUNT.CURRENCY.LIMITATION_1_04_0')
       }
     },
     SEPA: {
