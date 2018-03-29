@@ -25,16 +25,16 @@
   <div *ngIf="formOpened && !loading">
     <app-form [form]="paymentForm" [disabled]="formDisabled" [values]="paymentValues" (onChange)="change($event)"></app-form>
     <app-form #sepaFormElement [hidden]="'SEPA' !== selectedForm" [form]="sepaForm" [values]="detailsValues"
-      [disabled]="formDisabled" (onSubmit)="submit($event)"></app-form>
-    <app-form #venmoFormElement [hidden]="'Venmo' !== selectedForm" [form]="venmoForm" [values]="detailsValues"
-      [disabled]="formDisabled" (onSubmit)="submit($event)"></app-form>
+      [disabled]="formDisabled" (onSubmit)="submitSepa($event)"></app-form>
+    <app-form #venmoFormElement [hidden]="'VENMO' !== selectedForm" [form]="venmoForm"
+      [values]="detailsValues" [disabled]="formDisabled" (onSubmit)="submitVenmo($event)"></app-form>
     <div class="buttons">
       <ng-template [ngIf]="!formDisabled">
         <button *ngIf="'SEPA' === selectedForm" ion-button (click)="sepaFormElement.submit()" [disabled]="creatingAccount">
           {{'ACCOUNT.SAVE' | translate}}
           <ion-spinner *ngIf="creatingAccount" item-end></ion-spinner>
         </button>
-        <button *ngIf="'Venmo' === selectedForm" ion-button (click)="venmoFormElement.submit()" [disabled]="creatingAccount">
+        <button *ngIf="'VENMO' === selectedForm" ion-button (click)="venmoFormElement.submit()" [disabled]="creatingAccount">
           {{'ACCOUNT.SAVE' | translate}}
           <ion-spinner *ngIf="creatingAccount" item-end></ion-spinner>
         </button>
