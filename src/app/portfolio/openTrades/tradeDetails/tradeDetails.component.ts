@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 import moment from 'moment';
 
 import {ToastService} from '../../../shared/services/toast.service';
@@ -24,7 +24,6 @@ export class TradeDetailsComponent implements OnInit {
 
   constructor(private activeRoute: ActivatedRoute,
               private toast: ToastService,
-              private router: Router,
               private tradesCache: TradesCacheService,
               private tradesDAO: TradesDAO) {
   }

@@ -18,27 +18,6 @@
   --light-grey: #bbbbbb;
 }
 
-.tab-button-text, .tab-button-icon {
-  /*CSS transitions*/
-  -o-transition-property: none !important;
-  -moz-transition-property: none !important;
-  -ms-transition-property: none !important;
-  -webkit-transition-property: none !important;
-  transition-property: none !important;
-  /*CSS transforms*/
-  -o-transform: none !important;
-  -moz-transform: none !important;
-  -ms-transform: none !important;
-  -webkit-transform: none !important;
-  transform: none !important;
-  /*CSS animations*/
-  -webkit-animation: none !important;
-  -moz-animation: none !important;
-  -o-animation: none !important;
-  -ms-animation: none !important;
-  animation: none !important;
-}
-
 a:hover {
   text-decoration: none;
 }
@@ -61,6 +40,21 @@ a:hover {
 
 .scroll-content {
   overflow-y: auto;
+}
+
+ion-item.item {
+  &.item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, &.item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+    box-shadow: none;
+    border-bottom-color: #dedede;
+  }
+  &.item-md.item-input.item-input-has-focus .item-inner, &.item-md.item-input.input-has-focus .item-inner {
+    box-shadow: none;
+    border-bottom-color: #dedede;
+  }
+  &.item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+    box-shadow: none;
+    border-bottom-color: #dedede;
+  }
 }
 
 ion-toast {
