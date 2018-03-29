@@ -18,6 +18,13 @@ function ukAccountNumberValidator(control) {
   return null;
 }
 
+function emailOrCanadianMobileValidator(control) {
+  if (!control.value || (Validators.email(control) && (11 !== control.value.length || !/^\d+$/.test(control.value)))) {
+    return {emailOrCanadianMobile: true}
+  }
+  return null;
+}
+
 function ibanValidator(control) {
   if (!control.value || 15 > control.value.length || 36 < control.value.length) {
     return {iban: true}
@@ -37,6 +44,7 @@ const validatorsMap = {
   email: Validators.email,
   ukSortCode: ukSortCodeValidator,
   ukAccountNumber: ukAccountNumberValidator,
+  emailOrCanadianMobile: emailOrCanadianMobileValidator,
   iban: ibanValidator,
   bic: bicValidator
 };

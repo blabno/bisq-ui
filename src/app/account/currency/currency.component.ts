@@ -24,6 +24,7 @@ export class CurrencyComponent implements OnInit, OnDestroy {
         {value: 'VENMO', label: 'Venmo'},
         {value: 'CHASE_QUICK_PAY', label: 'Chase QuickPay'},
         {value: 'FASTER_PAYMENTS', label: 'Faster Payments'},
+        {value: 'INTERAC_E_TRANSFER', label: 'Interac e-Transfer'},
       ]
     }
   };
@@ -411,11 +412,11 @@ export class CurrencyComponent implements OnInit, OnDestroy {
     },
     FASTER_PAYMENTS: {
       sortCode: {
-        type: 'text', label: t('ACCOUNT.CURRENCY.UK_SORT_NAME'),
-        validators: ['ukSortCode', 'required']
+        type: 'number', label: t('ACCOUNT.CURRENCY.UK_SORT_NAME'),
+        validators: ['required', 'ukSortCode']
       },
       accountNr: {
-        type: 'text', label: t('ACCOUNT.CURRENCY.ACCOUNT_NUMBER'),
+        type: 'number', label: t('ACCOUNT.CURRENCY.ACCOUNT_NUMBER'),
         validators: ['required', 'ukAccountNumber']
       },
       selectedTradeCurrency: {
@@ -423,6 +424,41 @@ export class CurrencyComponent implements OnInit, OnDestroy {
         value: 'GBP',
         options: [
           {value: 'GBP', label: t('ACCOUNT.CURRENCY.CURRENCY_GBP')}
+        ],
+        disabled: true,
+      },
+      salt: {type: 'text', label: t('ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE')},
+      accountName: {
+        type: 'text', label: t('ACCOUNT.CURRENCY.ACCOUNT_NAME'),
+        validators: ['required']
+      },
+      limitations: {
+        type: 'footer', label: t('ACCOUNT.CURRENCY.LIMITATIONS'),
+        text: t('ACCOUNT.CURRENCY.LIMITATION_1_0625_0')
+      }
+    },
+    INTERAC_E_TRANSFER: {
+      holderName: {
+        type: 'text', label: t('ACCOUNT.CURRENCY.OWNER_NAME'),
+        validators: ['required']
+      },
+      emailOrMobileNr: {
+        type: 'text', label: t('ACCOUNT.CURRENCY.EMAIL_OR_MOBILE'),
+        validators: ['required', 'emailOrCanadianMobile']
+      },
+      question: {
+        type: 'text', label: t('ACCOUNT.CURRENCY.SECRET_QUESTION'),
+        validators: ['required']
+      },
+      answer: {
+        type: 'text', label: t('ACCOUNT.CURRENCY.SECRET_ANSWER'),
+        validators: ['required']
+      },
+      selectedTradeCurrency: {
+        type: 'select', label: t('ACCOUNT.CURRENCY.CURRENCY'),
+        value: 'CAD',
+        options: [
+          {value: 'CAD', label: t('ACCOUNT.CURRENCY.CURRENCY_CAD')}
         ],
         disabled: true,
       },

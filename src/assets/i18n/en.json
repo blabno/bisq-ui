@@ -1,5 +1,6 @@
 {
   "ACCOUNT": {
+    "ACCOUNTS_LIST": "Accounts list",
     "ADD_NEW": "Add new account",
     "ALTCOINS": {
       "NO_RESULTS": "There are no altcoins to show"
@@ -280,6 +281,7 @@
       "COUNTRY_ZW": "Zimbabwe (ZW)",
       "CURRENCY": "Currency",
       "CURRENCY_BGN": "Bulgarian Lev (BGN)",
+      "CURRENCY_CAD": "Canadian Dollar (CAD)",
       "CURRENCY_CHF": "Swiss Franc (CHF)",
       "CURRENCY_CNY": "Chinese Yuan (CNY)",
       "CURRENCY_CZK": "Czech Republic Koruna (CZK)",
@@ -295,6 +297,7 @@
       "CURRENCY_USD": "US Dolar (USD)",
       "DELETE_CONFIRMATION": "Do you really want to delete selected account",
       "EMAIL": "Email",
+      "EMAIL_OR_MOBILE": "Email or mobile nr",
       "EXTRA_REQUIREMENTS": "Extra requirements",
       "LIMITATIONS": "Limitations",
       "LIMITATION_1_0125_0": "Max. trade duration: 1 days / Max. trade limit: 0.0125 BTC / Account age: 0 days",
@@ -306,6 +309,8 @@
       "OWNER_NAME": "Account owner full name",
       "PAYMENT_METHOD": "Payment method",
       "SALT_ACCOUNT_AGE": "Salt for account age verification",
+      "SECRET_ANSWER": "Secret question",
+      "SECRET_QUESTION": "Answer",
       "UK_SORT_NAME": "UK sort code",
       "VENMO_NAME": "Venmo username"
     },
@@ -385,8 +390,7 @@
     "FUNDS": "Funds",
     "PORTFOLIO": "Portfolio",
     "SELL": "Sell BTC",
-    "SETTINGS": "Settings",
-    "SUPPORT": "Support"
+    "SETTINGS": "Settings"
   },
   "OFFERS": {
     "CREATE": {
@@ -443,9 +447,6 @@
       "COUNTRY_OF_BANK": "Country of bank",
       "DAYS": "days",
       "DEPOSIT_ID": "Deposit transaction ID",
-      "DISPUTE_OPENED": "Dispute opened",
-      "DISPUTE_PEER_INFO": "Your trading partner has open dispute.\nPlease communicate in the \"Support\" screen with the arbitrator.",
-      "DISPUTE_REQUESTED_INFO": "You opened already a dispute.\nPlease communicate in the \"Support\" screen with the arbitrator.",
       "HOURS": "hours",
       "MARKET": "Market",
       "MAX_ALLOWED_PERIOD": "Max. allowed trade period",
@@ -517,6 +518,7 @@
     "BACKEND_URL_MISSING_REDIRECT": "Go to setup",
     "BACKEND_URL_MISSING_TEXT": "This application requires correct URL address to running BISQ server.",
     "BACKEND_URL_MISSING_TITLE": "Server address is undefined",
+    "BACKEND_URL_PLACEHOLDER": "Type or select server address",
     "BACKEND_URL_REQUIRED": "Server address cannot be empty",
     "BACKEND_URL_UNAVAILABLE": "Unable to connect to specified address",
     "BACKEND_URL_UPDATED": "Successfully connected",
@@ -534,7 +536,6 @@
       "USE_TOR_FOR_BITCOIN_NETWORK": "Use tor for bitcoin network"
     },
     "PREFERENCES": {
-      "ALL_HIDDEN_MODALS_RESETED": "All hidden modals settings reseted",
       "AUTO_SELECT_ARBITRATORS": "Auto select arbitrators",
       "BITCOIN_BLOCK_EXPLORER": "Bitcoin block explorer",
       "COUNTRY": "Country",
@@ -563,16 +564,7 @@
     }
   },
   "SHARED": {
-    "LOADING": "Loading",
-    "NOT_DONE_YET": "Functionality is not done yet"
-  },
-  "SUPPORT": {
-    "LIST": {
-      "EMPTY": "There are no disputes to showing"
-    },
-    "MESSAGES": {
-      "MESSAGES_HEADER": "Messages"
-    }
+    "LOADING": "Loading"
   },
   "TOAST": {
     "ADDRESS_COPIED_TO_CLIPBOARD": "Address copied to clipboard",
@@ -603,6 +595,7 @@
   "VALIDATION": {
     "BIC": "Input length is neither 8 nor 11",
     "EMAIL": "Email is not correct",
+    "EMAIL_OR_CANADIAN_MOBILE": "Invalid phone number format and not an email address",
     "IBAN": "Number must have length 15 to 34 chars",
     "REQUIRED": "This field is required",
     "UK_ACCOUNT_NUMBER": "Account number must consist of 8 numbers",

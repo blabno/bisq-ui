@@ -5,6 +5,7 @@
       <ion-label *ngIf="'checkbox' === field.type">{{field.label | translate}}</ion-label>
       <ion-label *ngIf="'checkbox' !== field.type" floating>{{field.label | translate}}</ion-label>
       <ion-input *ngIf="'text' === field.type" type="text" [formControlName]="field.key"></ion-input>
+      <ion-input *ngIf="'number' === field.type" type="number" [formControlName]="field.key"></ion-input>
       <ion-select *ngIf="'select' === field.type" [formControlName]="field.key" [multiple]="field.multiple"
                   cancelText="{{'CANCEL' | translate}}">
         <ion-option *ngFor="let option of field.options" [value]="option.value">
@@ -24,8 +25,11 @@
           <div *ngIf="'required' === validator" class="validation">{{'VALIDATION.REQUIRED' | translate}}</div>
           <div *ngIf="'email' === validator" class="validation">{{'VALIDATION.EMAIL' | translate}}</div>
           <div *ngIf="'ukSortCode' === validator" class="validation">{{'VALIDATION.UK_SORT_CODE' | translate}}</div>
-          <div *ngIf="'ukAccountNumber' === validator" class="validation">{{'VALIDATION.UK_ACCOUNT_NUMBER' |
-            translate}}
+          <div *ngIf="'ukAccountNumber' === validator" class="validation">
+            {{'VALIDATION.UK_ACCOUNT_NUMBER' | translate}}
+          </div>
+          <div *ngIf="'emailOrCanadianMobile' === validator" class="validation">
+            {{'VALIDATION.EMAIL_OR_CANADIAN_MOBILE' | translate}}
           </div>
           <div *ngIf="'iban' === validator" class="validation">{{'VALIDATION.IBAN' | translate}}</div>
           <div *ngIf="'bic' === validator" class="validation">{{'VALIDATION.BIC' | translate}}</div>

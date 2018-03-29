@@ -280,6 +280,7 @@
       "COUNTRY_ZW": "Zimbabwe (ZW)",
       "CURRENCY": "Waluta",
       "CURRENCY_BGN": "Lew bułgarski (BGN)",
+      "CURRENCY_CAD": "Dolar kanadyjski (CAD)",
       "CURRENCY_CHF": "Frank szwajcarski (CHF)",
       "CURRENCY_CNY": "Chiński juan (CNY)",
       "CURRENCY_CZK": "Korona czeska (CZK)",
@@ -295,6 +296,7 @@
       "CURRENCY_USD": "Dolar amerykański (USD)",
       "DELETE_CONFIRMATION": "Czy na pewno chcesz usunąć to konto?",
       "EMAIL": "Email",
+      "EMAIL_OR_MOBILE": "Email lub numer telefonu",
       "EXTRA_REQUIREMENTS": "",
       "LIMITATIONS": "Ograniczenia",
       "LIMITATION_1_0125_0": "Maks. czas transakcji: 1 dni / Maks. limit transakcji: 0.0125 BTC / aktywność konta: 0 dni",
@@ -306,6 +308,8 @@
       "OWNER_NAME": "Imię i nazwisko posiadacza",
       "PAYMENT_METHOD": "Metoda płatności",
       "SALT_ACCOUNT_AGE": "Kod potwierdzający aktywność konta",
+      "SECRET_ANSWER": "Sekretne pytanie",
+      "SECRET_QUESTION": "Odpowiedz",
       "UK_SORT_NAME": "Numer porządkowy UK",
       "VENMO_NAME": "Nazwa konta Venmo"
     },
@@ -604,6 +608,7 @@
   "VALIDATION": {
     "BIC": "Wymagane 8 lub 11 znaków",
     "EMAIL": "Email jest niepoprawny",
+    "EMAIL_OR_CANADIAN_MOBILE": "Niepoprawny email lub numer telefonu",
     "IBAN": "Numer musi mieć od 15 do 34 znaków",
     "REQUIRED": "To pole jest wymagane",
     "UK_ACCOUNT_NUMBER": "Number konta musi zawierać 8 cyfr",
