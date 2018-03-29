@@ -297,6 +297,7 @@
 			"LIMITATIONS": "Limitations",
 			"LIMITATION_1_0125_0": "Max. trade duration: 1 days / Max. trade limit: 0.0125 BTC / Account age: 0 days",
 			"LIMITATION_1_04_0": "Max. trade duration: 1 days / Max. trade limit: 0.04 BTC / Account age: 0 days",
+			"LIMITATION_1_0625_0": "Max. trade duration: 1 days / Max. trade limit: 0.0625 BTC / Account age: 0 days",
 			"LIMITATION_4_0625_0": "Max. trade duration: 4 days / Max. trade limit: 0.0625 BTC / Account age: 0 days",
 			"LIMITATION_6_0625_0": "Max. trade duration: 6 days / Max. trade limit: 0.0625 BTC / Account age: 0 days",
             "NO_RESULTS": "There are no accounts to show",
