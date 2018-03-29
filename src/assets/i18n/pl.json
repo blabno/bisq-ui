@@ -62,6 +62,7 @@
 			"CURRENCY_PLN": "Polski złoty (PLN)",
 			"CURRENCY_RON": "Lej rumuński (RON)",
 			"CURRENCY_SEK": "Korona szwedzka (SEK)",
+			"CURRENCY_USD": "",
 			"DELETE_CONFIRMATION": "Czy na pewno chcesz usunąć to konto?",
 			"LIMITATIONS": "Ograniczenia",
 			"LIMITATION_SEPA": "Maks. czas transakcji: 6 dni / Maks. limit transakcji: 0.0625 BTC / aktywność konta: 0 dni",
@@ -116,7 +117,8 @@
 			"AMOUNT_IN_BTC": "Kwota w BTC (Opcjonalne)",
 			"BACK": "Powrót",
 			"FUND_YOUR_WALLET": "Zasil konto",
-			"NEW_ADDRESS": "Wygeneruj nowy adres"
+			"NEW_ADDRESS": "Wygeneruj nowy adres",
+			"NO_RESULTS": "Brak adresów"
 		},
 		"SUBMENU": {
 			"LOCKED": "Zablokowane",
@@ -174,6 +176,7 @@
 				"BY_METHOD": "Filtruj wg. metodzy płatności"
 			},
 			"NO_OFFERS": "Liczba ofert",
+			"NO_RESULTS": "Brak ofert to wyświetlenia, spróbuj usunąć filtry",
 			"PRICE": "Cena",
 			"SELL": "Sprzedaj",
 			"SHOW_ALL": "Pokaż wszystko"
@@ -207,7 +210,7 @@
 			"MINING_FEE": "Całkowity koszt wydobycia",
 			"MINUTES": "minuty",
 			"MY_ROLE": "Moja rola",
-			"NO_TRADES": "Nie posiadasz otwartch transkacji",
+			"NO_RESULTS": "Brak otwartych transakcji",
 			"PAYMENT_METHOD": "Sposób płatności",
 			"PAYMENT_RECEIVED": "Płatność potwierdzona",
 			"PAYMENT_STARTED": "Płatność ropoczęta",
@@ -316,6 +319,9 @@
 			"NETWORK_INFO": "Sieć",
 			"PREFERENCES": "Preferencje"
 		}
+	},
+	"SHARED": {
+		"LOADING": "Wczytywanie"
 	},
 	"TOAST": {
 		"ADDRESS_COPIED_TO_CLIPBOARD": "Adres skopiowany do schowka",

@@ -62,6 +62,7 @@
 			"CURRENCY_PLN": "Polish Zloty (PLN)",
 			"CURRENCY_RON": "Romanian Leu (RON)",
 			"CURRENCY_SEK": "Swedish Krona (SEK)",
+			"CURRENCY_USD": "",
 			"DELETE_CONFIRMATION": "Do you really want to delete selected account",
 			"LIMITATIONS": "Limitations",
 			"LIMITATION_SEPA": "Max. trade duration: 6 days / Max. trade limit: 0.0625 BTC / Account age: 0 days",
@@ -116,7 +117,8 @@
 			"AMOUNT_IN_BTC": "Amount in BTC (Optional)",
 			"BACK": "Back",
 			"FUND_YOUR_WALLET": "Fund your wallet",
-			"NEW_ADDRESS": "Generate new address"
+			"NEW_ADDRESS": "Generate new address",
+			"NO_RESULTS": "No wallet addresses"
 		},
 		"SUBMENU": {
 			"LOCKED": "Locked",
@@ -174,6 +176,7 @@
 				"BY_METHOD": "Filter by payment method"
 			},
 			"NO_OFFERS": "No. of offers",
+			"NO_RESULTS": "There are no offers to show, try to change your filters",
 			"PRICE": "Price",
 			"SELL": "Sell",
 			"SHOW_ALL": "Show all"
@@ -207,7 +210,7 @@
 			"MINING_FEE": "Total mining fees",
 			"MINUTES": "minutes",
 			"MY_ROLE": "My role",
-			"NO_TRADES": "You don't have open trades",
+			"NO_RESULTS": "There are no open trades currently",
 			"PAYMENT_METHOD": "Payment method",
 			"PAYMENT_RECEIVED": "Confirmed successfully",
 			"PAYMENT_STARTED": "Payment started",
@@ -316,6 +319,9 @@
 			"NETWORK_INFO": "Network",
 			"PREFERENCES": "Preferences"
 		}
+	},
+	"SHARED": {
+		"LOADING": "Loading"
 	},
 	"TOAST": {
 		"ADDRESS_COPIED_TO_CLIPBOARD": "Address copied to clipboard",

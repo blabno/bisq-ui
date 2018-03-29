@@ -10,6 +10,7 @@ export class TradeListComponent implements OnInit {
   stepsMap;
   trades = [];
   total = 0;
+  loading = true;
 
   constructor(private tradesCache: TradesCacheService) {
   }
@@ -20,6 +21,7 @@ export class TradeListComponent implements OnInit {
       .then(result => {
         this.trades = result;
         this.total = this.trades.length;
+        this.loading = false;
       });
   }
 }
