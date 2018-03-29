@@ -7,12 +7,14 @@ import {WalletDAO} from '../../shared/DAO/wallet.dao';
 })
 export class TransactionComponent implements OnInit {
   public transactions = [];
+  public loading = true;
 
   constructor(private walletDAO: WalletDAO) {}
 
   ngOnInit() {
-    this.walletDAO
-      .getTransactions()
-      .then((result: any) => (this.transactions = result.transactions));
+    this.walletDAO.getTransactions().then((result: any) => {
+      this.transactions = result.transactions || [];
+      this.loading = false;
+    });
   }
 }

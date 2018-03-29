@@ -1,4 +1,13 @@
-<div class="row">
+<div *ngIf="loading" class="d-flex justify-content-center align-items-center m-4 loading">
+    <h1>{{'SHARED.LOADING' | translate}}..</h1>
+    <ion-spinner></ion-spinner>
+</div>
+<div *ngIf="!transactions.length && !loading" class="card no-results-card">
+    <div class="card-body">
+        <span>{{'FUNDS.TRANSACTIONS.NO_RESULTS' | translate}}</span>
+    </div>
+</div>
+<div class="row" *ngIf="!loading && transactions.length">
     <div class="col-md-6 col-lg-4" *ngFor="let transaction of transactions">
         <div class="card">
             <div class="card-header">

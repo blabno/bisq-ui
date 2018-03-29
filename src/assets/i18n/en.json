@@ -128,6 +128,7 @@
 			"TRANSACTIONS": "Transactions"
 		},
 		"TRANSACTIONS": {
+			"NO_RESULTS": "There are no transactions to shpow",
 			"TRANSACTION_ID": "Transaction ID"
 		}
 	},

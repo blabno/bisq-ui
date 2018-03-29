@@ -128,6 +128,7 @@
 			"TRANSACTIONS": "Transakcje"
 		},
 		"TRANSACTIONS": {
+			"NO_RESULTS": "Nie posiadasz transakcji do wyświetlenia",
 			"TRANSACTION_ID": "ID Transakcji"
 		}
 	},
