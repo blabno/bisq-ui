@@ -23,6 +23,7 @@ export class CurrencyComponent implements OnInit, OnDestroy {
         {value: 'SEPA', label: 'SEPA'},
         {value: 'VENMO', label: 'Venmo'},
         {value: 'CHASE_QUICK_PAY', label: 'Chase QuickPay'},
+        {value: 'FASTER_PAYMENTS', label: 'Faster Payments'},
       ]
     }
   };
@@ -395,6 +396,33 @@ export class CurrencyComponent implements OnInit, OnDestroy {
         value: 'USD',
         options: [
           {value: 'USD', label: t('ACCOUNT.CURRENCY.CURRENCY_USD')}
+        ],
+        disabled: true,
+      },
+      salt: {type: 'text', label: t('ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE')},
+      accountName: {
+        type: 'text', label: t('ACCOUNT.CURRENCY.ACCOUNT_NAME'),
+        validators: ['required']
+      },
+      limitations: {
+        type: 'footer', label: t('ACCOUNT.CURRENCY.LIMITATIONS'),
+        text: t('ACCOUNT.CURRENCY.LIMITATION_1_0625_0')
+      }
+    },
+    FASTER_PAYMENTS: {
+      sortCode: {
+        type: 'text', label: t('ACCOUNT.CURRENCY.UK_SORT_NAME'),
+        validators: ['ukSortCode', 'required']
+      },
+      accountNr: {
+        type: 'text', label: t('ACCOUNT.CURRENCY.ACCOUNT_NUMBER'),
+        validators: ['required', 'ukAccountNumber']
+      },
+      selectedTradeCurrency: {
+        type: 'select', label: t('ACCOUNT.CURRENCY.CURRENCY'),
+        value: 'GBP',
+        options: [
+          {value: 'GBP', label: t('ACCOUNT.CURRENCY.CURRENCY_GBP')}
         ],
         disabled: true,
       },

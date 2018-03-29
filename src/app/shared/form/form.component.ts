@@ -4,6 +4,20 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 import {ToastService} from '../services/toast.service';
 
+function ukSortCodeValidator(control) {
+  if (!control.value || 6 !== control.value.length || !/^\d+$/.test(control.value)) {
+    return {ukSortCode: true}
+  }
+  return null;
+}
+
+function ukAccountNumberValidator(control) {
+  if (!control.value || 6 !== control.value.length || !/^\d+$/.test(control.value)) {
+    return {ukAccountNumber: true}
+  }
+  return null;
+}
+
 function ibanValidator(control) {
   if (!control.value || 15 > control.value.length || 36 < control.value.length) {
     return {iban: true}
@@ -21,6 +35,8 @@ function bicValidator(control) {
 const validatorsMap = {
   required: Validators.required,
   email: Validators.email,
+  ukSortCode: ukSortCodeValidator,
+  ukAccountNumber: ukAccountNumberValidator,
   iban: ibanValidator,
   bic: bicValidator
 };
@@ -29,7 +45,7 @@ const validatorsMap = {
   selector: 'app-form',
   templateUrl: './form.component.html'
 })
-export class FormComponent implements OnInit, OnChanges {
+export class FormComponent implements OnInit, OnChanges, OnDestroy {
   @Input() form: any;
   @Input() values: any = {};
   @Input() disabled: boolean;
