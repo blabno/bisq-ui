@@ -18,7 +18,7 @@ export class CurrencyComponent implements OnInit, OnDestroy {
       type: 'select', label: t('ACCOUNT.CURRENCY.PAYMENT_METHOD'),
       options: [
         {value: 'SEPA', label: 'SEPA'},
-        {value: 'Venmo', label: 'Venmo'}
+        {value: 'VENMO', label: 'Venmo'}
       ]
     },
   };
@@ -153,7 +153,7 @@ export class CurrencyComponent implements OnInit, OnDestroy {
       type: 'text', label: t('ACCOUNT.CURRENCY.OWNER_NAME'),
       validators: ['required']
     },
-    venmoName: {
+    venmoUserName: {
       type: 'text', label: t('ACCOUNT.CURRENCY.VENMO_NAME'),
       validators: ['required']
     },
@@ -164,6 +164,15 @@ export class CurrencyComponent implements OnInit, OnDestroy {
         {value: 'USD', label: t('ACCOUNT.CURRENCY.CURRENCY_USD')}
       ],
       disabled: true,
+    },
+    tradeCurrencies: {
+      type: 'select',
+      multiple: true,
+      value: ['USD'],
+      options: [
+        {value: 'USD', label: t('ACCOUNT.CURRENCY.CURRENCY_USD')}
+      ],
+      hidden: true
     },
     salt: {type: 'text', label: t('ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE')},
     accountName: {
@@ -248,12 +257,10 @@ export class CurrencyComponent implements OnInit, OnDestroy {
     this.selectedForm = form.value.paymentMethod
   }
 
-  submit(values) {
+  submit(payload) {
     this.creatingAccount = true;
-    const payload = _.pick(values, ['holderName', 'iban', 'bic', 'accountName', 'countryCode', 'selectedTradeCurrency', 'accountName']);
     payload.paymentMethod = this.selectedForm;
-    payload.tradeCurrencies = ['PLN'];
-    payload.acceptedCountries =  _.concat(values.acceptedCountriesEuro, values.acceptedCountriesNonEuro);
+    payload = _.omit(payload, ['salt', 'limitations']);
     this.paymentAccountsDAO.create(payload)
       .then(() => {
         this.cancel();
@@ -265,6 +272,17 @@ export class CurrencyComponent implements OnInit, OnDestroy {
         this.toast.show(t('TOAST.PAYMENT_METHOD_CREATE_ERROR'), 'error');
         this.creatingAccount = false;
       });
+  }
+
+  submitSepa(values) {
+    const payload = _.pick(values, ['holderName', 'iban', 'bic', 'accountName', 'countryCode', 'selectedTradeCurrency', 'accountName']);
+    payload.tradeCurrencies = [values.selectedTradeCurrency];
+    payload.acceptedCountries =  _.concat(values.acceptedCountriesEuro, values.acceptedCountriesNonEuro);
+    this.submit(payload)
+  }
+
+  submitVenmo(values) {
+    this.submit(values)
   }
 
   delete() {
