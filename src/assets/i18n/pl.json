@@ -1,5 +1,6 @@
 {
   "ACCOUNT": {
+    "ACCOUNTS_LIST": "Lista kont",
     "ADD_NEW": "Dodaj konto",
     "ALTCOINS": {
       "NO_RESULTS": "Brak altcoinow do wyświetlenia"
@@ -304,6 +305,7 @@
       "LIMITATION_1_0625_0": "Maks. czas transakcji: 1 dni / Maks. limit transakcji: 0.0625 BTC / aktywność konta: 0 dni",
       "LIMITATION_4_0625_0": "Maks. czas transakcji: 4 dni / Maks. limit transakcji: 0.0625 BTC / aktywność konta: 0 dni",
       "LIMITATION_6_0625_0": "Maks. czas transakcji: 6 dni / Maks. limit transakcji: 0.0625 BTC / aktywność konta: 0 dni",
+      "NATIONAL_BANK_TRANSFER": "Krajowy przelew bankowy",
       "NO_RESULTS": "Brak kont do wyświetlenia",
       "OWNER_NAME": "Imię i nazwisko posiadacza",
       "PAYMENT_METHOD": "Metoda płatności",
@@ -389,6 +391,7 @@
     "FUNDS": "Fundusze",
     "PORTFOLIO": "Portfolio",
     "SELL": "Sprzedaj",
+    "SETTINGS": "Ustawienia",
     "SETTINGS": "Ustawienia",
     "SUPPORT": "Wsparcie"
   },
