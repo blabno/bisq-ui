@@ -17,10 +17,43 @@ export class CurrencyComponent implements OnInit, OnDestroy {
     paymentMethod: {
       type: 'select', label: t('ACCOUNT.CURRENCY.PAYMENT_METHOD'),
       options: [
+        {value: 'ALI_PAY', label: 'AliPay'},
         {value: 'SEPA', label: 'SEPA'},
         {value: 'VENMO', label: 'Venmo'}
       ]
     },
+  };
+  aliPayForm = {
+    accountNr: {
+      type: 'text', label: t('ACCOUNT.CURRENCY.ALI_PAY_NR'),
+      validators: ['required']
+    },
+    selectedTradeCurrency: {
+      type: 'select', label: t('ACCOUNT.CURRENCY.CURRENCY'),
+      value: 'CNY',
+      options: [
+        {value: 'CNY', label: t('ACCOUNT.CURRENCY.CURRENCY_CNY')}
+      ],
+      disabled: true,
+    },
+    tradeCurrencies: {
+      type: 'select',
+      multiple: true,
+      value: ['CNY'],
+      options: [
+        {value: 'CNY', label: t('ACCOUNT.CURRENCY.CURRENCY_CNY')}
+      ],
+      hidden: true
+    },
+    salt: {type: 'text', label: t('ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE')},
+    accountName: {
+      type: 'text', label: t('ACCOUNT.CURRENCY.ACCOUNT_NAME'),
+      validators: ['required']
+    },
+    limitations: {
+      type: 'footer', label: t('ACCOUNT.CURRENCY.LIMITATIONS'),
+      text: t('ACCOUNT.CURRENCY.LIMITATION_ALI_PAY')
+    }
   };
   sepaForm = {
     holderName: {
