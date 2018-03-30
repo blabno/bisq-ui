@@ -1,19 +1,19 @@
 {
 	"ACCOUNT": {
-        "ACCOUNTS_LIST": "Accounts list",
-        "ADD_NEW": "Add new account",
-        "ALTCOINS": {
-            "NO_RESULTS": "There are no altcoins to show"
-        },
-        "ARBITRATOR": {
-            "ARBITRATOR_ADDRESS": "Address",
-            "AUTO_SELECT_ARBITRATORS_WITH_MATCHING_LANGUAGE": "Auto select arbitrators with matching language",
-            "NOMINATE_YOURSELF": "Nominate yourself",
-            "NO_RESULTS": "There are no registered arbitrators",
-            "SELECTED": "Selected",
-            "WHICH_ARBITRATORS_DO_YOU_ACCEPT": "Which arbitrators do you accept",
-            "WHICH_LANGUAGE_DO_YOU_SPEAK": "Which language do you speak"
-        },
+		"ACCOUNTS_LIST": "Accounts list",
+		"ADD_NEW": "Add new account",
+		"ALTCOINS": {
+			"NO_RESULTS": "There are no altcoins to show"
+		},
+		"ARBITRATOR": {
+			"ARBITRATOR_ADDRESS": "Address",
+			"AUTO_SELECT_ARBITRATORS_WITH_MATCHING_LANGUAGE": "Auto select arbitrators with matching language",
+			"NOMINATE_YOURSELF": "Nominate yourself",
+			"NO_RESULTS": "There are no registered arbitrators",
+			"SELECTED": "Selected",
+			"WHICH_ARBITRATORS_DO_YOU_ACCEPT": "Which arbitrators do you accept",
+			"WHICH_LANGUAGE_DO_YOU_SPEAK": "Which language do you speak"
+		},
 		"CANCEL": "Anuluj",
 		"CREATE_NEW": "Create new Account",
 		"CURRENCY": {
@@ -454,10 +454,9 @@
 			"LIMITATION_2_0625_0": "Max. trade duration: 2 days / Max. trade limit: 0.0625 BTC / Account age: 0 days",
 			"LIMITATION_4_0625_0": "Max. trade duration: 4 days / Max. trade limit: 0.0625 BTC / Account age: 0 days",
 			"LIMITATION_6_0625_0": "Max. trade duration: 6 days / Max. trade limit: 0.0625 BTC / Account age: 0 days",
-            "NATIONAL_BANK_TRANSFER": "National bank transfer",
-            "NO_RESULTS": "There are no accounts to show",
-            "OK_PAY_ID": "Wallet ID",
-            "OWNER_NAME": "Account owner full name",
+			"NATIONAL_BANK_TRANSFER": "National bank transfer",
+			"NO_RESULTS": "There are no accounts to show",
+			"OWNER_NAME": "Account owner full name",
 			"PAYMENT_METHOD": "Payment method",
 			"SALT_ACCOUNT_AGE": "Salt for account age verification",
 			"SAME_BANK_TRANSFER": "Transfer with the same bank",
@@ -524,8 +523,8 @@
 			"TRANSACTIONS": "Transactions"
 		},
 		"TRANSACTIONS": {
-            "NO_RESULTS": "There are no transactions to shpow",
-            "TRANSACTION_ID": "Transaction ID"
+			"NO_RESULTS": "There are no transactions to shpow",
+			"TRANSACTION_ID": "Transaction ID"
 		}
 	},
 	"INFO_MODAL": {
@@ -672,7 +671,6 @@
 		"BACKEND_URL_MISSING_REDIRECT": "Go to setup",
 		"BACKEND_URL_MISSING_TEXT": "This application requires correct URL address to running BISQ server.",
 		"BACKEND_URL_MISSING_TITLE": "Server address is undefined",
-		"BACKEND_URL_PLACEHOLDER": "Type or select server address",
 		"BACKEND_URL_REQUIRED": "Server address cannot be empty",
 		"BACKEND_URL_UNAVAILABLE": "Unable to connect to specified address",
 		"BACKEND_URL_UPDATED": "Successfully connected",

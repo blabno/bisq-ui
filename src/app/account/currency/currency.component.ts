@@ -31,6 +31,7 @@ export class CurrencyComponent implements OnInit, OnDestroy {
         {value: 'REVOLUT', label: 'Revolut'},
         {value: 'SAME_BANK', label: t('ACCOUNT.CURRENCY.SAME_BANK_TRANSFER')},
         {value: 'SEPA', label: 'SEPA'},
+        {value: 'SEPA_INSTANT', label: 'SEPA Instant Payments'},
         {value: 'VENMO', label: 'Venmo'},
       ]
     }
@@ -1827,6 +1828,132 @@ export class CurrencyComponent implements OnInit, OnDestroy {
         text: t('ACCOUNT.CURRENCY.LIMITATION_6_0625_0')
       }
     },
+    SEPA_INSTANT: {
+      holderName: {
+        type: 'text', label: t('ACCOUNT.CURRENCY.OWNER_NAME'),
+        validators: ['required']
+      },
+      iban: {
+        type: 'text', label: 'IBAN',
+        validators: ['required', 'iban']
+      },
+      bic: {
+        type: 'text', label: 'BIC',
+        validators: ['required', 'bic']
+      },
+      countryCode: {
+        type: 'select', label: t('ACCOUNT.CURRENCY.BANK_COUNTRY'),
+        options: [
+          {value: 'AT', label: t('ACCOUNT.CURRENCY.COUNTRY_AT')},
+          {value: 'BE', label: t('ACCOUNT.CURRENCY.COUNTRY_BE')},
+          {value: 'CY', label: t('ACCOUNT.CURRENCY.COUNTRY_CY')},
+          {value: 'EE', label: t('ACCOUNT.CURRENCY.COUNTRY_EE')},
+          {value: 'FI', label: t('ACCOUNT.CURRENCY.COUNTRY_FI')},
+          {value: 'FR', label: t('ACCOUNT.CURRENCY.COUNTRY_FR')},
+          {value: 'GR', label: t('ACCOUNT.CURRENCY.COUNTRY_GR')},
+          {value: 'ES', label: t('ACCOUNT.CURRENCY.COUNTRY_ES')},
+          {value: 'NL', label: t('ACCOUNT.CURRENCY.COUNTRY_NL')},
+          {value: 'IE', label: t('ACCOUNT.CURRENCY.COUNTRY_IE')},
+          {value: 'LT', label: t('ACCOUNT.CURRENCY.COUNTRY_LT')},
+          {value: 'LU', label: t('ACCOUNT.CURRENCY.COUNTRY_LU')},
+          {value: 'MT', label: t('ACCOUNT.CURRENCY.COUNTRY_MT')},
+          {value: 'MC', label: t('ACCOUNT.CURRENCY.COUNTRY_MC')},
+          {value: 'DE', label: t('ACCOUNT.CURRENCY.COUNTRY_DE')},
+          {value: 'PT', label: t('ACCOUNT.CURRENCY.COUNTRY_PT')},
+          {value: 'SK', label: t('ACCOUNT.CURRENCY.COUNTRY_SK')},
+          {value: 'SI', label: t('ACCOUNT.CURRENCY.COUNTRY_SI')},
+          {value: 'IT', label: t('ACCOUNT.CURRENCY.COUNTRY_IT')},
+          {value: 'LV', label: t('ACCOUNT.CURRENCY.COUNTRY_LV')},
+          {value: 'BG', label: t('ACCOUNT.CURRENCY.COUNTRY_BG')},
+          {value: 'HR', label: t('ACCOUNT.CURRENCY.COUNTRY_HR')},
+          {value: 'DK', label: t('ACCOUNT.CURRENCY.COUNTRY_DK')},
+          {value: 'IS', label: t('ACCOUNT.CURRENCY.COUNTRY_IS')},
+          {value: 'LI', label: t('ACCOUNT.CURRENCY.COUNTRY_LI')},
+          {value: 'NO', label: t('ACCOUNT.CURRENCY.COUNTRY_NO')},
+          {value: 'PL', label: t('ACCOUNT.CURRENCY.COUNTRY_PL')},
+          {value: 'CZ', label: t('ACCOUNT.CURRENCY.COUNTRY_CZ')},
+          {value: 'RO', label: t('ACCOUNT.CURRENCY.COUNTRY_RO')},
+          {value: 'CH', label: t('ACCOUNT.CURRENCY.COUNTRY_CH')},
+          {value: 'SE', label: t('ACCOUNT.CURRENCY.COUNTRY_SE')},
+          {value: 'GB', label: t('ACCOUNT.CURRENCY.COUNTRY_GB')},
+          {value: 'HU', label: t('ACCOUNT.CURRENCY.COUNTRY_HU')}
+        ],
+        validators: ['required']
+      },
+      tradeCurrencies: {
+        type: 'select', label: t('ACCOUNT.CURRENCY.CURRENCY'),
+        options: [
+          {value: 'EUR', label: t('ACCOUNT.CURRENCY.CURRENCY_EUR')},
+          {value: 'BGN', label: t('ACCOUNT.CURRENCY.CURRENCY_BGN')},
+          {value: 'DKK', label: t('ACCOUNT.CURRENCY.CURRENCY_DKK')},
+          {value: 'ISK', label: t('ACCOUNT.CURRENCY.CURRENCY_ISK')},
+          {value: 'CHF', label: t('ACCOUNT.CURRENCY.CURRENCY_CHF')},
+          {value: 'NOK', label: t('ACCOUNT.CURRENCY.CURRENCY_NOK')},
+          {value: 'PLN', label: t('ACCOUNT.CURRENCY.CURRENCY_PLN')},
+          {value: 'CZK', label: t('ACCOUNT.CURRENCY.CURRENCY_CZK')},
+          {value: 'RON', label: t('ACCOUNT.CURRENCY.CURRENCY_RON')},
+          {value: 'SEK', label: t('ACCOUNT.CURRENCY.CURRENCY_SEK')},
+          {value: 'HUF', label: t('ACCOUNT.CURRENCY.CURRENCY_HUF')}
+        ],
+        validators: ['required']
+      },
+      acceptedCountriesEuro: {
+        type: 'select', label: t('ACCOUNT.CURRENCY.ACCEPTED_TRADES_EURO'),
+        multiple: true,
+        value: ['AT', 'BE', 'CY', 'EE', 'FI', 'FR', 'GR', 'ES', 'NL', 'IE', 'LT', 'LU', 'MT', 'MC', 'DE', 'PT', 'SK', 'SI', 'IT', 'LV'],
+        options: [
+          {value: 'AT', label: 'AT'},
+          {value: 'BE', label: 'BE'},
+          {value: 'CY', label: 'CY'},
+          {value: 'EE', label: 'EE'},
+          {value: 'FI', label: 'FI'},
+          {value: 'FR', label: 'FR'},
+          {value: 'GR', label: 'GR'},
+          {value: 'ES', label: 'ES'},
+          {value: 'NL', label: 'NL'},
+          {value: 'IE', label: 'IE'},
+          {value: 'LT', label: 'LT'},
+          {value: 'LU', label: 'LU'},
+          {value: 'MT', label: 'MT'},
+          {value: 'MC', label: 'MC'},
+          {value: 'DE', label: 'DE'},
+          {value: 'PT', label: 'PT'},
+          {value: 'SK', label: 'SK'},
+          {value: 'SI', label: 'SI'},
+          {value: 'IT', label: 'IT'},
+          {value: 'LV', label: 'LV'}
+        ]
+      },
+      acceptedCountriesNonEuro: {
+        type: 'select', label: t('ACCOUNT.CURRENCY.ACCEPTED_TRADES_NON_EURO'),
+        multiple: true,
+        value: ['BG', 'HR', 'DK', 'IS', 'LI', 'NO', 'PL', 'CZ', 'RO', 'CH', 'SE', 'GB', 'HU'],
+        options: [
+          {value: 'BG', label: 'BG'},
+          {value: 'HR', label: 'HR'},
+          {value: 'DK', label: 'DK'},
+          {value: 'IS', label: 'IS'},
+          {value: 'LI', label: 'LI'},
+          {value: 'NO', label: 'NO'},
+          {value: 'PL', label: 'PL'},
+          {value: 'CZ', label: 'CZ'},
+          {value: 'RO', label: 'RO'},
+          {value: 'CH', label: 'CH'},
+          {value: 'SE', label: 'SE'},
+          {value: 'GB', label: 'GB'},
+          {value: 'HU', label: 'HU'}
+        ]
+      },
+      salt: {type: 'text', label: t('ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE')},
+      accountName: {
+        type: 'text', label: t('ACCOUNT.CURRENCY.ACCOUNT_NAME'),
+        validators: ['required']
+      },
+      limitations: {
+        type: 'footer', label: t('ACCOUNT.CURRENCY.LIMITATIONS'),
+        text: t('ACCOUNT.CURRENCY.LIMITATION_1_0625_0')
+      }
+    },
     VENMO: {
       holderName: {
         type: 'text', label: t('ACCOUNT.CURRENCY.OWNER_NAME'),
@@ -1935,7 +2062,7 @@ export class CurrencyComponent implements OnInit, OnDestroy {
   submit(values) {
     const payload = _.cloneDeep(values);
     this.creatingAccount = true;
-    if ('SEPA' === this.selectedForm) {
+    if ('SEPA' === this.selectedForm || 'SEPA_INSTANT' === this.selectedForm) {
       payload.acceptedCountries = _.concat(payload.acceptedCountriesEuro, payload.acceptedCountriesNonEuro);
       delete payload.acceptedCountriesEuro;
       delete payload.acceptedCountriesNonEuro;

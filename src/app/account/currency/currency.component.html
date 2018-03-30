@@ -22,7 +22,7 @@
       </div>
     </div>
   </div>
-  <div *ngIf="formOpened && !loading"">
+  <div *ngIf="formOpened && !loading">
     <app-form [form]="paymentForm" [disabled]="formDisabled" [values]="paymentValues"
               (onChange)="change($event)"></app-form>
     <app-form #formElement [form]="formMap[selectedForm]" [values]="detailsValues"
