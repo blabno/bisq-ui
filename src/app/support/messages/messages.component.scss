@@ -1,18 +1,43 @@
 app-support-messages {
-  .message {
-    border: 1px solid silver;
-    margin-bottom: 10px;
-    padding: 5px;
-    .message-date {
-      color: #999999;
-      font-size: small;
-    }
+  .desktop-max-width {
+    height: 100%;
   }
-  .message-input {
-    padding-left: 0;
-    textarea.text-input {
-      display: block;
-      height: 100px;
+  .back-btn {
+    margin-bottom: 5px;
+  }
+  .messages-container {
+    height: calc(100% - 30px);
+    position: relative;
+    .top-section {
+      height: calc(100% - 130px);
+      width: 100%;
+      position: absolute;
+      overflow-y: auto;
+      .message {
+        border: 1px solid silver;
+        margin-bottom: 10px;
+        padding: 5px;
+        .message-date {
+          color: #999999;
+          font-size: small;
+        }
+      }
+    }
+    .bottom-section {
+      position: absolute;
+      bottom: 5px;
+      width: 100%;
+      .message-input {
+        padding-left: 0;
+        textarea.text-input {
+          display: block;
+          height: 40px;
+        }
+      }
+      .send-btn {
+        margin-top: 10px;
+        float: right;
+      }
     }
   }
 }

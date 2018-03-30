@@ -47,4 +47,11 @@ export class SupportDAO {
       }, 2000);
     });
   }
+
+  send(message, disputeId) {
+    this.messages.push({
+      date: new Date().toUTCString(),
+      message
+    });
+  }
 }

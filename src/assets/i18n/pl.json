@@ -737,7 +737,8 @@
 			"EMPTY": "Nie ma żadnych sporów do pokazania"
 		},
 		"MESSAGES": {
-			"MESSAGES_HEADER": "Wiadomości"
+			"MESSAGES_HEADER": "Wiadomości",
+			"SEND": "Wyślij"
 		}
 	},
 	"TOAST": {

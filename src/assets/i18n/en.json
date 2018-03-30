@@ -737,7 +737,8 @@
 			"EMPTY": "There are no disputes to showing"
 		},
 		"MESSAGES": {
-			"MESSAGES_HEADER": "Messages"
+			"MESSAGES_HEADER": "Messages",
+			"SEND": "Send"
 		}
 	},
 	"TOAST": {
