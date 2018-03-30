@@ -116,8 +116,8 @@
         <ion-label>{{'SETTINGS.PREFERENCES.SORT_MARKERS_LISTS' | translate }}</ion-label>
         <ion-checkbox [(ngModel)]="settings.sortMarkersLists" (ionChange)="settings.saveSettings()"></ion-checkbox>
       </ion-item>
-      <ion-item class="button">
-        <button ion-button>{{'SETTINGS.PREFERENCES.RESET_ALL' | translate }}</button>
+      <ion-item>
+        <button ion-button color="light" (click)="resetAllHiddenModalsPreferences()">{{'SETTINGS.PREFERENCES.RESET_ALL' | translate }}</button>
       </ion-item>
     </div>
   </div>

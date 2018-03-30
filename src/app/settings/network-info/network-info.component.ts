@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
-
+import {ToastService} from '../../shared/services/toast.service';
+import t from '../../shared/defineTextToTranslate';
 @Component({
   selector: 'app-network-info',
   templateUrl: 'network-info.component.html'
@@ -18,6 +19,9 @@ export class NetworkInfoComponent {
   public myOnionAddress = 'vftomyq6q36h2mwj.onion:9999';
   public traffic = "Sent: 41.34MB, received: 34.32 MB";
 
-  constructor() {
+  constructor(private toast: ToastService) {
+  }
+  notDoneYet() {
+    this.toast.show(t('SHARED.NOT_DONE_YET'), 'info');
   }
 }

@@ -1,6 +1,5 @@
 {
 	"ACCOUNT": {
-		"ACCOUNTS_LIST": "Accounts list",
 		"ADD_NEW": "Add new account",
 		"ALTCOINS": {
 			"NO_RESULTS": "There are no altcoins to show"
@@ -281,7 +280,6 @@
 		"BACKEND_URL_MISSING_REDIRECT": "Go to setup",
 		"BACKEND_URL_MISSING_TEXT": "This application requires correct URL address to running BISQ server.",
 		"BACKEND_URL_MISSING_TITLE": "Server address is undefined",
-		"BACKEND_URL_PLACEHOLDER": "Type or select server address",
 		"BACKEND_URL_REQUIRED": "Server address cannot be empty",
 		"BACKEND_URL_UNAVAILABLE": "Unable to connect to specified address",
 		"BACKEND_URL_UPDATED": "Successfully connected",
@@ -299,6 +297,7 @@
 			"USE_TOR_FOR_BITCOIN_NETWORK": "Use tor for bitcoin network"
 		},
 		"PREFERENCES": {
+			"ALL_HIDDEN_MODALS_RESETED": "All hidden modals settings reseted",
 			"AUTO_SELECT_ARBITRATORS": "Auto select arbitrators",
 			"BITCOIN_BLOCK_EXPLORER": "Bitcoin block explorer",
 			"COUNTRY": "Country",
@@ -327,7 +326,8 @@
 		}
 	},
 	"SHARED": {
-		"LOADING": "Loading"
+		"LOADING": "Loading",
+		"NOT_DONE_YET": "Functionality is not done yet"
 	},
 	"TOAST": {
 		"ADDRESS_COPIED_TO_CLIPBOARD": "Address copied to clipboard",

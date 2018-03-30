@@ -38,6 +38,8 @@ export class SettingsService {
   public autoSelectArbitratorsWithMatchingLanguage = true;
   // OFFERS LIST
   public selectedCurrencyOnOfferList = null;
+  // HIDDEN MODALS
+  public hiddenModals = [];
 
   constructor() {
     this.loadSettings();

@@ -27,7 +27,7 @@
       </div>
       <div *ngIf="arbitrators.length && !loading" class="row">
         <div class="col-md-6 col-lg-4" *ngFor="let arbitrator of arbitrators">
-          <div class="card p-2">
+          <div class="card">
             <div class="card-header">{{'ACCOUNT.ARBITRATOR.ARBITRATOR_ADDRESS' | translate }} : {{arbitrator.address}}</div>
             <div class="buttons">
               <ion-item>
@@ -39,8 +39,8 @@
         </div>
       </div>
     </div>
-    <button ion-button item-end color="light" (click)="nominateYourself()" [disabled]="nominatingInProgress">
-      {{'ACCOUNT.ARBITRATOR.NOMINATE_YOURSELF' | translate}}
-      <ion-spinner *ngIf="nominatingInProgress" item-end></ion-spinner>
-    </button>
   </div>
+  <button ion-button item-end color="light" class="float-right" (click)="nominateYourself()" [disabled]="nominatingInProgress">
+    {{'ACCOUNT.ARBITRATOR.NOMINATE_YOURSELF' | translate}}
+    <ion-spinner *ngIf="nominatingInProgress" item-end></ion-spinner>
+  </button>

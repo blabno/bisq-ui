@@ -1,6 +1,5 @@
 {
 	"ACCOUNT": {
-		"ACCOUNTS_LIST": "Lista kont",
 		"ADD_NEW": "Dodaj konto",
 		"ALTCOINS": {
 			"NO_RESULTS": "Brak altcoinow do wyświetlenia"
@@ -281,7 +280,6 @@
 		"BACKEND_URL_MISSING_REDIRECT": "Przejdź do ustawień ",
 		"BACKEND_URL_MISSING_TEXT": "Ta aplikacja wymaga prawidłowego adresu URL do działającego serwera BISQ",
 		"BACKEND_URL_MISSING_TITLE": "Brak adresu serwera",
-		"BACKEND_URL_PLACEHOLDER": "Wpisz lub wybierz adres serwera",
 		"BACKEND_URL_REQUIRED": "Adres serwera nie może być pusty",
 		"BACKEND_URL_UNAVAILABLE": "Błąd połączenia z wybranym adresem",
 		"BACKEND_URL_UPDATED": "Połączono pomyślnie",
@@ -299,6 +297,7 @@
 			"USE_TOR_FOR_BITCOIN_NETWORK": "Użyj sieci tor"
 		},
 		"PREFERENCES": {
+			"ALL_HIDDEN_MODALS_RESETED": "Wszystkie ustawienia ukrycia modali zresetowane",
 			"AUTO_SELECT_ARBITRATORS": "Automatycznie przydziel arbitrów",
 			"BITCOIN_BLOCK_EXPLORER": "Serwis do Bitcoin block",
 			"COUNTRY": "Kraj",
@@ -327,7 +326,8 @@
 		}
 	},
 	"SHARED": {
-		"LOADING": "Wczytywanie"
+		"LOADING": "Wczytywanie",
+		"NOT_DONE_YET": "Funkcjonalność nie skończona jeszcze"
 	},
 	"TOAST": {
 		"ADDRESS_COPIED_TO_CLIPBOARD": "Adres skopiowany do schowka",

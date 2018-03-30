@@ -3,7 +3,8 @@ import {TranslateService} from '@ngx-translate/core';
 import {CurrenciesDAO} from '../../shared/DAO/currencies.dao';
 import _ from 'lodash';
 import {SettingsService} from '../../shared/services/settings.service';
-
+import {ToastService} from '../../shared/services/toast.service';
+import t from '../../shared/defineTextToTranslate';
 @Component({
   selector: 'app-preferences',
   templateUrl: 'preferences.component.html'
@@ -16,7 +17,7 @@ export class PreferencesComponent implements OnInit, OnDestroy {
   public nationalCurrencies = [];
   public currencies = [];
 
-  constructor(private translate: TranslateService, private currenciesDAO: CurrenciesDAO, public settings: SettingsService) {
+  constructor(private translate: TranslateService, private currenciesDAO: CurrenciesDAO, public settings: SettingsService, private toast: ToastService) {
   }
 
   ngOnInit() {
@@ -34,5 +35,11 @@ export class PreferencesComponent implements OnInit, OnDestroy {
     this.translate.use(e);
     this.settings.language = e;
     this.settings.saveSettings();
+  }
+
+  resetAllHiddenModalsPreferences() {
+    this.settings.hiddenModals = [];
+    this.settings.saveSettings();
+    this.toast.show(t('SETTINGS.PREFERENCES.ALL_HIDDEN_MODALS_RESETED'), 'info');
   }
 }

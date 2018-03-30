@@ -1,22 +1,19 @@
 <div class="desktop-max-width">
-  <div class="card">
-    <div class="card-header">{{'ACCOUNT.ACCOUNTS_LIST' | translate}}</div>
+  <div *ngIf="loading" class="d-flex justify-content-center align-items-center m-4 loading">
+    <h1>{{'SHARED.LOADING' | translate}}..</h1>
+    <ion-spinner></ion-spinner>
+  </div>
+  <div *ngIf="!altcoins.length && !loading" class="card no-results-card">
     <div class="card-body">
-      <div *ngIf="loading" class="d-flex justify-content-center align-items-center m-4 loading">
-        <h1>{{'SHARED.LOADING' | translate}}..</h1>
-        <ion-spinner></ion-spinner>
-      </div>
-      <div *ngIf="!altcoins.length && !loading" class="card no-results-card borderless">
-        <div class="card-body">
-          <span>{{'ACCOUNT.ALTCOINS.NO_RESULTS' | translate}}</span>
-        </div>
-      </div>
+      <span>{{'ACCOUNT.ALTCOINS.NO_RESULTS' | translate}}</span>
     </div>
   </div>
   <div class="buttons">
     <button class="btn btn-primary button-md" (click)="addNew()">{{'ACCOUNT.ADD_NEW' | translate}}</button>
-    <button class="btn btn-primary button-md">{{'ACCOUNT.EXPORT' | translate}}</button>
-    <button class="btn btn-primary button-md">{{'ACCOUNT.IMPORT' | translate}}</button>
+    <div class="float-right">
+      <button *ngIf="altcoins.length" ion-button color="light">{{'ACCOUNT.EXPORT' | translate}}</button>
+      <button class="d-block d-md-inline-block" ion-button color="light">{{'ACCOUNT.IMPORT' | translate}}</button>
+    </div>
   </div>
 
   <div *ngIf="formOpen">
