@@ -25,9 +25,25 @@ a:hover {
 .card {
   margin-bottom: 15px;
 }
-@media (min-width: 992px) {
+
+.view {
+  outline: 1px solid red;
+  display: block;
+  height: calc(100vh - 72px);
+  overflow-y: auto;
+  padding: 15px;
+}
+
+@media (max-width: 992px) {
   .view {
-    padding: 15px;
+    height: calc(100vh - 52px);
+  }
+}
+
+.clickable {
+  cursor: pointer;
+  &:hover {
+    border-color: var(--blue);
   }
 }
 

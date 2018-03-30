@@ -7,12 +7,13 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {NgxQRCodeModule} from 'ngx-qrcode2';
+
 import {Clipboard} from '@ionic-native/clipboard';
+import {SplashScreen} from '@ionic-native/splash-screen';
+import {StatusBar} from '@ionic-native/status-bar';
 
 import appRoutes from './app.routes';
 
-import {StatusBar} from '@ionic-native/status-bar';
-import {SplashScreen} from '@ionic-native/splash-screen';
 import {AboutComponent} from './settings/about/about.component';
 import {AltcoinsComponent} from './account/altcoins/altcoins.component';
 import {AppComponent} from './app.component';
@@ -29,6 +30,7 @@ import {LockedComponent} from './funds/locked/locked.component';
 import {MainComponent} from './main/main.component';
 import {MarketComponent} from './market/market.component';
 import {MenuComponent} from './menu/menu.component';
+import {MessagesComponent} from "./support/messages/messages.component";
 import {MyOpenOffersComponent} from './portfolio/myOpenOffers/myOpenOffers.component';
 import {NetworkInfoComponent} from './settings/network-info/network-info.component';
 import {OffersComponent} from './offers/offers.component';
@@ -38,21 +40,22 @@ import {ReceiveComponent} from './funds/receive/receive.component';
 import {ReservedComponent} from './funds/reserved/reserved.component';
 import {SendComponent} from './funds/send/send.component';
 import {SummaryComponent} from './market/summary/summary.component';
+import {SupportComponent} from "./support/support.component";
+import {TakeOfferComponent} from './offers/takeOffer/takeOffer.component';
 import {TradeDetailsComponent} from './portfolio/openTrades/tradeDetails/tradeDetails.component';
 import {TradeListComponent} from './portfolio/openTrades/tradeList/tradeList.component';
 import {TradeStatusComponent} from './portfolio/openTrades/tradeStatus/tradeStatus.component';
 import {TransactionComponent} from './funds/transactions/transaction.component';
 import {WalletPassComponent} from './account/wallet-pass/wallet-pass.component';
 import {WalletSeedComponent} from './account/wallet-seed/wallet-seed.component';
-import {TakeOfferComponent} from './offers/takeOffer/takeOffer.component';
 
 const loadModules = [
   AboutComponent,
   AltcoinsComponent,
   AppComponent,
   ArbitratorComponent,
-  BackupComponent,
   BackendUrlComponent,
+  BackupComponent,
   CreateOffersComponent,
   CurrencyComponent,
   FormComponent,
@@ -63,6 +66,7 @@ const loadModules = [
   MainComponent,
   MarketComponent,
   MenuComponent,
+  MessagesComponent,
   MyOpenOffersComponent,
   NetworkInfoComponent,
   OffersComponent,
@@ -72,13 +76,14 @@ const loadModules = [
   ReservedComponent,
   SendComponent,
   SummaryComponent,
+  SupportComponent,
+  TakeOfferComponent,
   TradeDetailsComponent,
   TradeListComponent,
   TradeStatusComponent,
   TransactionComponent,
   WalletPassComponent,
-  WalletSeedComponent,
-  TakeOfferComponent,
+  WalletSeedComponent
 ];
 
 export function createTranslateLoader(http: HttpClient) {

@@ -153,7 +153,8 @@
 		"FUNDS": "Fundusze",
 		"PORTFOLIO": "Portfolio",
 		"SELL": "Sprzedaj",
-		"SETTINGS": "Ustawienia"
+		"SETTINGS": "Ustawienia",
+		"SUPPORT": "Wsparcie"
 	},
 	"OFFERS": {
 		"CREATE": {
@@ -210,6 +211,9 @@
 			"COUNTRY_OF_BANK": "Kraj konta bankowego",
 			"DAYS": "dni",
 			"DEPOSIT_ID": "ID Depozytu",
+			"DISPUTE_OPENED": "Dysputa otwarta",
+			"DISPUTE_PEER_INFO": "Twój partner handlowy otwarł dysputę.\nProszę komunikować się w sekcji \"Wsparcie\" z arbitrem.",
+			"DISPUTE_REQUESTED_INFO": "Otwarłeś dysputę.\nProszę komunikować się w sekcji \"Wsparcie\" z arbitrem.",
 			"HOURS": "godziny",
 			"MARKET": "Market",
 			"MAX_ALLOWED_PERIOD": "Maksymalny okres wymiany",
@@ -328,6 +332,14 @@
 	},
 	"SHARED": {
 		"LOADING": "Wczytywanie"
+	},
+	"SUPPORT": {
+		"LIST": {
+			"EMPTY": "Nie ma żadnych sporów do pokazania"
+		},
+		"MESSAGES": {
+			"MESSAGES_HEADER": "Wiadomości"
+		}
 	},
 	"TOAST": {
 		"ADDRESS_COPIED_TO_CLIPBOARD": "Adres skopiowany do schowka",

@@ -8,6 +8,16 @@
                       definedStep="3"></app-trade-status>
     <app-trade-status [text]="stepsMap.steps[3].labels[selectedTradeRole]" [currentStep]="selectedTradeStep"
                       definedStep="4"></app-trade-status>
+    <div *ngIf="'NO_DISPUTE' != trade.disputeState">
+      <div class="card" *ngIf="'DISPUTE_REQUESTED' === trade.disputeState">
+        <div class="card-header">{{'PORTFOLIO.OPEN_TRADES.DISPUTE_OPENED' | translate}}</div>
+        <div class="card-body">{{'PORTFOLIO.OPEN_TRADES.DISPUTE_REQUESTED_INFO' | translate}}</div>
+      </div>
+      <div class="card" *ngIf="'DISPUTE_STARTED_BY_PEER' === trade.disputeState">
+        <div class="card-header">{{'PORTFOLIO.OPEN_TRADES.DISPUTE_OPENED' | translate}}</div>
+        <div class="card-body">{{'PORTFOLIO.OPEN_TRADES.DISPUTE_PEER_INFO' | translate}}</div>
+      </div>
+    </div>
   </div>
   <div class="col-lg-8">
     <div class="card" *ngIf="4 !== selectedTradeStep">
