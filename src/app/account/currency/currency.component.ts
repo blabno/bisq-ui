@@ -27,6 +27,7 @@ export class CurrencyComponent implements OnInit, OnDestroy {
         {value: 'NATIONAL_BANK', label: t('ACCOUNT.CURRENCY.NATIONAL_BANK_TRANSFER')},
         {value: 'OK_PAY', label: 'OKPay'},
         {value: 'PERFECT_MONEY', label: 'Perfect Money'},
+        {value: 'POPMONEY', label: 'Popmoney'},
         {value: 'SEPA', label: 'SEPA'},
         {value: 'VENMO', label: 'Venmo'},
       ]
@@ -858,6 +859,33 @@ export class CurrencyComponent implements OnInit, OnDestroy {
       limitations: {
         type: 'footer', label: t('ACCOUNT.CURRENCY.LIMITATIONS'),
         text: t('ACCOUNT.CURRENCY.LIMITATION_1_0125_0')
+      }
+    },
+    POPMONEY: {
+      holderName: {
+        type: 'text', label: t('ACCOUNT.CURRENCY.OWNER_NAME'),
+        validators: ['required']
+      },
+      accountId: {
+        type: 'text', label: t('ACCOUNT.CURRENCY.EMAIL_OR_PHONE'),
+        validators: ['required']
+      },
+      tradeCurrencies: {
+        type: 'select', label: t('ACCOUNT.CURRENCY.CURRENCY'),
+        value: 'USD',
+        options: [
+          {value: 'USD', label: t('ACCOUNT.CURRENCY.CURRENCY_USD')}
+        ],
+        disabled: true
+      },
+      salt: {type: 'text', label: t('ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE')},
+      accountName: {
+        type: 'text', label: t('ACCOUNT.CURRENCY.ACCOUNT_NAME'),
+        validators: ['required']
+      },
+      limitations: {
+        type: 'footer', label: t('ACCOUNT.CURRENCY.LIMITATIONS'),
+        text: t('ACCOUNT.CURRENCY.LIMITATION_1_04_0')
       }
     },
     SEPA: {

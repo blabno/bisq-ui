@@ -298,6 +298,7 @@
       "DELETE_CONFIRMATION": "Czy na pewno chcesz usunąć to konto?",
       "EMAIL": "Email",
       "EMAIL_OR_MOBILE": "Email lub numer telefonu",
+      "EMAIL_OR_PHONE": "Email lub numer telefonu",
       "EXTRA_REQUIREMENTS": "",
       "LIMITATIONS": "Ograniczenia",
       "LIMITATION_1_0125_0": "Maks. czas transakcji: 1 dni / Maks. limit transakcji: 0.0125 BTC / aktywność konta: 0 dni",

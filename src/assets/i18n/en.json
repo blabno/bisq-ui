@@ -298,6 +298,7 @@
 			"DELETE_CONFIRMATION": "Do you really want to delete selected account",
 			"EMAIL": "Email",
 			"EMAIL_OR_MOBILE": "Email or mobile nr",
+			"EMAIL_OR_PHONE": "Email or phone nr",
 			"EXTRA_REQUIREMENTS": "Extra requirements",
 			"LIMITATIONS": "Limitations",
 			"LIMITATION_1_0125_0": "Max. trade duration: 1 days / Max. trade limit: 0.0125 BTC / Account age: 0 days",
