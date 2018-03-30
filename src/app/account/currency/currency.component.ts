@@ -26,6 +26,7 @@ export class CurrencyComponent implements OnInit, OnDestroy {
         {value: 'MONEY_BEAM', label: 'MoneyBeam (N26)'},
         {value: 'NATIONAL_BANK', label: t('ACCOUNT.CURRENCY.NATIONAL_BANK_TRANSFER')},
         {value: 'OK_PAY', label: 'OKPay'},
+        {value: 'PERFECT_MONEY', label: 'Perfect Money'},
         {value: 'SEPA', label: 'SEPA'},
         {value: 'VENMO', label: 'Venmo'},
       ]
@@ -35,7 +36,7 @@ export class CurrencyComponent implements OnInit, OnDestroy {
   formMap = {
     ALI_PAY: {
       accountNr: {
-        type: 'text', label: t('ACCOUNT.CURRENCY.ALI_PAY_NR'),
+        type: 'text', label: t('ACCOUNT.CURRENCY.ACCOUNT_NO'),
         validators: ['required']
       },
       tradeCurrencies: {
@@ -58,7 +59,7 @@ export class CurrencyComponent implements OnInit, OnDestroy {
     },
     CASH_APP: {
       cashTag: {
-        type: 'text', label: t('ACCOUNT.CURRENCY.ALI_PAY_NR'),
+        type: 'text', label: t('ACCOUNT.CURRENCY.ACCOUNT_NO'),
         validators: ['required']
       },
       tradeCurrencies: {
@@ -371,7 +372,7 @@ export class CurrencyComponent implements OnInit, OnDestroy {
         type: 'text', label: t('ACCOUNT.CURRENCY.BRANCH_NO')
       },
       accountNr: {
-        type: 'text', label: t('ACCOUNT.CURRENCY.ACCOUNT_NO')
+        type: 'text', label: t('ACCOUNT.CURRENCY.ACCOUNT_NO_IBAN')
       },
       requirements: {
         type: 'text', label: t('ACCOUNT.CURRENCY.EXTRA_REQUIREMENTS')
@@ -789,7 +790,7 @@ export class CurrencyComponent implements OnInit, OnDestroy {
         validators: ['required']
       },
       accountNr: {
-        type: 'text', label: t('ACCOUNT.CURRENCY.ACCOUNT_NO'),
+        type: 'text', label: t('ACCOUNT.CURRENCY.ACCOUNT_NO_IBAN'),
         validators: ['required']
       },
       salt: {type: 'text', label: t('ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE')},
@@ -804,7 +805,7 @@ export class CurrencyComponent implements OnInit, OnDestroy {
     },
     OK_PAY: {
       accountNr: {
-        type: 'text', label: t('ACCOUNT.CURRENCY.OK_PAY_ID'),
+        type: 'text', label: t('ACCOUNT.CURRENCY.WALLET_ID'),
         validators: ['required']
       },
       tradeCurrencies: {
@@ -834,6 +835,29 @@ export class CurrencyComponent implements OnInit, OnDestroy {
       limitations: {
         type: 'footer', label: t('ACCOUNT.CURRENCY.LIMITATIONS'),
         text: t('ACCOUNT.CURRENCY.LIMITATION_1_025_0')
+      }
+    },
+    PERFECT_MONEY: {
+      accountNr: {
+        type: 'text', label: t('ACCOUNT.CURRENCY.ACCOUNT_NO'),
+        validators: ['required']
+      },
+      tradeCurrencies: {
+        type: 'select', label: t('ACCOUNT.CURRENCY.CURRENCY'),
+        options: [
+          {value: 'USD', label: t('ACCOUNT.CURRENCY.CURRENCY_USD')},
+          {value: 'EUR', label: t('ACCOUNT.CURRENCY.CURRENCY_EUR')}
+        ],
+        validators: ['required']
+      },
+      salt: {type: 'text', label: t('ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE')},
+      accountName: {
+        type: 'text', label: t('ACCOUNT.CURRENCY.ACCOUNT_NAME'),
+        validators: ['required']
+      },
+      limitations: {
+        type: 'footer', label: t('ACCOUNT.CURRENCY.LIMITATIONS'),
+        text: t('ACCOUNT.CURRENCY.LIMITATION_1_0125_0')
       }
     },
     SEPA: {
