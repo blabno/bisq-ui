@@ -25,16 +25,9 @@ a:hover {
 .card {
   margin-bottom: 15px;
 }
-
-.view {
-  padding: 15px;
-  ion-item.item.item-checkbox {
-    ion-checkbox.checkbox {
-      margin-right: 22px;
-    }
-    ion-label.label {
-      color: #999;
-    }
+@media (min-width: 992px) {
+  .view {
+    padding: 15px;
   }
 }
 
@@ -54,6 +47,14 @@ ion-item.item {
   &.item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
     box-shadow: none;
     border-bottom-color: #dedede;
+  }
+  &.item-checkbox {
+    ion-checkbox.checkbox {
+      margin-right: 22px;
+    }
+    ion-label.label {
+      color: #999;
+    }
   }
 }
 
