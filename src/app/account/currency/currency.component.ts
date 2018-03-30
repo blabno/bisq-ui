@@ -28,6 +28,7 @@ export class CurrencyComponent implements OnInit, OnDestroy {
         {value: 'OK_PAY', label: 'OKPay'},
         {value: 'PERFECT_MONEY', label: 'Perfect Money'},
         {value: 'POPMONEY', label: 'Popmoney'},
+        {value: 'REVOLUT', label: 'Revolut'},
         {value: 'SEPA', label: 'SEPA'},
         {value: 'VENMO', label: 'Venmo'},
       ]
@@ -886,6 +887,40 @@ export class CurrencyComponent implements OnInit, OnDestroy {
       limitations: {
         type: 'footer', label: t('ACCOUNT.CURRENCY.LIMITATIONS'),
         text: t('ACCOUNT.CURRENCY.LIMITATION_1_04_0')
+      }
+    },
+    REVOLUT: {
+      accountId: {
+        type: 'text', label: t('ACCOUNT.CURRENCY.EMAIL_OR_PHONE'),
+        validators: ['required']
+      },
+      tradeCurrencies: {
+        type: 'select', label: t('ACCOUNT.CURRENCY.SUPPORTED_CURRENCIES'),
+        multiple: true,
+        value: ['EUR', 'BGN', 'DKK', 'ISK', 'CHF', 'NOK', 'PLN', 'CZK', 'RON', 'SEK', 'HUF'],
+        options: [
+          {value: 'EUR', label: t('ACCOUNT.CURRENCY.CURRENCY_EUR')},
+          {value: 'BGN', label: t('ACCOUNT.CURRENCY.CURRENCY_BGN')},
+          {value: 'DKK', label: t('ACCOUNT.CURRENCY.CURRENCY_DKK')},
+          {value: 'ISK', label: t('ACCOUNT.CURRENCY.CURRENCY_ISK')},
+          {value: 'CHF', label: t('ACCOUNT.CURRENCY.CURRENCY_CHF')},
+          {value: 'NOK', label: t('ACCOUNT.CURRENCY.CURRENCY_NOK')},
+          {value: 'PLN', label: t('ACCOUNT.CURRENCY.CURRENCY_PLN')},
+          {value: 'CZK', label: t('ACCOUNT.CURRENCY.CURRENCY_CZK')},
+          {value: 'RON', label: t('ACCOUNT.CURRENCY.CURRENCY_RON')},
+          {value: 'SEK', label: t('ACCOUNT.CURRENCY.CURRENCY_SEK')},
+          {value: 'HUF', label: t('ACCOUNT.CURRENCY.CURRENCY_HUF')}
+        ],
+        validators: ['required']
+      },
+      salt: {type: 'text', label: t('ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE')},
+      accountName: {
+        type: 'text', label: t('ACCOUNT.CURRENCY.ACCOUNT_NAME'),
+        validators: ['required']
+      },
+      limitations: {
+        type: 'footer', label: t('ACCOUNT.CURRENCY.LIMITATIONS'),
+        text: t('ACCOUNT.CURRENCY.LIMITATION_1_025_0')
       }
     },
     SEPA: {
