@@ -20,13 +20,14 @@ export class CurrencyComponent implements OnInit, OnDestroy {
         {value: 'ALI_PAY', label: 'AliPay'},
         {value: 'CASH_APP', label: 'Cash App'},
         {value: 'CASH_DEPOSIT', label: t('ACCOUNT.CURRENCY.CASH_DEPOSIT')},
-        {value: 'SEPA', label: 'SEPA'},
-        {value: 'VENMO', label: 'Venmo'},
         {value: 'CHASE_QUICK_PAY', label: 'Chase QuickPay'},
         {value: 'FASTER_PAYMENTS', label: 'Faster Payments'},
         {value: 'INTERAC_E_TRANSFER', label: 'Interac e-Transfer'},
         {value: 'MONEY_BEAM', label: 'MoneyBeam (N26)'},
         {value: 'NATIONAL_BANK', label: t('ACCOUNT.CURRENCY.NATIONAL_BANK_TRANSFER')},
+        {value: 'OK_PAY', label: 'OKPay'},
+        {value: 'SEPA', label: 'SEPA'},
+        {value: 'VENMO', label: 'Venmo'},
       ]
     }
   };
@@ -37,7 +38,7 @@ export class CurrencyComponent implements OnInit, OnDestroy {
         type: 'text', label: t('ACCOUNT.CURRENCY.ALI_PAY_NR'),
         validators: ['required']
       },
-      selectedTradeCurrency: {
+      tradeCurrencies: {
         type: 'select', label: t('ACCOUNT.CURRENCY.CURRENCY'),
         value: 'CNY',
         options: [
@@ -60,7 +61,7 @@ export class CurrencyComponent implements OnInit, OnDestroy {
         type: 'text', label: t('ACCOUNT.CURRENCY.ALI_PAY_NR'),
         validators: ['required']
       },
-      selectedTradeCurrency: {
+      tradeCurrencies: {
         type: 'select', label: t('ACCOUNT.CURRENCY.CURRENCY'),
         value: 'USD',
         options: [
@@ -335,7 +336,7 @@ export class CurrencyComponent implements OnInit, OnDestroy {
         ],
         validators: ['required']
       },
-      selectedTradeCurrency: {
+      tradeCurrencies: {
         type: 'select', label: t('ACCOUNT.CURRENCY.CURRENCY'),
         options: [
           {value: 'EUR', label: t('ACCOUNT.CURRENCY.CURRENCY_EUR')},
@@ -394,7 +395,7 @@ export class CurrencyComponent implements OnInit, OnDestroy {
         type: 'text', label: t('ACCOUNT.CURRENCY.EMAIL'),
         validators: ['required', 'email']
       },
-      selectedTradeCurrency: {
+      tradeCurrencies: {
         type: 'select', label: t('ACCOUNT.CURRENCY.CURRENCY'),
         value: 'USD',
         options: [
@@ -421,7 +422,7 @@ export class CurrencyComponent implements OnInit, OnDestroy {
         type: 'number', label: t('ACCOUNT.CURRENCY.ACCOUNT_NUMBER'),
         validators: ['required', 'ukAccountNumber']
       },
-      selectedTradeCurrency: {
+      tradeCurrencies: {
         type: 'select', label: t('ACCOUNT.CURRENCY.CURRENCY'),
         value: 'GBP',
         options: [
@@ -456,7 +457,7 @@ export class CurrencyComponent implements OnInit, OnDestroy {
         type: 'text', label: t('ACCOUNT.CURRENCY.SECRET_ANSWER'),
         validators: ['required']
       },
-      selectedTradeCurrency: {
+      tradeCurrencies: {
         type: 'select', label: t('ACCOUNT.CURRENCY.CURRENCY'),
         value: 'CAD',
         options: [
@@ -479,7 +480,7 @@ export class CurrencyComponent implements OnInit, OnDestroy {
         type: 'text', label: t('ACCOUNT.CURRENCY.EMAIL_OR_MOBILE'),
         validators: ['required']
       },
-      selectedTradeCurrency: {
+      tradeCurrencies: {
         type: 'select', label: t('ACCOUNT.CURRENCY.CURRENCY'),
         value: 'EUR',
         options: [
@@ -754,7 +755,7 @@ export class CurrencyComponent implements OnInit, OnDestroy {
         ],
         validators: ['required']
       },
-      selectedTradeCurrency: {
+      tradeCurrencies: {
         type: 'select', label: t('ACCOUNT.CURRENCY.CURRENCY'),
         options: [
           {value: 'EUR', label: t('ACCOUNT.CURRENCY.CURRENCY_EUR')},
@@ -799,6 +800,40 @@ export class CurrencyComponent implements OnInit, OnDestroy {
       limitations: {
         type: 'footer', label: t('ACCOUNT.CURRENCY.LIMITATIONS'),
         text: t('ACCOUNT.CURRENCY.LIMITATION_4_0625_0')
+      }
+    },
+    OK_PAY: {
+      accountNr: {
+        type: 'text', label: t('ACCOUNT.CURRENCY.OK_PAY_ID'),
+        validators: ['required']
+      },
+      tradeCurrencies: {
+        type: 'select', label: t('ACCOUNT.CURRENCY.SUPPORTED_CURRENCIES'),
+        multiple: true,
+        value: ['EUR', 'BGN', 'DKK', 'ISK', 'CHF', 'NOK', 'PLN', 'CZK', 'RON', 'SEK', 'HUF'],
+        options: [
+          {value: 'EUR', label: t('ACCOUNT.CURRENCY.CURRENCY_EUR')},
+          {value: 'BGN', label: t('ACCOUNT.CURRENCY.CURRENCY_BGN')},
+          {value: 'DKK', label: t('ACCOUNT.CURRENCY.CURRENCY_DKK')},
+          {value: 'ISK', label: t('ACCOUNT.CURRENCY.CURRENCY_ISK')},
+          {value: 'CHF', label: t('ACCOUNT.CURRENCY.CURRENCY_CHF')},
+          {value: 'NOK', label: t('ACCOUNT.CURRENCY.CURRENCY_NOK')},
+          {value: 'PLN', label: t('ACCOUNT.CURRENCY.CURRENCY_PLN')},
+          {value: 'CZK', label: t('ACCOUNT.CURRENCY.CURRENCY_CZK')},
+          {value: 'RON', label: t('ACCOUNT.CURRENCY.CURRENCY_RON')},
+          {value: 'SEK', label: t('ACCOUNT.CURRENCY.CURRENCY_SEK')},
+          {value: 'HUF', label: t('ACCOUNT.CURRENCY.CURRENCY_HUF')}
+        ],
+        validators: ['required']
+      },
+      salt: {type: 'text', label: t('ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE')},
+      accountName: {
+        type: 'text', label: t('ACCOUNT.CURRENCY.ACCOUNT_NAME'),
+        validators: ['required']
+      },
+      limitations: {
+        type: 'footer', label: t('ACCOUNT.CURRENCY.LIMITATIONS'),
+        text: t('ACCOUNT.CURRENCY.LIMITATION_1_025_0')
       }
     },
     SEPA: {
@@ -853,7 +888,7 @@ export class CurrencyComponent implements OnInit, OnDestroy {
         ],
         validators: ['required']
       },
-      selectedTradeCurrency: {
+      tradeCurrencies: {
         type: 'select', label: t('ACCOUNT.CURRENCY.CURRENCY'),
         options: [
           {value: 'EUR', label: t('ACCOUNT.CURRENCY.CURRENCY_EUR')},
@@ -936,7 +971,7 @@ export class CurrencyComponent implements OnInit, OnDestroy {
         type: 'text', label: t('ACCOUNT.CURRENCY.VENMO_NAME'),
         validators: ['required']
       },
-      selectedTradeCurrency: {
+      tradeCurrencies: {
         type: 'select', label: t('ACCOUNT.CURRENCY.CURRENCY'),
         value: 'USD',
         options: [
@@ -1041,7 +1076,8 @@ export class CurrencyComponent implements OnInit, OnDestroy {
       delete payload.acceptedCountriesNonEuro;
     }
     payload.paymentMethod = this.selectedForm;
-    payload.tradeCurrencies = [payload.selectedTradeCurrency];
+    payload.tradeCurrencies = _.flatten([payload.tradeCurrencies]);
+    payload.selectedTradeCurrency = payload.tradeCurrencies[0];
     delete payload.salt;
     delete payload.limitations;
     this.paymentAccountsDAO.create(payload)
