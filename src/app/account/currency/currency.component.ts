@@ -194,6 +194,7 @@ export class CurrencyComponent implements OnInit, OnDestroy {
   unregisterBackButton = _.noop;
   creatingAccount;
   deletingAccount;
+  loading = true;
 
   constructor(private initModal: InfoModalService,
               private translate: TranslateService,
@@ -204,7 +205,10 @@ export class CurrencyComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.paymentAccountsDAO.query().then((result: any) => (this.accounts = result.paymentAccounts));
+    this.paymentAccountsDAO.query().then((result: any) => {
+      this.accounts = result.paymentAccounts || [];
+      this.loading = false;
+    });
     this.initModal.show({
       id: 'accountInit',
       title: t('ACCOUNT.INIT_MODAL.TITLE'),

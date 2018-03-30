@@ -2,8 +2,14 @@
   <div class="card">
     <div class="card-header">{{'ACCOUNT.ACCOUNTS_LIST' | translate}}</div>
     <div class="card-body">
-      <div class="col-md-10">
-        <!-- insert list of accounts-->
+      <div *ngIf="loading" class="d-flex justify-content-center align-items-center m-4 loading">
+        <h1>{{'SHARED.LOADING' | translate}}..</h1>
+        <ion-spinner></ion-spinner>
+      </div>
+      <div *ngIf="!altcoins.length && !loading" class="card no-results-card borderless">
+        <div class="card-body">
+          <span>{{'ACCOUNT.ALTCOINS.NO_RESULTS' | translate}}</span>
+        </div>
       </div>
     </div>
   </div>

@@ -2,11 +2,15 @@
 	"ACCOUNT": {
 		"ACCOUNTS_LIST": "Lista kont",
 		"ADD_NEW": "Dodaj konto",
+		"ALTCOINS": {
+			"NO_RESULTS": "Brak altcoinow do wyświetlenia"
+		},
 		"ARBITRATOR": {
-			"ARBITRATOR_ADDRESS": "Adres aribtratora",
+			"ARBITRATOR_ADDRESS": "Adres",
 			"AUTO_SELECT_ARBITRATORS_WITH_MATCHING_LANGUAGE": "Automatycznie przydziel arbitra o tym samym języku",
 			"NOMINATE_YOURSELF": "Nominuj siebie",
-			"UNSELECT": "Odznacz",
+			"NO_RESULTS": "Brak zarejestrowanych arbitrów",
+			"SELECTED": "Wybrany",
 			"WHICH_ARBITRATORS_DO_YOU_ACCEPT": "Których arbitratorów wybierasz",
 			"WHICH_LANGUAGE_DO_YOU_SPEAK": "Wybierz języki, które umiesz"
 		},
@@ -67,6 +71,7 @@
 			"LIMITATIONS": "Ograniczenia",
 			"LIMITATION_SEPA": "Maks. czas transakcji: 6 dni / Maks. limit transakcji: 0.0625 BTC / aktywność konta: 0 dni",
 			"LIMITATION_VENMO": "Maks. czas transakcji: 1 dzień / Maks. limit transakcji: 0.04 BTC / aktywność konta: 0 dni",
+			"NO_RESULTS": "Brak kont do wyświetlenia",
 			"OWNER_NAME": "Imię i nazwisko posiadacza",
 			"PAYMENT_METHOD": "Metoda płatności",
 			"SALT_ACCOUNT_AGE": "Kod potwierdzający aktywność konta",
@@ -128,6 +133,7 @@
 			"TRANSACTIONS": "Transakcje"
 		},
 		"TRANSACTIONS": {
+			"NO_RESULTS": "Nie posiadasz transakcji do wyświetlenia",
 			"TRANSACTION_ID": "ID Transakcji"
 		}
 	},

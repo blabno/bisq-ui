@@ -1,5 +1,14 @@
 <div class="desktop-max-width">
-  <div *ngIf="!formOpened">
+  <div *ngIf="loading" class="d-flex justify-content-center align-items-center m-4 loading">
+    <h1>{{'SHARED.LOADING' | translate}}..</h1>
+    <ion-spinner></ion-spinner>
+  </div>
+  <div *ngIf="!accounts.length && !loading" class="card no-results-card">
+    <div class="card-body">
+      <span>{{'ACCOUNT.CURRENCY.NO_RESULTS' | translate}}</span>
+    </div>
+  </div>
+  <div *ngIf="!formOpened && !loading">
     <ion-list *ngIf="accounts.length">
       <button *ngFor="let item of accounts; let i = index" (click)="show(i)" ion-item>
         {{item.accountName}}
@@ -13,9 +22,8 @@
       </div>
     </div>
   </div>
-  <div *ngIf="formOpened">
-    <app-form [form]="paymentForm" [disabled]="formDisabled" [values]="paymentValues"
-      (onChange)="change($event)"></app-form>
+  <div *ngIf="formOpened && !loading">
+    <app-form [form]="paymentForm" [disabled]="formDisabled" [values]="paymentValues" (onChange)="change($event)"></app-form>
     <app-form #sepaFormElement [hidden]="'SEPA' !== selectedForm" [form]="sepaForm" [values]="detailsValues"
       [disabled]="formDisabled" (onSubmit)="submitSepa($event)"></app-form>
     <app-form #venmoFormElement [hidden]="'VENMO' !== selectedForm" [form]="venmoForm"

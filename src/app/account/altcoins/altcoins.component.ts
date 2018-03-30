@@ -8,6 +8,8 @@ export class AltcoinsComponent {
 
   model = {};
   formOpen: boolean = false;
+  loading = false;
+  altcoins = [];
 
   form = {
     altcoin: {
