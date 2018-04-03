@@ -13,6 +13,7 @@
         </ion-option>
       </ion-select>
       <ion-checkbox *ngIf="'checkbox' === field.type" [formControlName]="field.key"></ion-checkbox>
+      <ion-textarea *ngIf="'textarea' === field.type" [formControlName]="field.key"></ion-textarea>
     </ion-item>
     <div *ngIf="'footer' === field.type" class="footer">
       <hr/>

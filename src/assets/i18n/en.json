@@ -460,6 +460,7 @@
 			"NO_RESULTS": "There are no accounts to show",
 			"OWNER_NAME": "Account owner full name",
 			"PAYMENT_METHOD": "Payment method",
+			"POSTAL_ADDRESS": "Postall address",
 			"SALT_ACCOUNT_AGE": "Salt for account age verification",
 			"SAME_BANK_TRANSFER": "Transfer with the same bank",
 			"SECRET_ANSWER": "Secret question",
@@ -468,6 +469,7 @@
 			"SUPPORTED_CURRENCIES": "Supported currencies",
 			"UK_SORT_NAME": "UK sort code",
 			"USERNAME_OR_EMAIL_OR_PHONE": "Username or email or phone no.",
+			"US_POSTAL_MONEY_ORDER": "US Postal Money Order",
 			"VENMO_NAME": "Venmo username",
 			"WALLET_ID": "Wallet ID"
 		},

@@ -460,6 +460,7 @@
 			"NO_RESULTS": "Brak kont do wyświetlenia",
 			"OWNER_NAME": "Imię i nazwisko posiadacza",
 			"PAYMENT_METHOD": "Metoda płatności",
+			"POSTAL_ADDRESS": "Adres pocztowy",
 			"SALT_ACCOUNT_AGE": "Kod potwierdzający aktywność konta",
 			"SAME_BANK_TRANSFER": "Przelew w tym samym banku",
 			"SECRET_ANSWER": "Sekretne pytanie",
@@ -468,6 +469,7 @@
 			"SUPPORTED_CURRENCIES": "Wspierane waluty",
 			"UK_SORT_NAME": "Numer porządkowy UK",
 			"USERNAME_OR_EMAIL_OR_PHONE": "Nazwa użytkownika lub email lub nr. telefonu",
+			"US_POSTAL_MONEY_ORDER": "US przekaz pocztowy",
 			"VENMO_NAME": "Nazwa konta Venmo",
 			"WALLET_ID": "ID portfela"
 		},
