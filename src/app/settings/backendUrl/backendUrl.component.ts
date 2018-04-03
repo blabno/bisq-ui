@@ -13,6 +13,7 @@ import t from '../../shared/defineTextToTranslate';
 })
 export class BackendUrlComponent implements OnInit, OnDestroy {
   items = [
+    'http://alice.mainnet.bisq-api.labnoratory.com',
     'http://alice.regtest.bisq-api.labnoratory.com',
     'http://bob.regtest.bisq-api.labnoratory.com',
     'http://localhost:8080'
