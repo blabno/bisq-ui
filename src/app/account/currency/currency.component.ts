@@ -318,4 +318,8 @@ export class CurrencyComponent implements OnInit, OnDestroy {
     }).present();
   }
 
+  notDoneYet() {
+    this.toast.show(t('SHARED.NOT_DONE_YET'), 'info');
+  }
+
 }

@@ -118,3 +118,12 @@ button ion-spinner {
     stroke: lightgray;
   }
 }
+
+.item-md {
+  padding-left: 0;
+}
+
+
+.item-radio.item-md ion-label, .label-md {
+  margin-left: 16px;
+}

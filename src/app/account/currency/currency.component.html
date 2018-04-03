@@ -16,9 +16,9 @@
     </ion-list>
     <div class="buttons">
       <button ion-button (click)="addNew()">{{'ACCOUNT.ADD_NEW' | translate}}</button>
-      <div *ngIf="accounts.length" class="float-right">
-        <button ion-button color="light">{{'ACCOUNT.EXPORT' | translate}}</button>
-        <button class="d-block d-md-inline-block" ion-button color="light">{{'ACCOUNT.IMPORT' | translate}}</button>
+      <div class="float-right">
+        <button *ngIf="accounts.length" ion-button color="light" (click)="notDoneYet()">{{'ACCOUNT.EXPORT' | translate}}</button>
+        <button class="d-block d-md-inline-block" ion-button color="light" (click)="notDoneYet()">{{'ACCOUNT.IMPORT' | translate}}</button>
       </div>
     </div>
   </div>
