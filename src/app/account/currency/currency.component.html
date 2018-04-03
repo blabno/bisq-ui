@@ -25,7 +25,7 @@
   <div *ngIf="formOpened && !loading">
     <app-form [form]="paymentForm" [disabled]="formDisabled" [values]="paymentValues"
               (onChange)="change($event)"></app-form>
-    <app-form #formElement [form]="formMap[selectedForm]" [values]="detailsValues"
+    <app-form #formElement [form]="formMap[selectedForm] && formMap[selectedForm].form" [values]="detailsValues"
               [disabled]="formDisabled" (onSubmit)="submit($event)"></app-form>
     <div class="buttons">
       <ng-template [ngIf]="!formDisabled && selectedForm">
