@@ -34,6 +34,7 @@ export class CurrencyComponent implements OnInit, OnDestroy {
         {value: 'SEPA_INSTANT', label: 'SEPA Instant Payments'},
         {value: 'SPECIFIC_BANKS', label: t('ACCOUNT.CURRENCY.SPECIFIC_BANKS_TRANSFER')},
         {value: 'SWISH', label: 'SWISH'},
+        {value: 'UPHOLD', label: 'Uphold'},
         {value: 'VENMO', label: 'Venmo'},
       ]
     }
@@ -2430,6 +2431,49 @@ export class CurrencyComponent implements OnInit, OnDestroy {
           {value: 'SEK', label: t('ACCOUNT.CURRENCY.CURRENCY_SEK')}
         ],
         disabled: true,
+      },
+      salt: {type: 'text', label: t('ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE')},
+      accountName: {
+        type: 'text', label: t('ACCOUNT.CURRENCY.ACCOUNT_NAME'),
+        validators: ['required']
+      },
+      limitations: {
+        type: 'footer', label: t('ACCOUNT.CURRENCY.LIMITATIONS'),
+        text: t('ACCOUNT.CURRENCY.LIMITATION_1_125_0')
+      }
+    },
+    UPHOLD: {
+      accountId: {
+        type: 'text', label: t('ACCOUNT.CURRENCY.USERNAME_OR_EMAIL_OR_PHONE'),
+        validators: ['required']
+      },
+      tradeCurrencies: {
+        type: 'select', label: t('ACCOUNT.CURRENCY.CURRENCY'),
+        options: [
+          {value: 'USD', label: t('ACCOUNT.CURRENCY.CURRENCY_USD')},
+          {value: 'EUR', label: t('ACCOUNT.CURRENCY.CURRENCY_EUR')},
+          {value: 'GBP', label: t('ACCOUNT.CURRENCY.CURRENCY_GBP')},
+          {value: 'CNY', label: t('ACCOUNT.CURRENCY.CURRENCY_CNY')},
+          {value: 'JPY', label: t('ACCOUNT.CURRENCY.CURRENCY_JPY')},
+          {value: 'CHF', label: t('ACCOUNT.CURRENCY.CURRENCY_CHF')},
+          {value: 'INR', label: t('ACCOUNT.CURRENCY.CURRENCY_INR')},
+          {value: 'MXN', label: t('ACCOUNT.CURRENCY.CURRENCY_MXN')},
+          {value: 'AUD', label: t('ACCOUNT.CURRENCY.CURRENCY_AUD')},
+          {value: 'CAD', label: t('ACCOUNT.CURRENCY.CURRENCY_CAD')},
+          {value: 'HKD', label: t('ACCOUNT.CURRENCY.CURRENCY_HKD')},
+          {value: 'NZD', label: t('ACCOUNT.CURRENCY.CURRENCY_NZD')},
+          {value: 'SGD', label: t('ACCOUNT.CURRENCY.CURRENCY_SGD')},
+          {value: 'KES', label: t('ACCOUNT.CURRENCY.CURRENCY_KES')},
+          {value: 'ILS', label: t('ACCOUNT.CURRENCY.CURRENCY_ILS')},
+          {value: 'DKK', label: t('ACCOUNT.CURRENCY.CURRENCY_DKK')},
+          {value: 'NOK', label: t('ACCOUNT.CURRENCY.CURRENCY_NOK')},
+          {value: 'SEK', label: t('ACCOUNT.CURRENCY.CURRENCY_SEK')},
+          {value: 'PLN', label: t('ACCOUNT.CURRENCY.CURRENCY_PLN')},
+          {value: 'ARS', label: t('ACCOUNT.CURRENCY.CURRENCY_ARS')},
+          {value: 'BRL', label: t('ACCOUNT.CURRENCY.CURRENCY_BRL')},
+          {value: 'AED', label: t('ACCOUNT.CURRENCY.CURRENCY_AED')},
+          {value: 'PHP', label: t('ACCOUNT.CURRENCY.CURRENCY_PHP')}
+        ]
       },
       salt: {type: 'text', label: t('ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE')},
       accountName: {
