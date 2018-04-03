@@ -1,25 +1,27 @@
-<div *ngIf="loading" class="d-flex justify-content-center align-items-center m-4 loading">
-    <h1>{{'SHARED.LOADING' | translate}}..</h1>
-    <ion-spinner></ion-spinner>
-</div>
-<div *ngIf="!transactions.length && !loading" class="card no-results-card">
-    <div class="card-body">
-        <span>{{'FUNDS.TRANSACTIONS.NO_RESULTS' | translate}}</span>
+<div class="desktop-max-width">
+    <div *ngIf="loading" class="d-flex justify-content-center align-items-center m-4 loading">
+        <h1>{{'SHARED.LOADING' | translate}}..</h1>
+        <ion-spinner></ion-spinner>
     </div>
-</div>
-<div class="row" *ngIf="!loading && transactions.length">
-    <div class="col-md-6 col-lg-4" *ngFor="let transaction of transactions">
-        <div class="card">
-            <div class="card-header">
-                <i *ngIf="transaction.value >= 0" class="fas fa-plus-circle green-icon"></i>
-                <i *ngIf="0 > transaction.value" class="fas fa-minus-circle red-icon"></i>
-                <span class="float-right">{{transaction.value/100000000}} BTC</span>
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-6"> {{'FUNDS.TRANSACTIONS.TRANSACTION_ID' | translate }}: </div>
-                    <div class="col-6 transaction-id">
-                        <span>{{transaction.hash}} </span>
+    <div *ngIf="!transactions.length && !loading" class="card no-results-card">
+        <div class="card-body">
+            <span>{{'FUNDS.TRANSACTIONS.NO_RESULTS' | translate}}</span>
+        </div>
+    </div>
+    <div class="row" *ngIf="!loading && transactions.length">
+        <div class="col-md-6 col-lg-4" *ngFor="let transaction of transactions">
+            <div class="card">
+                <div class="card-header">
+                    <i *ngIf="transaction.value >= 0" class="fas fa-plus-circle green-icon"></i>
+                    <i *ngIf="0 > transaction.value" class="fas fa-minus-circle red-icon"></i>
+                    <span class="float-right">{{transaction.value/100000000}} BTC</span>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6"> {{'FUNDS.TRANSACTIONS.TRANSACTION_ID' | translate }}: </div>
+                        <div class="col-6 transaction-id">
+                            <span>{{transaction.hash}} </span>
+                        </div>
                     </div>
                 </div>
             </div>
