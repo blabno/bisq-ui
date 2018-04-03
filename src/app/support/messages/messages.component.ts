@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {SupportDAO} from "../../shared/DAO/support.dao";
 
@@ -8,9 +8,13 @@ import {SupportDAO} from "../../shared/DAO/support.dao";
   templateUrl: 'messages.component.html'
 })
 export class MessagesComponent implements OnDestroy, OnInit {
+  @ViewChild('endMessages') endMessages;
+
   private paramSubscribe;
   id;
+  isGettingMessages = false;
   messages = [];
+  newMessage = '';
 
   constructor(private activeRoute: ActivatedRoute,
               private supportDao:SupportDAO) {
@@ -31,9 +35,23 @@ export class MessagesComponent implements OnDestroy, OnInit {
     if(!this.id) {
       return;
     }
+    this.isGettingMessages = true;
+    this.scrollToEndMessages();
     this.supportDao.getMessages(this.id).then((res:any) => {
       this.messages = _.sortBy(res, 'date');
+      this.isGettingMessages = false;
+      this.scrollToEndMessages();
     });
   }
+  sendMessage() {
+    this.supportDao.send(this.newMessage, this.id);
+    this.getMessages();
+    this.newMessage = '';
+  }
 
+  private scrollToEndMessages() {
+    setTimeout(()=> {
+      this.endMessages.nativeElement.scrollIntoView();
+    });
+  }
 }

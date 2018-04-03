@@ -1,16 +1,25 @@
-<div class="desktop-max-width view-container">
-  <button ion-button color="light" routerLink="..">BACK</button>
-  <div class="card" *ngIf="messages.length">
-    <div class="card-header">{{'SUPPORT.MESSAGES.MESSAGES_HEADER' | translate}}</div>
-    <div class="card-body">
-      <div *ngFor="let item of messages" class="message">
-        <div class="message-date">{{item.date | date}}</div>
-        <div class="message-text">{{item.message}}</div>
+<div class="desktop-max-width">
+  <button routerLink=".." class="btn btn-light back-btn">{{'BACK' | translate }}</button>
+  <div class="messages-container">
+    <div class="top-section">
+      <div *ngIf="messages.length">
+        <div *ngFor="let item of messages" class="message">
+          <div class="message-date">{{item.date | date:'medium'}}</div>
+          <div class="message-text">{{item.message}}</div>
+        </div>
       </div>
+      <div *ngIf="isGettingMessages" class="d-flex justify-content-center align-items-center m-4 small-loading">
+        <h1>{{'SHARED.LOADING' | translate }}</h1>
+        <ion-spinner></ion-spinner>
+      </div>
+      <div #endMessages></div>
+    </div>
+    <div class="bottom-section">
       <ion-item class="message-input">
         <ion-label floating>Input Message</ion-label>
-        <ion-textarea></ion-textarea>
+        <ion-textarea [(ngModel)]="newMessage"></ion-textarea>
       </ion-item>
+      <button class="btn btn-primary send-btn" (click)="sendMessage()">{{'SUPPORT.MESSAGES.SEND' | translate}}</button>
     </div>
   </div>
 </div>
