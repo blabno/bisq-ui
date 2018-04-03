@@ -38,6 +38,7 @@ export class CurrencyComponent implements OnInit, OnDestroy {
         {value: 'US_POSTAL_MONEY_ORDER', label: t('ACCOUNT.CURRENCY.US_POSTAL_MONEY_ORDER')},
         {value: 'VENMO', label: 'Venmo'},
         {value: 'WESTERN_UNION', label: 'Western Union'},
+        {value: 'CLEAR_X_CHANGE', label: 'Zelle (ClearXchange)'}
       ]
     }
   };
@@ -2987,6 +2988,33 @@ export class CurrencyComponent implements OnInit, OnDestroy {
       limitations: {
         type: 'footer', label: t('ACCOUNT.CURRENCY.LIMITATIONS'),
         text: t('ACCOUNT.CURRENCY.LIMITATION_4_0625_0')
+      }
+    },
+    CLEAR_X_CHANGE: {
+      holderName: {
+        type: 'text', label: t('ACCOUNT.CURRENCY.OWNER_NAME'),
+        validators: ['required']
+      },
+      emailOrMobileNr: {
+        type: 'text', label: t('ACCOUNT.CURRENCY.EMAIL_OR_MOBILE'),
+        validators: ['required']
+      },
+      tradeCurrencies: {
+        type: 'select', label: t('ACCOUNT.CURRENCY.CURRENCY'),
+        value: 'USD',
+        options: [
+          {value: 'USD', label: t('ACCOUNT.CURRENCY.CURRENCY_USD')}
+        ],
+        disabled: true,
+      },
+      salt: {type: 'text', label: t('ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE')},
+      accountName: {
+        type: 'text', label: t('ACCOUNT.CURRENCY.ACCOUNT_NAME'),
+        validators: ['required']
+      },
+      limitations: {
+        type: 'footer', label: t('ACCOUNT.CURRENCY.LIMITATIONS'),
+        text: t('ACCOUNT.CURRENCY.LIMITATION_1_0625_0')
       }
     }
   };

@@ -73,7 +73,6 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log(changes);
     if (this.formGroup && changes.values) {
       this.formGroup.patchValue(changes.values.currentValue, {emitEvent: false});
     }
