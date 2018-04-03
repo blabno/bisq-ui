@@ -74,6 +74,11 @@
           </a>
         </div>
       </li>
+      <li class="nav-item menu-item" routerLinkActive="text-primary" routerLink="/support"
+          (click)="onMenuItemClick(['MENU.SUPPORT'])">
+        <i class="fas fa-comments menu-icon"></i>
+        <div class="item-label">{{ 'MENU.SUPPORT' | translate }}</div>
+      </li>
       <li class="nav-item menu-item dropdown" routerLinkActive="text-primary">
         <div class="header" id="navbarDropdownSettings" role="button" data-toggle="dropdown" aria-haspopup="true"
              aria-expanded="false">

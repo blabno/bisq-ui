@@ -153,7 +153,8 @@
 		"FUNDS": "Funds",
 		"PORTFOLIO": "Portfolio",
 		"SELL": "Sell BTC",
-		"SETTINGS": "Settings"
+		"SETTINGS": "Settings",
+		"SUPPORT": "Support"
 	},
 	"OFFERS": {
 		"CREATE": {
@@ -210,6 +211,9 @@
 			"COUNTRY_OF_BANK": "Country of bank",
 			"DAYS": "days",
 			"DEPOSIT_ID": "Deposit transaction ID",
+			"DISPUTE_OPENED": "Dispute opened",
+			"DISPUTE_PEER_INFO": "Your trading partner has open dispute.\nPlease communicate in the \"Support\" screen with the arbitrator.",
+			"DISPUTE_REQUESTED_INFO": "You opened already a dispute.\nPlease communicate in the \"Support\" screen with the arbitrator.",
 			"HOURS": "hours",
 			"MARKET": "Market",
 			"MAX_ALLOWED_PERIOD": "Max. allowed trade period",
@@ -328,6 +332,14 @@
 	},
 	"SHARED": {
 		"LOADING": "Loading"
+	},
+	"SUPPORT": {
+		"LIST": {
+			"EMPTY": "There are no disputes to showing"
+		},
+		"MESSAGES": {
+			"MESSAGES_HEADER": "Messages"
+		}
 	},
 	"TOAST": {
 		"ADDRESS_COPIED_TO_CLIPBOARD": "Address copied to clipboard",

@@ -9,12 +9,6 @@ app-funds-list {
     background: var(--blue);
     color: var(--light);
   }
-  .clickable {
-    cursor: pointer;
-  }
-  .clickable:hover {
-    border-color: var(--blue);
-  }
   .wallet-address {
     overflow: hidden;
     display: inline-block;

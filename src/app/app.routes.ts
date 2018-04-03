@@ -19,6 +19,8 @@ import {BackendUrlComponent} from './settings/backendUrl/backendUrl.component';
 import {CurrencyComponent} from './account/currency/currency.component';
 import {AltcoinsComponent} from './account/altcoins/altcoins.component';
 import {ArbitratorComponent} from './account/arbitrator/arbitrator.component';
+import {SupportComponent} from './support/support.component';
+import {MessagesComponent} from './support/messages/messages.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'offers/buy', pathMatch: 'full'},
@@ -40,6 +42,9 @@ const appRoutes: Routes = [
   {path: 'funds/reserved', component: ReservedComponent},
   {path: 'funds/locked', component: LockedComponent},
   {path: 'funds/transaction', component: TransactionComponent},
+
+  {path: 'support', component: SupportComponent},
+  {path: 'support/:id', component: MessagesComponent},
 
   {path: 'account', redirectTo: 'account/currency', pathMatch: 'full'},
   {path: 'account/currency', component: CurrencyComponent},
