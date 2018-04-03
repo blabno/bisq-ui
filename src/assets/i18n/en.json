@@ -1,6 +1,5 @@
 {
 	"ACCOUNT": {
-		"ACCOUNTS_LIST": "Accounts list",
 		"ADD_NEW": "Add new account",
 		"ALTCOINS": {
 			"NO_RESULTS": "There are no altcoins to show"
@@ -17,6 +16,7 @@
 		"CANCEL": "Anuluj",
 		"CREATE_NEW": "Create new Account",
 		"CURRENCY": {
+			"ACCEPTED_BANKS_ID": "Accepted banks (ID)",
 			"ACCEPTED_TRADES_EURO": "Accepted trades from Euro countries",
 			"ACCEPTED_TRADES_NON_EURO": "Accepted trades from non-Euro countries",
 			"ACCOUNT_NAME": "Account name",
@@ -462,6 +462,7 @@
 			"SAME_BANK_TRANSFER": "Transfer with the same bank",
 			"SECRET_ANSWER": "Secret question",
 			"SECRET_QUESTION": "Answer",
+			"SPECIFIC_BANKS_TRANSFER": "Transfer with specific banks",
 			"SUPPORTED_CURRENCIES": "Supported currencies",
 			"UK_SORT_NAME": "UK sort code",
 			"VENMO_NAME": "Venmo username",
@@ -543,7 +544,8 @@
 		"FUNDS": "Funds",
 		"PORTFOLIO": "Portfolio",
 		"SELL": "Sell BTC",
-		"SETTINGS": "Settings"
+		"SETTINGS": "Settings",
+		"SUPPORT": "Support"
 	},
 	"OFFERS": {
 		"CREATE": {
@@ -600,6 +602,9 @@
 			"COUNTRY_OF_BANK": "Country of bank",
 			"DAYS": "days",
 			"DEPOSIT_ID": "Deposit transaction ID",
+            "DISPUTE_OPENED": "Dispute opened",
+            "DISPUTE_PEER_INFO": "Your trading partner has open dispute.\nPlease communicate in the \"Support\" screen with the arbitrator.",
+            "DISPUTE_REQUESTED_INFO": "You opened already a dispute.\nPlease communicate in the \"Support\" screen with the arbitrator.",
 			"HOURS": "hours",
 			"MARKET": "Market",
 			"MAX_ALLOWED_PERIOD": "Max. allowed trade period",
@@ -688,6 +693,7 @@
 			"USE_TOR_FOR_BITCOIN_NETWORK": "Use tor for bitcoin network"
 		},
 		"PREFERENCES": {
+            "ALL_HIDDEN_MODALS_RESETED": "All hidden modals settings reseted",
 			"AUTO_SELECT_ARBITRATORS": "Auto select arbitrators",
 			"BITCOIN_BLOCK_EXPLORER": "Bitcoin block explorer",
 			"COUNTRY": "Country",
@@ -715,9 +721,18 @@
 			"PREFERENCES": "Preferences"
 		}
 	},
-	"SHARED": {
-		"LOADING": "Loading"
-	},
+  "SHARED": {
+    "LOADING": "Loading",
+    "NOT_DONE_YET": "Functionality is not done yet"
+  },
+  "SUPPORT": {
+    "LIST": {
+      "EMPTY": "There are no disputes to showing"
+    },
+    "MESSAGES": {
+      "MESSAGES_HEADER": "Messages"
+    }
+  },
 	"TOAST": {
 		"ADDRESS_COPIED_TO_CLIPBOARD": "Address copied to clipboard",
 		"FORM_VALIDATION_ERROR": "Missing required fields",
