@@ -451,9 +451,11 @@
 			"LIMITATION_1_025_0": "Max. trade duration: 1 days / Max. trade limit: 0.025 BTC / Account age: 0 days",
 			"LIMITATION_1_04_0": "Max. trade duration: 1 days / Max. trade limit: 0.04 BTC / Account age: 0 days",
 			"LIMITATION_1_0625_0": "Max. trade duration: 1 days / Max. trade limit: 0.0625 BTC / Account age: 0 days",
+			"LIMITATION_1_125_0": "Max. trade duration: 1 days / Max. trade limit: 0.1250 BTC / Account age: 0 days",
 			"LIMITATION_2_0625_0": "Max. trade duration: 2 days / Max. trade limit: 0.0625 BTC / Account age: 0 days",
 			"LIMITATION_4_0625_0": "Max. trade duration: 4 days / Max. trade limit: 0.0625 BTC / Account age: 0 days",
 			"LIMITATION_6_0625_0": "Max. trade duration: 6 days / Max. trade limit: 0.0625 BTC / Account age: 0 days",
+			"MOBILE_NO": "Mobile no.",
 			"NATIONAL_BANK_TRANSFER": "National bank transfer",
 			"NO_RESULTS": "There are no accounts to show",
 			"OWNER_NAME": "Account owner full name",
@@ -602,9 +604,9 @@
 			"COUNTRY_OF_BANK": "Country of bank",
 			"DAYS": "days",
 			"DEPOSIT_ID": "Deposit transaction ID",
-            "DISPUTE_OPENED": "Dispute opened",
-            "DISPUTE_PEER_INFO": "Your trading partner has open dispute.\nPlease communicate in the \"Support\" screen with the arbitrator.",
-            "DISPUTE_REQUESTED_INFO": "You opened already a dispute.\nPlease communicate in the \"Support\" screen with the arbitrator.",
+			"DISPUTE_OPENED": "Dispute opened",
+			"DISPUTE_PEER_INFO": "Your trading partner has open dispute.\nPlease communicate in the \"Support\" screen with the arbitrator.",
+			"DISPUTE_REQUESTED_INFO": "You opened already a dispute.\nPlease communicate in the \"Support\" screen with the arbitrator.",
 			"HOURS": "hours",
 			"MARKET": "Market",
 			"MAX_ALLOWED_PERIOD": "Max. allowed trade period",
@@ -693,7 +695,7 @@
 			"USE_TOR_FOR_BITCOIN_NETWORK": "Use tor for bitcoin network"
 		},
 		"PREFERENCES": {
-            "ALL_HIDDEN_MODALS_RESETED": "All hidden modals settings reseted",
+			"ALL_HIDDEN_MODALS_RESETED": "All hidden modals settings reseted",
 			"AUTO_SELECT_ARBITRATORS": "Auto select arbitrators",
 			"BITCOIN_BLOCK_EXPLORER": "Bitcoin block explorer",
 			"COUNTRY": "Country",
@@ -721,18 +723,18 @@
 			"PREFERENCES": "Preferences"
 		}
 	},
-  "SHARED": {
-    "LOADING": "Loading",
-    "NOT_DONE_YET": "Functionality is not done yet"
-  },
-  "SUPPORT": {
-    "LIST": {
-      "EMPTY": "There are no disputes to showing"
-    },
-    "MESSAGES": {
-      "MESSAGES_HEADER": "Messages"
-    }
-  },
+	"SHARED": {
+		"LOADING": "Loading",
+		"NOT_DONE_YET": "Functionality is not done yet"
+	},
+	"SUPPORT": {
+		"LIST": {
+			"EMPTY": "There are no disputes to showing"
+		},
+		"MESSAGES": {
+			"MESSAGES_HEADER": "Messages"
+		}
+	},
 	"TOAST": {
 		"ADDRESS_COPIED_TO_CLIPBOARD": "Address copied to clipboard",
 		"FORM_VALIDATION_ERROR": "Missing required fields",

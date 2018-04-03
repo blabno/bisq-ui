@@ -33,6 +33,7 @@ export class CurrencyComponent implements OnInit, OnDestroy {
         {value: 'SEPA', label: 'SEPA'},
         {value: 'SEPA_INSTANT', label: 'SEPA Instant Payments'},
         {value: 'SPECIFIC_BANKS', label: t('ACCOUNT.CURRENCY.SPECIFIC_BANKS_TRANSFER')},
+        {value: 'SWISH', label: 'SWISH'},
         {value: 'VENMO', label: 'Venmo'},
       ]
     }
@@ -2411,6 +2412,33 @@ export class CurrencyComponent implements OnInit, OnDestroy {
       limitations: {
         type: 'footer', label: t('ACCOUNT.CURRENCY.LIMITATIONS'),
         text: t('ACCOUNT.CURRENCY.LIMITATION_4_0625_0')
+      }
+    },
+    SWISH: {
+      holderName: {
+        type: 'text', label: t('ACCOUNT.CURRENCY.OWNER_NAME'),
+        validators: ['required']
+      },
+      mobileNr: {
+        type: 'number', label: t('ACCOUNT.CURRENCY.MOBILE_NO'),
+        validators: ['required']
+      },
+      tradeCurrencies: {
+        type: 'select', label: t('ACCOUNT.CURRENCY.CURRENCY'),
+        value: 'SEK',
+        options: [
+          {value: 'SEK', label: t('ACCOUNT.CURRENCY.CURRENCY_SEK')}
+        ],
+        disabled: true,
+      },
+      salt: {type: 'text', label: t('ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE')},
+      accountName: {
+        type: 'text', label: t('ACCOUNT.CURRENCY.ACCOUNT_NAME'),
+        validators: ['required']
+      },
+      limitations: {
+        type: 'footer', label: t('ACCOUNT.CURRENCY.LIMITATIONS'),
+        text: t('ACCOUNT.CURRENCY.LIMITATION_1_125_0')
       }
     },
     VENMO: {

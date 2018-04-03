@@ -451,9 +451,11 @@
 			"LIMITATION_1_025_0": "Maks. czas transakcji: 1 dni / Maks. limit transakcji: 0.025 BTC / aktywność konta: 0 dni",
 			"LIMITATION_1_04_0": "Maks. czas transakcji: 1 dni / Maks. limit transakcji: 0.04 BTC",
 			"LIMITATION_1_0625_0": "Maks. czas transakcji: 1 dni / Maks. limit transakcji: 0.0625 BTC / aktywność konta: 0 dni",
+			"LIMITATION_1_125_0": "Maks. czas transakcji: 1 dni / Maks. limit transakcji: 0.1250 BTC / aktywność konta: 0 dni",
 			"LIMITATION_2_0625_0": "Maks. czas transakcji: 2 dni / Maks. limit transakcji: 0.0625 BTC / aktywność konta: 0 dni",
 			"LIMITATION_4_0625_0": "Maks. czas transakcji: 4 dni / Maks. limit transakcji: 0.0625 BTC / aktywność konta: 0 dni",
 			"LIMITATION_6_0625_0": "Maks. czas transakcji: 6 dni / Maks. limit transakcji: 0.0625 BTC / aktywność konta: 0 dni",
+			"MOBILE_NO": "Numer telefonu",
 			"NATIONAL_BANK_TRANSFER": "Krajowy przelew bankowy",
 			"NO_RESULTS": "Brak kont do wyświetlenia",
 			"OWNER_NAME": "Imię i nazwisko posiadacza",
@@ -693,7 +695,7 @@
 			"USE_TOR_FOR_BITCOIN_NETWORK": "Użyj sieci tor"
 		},
 		"PREFERENCES": {
-            "ALL_HIDDEN_MODALS_RESETED": "Wszystkie ustawienia ukrycia modali zresetowane",
+			"ALL_HIDDEN_MODALS_RESETED": "Wszystkie ustawienia ukrycia modali zresetowane",
 			"AUTO_SELECT_ARBITRATORS": "Automatycznie przydziel arbitrów",
 			"BITCOIN_BLOCK_EXPLORER": "Serwis do Bitcoin block",
 			"COUNTRY": "Kraj",
@@ -721,18 +723,18 @@
 			"PREFERENCES": "Preferencje"
 		}
 	},
-  "SHARED": {
-    "LOADING": "Wczytywanie",
-    "NOT_DONE_YET": "Funkcjonalność nie skończona jeszcze"
-  },
-  "SUPPORT": {
-    "LIST": {
-      "EMPTY": "Nie ma żadnych sporów do pokazania"
-    },
-    "MESSAGES": {
-      "MESSAGES_HEADER": "Wiadomości"
-    }
-  },
+	"SHARED": {
+		"LOADING": "Wczytywanie",
+		"NOT_DONE_YET": "Funkcjonalność nie skończona jeszcze"
+	},
+	"SUPPORT": {
+		"LIST": {
+			"EMPTY": "Nie ma żadnych sporów do pokazania"
+		},
+		"MESSAGES": {
+			"MESSAGES_HEADER": "Wiadomości"
+		}
+	},
 	"TOAST": {
 		"ADDRESS_COPIED_TO_CLIPBOARD": "Adres skopiowany do schowka",
 		"FORM_VALIDATION_ERROR": "Brak wszystkich wymaganych pól",
