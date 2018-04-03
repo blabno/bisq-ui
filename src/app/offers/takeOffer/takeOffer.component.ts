@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {PaymentAccountsDAO} from '../../shared/DAO/paymentAccounts.dao';
 import {OffersDAO} from '../../shared/DAO/offers.dao';
 import {ToastService} from '../../shared/services/toast.service';
@@ -17,7 +17,8 @@ export class TakeOfferComponent implements OnInit, OnDestroy {
     private activeRoute: ActivatedRoute,
     private paymentsDAO: PaymentAccountsDAO,
     private offersDAO: OffersDAO,
-    private toast: ToastService
+    private toast: ToastService,
+    private router: Router
   ) {}
 
   private paramSubscribe: any;
@@ -79,6 +80,7 @@ export class TakeOfferComponent implements OnInit, OnDestroy {
       .then(() => {
         this.takingOffer = false;
         this.toast.show(t('OFFERS.TAKE_OFFER.TAKE_OFFER_SUCCESS'), 'success');
+        this.router.navigateByUrl('/portfolio/open-trades');
       })
       .catch(() => {
         this.takingOffer = false;
