@@ -1,8 +1,29 @@
 import _ from 'lodash';
-import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
+import {Component, OnInit, OnChanges, OnDestroy, Input, Output, EventEmitter, SimpleChanges} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 import {ToastService} from '../services/toast.service';
+
+function ukSortCodeValidator(control) {
+  if (!control.value || 6 !== control.value.length || !/^\d+$/.test(control.value)) {
+    return {ukSortCode: true}
+  }
+  return null;
+}
+
+function ukAccountNumberValidator(control) {
+  if (!control.value || 6 !== control.value.length || !/^\d+$/.test(control.value)) {
+    return {ukAccountNumber: true}
+  }
+  return null;
+}
+
+function emailOrCanadianMobileValidator(control) {
+  if (!control.value || (Validators.email(control) && (11 !== control.value.length || !/^\d+$/.test(control.value)))) {
+    return {emailOrCanadianMobile: true}
+  }
+  return null;
+}
 
 function ibanValidator(control) {
   if (!control.value || 15 > control.value.length || 36 < control.value.length) {
@@ -20,6 +41,10 @@ function bicValidator(control) {
 
 const validatorsMap = {
   required: Validators.required,
+  email: Validators.email,
+  ukSortCode: ukSortCodeValidator,
+  ukAccountNumber: ukAccountNumberValidator,
+  emailOrCanadianMobile: emailOrCanadianMobileValidator,
   iban: ibanValidator,
   bic: bicValidator
 };
@@ -28,13 +53,14 @@ const validatorsMap = {
   selector: 'app-form',
   templateUrl: './form.component.html'
 })
-export class FormComponent implements OnInit, OnChanges {
+export class FormComponent implements OnInit, OnChanges, OnDestroy {
   @Input() form: any;
   @Input() values: any = {};
   @Input() disabled: boolean;
   @Output() onChange = new EventEmitter<any>();
   @Output() onSubmit = new EventEmitter<any>();
 
+  changeSubscriber;
   formFields;
 
   formGroup: FormGroup;
@@ -43,18 +69,30 @@ export class FormComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-    this.formFields = _.map(this.form, (field, key) => ({...field, key}));
-    this.formGroup = new FormGroup(_.mapValues(this.form, (field, key) => new FormControl({
-      value: field.value || this.values[key] || null,
-      disabled: field.disabled || this.disabled || false
-    }, _.map(field.validators, validator => validatorsMap[validator]))));
-    this.formGroup.valueChanges.subscribe(() => this.onChange.emit(this.formGroup));
+    this.init();
   }
 
   ngOnChanges(changes: SimpleChanges) {
     if (this.formGroup && changes.values) {
       this.formGroup.patchValue(changes.values.currentValue, {emitEvent: false});
     }
+    if (this.formGroup && changes.form) {
+      this.changeSubscriber.unsubscribe();
+      this.init();
+    }
+  }
+
+  ngOnDestroy() {
+    this.changeSubscriber.unsubscribe();
+  }
+
+  init() {
+    this.formFields = _.map(this.form, (field, key) => ({...field, key}));
+    this.formGroup = new FormGroup(_.mapValues(this.form, (field, key) => new FormControl({
+      value: field.value || this.values[key] || null,
+      disabled: field.disabled || this.disabled || false
+    }, _.map(field.validators, validator => validatorsMap[validator]))));
+    this.changeSubscriber = this.formGroup.valueChanges.subscribe(() => this.onChange.emit(this.formGroup));
   }
 
   submit() {
