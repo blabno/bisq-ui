@@ -7,7 +7,7 @@
       <ion-input *ngIf="'text' === field.type" type="text" [formControlName]="field.key"></ion-input>
       <ion-input *ngIf="'number' === field.type" type="number" [formControlName]="field.key"></ion-input>
       <ion-select *ngIf="'select' === field.type" [formControlName]="field.key" [multiple]="field.multiple"
-                  cancelText="{{'CANCEL' | translate}}">
+                  interface="popover">
         <ion-option *ngFor="let option of field.options" [value]="option.value">
           {{option.label | translate}}
         </ion-option>

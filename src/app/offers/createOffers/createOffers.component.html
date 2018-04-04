@@ -6,14 +6,14 @@
     <ion-item>
       <ion-label floating>{{'OFFERS.CREATE.TRADING_ACCOUNT' | translate}}</ion-label>
       <ion-select name="accountId" [(ngModel)]="model.accountId" cancelText="{{'ACCOUNT.CANCEL' | translate}}"
-        (ionChange)="onSelectAccount()" required>
+                  (ionChange)="onSelectAccount()" interface="popover" required>
         <ion-option *ngFor="let option of accountsList" [value]="option.id">{{option.accountName}}</ion-option>
       </ion-select>
     </ion-item>
     <ion-item *ngIf="model.accountId">
       <ion-label floating>{{'OFFERS.CREATE.CURRENCY' | translate}}</ion-label>
       <ion-select name="tradeCurrency" [(ngModel)]="model.tradeCurrency" cancelText="{{'ACCOUNT.CANCEL' | translate}}"
-        (ionChange)="onValueChanges($event)">
+                  (ionChange)="onValueChanges($event)" interface="popover">
         <ion-option *ngFor="let option of tradeList" [value]="option">{{option}}</ion-option>
       </ion-select>
     </ion-item>

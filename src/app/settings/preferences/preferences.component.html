@@ -3,13 +3,13 @@
     <div class="card-header">{{ 'SETTINGS.PREFERENCES.GENERAL_PREFERENCES' | translate }}</div>
     <div class="card-body">
       <ion-item>
-        <ion-label>{{ 'SETTINGS.PREFERENCES.SELECT_BASE_CURRENCY' | translate }}</ion-label>
+        <ion-label floating>{{ 'SETTINGS.PREFERENCES.SELECT_BASE_CURRENCY' | translate }}</ion-label>
         <ion-select [(ngModel)]="settings.baseCurrency" (ionChange)="settings.saveSettings()" interface="popover">
           <ion-option *ngFor="let currency of settings.baseCurrencyValues" [value]="currency">{{currency}}</ion-option>
         </ion-select>
       </ion-item>
       <ion-item>
-        <ion-label>{{ 'SETTINGS.PREFERENCES.LANGUAGE' | translate }}</ion-label>
+        <ion-label floating>{{ 'SETTINGS.PREFERENCES.LANGUAGE' | translate }}</ion-label>
         <ion-select (ionChange)="langChange($event)" (ionChange)="settings.saveSettings()" interface="popover">
           <ion-option *ngFor="let l of translate.getLangs()" [value]="l" [selected]="translate.currentLang === l">
             {{languagesNames[l]}}
@@ -17,13 +17,13 @@
         </ion-select>
       </ion-item>
       <ion-item>
-        <ion-label>{{ 'SETTINGS.PREFERENCES.COUNTRY' | translate }}</ion-label>
-        <ion-select [(ngModel)]="settings.country" (ionChange)="settings.saveSettings()" interface="action-sheet">
+        <ion-label floating>{{ 'SETTINGS.PREFERENCES.COUNTRY' | translate }}</ion-label>
+        <ion-select [(ngModel)]="settings.country" (ionChange)="settings.saveSettings()" interface="popover">
           <ion-option *ngFor="let country of settings.countryValues" [value]="country">{{country}}</ion-option>
         </ion-select>
       </ion-item>
       <ion-item>
-        <ion-label>{{'SETTINGS.PREFERENCES.BITCOIN_BLOCK_EXPLORER' | translate }}</ion-label>
+        <ion-label floating>{{'SETTINGS.PREFERENCES.BITCOIN_BLOCK_EXPLORER' | translate }}</ion-label>
         <ion-select [(ngModel)]="settings.bitcoinExplorer" (ionChange)="settings.saveSettings()" interface="popover">
           <ion-option *ngFor="let bitcoinExplorer of settings.bitcoinExplorerValues" [value]="bitcoinExplorer">
             {{bitcoinExplorer}}
@@ -33,7 +33,7 @@
       <div class="row">
         <div class="col-sm-6">
           <ion-item>
-            <ion-label>{{'SETTINGS.PREFERENCES.WIDTHDRAWAL_TRANSACTION_FEE' | translate }}</ion-label>
+            <ion-label floating>{{'SETTINGS.PREFERENCES.WIDTHDRAWAL_TRANSACTION_FEE' | translate }}</ion-label>
             <ion-input type="text" [(ngModel)]="settings.widthdrawalTransactionFee"
                        [disabled]="!widthdrawalTransactionFeeEnabled" (ionChange)="settings.saveSettings()"></ion-input>
           </ion-item>
@@ -47,7 +47,7 @@
         </div>
       </div>
       <ion-item>
-        <ion-label>{{'SETTINGS.PREFERENCES.MAX_DEVIATION_FROM_MARKET_PRICE' | translate }}:</ion-label>
+        <ion-label floating>{{'SETTINGS.PREFERENCES.MAX_DEVIATION_FROM_MARKET_PRICE' | translate }}:</ion-label>
         <ion-input type="text" [(ngModel)]="settings.maxDeviationFromMarketPrice"
                    (ionChange)="settings.saveSettings()"></ion-input>
       </ion-item>
@@ -65,8 +65,8 @@
     <div class="card-header">{{'SETTINGS.PREFERENCES.CURRENCIES_IN_MARKET_PRICE_FEED_LIST' | translate }}</div>
     <div class="card-body">
       <ion-item>
-        <ion-label>{{'SETTINGS.PREFERENCES.PREFERED_CURRENCY' | translate }}</ion-label>
-        <ion-select [(ngModel)]="settings.preferedCurrency" (ionChange)="settings.saveSettings()">
+        <ion-label floating>{{'SETTINGS.PREFERENCES.PREFERED_CURRENCY' | translate }}</ion-label>
+        <ion-select [(ngModel)]="settings.preferedCurrency" (ionChange)="settings.saveSettings()" interface="popover">
           <ion-option *ngFor="let currency of currencies" [value]="currency.symbol">{{currency.name}}</ion-option>
         </ion-select>
       </ion-item>
@@ -74,9 +74,9 @@
         <div class="col-sm-6">
           <div class="card mt-2 padding">
             <ion-item class="card-body">
-              <ion-label>{{'SETTINGS.PREFERENCES.DISPLAY_NATIONAL_CURRENCIES' | translate }}</ion-label>
+              <ion-label floating>{{'SETTINGS.PREFERENCES.DISPLAY_NATIONAL_CURRENCIES' | translate }}</ion-label>
               <ion-select [(ngModel)]="settings.displayedNatonalCurrencies" multiple="true"
-                          (ionChange)="settings.saveSettings()">
+                          (ionChange)="settings.saveSettings()" interface="popover">
                 <ion-option *ngFor="let nationalCurrency of nationalCurrencies" [value]="nationalCurrency.symbol">
                   {{nationalCurrency.symbol}}
                 </ion-option>
@@ -87,9 +87,9 @@
         <div class="col-sm-6">
           <div class="card mt-2 padding">
             <ion-item class="card-body">
-              <ion-label>{{'SETTINGS.PREFERENCES.DISPLAY_ALTCOINS' | translate }}</ion-label>
-              <ion-select [(ngModel)]="settings.displayedAltcoins" multiple="true"
-                          (ionChange)="settings.saveSettings()">
+              <ion-label floating>{{'SETTINGS.PREFERENCES.DISPLAY_ALTCOINS' | translate }}</ion-label>
+              <ion-select [(ngModel)]="settings.displayedAltcoins" multiple="true" (ionChange)="settings.saveSettings()"
+                          interface="popover">
                 <ion-option *ngFor="let cryptocCurrency of cryptoCurrencies" [value]="cryptocCurrency.symbol">
                   {{cryptocCurrency.symbol}}
                 </ion-option>
