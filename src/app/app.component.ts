@@ -67,7 +67,8 @@ export class AppComponent {
           text: t('SETTINGS.BACKEND_URL_MISSING_REDIRECT'),
           path: '/settings/backend-url',
           class: 'large center'
-        }
+        },
+        disallowCancel: true
       });
     }
 

@@ -3,7 +3,7 @@
     <ion-title>
       {{data.title | translate:data.translateParams}}
     </ion-title>
-    <ion-buttons start>
+    <ion-buttons *ngIf="!disallowCancel" start>
       <button ion-button (click)="dismiss()">
         <ion-icon name="md-close"></ion-icon>
       </button>
