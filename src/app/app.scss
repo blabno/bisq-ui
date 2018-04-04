@@ -75,11 +75,16 @@ ion-item.item {
     border-bottom-color: var(--facile-grey);
   }
   &.item-checkbox {
+    margin-top: 22px;
+    border-bottom: 1px solid var(--facile-grey);
     ion-checkbox.checkbox {
-      margin-right: 22px;
+      margin-right: 12px;
     }
-    ion-label.label {
-      color: #999;
+    .item-inner {
+      border: 0;
+      ion-label.label {
+        color: #999;
+      }
     }
   }
 }
@@ -131,7 +136,7 @@ button ion-spinner {
 .small-loading {
   @extend .loading;
   h1 {
-    margin-top:0;
+    margin-top: 0;
     font-size: 1.5rem;
   }
   ion-spinner * {
@@ -140,6 +145,9 @@ button ion-spinner {
   }
 }
 
-ion-popover ion-list .item-radio.item-md ion-label, .label-md {
-  margin-left: 16px;
+ion-popover.select-popover ion-list {
+  margin: 0;
+  .item-radio.item-md ion-label, .label-md {
+    margin-left: 16px;
+  }
 }

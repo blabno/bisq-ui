@@ -6,7 +6,7 @@
       </ion-col>
       <ion-col>
         <ion-item class="filter-item">
-          <ion-label>{{'OFFERS.LIST.FILTER.BY_CURRENCY' | translate}}</ion-label>
+          <ion-label floating>{{'OFFERS.LIST.FILTER.BY_CURRENCY' | translate}}</ion-label>
           <ion-select [(ngModel)]="currencyFilter" (ionChange)="onCurrencyFilterChange($event)" interface="popover">
             <ion-option [value]="NO_FILTER">{{('OFFERS.LIST.SHOW_ALL' | translate)}}</ion-option>
             <ion-option *ngFor="let currency of currencies" [value]="currency.value">{{currency.name}}</ion-option>
@@ -15,7 +15,7 @@
       </ion-col>
       <ion-col>
         <ion-item class="filter-item">
-          <ion-label>{{'OFFERS.LIST.FILTER.BY_METHOD' | translate}}</ion-label>
+          <ion-label floating>{{'OFFERS.LIST.FILTER.BY_METHOD' | translate}}</ion-label>
           <ion-select interface="popover">
             <ion-option>{{'OFFERS.LIST.SHOW_ALL' | translate}}</ion-option>
           </ion-select>
