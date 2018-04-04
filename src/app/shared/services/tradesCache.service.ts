@@ -70,7 +70,7 @@ export class TradesCacheService {
 
   init() {
     this.stop();
-    this.interval = setInterval(() => this.refresh(), 10 * 1000);
+    this.interval = setInterval(() => this.refresh().catch(_.noop), 10 * 1000);
   }
 
   stop() {

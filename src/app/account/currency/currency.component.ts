@@ -3,6 +3,7 @@ import _ from 'lodash';
 
 import {InfoModalService} from '../../shared/infoModal/infoModal.service';
 import {PaymentAccountsDAO} from '../../shared/DAO/paymentAccounts.dao';
+import {ToastService} from '../../shared/services/toast.service';
 import formSchema from './currency.form';
 import {translate} from './currency.translation';
 
@@ -16,7 +17,8 @@ export class CurrencyComponent implements OnInit {
   formSchema = formSchema;
 
   constructor(private initModal: InfoModalService,
-              private paymentAccountsDAO: PaymentAccountsDAO) {
+              private paymentAccountsDAO: PaymentAccountsDAO,
+              private toast: ToastService) {
   }
 
   ngOnInit() {
@@ -31,6 +33,7 @@ export class CurrencyComponent implements OnInit {
   list() {
     return this.paymentAccountsDAO.query()
       .then((result: any) => _.filter(result.paymentAccounts, item => 'BLOCK_CHAINS' !== item.paymentMethod))
+      .catch(() => this.toast.show('TOAST.PAYMENT_METHOD_QUERY_ERROR', 'error'))
   }
 
   create(values) {
