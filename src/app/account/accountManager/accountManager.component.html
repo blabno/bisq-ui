@@ -3,7 +3,7 @@
     <h1>{{'SHARED.LOADING' | translate}}..</h1>
     <ion-spinner></ion-spinner>
   </div>
-  <div *ngIf="!accounts.length && !loading" class="card no-results-card">
+  <div *ngIf="!formOpened && !accounts.length && !loading" class="card no-results-card">
     <div class="card-body">
       <span>{{emptyMessage | translate}}</span>
     </div>
@@ -17,20 +17,26 @@
     <div class="buttons">
       <button ion-button (click)="addNew()">{{'ACCOUNT.ADD_NEW' | translate}}</button>
       <div class="float-right">
-        <button *ngIf="accounts.length" ion-button color="light" (click)="notDoneYet()">{{'ACCOUNT.EXPORT' |
-          translate}}
-        </button>
-        <button class="d-block d-md-inline-block" ion-button color="light" (click)="notDoneYet()">{{'ACCOUNT.IMPORT' |
-          translate}}
-        </button>
+        <div class="d-block d-md-inline-block">
+          <button *ngIf="accounts.length" ion-button class="float-right" color="light" (click)="notDoneYet()">
+            {{'ACCOUNT.EXPORT' | translate}}
+          </button>
+        </div>
+        <div class="d-block d-md-inline-block">
+          <button ion-button class="float-right" color="light" (click)="notDoneYet()">
+            {{'ACCOUNT.IMPORT' | translate}}
+          </button>
+        </div>
       </div>
     </div>
   </div>
   <div *ngIf="formOpened && !loading">
-    <app-form [form]="paymentForm" [disabled]="formDisabled" [values]="paymentValues"
-              (onChange)="change($event)"></app-form>
-    <app-form #formElement [form]="formMap[selectedForm] && formMap[selectedForm].form" [values]="detailsValues"
-              [disabled]="formDisabled" (onSubmit)="submit($event)"></app-form>
+    <div class="forms">
+      <app-form [form]="paymentForm" [disabled]="formDisabled" [values]="paymentValues"
+                (onChange)="change($event)"></app-form>
+      <app-form #formElement [form]="formMap[selectedForm] && formMap[selectedForm].form" [values]="detailsValues"
+                [disabled]="formDisabled" (onSubmit)="submit($event)"></app-form>
+    </div>
     <div class="buttons">
       <ng-template [ngIf]="!formDisabled && selectedForm">
         <button ion-button (click)="formElement.submit()" [disabled]="creatingAccount">
@@ -38,11 +44,11 @@
           <ion-spinner *ngIf="creatingAccount" item-end></ion-spinner>
         </button>
       </ng-template>
-      <button ion-button color="light" (click)="cancel()">{{'BACK' | translate}}</button>
       <button *ngIf="formDisabled" ion-button color="danger" (click)="delete()" [disabled]="deletingAccount">
         {{'ACCOUNT.DELETE' | translate}}
         <ion-spinner *ngIf="deletingAccount" item-end></ion-spinner>
       </button>
+      <button ion-button color="light" (click)="cancel()">{{'BACK' | translate}}</button>
     </div>
   </div>
 </div>

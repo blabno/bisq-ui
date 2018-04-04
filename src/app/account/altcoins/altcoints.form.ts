@@ -16,10 +16,6 @@ export default [
         "options": [{"value": "ACH"}],
         "hidden": true
       },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
-      },
       "accountName": {
         "type": "text",
         "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME",
@@ -48,10 +44,6 @@ export default [
         "value": "BETR",
         "options": [{"value": "BETR"}],
         "hidden": true
-      },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
       },
       "accountName": {
         "type": "text",
@@ -82,10 +74,6 @@ export default [
         "options": [{"value": "DARX"}],
         "hidden": true
       },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
-      },
       "accountName": {
         "type": "text",
         "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME",
@@ -114,10 +102,6 @@ export default [
         "value": "BCH",
         "options": [{"value": "BCH"}],
         "hidden": true
-      },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
       },
       "accountName": {
         "type": "text",
@@ -148,10 +132,6 @@ export default [
         "options": [{"value": "BCHC"}],
         "hidden": true
       },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
-      },
       "accountName": {
         "type": "text",
         "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME",
@@ -180,10 +160,6 @@ export default [
         "value": "BTG",
         "options": [{"value": "BTG"}],
         "hidden": true
-      },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
       },
       "accountName": {
         "type": "text",
@@ -214,10 +190,6 @@ export default [
         "options": [{"value": "BURST"}],
         "hidden": true
       },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
-      },
       "accountName": {
         "type": "text",
         "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME",
@@ -246,10 +218,6 @@ export default [
         "value": "GBYTE",
         "options": [{"value": "GBYTE"}],
         "hidden": true
-      },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
       },
       "accountName": {
         "type": "text",
@@ -280,10 +248,6 @@ export default [
         "options": [{"value": "CAGE"}],
         "hidden": true
       },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
-      },
       "accountName": {
         "type": "text",
         "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME",
@@ -312,10 +276,6 @@ export default [
         "value": "CDT",
         "options": [{"value": "CDT"}],
         "hidden": true
-      },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
       },
       "accountName": {
         "type": "text",
@@ -346,10 +306,6 @@ export default [
         "options": [{"value": "XCP"}],
         "hidden": true
       },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
-      },
       "accountName": {
         "type": "text",
         "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME",
@@ -378,10 +334,6 @@ export default [
         "value": "CREA",
         "options": [{"value": "CREA"}],
         "hidden": true
-      },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
       },
       "accountName": {
         "type": "text",
@@ -412,10 +364,6 @@ export default [
         "options": [{"value": "XCN"}],
         "hidden": true
       },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
-      },
       "accountName": {
         "type": "text",
         "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME",
@@ -444,10 +392,6 @@ export default [
         "value": "DCT",
         "options": [{"value": "DCT"}],
         "hidden": true
-      },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
       },
       "accountName": {
         "type": "text",
@@ -478,10 +422,6 @@ export default [
         "options": [{"value": "DAI"}],
         "hidden": true
       },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
-      },
       "accountName": {
         "type": "text",
         "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME",
@@ -510,10 +450,6 @@ export default [
         "value": "DNET",
         "options": [{"value": "DNET"}],
         "hidden": true
-      },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
       },
       "accountName": {
         "type": "text",
@@ -544,10 +480,6 @@ export default [
         "options": [{"value": "DASH"}],
         "hidden": true
       },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
-      },
       "accountName": {
         "type": "text",
         "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME",
@@ -576,10 +508,6 @@ export default [
         "value": "DCR",
         "options": [{"value": "DCR"}],
         "hidden": true
-      },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
       },
       "accountName": {
         "type": "text",
@@ -610,10 +538,6 @@ export default [
         "options": [{"value": "ONION"}],
         "hidden": true
       },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
-      },
       "accountName": {
         "type": "text",
         "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME",
@@ -642,10 +566,6 @@ export default [
         "value": "DGM",
         "options": [{"value": "DGM"}],
         "hidden": true
-      },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
       },
       "accountName": {
         "type": "text",
@@ -676,10 +596,6 @@ export default [
         "options": [{"value": "DOGE"}],
         "hidden": true
       },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
-      },
       "accountName": {
         "type": "text",
         "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME",
@@ -708,10 +624,6 @@ export default [
         "value": "DMC",
         "options": [{"value": "DMC"}],
         "hidden": true
-      },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
       },
       "accountName": {
         "type": "text",
@@ -742,10 +654,6 @@ export default [
         "options": [{"value": "ELLA"}],
         "hidden": true
       },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
-      },
       "accountName": {
         "type": "text",
         "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME",
@@ -774,10 +682,6 @@ export default [
         "value": "ESP",
         "options": [{"value": "ESP"}],
         "hidden": true
-      },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
       },
       "accountName": {
         "type": "text",
@@ -808,10 +712,6 @@ export default [
         "options": [{"value": "ETH"}],
         "hidden": true
       },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
-      },
       "accountName": {
         "type": "text",
         "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME",
@@ -840,10 +740,6 @@ export default [
         "value": "ETC",
         "options": [{"value": "ETC"}],
         "hidden": true
-      },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
       },
       "accountName": {
         "type": "text",
@@ -874,10 +770,6 @@ export default [
         "options": [{"value": "GRC"}],
         "hidden": true
       },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
-      },
       "accountName": {
         "type": "text",
         "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME",
@@ -906,10 +798,6 @@ export default [
         "value": "XIN",
         "options": [{"value": "XIN"}],
         "hidden": true
-      },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
       },
       "accountName": {
         "type": "text",
@@ -940,10 +828,6 @@ export default [
         "options": [{"value": "IOP"}],
         "hidden": true
       },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
-      },
       "accountName": {
         "type": "text",
         "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME",
@@ -972,10 +856,6 @@ export default [
         "value": "INXT",
         "options": [{"value": "INXT"}],
         "hidden": true
-      },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
       },
       "accountName": {
         "type": "text",
@@ -1006,10 +886,6 @@ export default [
         "options": [{"value": "LBC"}],
         "hidden": true
       },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
-      },
       "accountName": {
         "type": "text",
         "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME",
@@ -1038,10 +914,6 @@ export default [
         "value": "LSK",
         "options": [{"value": "LSK"}],
         "hidden": true
-      },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
       },
       "accountName": {
         "type": "text",
@@ -1072,10 +944,6 @@ export default [
         "options": [{"value": "LTC"}],
         "hidden": true
       },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
-      },
       "accountName": {
         "type": "text",
         "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME",
@@ -1104,10 +972,6 @@ export default [
         "value": "MDC",
         "options": [{"value": "MDC"}],
         "hidden": true
-      },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
       },
       "accountName": {
         "type": "text",
@@ -1138,10 +1002,6 @@ export default [
         "options": [{"value": "MAID"}],
         "hidden": true
       },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
-      },
       "accountName": {
         "type": "text",
         "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME",
@@ -1170,10 +1030,6 @@ export default [
         "value": "XMR",
         "options": [{"value": "XMR"}],
         "hidden": true
-      },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
       },
       "accountName": {
         "type": "text",
@@ -1204,10 +1060,6 @@ export default [
         "options": [{"value": "MT"}],
         "hidden": true
       },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
-      },
       "accountName": {
         "type": "text",
         "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME",
@@ -1236,10 +1088,6 @@ export default [
         "value": "NMC",
         "options": [{"value": "NMC"}],
         "hidden": true
-      },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
       },
       "accountName": {
         "type": "text",
@@ -1270,10 +1118,6 @@ export default [
         "options": [{"value": "NAV"}],
         "hidden": true
       },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
-      },
       "accountName": {
         "type": "text",
         "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME",
@@ -1302,10 +1146,6 @@ export default [
         "value": "NBT",
         "options": [{"value": "NBT"}],
         "hidden": true
-      },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
       },
       "accountName": {
         "type": "text",
@@ -1336,10 +1176,6 @@ export default [
         "options": [{"value": "NXT"}],
         "hidden": true
       },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
-      },
       "accountName": {
         "type": "text",
         "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME",
@@ -1368,10 +1204,6 @@ export default [
         "value": "ODN",
         "options": [{"value": "ODN"}],
         "hidden": true
-      },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
       },
       "accountName": {
         "type": "text",
@@ -1402,10 +1234,6 @@ export default [
         "options": [{"value": "888"}],
         "hidden": true
       },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
-      },
       "accountName": {
         "type": "text",
         "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME",
@@ -1434,10 +1262,6 @@ export default [
         "value": "PIVX",
         "options": [{"value": "PIVX"}],
         "hidden": true
-      },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
       },
       "accountName": {
         "type": "text",
@@ -1468,10 +1292,6 @@ export default [
         "options": [{"value": "PART"}],
         "hidden": true
       },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
-      },
       "accountName": {
         "type": "text",
         "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME",
@@ -1500,10 +1320,6 @@ export default [
         "value": "PASC",
         "options": [{"value": "PASC"}],
         "hidden": true
-      },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
       },
       "accountName": {
         "type": "text",
@@ -1534,10 +1350,6 @@ export default [
         "options": [{"value": "PEPECASH"}],
         "hidden": true
       },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
-      },
       "accountName": {
         "type": "text",
         "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME",
@@ -1566,10 +1378,6 @@ export default [
         "value": "POST",
         "options": [{"value": "POST"}],
         "hidden": true
-      },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
       },
       "accountName": {
         "type": "text",
@@ -1600,10 +1408,6 @@ export default [
         "options": [{"value": "PNC"}],
         "hidden": true
       },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
-      },
       "accountName": {
         "type": "text",
         "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME",
@@ -1632,10 +1436,6 @@ export default [
         "value": "RDD",
         "options": [{"value": "RDD"}],
         "hidden": true
-      },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
       },
       "accountName": {
         "type": "text",
@@ -1666,10 +1466,6 @@ export default [
         "options": [{"value": "REF"}],
         "hidden": true
       },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
-      },
       "accountName": {
         "type": "text",
         "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME",
@@ -1698,10 +1494,6 @@ export default [
         "value": "SOS",
         "options": [{"value": "SOS"}],
         "hidden": true
-      },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
       },
       "accountName": {
         "type": "text",
@@ -1732,10 +1524,6 @@ export default [
         "options": [{"value": "STEEM"}],
         "hidden": true
       },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
-      },
       "accountName": {
         "type": "text",
         "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME",
@@ -1764,10 +1552,6 @@ export default [
         "value": "SFSC",
         "options": [{"value": "SFSC"}],
         "hidden": true
-      },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
       },
       "accountName": {
         "type": "text",
@@ -1798,10 +1582,6 @@ export default [
         "options": [{"value": "SC"}],
         "hidden": true
       },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
-      },
       "accountName": {
         "type": "text",
         "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME",
@@ -1830,10 +1610,6 @@ export default [
         "value": "SF",
         "options": [{"value": "SF"}],
         "hidden": true
-      },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
       },
       "accountName": {
         "type": "text",
@@ -1864,10 +1640,6 @@ export default [
         "options": [{"value": "SIB"}],
         "hidden": true
       },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
-      },
       "accountName": {
         "type": "text",
         "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME",
@@ -1896,10 +1668,6 @@ export default [
         "value": "XSPEC",
         "options": [{"value": "XSPEC"}],
         "hidden": true
-      },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
       },
       "accountName": {
         "type": "text",
@@ -1930,10 +1698,6 @@ export default [
         "options": [{"value": "SCS"}],
         "hidden": true
       },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
-      },
       "accountName": {
         "type": "text",
         "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME",
@@ -1962,10 +1726,6 @@ export default [
         "value": "STL",
         "options": [{"value": "STL"}],
         "hidden": true
-      },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
       },
       "accountName": {
         "type": "text",
@@ -1996,10 +1756,6 @@ export default [
         "options": [{"value": "TRC"}],
         "hidden": true
       },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
-      },
       "accountName": {
         "type": "text",
         "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME",
@@ -2028,10 +1784,6 @@ export default [
         "value": "MVT",
         "options": [{"value": "MVT"}],
         "hidden": true
-      },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
       },
       "accountName": {
         "type": "text",
@@ -2062,10 +1814,6 @@ export default [
         "options": [{"value": "UNO"}],
         "hidden": true
       },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
-      },
       "accountName": {
         "type": "text",
         "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME",
@@ -2094,10 +1842,6 @@ export default [
         "value": "CRED",
         "options": [{"value": "CRED"}],
         "hidden": true
-      },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
       },
       "accountName": {
         "type": "text",
@@ -2128,10 +1872,6 @@ export default [
         "options": [{"value": "WAC"}],
         "hidden": true
       },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
-      },
       "accountName": {
         "type": "text",
         "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME",
@@ -2160,10 +1900,6 @@ export default [
         "value": "WILD",
         "options": [{"value": "WILD"}],
         "hidden": true
-      },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
       },
       "accountName": {
         "type": "text",
@@ -2194,10 +1930,6 @@ export default [
         "options": [{"value": "YTN"}],
         "hidden": true
       },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
-      },
       "accountName": {
         "type": "text",
         "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME",
@@ -2226,10 +1958,6 @@ export default [
         "value": "ZEC",
         "options": [{"value": "ZEC"}],
         "hidden": true
-      },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
       },
       "accountName": {
         "type": "text",
@@ -2260,10 +1988,6 @@ export default [
         "options": [{"value": "XZC"}],
         "hidden": true
       },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
-      },
       "accountName": {
         "type": "text",
         "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME",
@@ -2293,10 +2017,6 @@ export default [
         "options": [{"value": "ZEN"}],
         "hidden": true
       },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
-      },
       "accountName": {
         "type": "text",
         "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME",
@@ -2325,10 +2045,6 @@ export default [
         "value": "VDN",
         "options": [{"value": "VDN"}],
         "hidden": true
-      },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
       },
       "accountName": {
         "type": "text",

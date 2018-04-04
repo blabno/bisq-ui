@@ -1,0 +1,21 @@
+app-account-manager {
+  ion-list .item.item-block {
+    border: 1px solid var(--facile-grey);
+    &:not(:last-child) {
+      border-bottom: 0;
+    }
+    .item-inner {
+      border: 0;
+    }
+  }
+  .forms {
+    margin-bottom: 15px;
+  }
+  .buttons {
+    button {
+      float: right;
+      margin-left: 10px;
+      margin-bottom: 8px;
+    }
+  }
+}

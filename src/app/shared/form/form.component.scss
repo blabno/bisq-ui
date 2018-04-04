@@ -4,12 +4,12 @@ app-form {
   }
   .validation {
     color: var(--red);
-    margin-left: 16px;
+    margin-left: 5px;
   }
   .footer {
     margin-top: 32px;
     hr {
-      background-color: #dedede;
+      background-color: var(--facile-grey);
     }
     .label {
       font-weight: bold;

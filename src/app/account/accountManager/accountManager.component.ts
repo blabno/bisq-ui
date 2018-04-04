@@ -64,7 +64,7 @@ export class AccountManagerComponent implements OnInit, OnDestroy {
 
   registerBackButton() {
     this.unregisterBackButton = this.platform.registerBackButtonAction(() => {
-      this.cancel();
+      this.doCancel();
       this.unregisterBackButton();
     });
   }
@@ -83,18 +83,40 @@ export class AccountManagerComponent implements OnInit, OnDestroy {
   }
 
   addNew() {
-    this.cancel();
+    this.doCancel();
     this.formOpened = true;
     this.registerBackButton();
   }
 
-  cancel() {
+  doCancel() {
     this.formOpened = false;
     this.formDisabled = false;
     this.selectedForm = null;
     this.paymentValues = _.mapValues(this.paymentValues, () => null);
     this.detailsValues = _.mapValues(this.detailsValues, () => null);
     this.unregisterBackButton();
+  }
+
+  cancel() {
+    if(this.formDisabled) {
+      this.doCancel();
+      return;
+    }
+    this.alertCtrl.create({
+      title: this.translate.instant('WARNING'),
+      message: this.translate.instant('ACCOUNT.CURRENCY.CANCEL_CONFIRMATION'),
+      buttons: [
+        {
+          text: this.translate.instant('CANCEL'),
+        },
+        {
+          text: this.translate.instant('DISCARD'),
+          handler: () => {
+            this.doCancel();
+          }
+        }
+      ]
+    }).present();
   }
 
   refreshList() {
@@ -111,7 +133,7 @@ export class AccountManagerComponent implements OnInit, OnDestroy {
     values.paymentMethod = this.selectedForm;
     this.create(values)
       .then(() => {
-        this.cancel();
+        this.doCancel();
         this.refreshList();
         this.toast.show('TOAST.PAYMENT_METHOD_CREATED', 'info');
         this.creatingAccount = false;
@@ -140,7 +162,7 @@ export class AccountManagerComponent implements OnInit, OnDestroy {
             this.deletingAccount = true;
             this.remove(this.detailsValues.id)
               .then(() => {
-                this.cancel();
+                this.doCancel();
                 this.refreshList();
                 this.toast.show('TOAST.PAYMENT_METHOD_DELETED', 'info');
                 this.deletingAccount = false;
