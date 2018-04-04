@@ -1,5 +1,5 @@
 <div class="desktop-max-width">
-  <button routerLink=".." class="btn btn-light back-btn">{{'BACK' | translate }}</button>
+  <button ion-button color="light" routerLink=".." class="back-btn">{{'BACK' | translate }}</button>
   <div class="messages-container">
     <div class="top-section">
       <div *ngIf="messages.length">
@@ -19,7 +19,7 @@
         <ion-label floating>Input Message</ion-label>
         <ion-textarea [(ngModel)]="newMessage"></ion-textarea>
       </ion-item>
-      <button class="btn btn-primary send-btn" (click)="sendMessage()">{{'SUPPORT.MESSAGES.SEND' | translate}}</button>
+      <button ion-button class="send-btn" (click)="sendMessage()">{{'SUPPORT.MESSAGES.SEND' | translate}}</button>
     </div>
   </div>
 </div>
