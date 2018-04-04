@@ -1,31 +1,3 @@
-<div class="desktop-max-width">
-  <div *ngIf="loading" class="d-flex justify-content-center align-items-center m-4 loading">
-    <h1>{{'SHARED.LOADING' | translate}}..</h1>
-    <ion-spinner></ion-spinner>
-  </div>
-  <div *ngIf="!altcoins.length && !loading" class="card no-results-card">
-    <div class="card-body">
-      <span>{{'ACCOUNT.ALTCOINS.NO_RESULTS' | translate}}</span>
-    </div>
-  </div>
-  <div class="buttons">
-    <button class="btn btn-primary button-md" (click)="addNew()">{{'ACCOUNT.ADD_NEW' | translate}}</button>
-    <div class="float-right">
-      <button *ngIf="altcoins.length" ion-button color="light">{{'ACCOUNT.EXPORT' | translate}}</button>
-      <button class="d-block d-md-inline-block" ion-button color="light">{{'ACCOUNT.IMPORT' | translate}}</button>
-    </div>
-  </div>
-
-  <div *ngIf="formOpen">
-    <div class="card">
-      <div class="card-header">{{'ACCOUNT.CREATE_NEW' | translate}}</div>
-      <div class="card-body">
-        <app-form [form]="form"></app-form>
-      </div>
-    </div>
-    <div class="buttons">
-      <button class="btn btn-primary button-md">{{'ACCOUNT.SAVE' | translate}}</button>
-      <button class="btn btn-primary button-md" (click)="cancel()">{{'BACK' | translate}}</button>
-    </div>
-  </div>
-</div>
+<app-account-manager [formSchema]="formSchema" [list]="list.bind(this)" [create]="create.bind(this)"
+                     [remove]="remove.bind(this)" emptyMessage="ACCOUNT.CURRENCY.NO_RESULTS"
+                     methodLabel="ACCOUNT.ALTCOINS.ALTCOIN"></app-account-manager>

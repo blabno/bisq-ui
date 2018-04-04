@@ -15,6 +15,7 @@ import {StatusBar} from '@ionic-native/status-bar';
 import appRoutes from './app.routes';
 
 import {AboutComponent} from './settings/about/about.component';
+import {AccountManagerComponent} from './account/accountManager/accountManager.component';
 import {AltcoinsComponent} from './account/altcoins/altcoins.component';
 import {AppComponent} from './app.component';
 import {ArbitratorComponent} from './account/arbitrator/arbitrator.component';
@@ -51,6 +52,7 @@ import {WalletSeedComponent} from './account/wallet-seed/wallet-seed.component';
 
 const loadModules = [
   AboutComponent,
+  AccountManagerComponent,
   AltcoinsComponent,
   AppComponent,
   ArbitratorComponent,

@@ -1,4 +1,11 @@
 import {Component} from '@angular/core';
+import _ from 'lodash';
+
+import formSchema from './altcoints.form';
+import {PaymentAccountsDAO} from '../../shared/DAO/paymentAccounts.dao';
+import {translate} from './altcoins.translation';
+
+translate();
 
 @Component({
   selector: 'app-altcoins',
@@ -6,43 +13,27 @@ import {Component} from '@angular/core';
 })
 export class AltcoinsComponent {
 
-  model = {};
-  formOpen: boolean = false;
-  loading = false;
-  altcoins = [];
+  formSchema = formSchema;
 
-  form = {
-    altcoin: {
-      label: 'Altcoin', type: 'select',
-      options: [
-        {value: 'ltc', label: "Litecoin (LTC)"},
-        {value: 'xcn', label: "Cryptonite (XCN)"},
-        {value: 'dash', label: "Dash (DASH)"},
-        {value: 'eth', label: "Ether (ETH)"}
-      ]
-    },
-    email: {label: 'Email address', type: 'text'},
-    limitations: {
-      label: 'Limitations',
-      type: 'text',
-      value: 'Max. trade duration: 6 days / Max. trade limit: 0.0625 BTC / Account age: 0 days',
-      disabled: true
-    },
-    salt: {label: 'Salt for account age verification', type: 'text'},
-    name: {label: 'Account name', type: 'text'},
-    useCustom: {label: 'Use custom account name', type: 'checkbox'}
-  };
-
-  constructor() {
+  constructor(private paymentAccountsDAO: PaymentAccountsDAO) {
   }
 
-  addNew() {
-    this.formOpen = true;
+  list() {
+    return this.paymentAccountsDAO.query()
+      .then((result: any) => _.filter(result.paymentAccounts, item => 'BLOCK_CHAINS' === item.paymentMethod))
   }
 
-  cancel() {
-    this.formOpen = false;
-    this.model = {};
+  create(values) {
+    const payload = _.cloneDeep(values);
+    payload.paymentMethod = 'BLOCK_CHAINS';
+    payload.selectedTradeCurrency = payload.tradeCurrencies;
+    payload.tradeCurrencies = [payload.tradeCurrencies];
+    delete payload.salt;
+    delete payload.limitations;
+    return this.paymentAccountsDAO.create(payload);
   }
 
+  remove(id) {
+    return this.paymentAccountsDAO.delete(id)
+  }
 }
