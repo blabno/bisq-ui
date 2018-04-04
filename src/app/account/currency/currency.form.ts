@@ -22,10 +22,6 @@ export default [
         ],
         "disabled": true
       },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
-      },
       "accountName": {
         "type": "text",
         "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME",
@@ -62,10 +58,6 @@ export default [
           }
         ],
         "disabled": true
-      },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
       },
       "accountName": {
         "type": "text",
@@ -1782,10 +1774,6 @@ export default [
         "type": "text",
         "label": "ACCOUNT.CURRENCY.EXTRA_REQUIREMENTS"
       },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
-      },
       "accountName": {
         "type": "text",
         "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME",
@@ -1830,10 +1818,6 @@ export default [
           }
         ],
         "disabled": true
-      },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
       },
       "accountName": {
         "type": "text",
@@ -1881,10 +1865,6 @@ export default [
         ],
         "disabled": true
       },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
-      },
       "accountName": {
         "type": "text",
         "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME",
@@ -1918,7 +1898,6 @@ export default [
         "options": [{"value": "CAD", "label": "ACCOUNT.CURRENCY.CURRENCY_CAD"}],
         "disabled": true
       },
-      "salt": {"type": "text", "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"},
       "accountName": {"type": "text", "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME", "validators": ["required"]},
       "limitations": {
         "type": "footer",
@@ -1939,7 +1918,6 @@ export default [
         "options": [{"value": "EUR", "label": "ACCOUNT.CURRENCY.CURRENCY_EUR"}],
         "disabled": true
       },
-      "salt": {"type": "text", "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"},
       "accountName": {"type": "text", "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME", "validators": ["required"]},
       "limitations": {
         "type": "footer",
@@ -3637,10 +3615,6 @@ export default [
         "type": "text",
         "label": "ACCOUNT.CURRENCY.ACCOUNT_NO_IBAN"
       },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
-      },
       "accountName": {
         "type": "text",
         "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME",
@@ -3698,7 +3672,6 @@ export default [
         }, {"value": "CNY", "label": "ACCOUNT.CURRENCY.CURRENCY_CNY"}],
         "validators": ["required"]
       },
-      "salt": {"type": "text", "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"},
       "accountName": {"type": "text", "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME", "validators": ["required"]},
       "limitations": {
         "type": "footer",
@@ -3721,7 +3694,6 @@ export default [
         }],
         "validators": ["required"]
       },
-      "salt": {"type": "text", "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"},
       "accountName": {"type": "text", "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME", "validators": ["required"]},
       "limitations": {
         "type": "footer",
@@ -3743,7 +3715,6 @@ export default [
         "options": [{"value": "USD", "label": "ACCOUNT.CURRENCY.CURRENCY_USD"}],
         "disabled": true
       },
-      "salt": {"type": "text", "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"},
       "accountName": {"type": "text", "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME", "validators": ["required"]},
       "limitations": {
         "type": "footer",
@@ -3801,7 +3772,6 @@ export default [
         }],
         "validators": ["required"]
       },
-      "salt": {"type": "text", "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"},
       "accountName": {"type": "text", "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME", "validators": ["required"]},
       "limitations": {
         "type": "footer",
@@ -5499,10 +5469,6 @@ export default [
         "type": "text",
         "label": "ACCOUNT.CURRENCY.ACCOUNT_NO_IBAN"
       },
-      "salt": {
-        "type": "text",
-        "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"
-      },
       "accountName": {
         "type": "text",
         "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME",
@@ -5643,7 +5609,6 @@ export default [
           "label": "GB"
         }, {"value": "HU", "label": "HU"}]
       },
-      "salt": {"type": "text", "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"},
       "accountName": {"type": "text", "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME", "validators": ["required"]},
       "limitations": {
         "type": "footer",
@@ -5778,7 +5743,6 @@ export default [
           "label": "GB"
         }, {"value": "HU", "label": "HU"}]
       },
-      "salt": {"type": "text", "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"},
       "accountName": {"type": "text", "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME", "validators": ["required"]},
       "limitations": {
         "type": "footer",
@@ -6424,7 +6388,6 @@ export default [
       "bankId": {"type": "text", "label": "ACCOUNT.CURRENCY.BANK_ID", "validators": ["required"]},
       "branchId": {"type": "text", "label": "ACCOUNT.CURRENCY.BRANCH_NO", "validators": ["required"]},
       "accountNr": {"type": "text", "label": "ACCOUNT.CURRENCY.ACCOUNT_NO_IBAN", "validators": ["required"]},
-      "salt": {"type": "text", "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"},
       "accountName": {"type": "text", "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME", "validators": ["required"]},
       "limitations": {
         "type": "footer",
@@ -6446,7 +6409,6 @@ export default [
         "options": [{"value": "SEK", "label": "ACCOUNT.CURRENCY.CURRENCY_SEK"}],
         "disabled": true
       },
-      "salt": {"type": "text", "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"},
       "accountName": {"type": "text", "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME", "validators": ["required"]},
       "limitations": {
         "type": "footer",
@@ -6504,7 +6466,6 @@ export default [
           "label": "ACCOUNT.CURRENCY.CURRENCY_AED"
         }, {"value": "PHP", "label": "ACCOUNT.CURRENCY.CURRENCY_PHP"}]
       },
-      "salt": {"type": "text", "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"},
       "accountName": {"type": "text", "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME", "validators": ["required"]},
       "limitations": {
         "type": "footer",
@@ -6526,7 +6487,6 @@ export default [
         "options": [{"value": "USD", "label": "ACCOUNT.CURRENCY.CURRENCY_USD"}],
         "disabled": true
       },
-      "salt": {"type": "text", "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"},
       "accountName": {"type": "text", "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME", "validators": ["required"]},
       "limitations": {
         "type": "footer",
@@ -6548,7 +6508,6 @@ export default [
         "options": [{"value": "USD", "label": "ACCOUNT.CURRENCY.CURRENCY_USD"}],
         "disabled": true
       },
-      "salt": {"type": "text", "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"},
       "accountName": {"type": "text", "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME", "validators": ["required"]},
       "limitations": {
         "type": "footer",
@@ -7191,7 +7150,6 @@ export default [
       "holderName": {"type": "text", "label": "ACCOUNT.CURRENCY.OWNER_NAME", "validators": ["required"]},
       "city": {"type": "text", "label": "ACCOUNT.CURRENCY.CITY", "validators": ["required"]},
       "email": {"type": "text", "label": "ACCOUNT.CURRENCY.EMAIL", "validators": ["required", "email"]},
-      "salt": {"type": "text", "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"},
       "accountName": {"type": "text", "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME", "validators": ["required"]},
       "limitations": {
         "type": "footer",
@@ -7213,7 +7171,6 @@ export default [
         "options": [{"value": "USD", "label": "ACCOUNT.CURRENCY.CURRENCY_USD"}],
         "disabled": true
       },
-      "salt": {"type": "text", "label": "ACCOUNT.CURRENCY.SALT_ACCOUNT_AGE"},
       "accountName": {"type": "text", "label": "ACCOUNT.CURRENCY.ACCOUNT_NAME", "validators": ["required"]},
       "limitations": {
         "type": "footer",

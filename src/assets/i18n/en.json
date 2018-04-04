@@ -72,7 +72,7 @@
 			"ADDRESS_XZC": "ZCoin address",
 			"ADDRESS_YTN": "Yenten address",
 			"ADDRESS_ZEC": "ZCash address",
-			"ADDRESS_ZEN ": "ZenCash address",
+			"ADDRESS_ZEN": "ZenCash address",
 			"ALTCOIN": "Altcoin",
 			"LIMITATION_1_1_0": "Max. trade duration: 1 days / Max. trade limit: 1.00 BTC / Account age: 0 days",
 			"NO_RESULTS": "There are no altcoins to show"
@@ -95,6 +95,7 @@
 			"ACCOUNT_NO": "Account no.",
 			"ACCOUNT_NO_IBAN": "Account no. (IBAN)",
 			"ACCOUNT_NUMBER": "Account number",
+			"CANCEL_CONFIRMATION": "Are you sure you want to discard current changes?",
 			"BANK_COUNTRY": "Country of bank",
 			"BANK_ID": "Bank ID (BIC/SWIFT)",
 			"BANK_NAME": "Bank name",
@@ -586,6 +587,7 @@
 	"BACK": "Back",
 	"CANCEL": "Cancel",
 	"CONFIRM": "Confirm",
+	"DISCARD": "Discard",
 	"FUNDS": {
 		"RECEIVE": {
 			"ADDRESS": "Address",
