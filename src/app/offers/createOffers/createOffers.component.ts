@@ -12,6 +12,7 @@ t([
   'OFFERS.CREATE.AMOUNT_MUST_BE_POSITIVE',
   'OFFERS.CREATE.MIN_AMOUNT_MUST_BE_BIGGER_THAN_AMOUNT'
 ]);
+
 @Component({
   selector: 'app-create-offers',
   templateUrl: 'createOffers.component.html'
@@ -25,7 +26,8 @@ export class CreateOffersComponent implements OnInit, OnDestroy {
   model = {
     accountId: null,
     tradeCurrency: null,
-    priceType: 'FIXED',
+    priceType: 'PERCENTAGE',
+    isFixedPrice: false,
     percentageFromMarketPrice: 0,
     amount: 0,
     fixedPrice: 0,
@@ -119,27 +121,28 @@ export class CreateOffersComponent implements OnInit, OnDestroy {
   }
 
   submit() {
-    if(!this.createForm.valid) {
+    if (!this.createForm.valid) {
       this.toast.show('OFFERS.CREATE.FILL_ALL_REQUIRED_FIELDS', 'error');
       return;
     }
     this.creatingOffer = true;
-    let preparedForm = _.merge({}, _.omit(this.model, ['tradeCurrency', 'calculatedValue', 'deposit']), {
+    let preparedForm = _.merge({}, _.omit(this.model, ['tradeCurrency', 'calculatedValue', 'deposit', 'isFixedPrice']), {
       fundUsingBisqWallet: true,
       direction: this.type.toUpperCase(),
       marketPair: 'BTC_' + this.model.tradeCurrency
     });
-    if(!preparedForm.amount) {
+    if (!preparedForm.amount) {
       this.toast.show('OFFERS.CREATE.AMOUNT_MUST_BE_POSITIVE', 'error');
       return;
     }
-    if(preparedForm.amount < preparedForm.minAmount) {
+    if (preparedForm.amount < preparedForm.minAmount) {
       this.toast.show('OFFERS.CREATE.MIN_AMOUNT_MUST_BE_BIGGER_THAN_AMOUNT', 'error');
       return;
     }
     preparedForm.amount *= 100000000;
     preparedForm.minAmount *= 100000000;
     preparedForm.fixedPrice *= 10000;
+    preparedForm.priceType = this.model.isFixedPrice ? 'FIXED' : 'PERCENTAGE';
     this.offersDAO.create(preparedForm).then(res => {
       this.toast.show('SUCCESS', 'success');
       this.creatingOffer = false;

@@ -15,17 +15,10 @@
         <ion-option *ngFor="let option of tradeList" [value]="option">{{option}}</ion-option>
       </ion-select>
     </ion-item>
-    <ion-list radio-group [(ngModel)]="model.priceType" name="type" (ionChange)="onValueChanges($event)">
-      <ion-list-header>{{'OFFERS.CREATE.TYPE' | translate}}</ion-list-header>
-      <ion-item>
-        <ion-label>{{'OFFERS.CREATE.FIXED' | translate}}</ion-label>
-        <ion-radio checked="true" value="FIXED"></ion-radio>
-      </ion-item>
-      <ion-item>
-        <ion-label>{{'OFFERS.CREATE.PERCENTAGE' | translate}}</ion-label>
-        <ion-radio value="PERCENTAGE"></ion-radio>
-      </ion-item>
-    </ion-list>
+    <ion-item>
+      <ion-label>{{(model.isFixedPrice ?  'OFFERS.CREATE.FIXED' : 'OFFERS.CREATE.PERCENTAGE') | translate}}</ion-label>
+      <ion-toggle name="isFixedPrice" [(ngModel)]="model.isFixedPrice"></ion-toggle>
+    </ion-item>
     <ion-item>
       <ion-label floating>{{'OFFERS.CREATE.AMOUNT' | translate}}</ion-label>
       <ion-input type="number" name="amount" [(ngModel)]="model.amount" (ionChange)="onValueChanges($event)"

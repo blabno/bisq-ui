@@ -54,7 +54,6 @@ export class SectionHeaderComponent {
       {path: '/account/arbitrator', title: ['MENU.ACCOUNT', 'ACCOUNT.SUBMENU.ARBITRATOR']}
     ];
     const pathObject = _.find(pathsArray, object => _.includes(url, object.path)) || {};
-    console.log(pathObject);
     this.sectionTitle = pathObject.title;
   }
 }

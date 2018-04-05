@@ -22,12 +22,9 @@ export class FundsListComponent implements OnInit {
   public loading = true;
 
   constructor(private walletDao: WalletDAO, private toast: ToastService, private clipboard: ClipboardService) {
-    
-    console.log('TYPE constructor', this.type);
   }
 
   ngOnInit() {
-    console.log('TYPE', this.type);
     this.generateAddress();
     this.getAddressesData();
   }
