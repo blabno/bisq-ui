@@ -86,6 +86,10 @@ export class OffersListComponent implements OnChanges {
     }
   }
 
+  getMarket(item) {
+    return item.baseCurrencyCode + '/' + item.counterCurrencyCode;
+  }
+
   takeOffer(offer) {
     if(!this.checkIfValidPaymentAccount(offer.paymentMethodId))
       return;

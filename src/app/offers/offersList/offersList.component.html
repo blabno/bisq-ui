@@ -38,8 +38,7 @@
         <span title="Onion adress: {{item.ownerNodeAddress}}">
           <app-gravatar [hashSeed]="item.ownerNodeAddress" size="24"></app-gravatar>
         </span>
-        {{item.market}}
-        <span class="float-right">{{item.method}}
+        <span class="float-right">{{getMarket(item)}}
           <i class="fas fa-info-circle info"></i>
         </span>
       </div>
