@@ -1,4 +1,7 @@
 app-support-messages {
+  display: block;
+  height: calc(100vh - 112px);
+  overflow-y: auto;
   .desktop-max-width {
     height: 100%;
   }
@@ -39,5 +42,11 @@ app-support-messages {
         float: right;
       }
     }
+  }
+}
+
+@media (max-width: 992px) {
+  app-support-messages {
+    height: calc(100vh - 82px);
   }
 }
