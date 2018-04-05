@@ -1,0 +1,14 @@
+app-section-header {
+  font-size: 18px;
+  span:not(:first-child):before {
+    content: " - ";
+  }
+  @media (max-width: 992px) {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+  }
+  @media (min-width: 992px) {
+    margin-bottom: 15px;
+  }
+}

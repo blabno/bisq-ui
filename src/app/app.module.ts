@@ -23,11 +23,11 @@ import {BackendUrlComponent} from './settings/backendUrl/backendUrl.component';
 import {BackupComponent} from './account/backup/backup.component';
 import {CreateOffersComponent} from './offers/createOffers/createOffers.component';
 import {CurrencyComponent} from './account/currency/currency.component';
-import {FormComponent} from './shared/form/form.component';
+import {FormComponent} from './shared/components/form/form.component';
 import {FundsListComponent} from './funds/list/fundsList.component';
 import {GravatarComponent} from './shared/components/gravatar/gravatar.component';
 import {HistoryComponent} from './portfolio/history/history.component';
-import {InfoModalComponent} from './shared/infoModal/infoModal.component';
+import {InfoModalComponent} from './shared/components/infoModal/infoModal.component';
 import {LockedComponent} from './funds/locked/locked.component';
 import {MainComponent} from './main/main.component';
 import {MarketComponent} from './market/market.component';
@@ -40,6 +40,7 @@ import {OffersListComponent} from './offers/offersList/offersList.component';
 import {PreferencesComponent} from './settings/preferences/preferences.component';
 import {ReceiveComponent} from './funds/receive/receive.component';
 import {ReservedComponent} from './funds/reserved/reserved.component';
+import {SectionHeaderComponent} from "./shared/components/sectionHeader/sectionHeader.component";
 import {SendComponent} from './funds/send/send.component';
 import {SummaryComponent} from './market/summary/summary.component';
 import {SupportComponent} from "./support/support.component";
@@ -78,6 +79,7 @@ const loadModules = [
   PreferencesComponent,
   ReceiveComponent,
   ReservedComponent,
+  SectionHeaderComponent,
   SendComponent,
   SummaryComponent,
   SupportComponent,

@@ -10,12 +10,6 @@ app-menu {
   .collapsing {
     transition: height .15s;
   }
-  .section-title {
-    font-size: 18px;
-    span:not(:first-child):before {
-      content: " - ";
-    }
-  }
   .menu-content {
     .menu-item {
       &:hover {
@@ -48,10 +42,6 @@ app-menu {
   }
 
   @media (min-width: 992px) {
-    .section-title {
-      text-align: center;
-      padding-bottom: 10px;
-    }
     .menu-content {
       position: static;
       overflow: visible;
@@ -78,11 +68,6 @@ app-menu {
   }
 
   @media (max-width: 992px) {
-    .section-title {
-      position: absolute;
-      top: 14px;
-      right: 18px;
-    }
     .menu-content {
       .menu-item {
         border-top: 1px solid rgba(0, 0, 0, 0.15);

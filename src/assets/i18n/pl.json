@@ -643,6 +643,7 @@
 			"PRICE_OVERALL": "Koszt całkowity",
 			"SAVE": "Zapisz",
 			"SECURITY_DEPOSIT": "Depozyt",
+			"TITLE": "Stwórz ofertę",
 			"TRADING_ACCOUNT": "Konto handlowe",
 			"TYPE": "Typ ceny"
 		},
@@ -669,6 +670,7 @@
 			"TAKE_OFFER": "Weź ofertę",
 			"TAKE_OFFER_ERROR": "Błąd w transakcji",
 			"TAKE_OFFER_SUCCESS": "Transakcja udana",
+			"TITLE": "Przyjmij ofertę",
 			"TRADE_CURRENCY": "Waluta",
 			"TRADING_ACCOUNT": "Konto"
 		}

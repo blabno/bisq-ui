@@ -1,4 +1,5 @@
 <div class="desktop-max-width">
+  <app-section-header class="d-none d-lg-block"></app-section-header>
   <ion-item>
     <ion-label>{{ 'ACCOUNT.ARBITRATOR.WHICH_LANGUAGE_DO_YOU_SPEAK' | translate }}</ion-label>
     <ion-select [(ngModel)]="languagesSpoken" multiple="true" (ionChange)="saveLanguagesSettings()">

@@ -643,6 +643,7 @@
 			"PRICE_OVERALL": "Price overall",
 			"SAVE": "Save",
 			"SECURITY_DEPOSIT": "Security deposit for buyer",
+			"TITLE": "Create offer",
 			"TRADING_ACCOUNT": "Trading account",
 			"TYPE": "Price type"
 		},
@@ -669,6 +670,7 @@
 			"TAKE_OFFER": "Take offer",
 			"TAKE_OFFER_ERROR": "Take offer error",
 			"TAKE_OFFER_SUCCESS": "Take offer success",
+			"TITLE": "Take offer",
 			"TRADE_CURRENCY": "Trade currency",
 			"TRADING_ACCOUNT": "Trading account"
 		}
