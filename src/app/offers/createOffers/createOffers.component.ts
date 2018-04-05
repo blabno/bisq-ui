@@ -21,7 +21,7 @@ export class CreateOffersComponent implements OnInit, OnDestroy {
   @ViewChild('createForm') createForm;
   type: 'sell' | 'buy';
   accountsList;
-  noAccounts= false;
+  noAccounts = false;
   tradeList;
   model = {
     accountId: null,
@@ -46,10 +46,10 @@ export class CreateOffersComponent implements OnInit, OnDestroy {
               private marketPriceService: MarketPriceService) {
     this.paymentsDAO.query().then((res: any) => {
       this.accountsList = res.paymentAccounts;
-      if(!this.accountsList.length){
+      if (!this.accountsList.length) {
         this.noAccounts = true;
       }
-      if(1 === this.accountsList.length) {
+      if (1 === this.accountsList.length) {
         this.model.accountId = _.head(this.accountsList).id;
         this.onSelectAccount();
       }
@@ -82,34 +82,42 @@ export class CreateOffersComponent implements OnInit, OnDestroy {
     }
     const elementName = _.get(event, '_native.nativeElement.name');
     const values = this.createForm.value;
-    _.forEach(values, (value, key, a) => a[key] = Number(value) || value);
+    const setValue = {
+      calculatedValue: (value?) => this.createForm.controls['calculatedValue'].setValue((value || values.amount) * values.fixedPrice),
+      amount: value => this.createForm.controls['amount'].setValue(value),
+      minAmount: value => this.createForm.controls['minAmount'].setValue(value),
+      percentageFromMarketPrice: () => this.createForm.controls['percentageFromMarketPrice'].setValue((this.marketPrice - values.fixedPrice) / this.marketPrice * 100)
+    };
+    _.forEach(values, (value, key) => _.set(values, key, Number(value) || value));
+
     switch (elementName) {
       case 'amount':
-        this.createForm.controls['calculatedValue'].setValue(values.amount * values.fixedPrice);
+        setValue.calculatedValue();
         if (values.amount && values.amount < values.minAmount) {
-          this.createForm.controls['minAmount'].setValue(values.amount);
+          setValue.minAmount(values.amount);
         }
         break;
       case 'fixedPrice':
-        this.createForm.controls['calculatedValue'].setValue(values.amount * values.fixedPrice);
-        this.createForm.controls['percentageFromMarketPrice'].setValue((this.marketPrice - values.fixedPrice) / this.marketPrice * 100);
+        setValue.calculatedValue();
+        setValue.percentageFromMarketPrice();
         break;
       case 'percentageFromMarketPrice':
         this.calculateBasedOnPercentageFromMarketPrice();
         break;
       case 'calculatedValue':
-        const newAmount = values.fixedPrice * values.calculatedValue;
-        this.createForm.controls['amount'].setValue(newAmount);
+        const newAmount = values.calculatedValue / values.fixedPrice;
+        setValue.amount(newAmount);
         if (newAmount < values.minAmount) {
-          this.createForm.controls['minAmount'].setValue(newAmount);
+          setValue.minAmount(newAmount);
         }
         break;
       case 'minAmount':
         if (0 > values.minAmount) {
-          this.createForm.controls['minAmount'].setValue(0);
+          setValue.minAmount(0);
         }
         if (values.amount < values.minAmount) {
-          this.createForm.controls['amount'].setValue(values.minAmount);
+          setValue.amount(values.minAmount);
+          setValue.calculatedValue(values.minAmount);
         }
         break;
       case 'tradeCurrency':
