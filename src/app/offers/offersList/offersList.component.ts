@@ -3,6 +3,7 @@ import {Component, Input, OnChanges} from '@angular/core';
 import {SettingsService} from '../../shared/services/settings.service';
 import {PaymentAccountsDAO} from '../../shared/DAO/paymentAccounts.dao';
 import {Router} from '@angular/router';
+import {P2pDAO} from "../../shared/DAO/p2p.dao";
 
 @Component({
   selector: 'app-offers-list',
@@ -26,16 +27,23 @@ export class OffersListComponent implements OnChanges {
   ];
   public accountsList = [];
   public supportedPaymentsMethods = [];
+  private myAddress;
 
-  constructor(public settings: SettingsService, private paymentsDAO: PaymentAccountsDAO, private router: Router) {
-    this.paymentsDAO.query().then((res: any) => {
+  constructor(public settings: SettingsService,
+              private paymentsDAO: PaymentAccountsDAO,
+              private router: Router,
+              private p2p: P2pDAO) {
+    this.p2p.status().then(res => {
+      this.myAddress = _.get(res,'address');
+      return this.paymentsDAO.query();
+    }).then((res: any) => {
       this.accountsList = res.paymentAccounts;
       this.supportedPaymentsMethods = _.map(this.accountsList, 'paymentMethod');
     }).catch(error => {
       // TODO: handle this error in better way. This is temporary fix to handle missing backend URL in settings
       console.error(error)
     });
-    this.currencyFilter = settings.selectedCurrencyOnOfferList;
+    this.currencyFilter = this.settings.selectedCurrencyOnOfferList;
   }
 
   ngOnChanges() {
@@ -78,12 +86,17 @@ export class OffersListComponent implements OnChanges {
 
   private filterData() {
     if (this.data && this.type) {
+      let filteredData = _.chain(this.data);
       const dir = this.type === 'sell' ? 'buy' : 'sell';
       const filter = {direction: dir.toUpperCase()};
       if (this.currencyFilter !== this.NO_FILTER) {
         _.set(filter, 'currencyCode', this.currencyFilter);
       }
-      this.list = _.filter(this.data, filter);
+      filteredData = filteredData.filter(filter);
+      if (!this.settings.showMyOwnOffersInOfferBook) {
+        filteredData = filteredData.filter(o=> this.myAddress !== o.ownerNodeAddress);
+      }
+      this.list = filteredData.value();
     }
   }
 }
