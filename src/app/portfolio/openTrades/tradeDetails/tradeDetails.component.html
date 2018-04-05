@@ -1,13 +1,10 @@
+<app-section-header class="d-none d-lg-block"></app-section-header>
 <div *ngIf="trade" class="row">
   <div class="col-lg-4">
-    <app-trade-status [text]="stepsMap.steps[0].labels[selectedTradeRole]" [currentStep]="selectedTradeStep"
-                      definedStep="1"></app-trade-status>
-    <app-trade-status [text]="stepsMap.steps[1].labels[selectedTradeRole]" [currentStep]="selectedTradeStep"
-                      definedStep="2"></app-trade-status>
-    <app-trade-status [text]="stepsMap.steps[2].labels[selectedTradeRole]" [currentStep]="selectedTradeStep"
-                      definedStep="3"></app-trade-status>
-    <app-trade-status [text]="stepsMap.steps[3].labels[selectedTradeRole]" [currentStep]="selectedTradeStep"
-                      definedStep="4"></app-trade-status>
+    <app-trade-status [text]="stepsMap.steps[0].labels[selectedTradeRole]" [currentStep]="selectedTradeStep" definedStep="1"></app-trade-status>
+    <app-trade-status [text]="stepsMap.steps[1].labels[selectedTradeRole]" [currentStep]="selectedTradeStep" definedStep="2"></app-trade-status>
+    <app-trade-status [text]="stepsMap.steps[2].labels[selectedTradeRole]" [currentStep]="selectedTradeStep" definedStep="3"></app-trade-status>
+    <app-trade-status [text]="stepsMap.steps[3].labels[selectedTradeRole]" [currentStep]="selectedTradeStep" definedStep="4"></app-trade-status>
     <div *ngIf="'NO_DISPUTE' != trade.disputeState">
       <div class="card" *ngIf="'DISPUTE_REQUESTED' === trade.disputeState">
         <div class="card-header">{{'PORTFOLIO.OPEN_TRADES.DISPUTE_OPENED' | translate}}</div>

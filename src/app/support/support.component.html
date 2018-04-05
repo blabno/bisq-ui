@@ -1,3 +1,4 @@
+<app-section-header class="d-none d-lg-block"></app-section-header>
 <div *ngIf="loading" class="d-flex justify-content-center align-items-center m-4 loading">
   <h1>Loading..</h1>
   <ion-spinner></ion-spinner>
@@ -15,10 +16,10 @@
         {{item.id}}
       </div>
       <div class="card-body">
-          <div>Offer ID:</div>
-          <div>{{item.offerId}}</div>
-          <div>Offer date / Trade date:</div>
-          <div>{{item.offerDate | date}} / {{item.tradeDate | date}}</div>
+        <div>Offer ID:</div>
+        <div>{{item.offerId}}</div>
+        <div>Offer date / Trade date:</div>
+        <div>{{item.offerDate | date}} / {{item.tradeDate | date}}</div>
       </div>
     </div>
   </div>

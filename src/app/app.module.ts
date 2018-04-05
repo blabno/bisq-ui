@@ -40,6 +40,7 @@ import {OffersListComponent} from './offers/offersList/offersList.component';
 import {PreferencesComponent} from './settings/preferences/preferences.component';
 import {ReceiveComponent} from './funds/receive/receive.component';
 import {ReservedComponent} from './funds/reserved/reserved.component';
+import {SectionHeaderComponent} from "./shared/components/sectionHeader/sectionHeader.component";
 import {SendComponent} from './funds/send/send.component';
 import {SummaryComponent} from './market/summary/summary.component';
 import {SupportComponent} from "./support/support.component";
@@ -78,6 +79,7 @@ const loadModules = [
   PreferencesComponent,
   ReceiveComponent,
   ReservedComponent,
+  SectionHeaderComponent,
   SendComponent,
   SummaryComponent,
   SupportComponent,
