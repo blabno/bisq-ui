@@ -10,6 +10,6 @@ export class P2pDAO {
   }
 
   status() {
-    return this.http.get(`${this.settings.backendUrl}/api/v1/p2p/status`).toPromise();
+    return this.http.get(`${this.settings.backendUrl}/api/v1/network/p2p/status`).toPromise();
   }
 }
