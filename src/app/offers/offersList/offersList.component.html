@@ -15,8 +15,8 @@
   <div class="col-4">
     <ion-item class="filter-item">
       <ion-label floating>{{'OFFERS.LIST.FILTER.BY_METHOD' | translate}}</ion-label>
-      <ion-select interface="popover">
-        <ion-option>{{'OFFERS.LIST.SHOW_ALL' | translate}}</ion-option>
+      <ion-select [(ngModel)]="methodFilter" interface="popover">
+        <ion-option [value]="NO_FILTER">{{'OFFERS.LIST.SHOW_ALL' | translate}}</ion-option>
       </ion-select>
     </ion-item>
   </div>

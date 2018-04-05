@@ -15,8 +15,9 @@ export class OffersListComponent implements OnChanges {
   @Input() type: 'sell' | 'buy';
   @Input() loading: Boolean;
 
-  public NO_FILTER = 'NONE';
-  public currencyFilter = this.NO_FILTER;
+  public NO_FILTER = 'ALL';
+  public currencyFilter;
+  public methodFilter;
   public list = [];
   public currencies = [
     {value: 'USD', name: 'USD'},
@@ -33,6 +34,8 @@ export class OffersListComponent implements OnChanges {
               private paymentsDAO: PaymentAccountsDAO,
               private router: Router,
               private p2p: P2pDAO) {
+    this.currencyFilter = this.settings.selectedCurrencyOnOfferList || this.NO_FILTER;
+    this.methodFilter = this.NO_FILTER;
     this.p2p.status().then(res => {
       this.myAddress = _.get(res,'address');
       return this.paymentsDAO.query();
@@ -43,7 +46,6 @@ export class OffersListComponent implements OnChanges {
       // TODO: handle this error in better way. This is temporary fix to handle missing backend URL in settings
       console.error(error)
     });
-    this.currencyFilter = this.settings.selectedCurrencyOnOfferList;
   }
 
   ngOnChanges() {

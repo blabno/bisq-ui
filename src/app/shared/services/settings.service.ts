@@ -37,7 +37,7 @@ export class SettingsService {
   public languagesSpoken = ['en'];
   public autoSelectArbitratorsWithMatchingLanguage = true;
   // OFFERS LIST
-  public selectedCurrencyOnOfferList = null;
+  public selectedCurrencyOnOfferList = 'ALL';
   // HIDDEN MODALS
   public hiddenModals = [];
 
