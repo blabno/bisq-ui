@@ -33,7 +33,7 @@ export class CreateOffersComponent implements OnInit, OnDestroy {
     deposit: 0.01
   };
   private paramSubscribe: any;
-  private marketPrice = 0;
+  public marketPrice = 0;
   public creatingOffer;
 
   constructor(private activeRoute: ActivatedRoute, private paymentsDAO: PaymentAccountsDAO, private offersDAO: OffersDAO, private toast: ToastService, private marketPrize: MarketPrizeService) {
@@ -68,10 +68,11 @@ export class CreateOffersComponent implements OnInit, OnDestroy {
     }
     const elementName = _.get(event, '_native.nativeElement.name');
     const values = this.createForm.value;
+    _.forEach(values, (value, key, a) => a[key] = Number(value) || value);
     switch (elementName) {
       case 'amount':
         this.createForm.controls['calculatedValue'].setValue(values.amount * values.fixedPrice);
-        if (values.amount < values.minAmount) {
+        if (values.amount && values.amount < values.minAmount) {
           this.createForm.controls['minAmount'].setValue(values.amount);
         }
         break;

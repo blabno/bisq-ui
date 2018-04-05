@@ -20,9 +20,15 @@ export class MarketPrizeService {
     }
   }
 
+  private randomNumber(min,max)
+  {
+    return Math.floor(Math.random()*(max-min+1)+min);
+  }
+
   get(cryptoSymbol, fiatSymbol) {
     this.refreshMarkets();
-    return Promise.resolve(this.markets[`${cryptoSymbol}_${fiatSymbol}`]);
+    const price = this.markets[`${cryptoSymbol}_${fiatSymbol}`];
+    return Promise.resolve(price || this.randomNumber(500,30000));
   }
 
   list() {
