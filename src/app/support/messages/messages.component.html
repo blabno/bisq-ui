@@ -16,7 +16,7 @@
     </div>
     <div class="bottom-section">
       <ion-item class="message-input">
-        <ion-label floating>Input Message</ion-label>
+        <ion-label floating>{{'SUPPORT.MESSAGES.INPUT_MESSAGE' | translate}}</ion-label>
         <ion-textarea [(ngModel)]="newMessage"></ion-textarea>
       </ion-item>
       <button ion-button class="send-btn" (click)="sendMessage()">{{'SUPPORT.MESSAGES.SEND' | translate}}</button>

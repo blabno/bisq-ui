@@ -809,9 +809,13 @@
 	},
 	"SUPPORT": {
 		"LIST": {
-			"EMPTY": "Nie ma żadnych sporów do pokazania"
+			"EMPTY": "Nie ma żadnych sporów do pokazania",
+			"OFFER_DATE": "Data oferty:",
+			"OFFER_ID": "ID oferty",
+			"TRADE_DATE": "Data utworzenia transakcji:"
 		},
 		"MESSAGES": {
+			"INPUT_MESSAGE": "Wiadomość",
 			"SEND": "Wyślij"
 		}
 	},

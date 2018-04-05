@@ -1,6 +1,6 @@
 <app-section-header class="d-none d-lg-block"></app-section-header>
 <div *ngIf="loading" class="d-flex justify-content-center align-items-center m-4 loading">
-  <h1>Loading..</h1>
+  <h1>{{'SHARED.LOADING' | translate }}</h1>
   <ion-spinner></ion-spinner>
 </div>
 <div *ngIf="!list.length && !loading" class="card no-results-card">
@@ -16,9 +16,9 @@
         {{item.id}}
       </div>
       <div class="card-body">
-          <div>Offer ID:{{item.offerId}}</div>
-          <div>Offer date : {{item.offerDate | date}}</div>
-          <div>Trade date: {{item.tradeDate | date}}</div>
+          <div>{{'SUPPORT.LIST.OFFER_ID' | translate}} {{item.offerId}}</div>
+          <div>{{'SUPPORT.LIST.OFFER_DATE' | translate}} {{item.offerDate | date}}</div>
+          <div>{{'SUPPORT.LIST.TRADE_DATE' | translate}} {{item.tradeDate | date}}</div>
       </div>
     </div>
   </div>

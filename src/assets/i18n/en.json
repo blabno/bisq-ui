@@ -809,9 +809,13 @@
 	},
 	"SUPPORT": {
 		"LIST": {
-			"EMPTY": "There are no disputes to showing"
+			"EMPTY": "There are no disputes to showing",
+			"OFFER_DATE": "Offer date:",
+			"OFFER_ID": "Offer ID:",
+			"TRADE_DATE": "Trade date:"
 		},
 		"MESSAGES": {
+			"INPUT_MESSAGE": "Input Message",
 			"SEND": "Send"
 		}
 	},
