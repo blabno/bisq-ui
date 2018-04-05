@@ -20,6 +20,7 @@ export class CreateOffersComponent implements OnInit, OnDestroy {
   @ViewChild('createForm') createForm;
   type: 'sell' | 'buy';
   accountsList;
+  noAccounts= false;
   tradeList;
   model = {
     accountId: null,
@@ -36,19 +37,26 @@ export class CreateOffersComponent implements OnInit, OnDestroy {
   public marketPrice = 0;
   public creatingOffer;
 
-  constructor(private activeRoute: ActivatedRoute, private paymentsDAO: PaymentAccountsDAO, private offersDAO: OffersDAO, private toast: ToastService, private marketPrize: MarketPrizeService) {
+  constructor(private activeRoute: ActivatedRoute,
+              private paymentsDAO: PaymentAccountsDAO,
+              private offersDAO: OffersDAO,
+              private toast: ToastService,
+              private marketPrize: MarketPrizeService) {
+    this.paymentsDAO.query().then((res: any) => {
+      this.accountsList = res.paymentAccounts;
+      if(!this.accountsList.length){
+        this.noAccounts = true;
+      }
+      if(1 === this.accountsList.length) {
+        this.model.accountId = _.head(this.accountsList).id;
+        this.onSelectAccount();
+      }
+    });
   }
 
   ngOnInit() {
     this.paramSubscribe = this.activeRoute.params.subscribe(params => {
       this.type = params['type'];
-    });
-    this.paymentsDAO.query().then((res: any) => {
-      this.accountsList = res.paymentAccounts;
-      if(1 === this.accountsList.length) {
-        this.model.accountId = _.head(this.accountsList).id;
-        this.onSelectAccount();
-      }
     });
   }
 

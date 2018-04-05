@@ -1,6 +1,6 @@
 <div class="desktop-max-width">
   <app-section-header class="d-none d-lg-block"></app-section-header>
-  <form #createForm="ngForm">
+  <form #createForm="ngForm" *ngIf="!noAccounts">
     <ion-item>
       <ion-label floating>{{'OFFERS.CREATE.TRADING_ACCOUNT' | translate}}</ion-label>
       <ion-select name="accountId" [(ngModel)]="model.accountId" cancelText="{{'ACCOUNT.CANCEL' | translate}}"
@@ -55,11 +55,18 @@
       <ion-input type="number" name="deposit" [(ngModel)]="model.deposit" (ionChange)="onValueChanges($event)"></ion-input>
     </ion-item>
   </form>
-  <div class="buttons">
+  <div class="buttons" *ngIf="!noAccounts">
     <button ion-button (click)="submit()" [disabled]="creatingOffer">
       {{ 'OFFERS.CREATE.SAVE' | translate}}
       <ion-spinner *ngIf="creatingOffer" item-end></ion-spinner>
     </button>
     <button ion-button color="light" routerLink="..">{{ 'CANCEL' | translate}}</button>
+  </div>
+  <div *ngIf="noAccounts" class="card no-results-card">
+    <div class="card-body">
+      <span>{{'OFFERS.CREATE.NO_ACCOUNTS' | translate}}</span><br/>
+      <button ion-button color="light" routerLink="..">{{'BACK' | translate}}</button>
+      <button ion-button routerLink="/account/currency">{{'OFFERS.CREATE.GO_TO_ACCOUNTS' | translate}}</button>
+    </div>
   </div>
 </div>
