@@ -45,6 +45,10 @@ export class CreateOffersComponent implements OnInit, OnDestroy {
     });
     this.paymentsDAO.query().then((res: any) => {
       this.accountsList = res.paymentAccounts;
+      if(1 === this.accountsList.length) {
+        this.model.accountId = _.head(this.accountsList).id;
+        this.onSelectAccount();
+      }
     });
   }
 
