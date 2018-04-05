@@ -17,7 +17,7 @@ import {WalletDAO} from './shared/DAO/wallet.dao';
 
 import {ClipboardService} from './shared/services/clipboard.service';
 import {InfoModalService} from './shared/components/infoModal/infoModal.service';
-import {MarketPrizeService} from './shared/services/marketPrize.service';
+import {MarketPriceService} from './shared/services/marketPrice.service';
 import {SettingsService} from './shared/services/settings.service';
 import {ToastService} from './shared/services/toast.service';
 import {TradesCacheService} from './shared/services/tradesCache.service';
@@ -39,7 +39,7 @@ t('WARNING');
     WalletDAO,
     ClipboardService,
     InfoModalService,
-    MarketPrizeService,
+    MarketPriceService,
     SettingsService,
     ToastService,
     TradesCacheService

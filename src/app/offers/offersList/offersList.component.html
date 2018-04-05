@@ -48,7 +48,7 @@
           <span class="float-right">{{getOfferBTCAmount(item)}}</span>
         </div>
         <div>{{'OFFERS.LIST.PRICE' | translate}}
-          <span class="float-right">{{item.price / 10000}} ({{item.marketPriceMargin}}%)</span>
+          <span class="float-right">{{getOfferPrice(item)}} ({{item.marketPriceMargin}}%)</span>
         </div>
         <div>{{'OFFERS.LIST.AMOUNT' | translate}}
           <span class="float-right">{{getOfferAmount(item)}}</span>
