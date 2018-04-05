@@ -16,7 +16,7 @@ import {TradesDAO} from './shared/DAO/trades.dao';
 import {WalletDAO} from './shared/DAO/wallet.dao';
 
 import {ClipboardService} from './shared/services/clipboard.service';
-import {InfoModalService} from './shared/infoModal/infoModal.service';
+import {InfoModalService} from './shared/components/infoModal/infoModal.service';
 import {MarketPrizeService} from './shared/services/marketPrize.service';
 import {SettingsService} from './shared/services/settings.service';
 import {ToastService} from './shared/services/toast.service';

@@ -3,7 +3,7 @@ import {AlertController, Platform} from 'ionic-angular';
 import {TranslateService} from '@ngx-translate/core';
 import _ from 'lodash';
 
-import {InfoModalService} from '../../shared/infoModal/infoModal.service';
+import {InfoModalService} from '../../shared/components/infoModal/infoModal.service';
 import {ToastService} from '../../shared/services/toast.service';
 
 @Component({

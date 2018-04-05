@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs/Subject';
 import _ from 'lodash';
 
-import {InfoModalService} from '../infoModal/infoModal.service';
+import {InfoModalService} from '../components/infoModal/infoModal.service';
 import {ToastService} from './toast.service';
 import {TradesDAO} from '../DAO/trades.dao';
 import t from '../defineTextToTranslate';

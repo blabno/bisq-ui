@@ -2,7 +2,7 @@ import _ from 'lodash';
 import {Component, OnInit, OnChanges, OnDestroy, Input, Output, EventEmitter, SimpleChanges} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 
-import {ToastService} from '../services/toast.service';
+import {ToastService} from '../../services/toast.service';
 
 function ukSortCodeValidator(control) {
   if (!control.value || 6 !== control.value.length || !/^\d+$/.test(control.value)) {
