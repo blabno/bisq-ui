@@ -1,8 +1,9 @@
 import {Component} from '@angular/core';
 import _ from 'lodash';
 
-import formSchema from './altcoints.form';
 import {PaymentAccountsDAO} from '../../shared/DAO/paymentAccounts.dao';
+import {ToastService} from '../../shared/services/toast.service';
+import formSchema from './altcoints.form';
 import {translate} from './altcoins.translation';
 
 translate();
@@ -12,15 +13,16 @@ translate();
   templateUrl: 'altcoins.component.html'
 })
 export class AltcoinsComponent {
-
   formSchema = formSchema;
 
-  constructor(private paymentAccountsDAO: PaymentAccountsDAO) {
+  constructor(private paymentAccountsDAO: PaymentAccountsDAO,
+              private toast: ToastService) {
   }
 
   list() {
     return this.paymentAccountsDAO.query()
       .then((result: any) => _.filter(result.paymentAccounts, item => 'BLOCK_CHAINS' === item.paymentMethod))
+      .catch(() => this.toast.show('TOAST.PAYMENT_METHOD_QUERY_ERROR', 'error'))
   }
 
   create(values) {

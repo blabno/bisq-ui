@@ -16,6 +16,7 @@ export class InfoModalComponent {
   id;
   doNotShowButton;
   redirectButton;
+  disallowCancel;
 
   constructor(private viewCtrl: ViewController, public params: NavParams, private router: Router) {
     this.data = {
@@ -26,6 +27,7 @@ export class InfoModalComponent {
     this.id = params.data.id;
     this.doNotShowButton = params.data.doNotShowButton;
     this.redirectButton = params.data.redirectButton;
+    this.disallowCancel = params.data.disallowCancel;
   }
 
   redirect() {

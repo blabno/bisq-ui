@@ -1,6 +1,9 @@
-.menu-component {
-  padding: 0;
-  z-index: 10;
+app-menu {
+  nav.navbar {
+    display: block;
+    padding: 0;
+    z-index: 10;
+  }
   .toggler {
     margin: 13px;
   }
@@ -8,9 +11,10 @@
     transition: height .15s;
   }
   .section-title {
-    position: absolute;
-    right: 32px;
     font-size: 18px;
+    span:not(:first-child):before {
+      content: " - ";
+    }
   }
   .menu-content {
     .menu-item {
@@ -45,8 +49,8 @@
 
   @media (min-width: 992px) {
     .section-title {
-      top: 22px;
-      right: 26px;
+      text-align: center;
+      padding-bottom: 10px;
     }
     .menu-content {
       position: static;
@@ -75,8 +79,9 @@
 
   @media (max-width: 992px) {
     .section-title {
-      top: 12px;
-      right: 16px;
+      position: absolute;
+      top: 14px;
+      right: 18px;
     }
     .menu-content {
       .menu-item {

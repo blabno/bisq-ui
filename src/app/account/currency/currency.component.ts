@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import _ from 'lodash';
 
-import {InfoModalService} from '../../shared/infoModal/infoModal.service';
 import {PaymentAccountsDAO} from '../../shared/DAO/paymentAccounts.dao';
+import {ToastService} from '../../shared/services/toast.service';
 import formSchema from './currency.form';
 import {translate} from './currency.translation';
 
@@ -12,25 +12,17 @@ translate();
   selector: 'app-currency',
   templateUrl: 'currency.component.html'
 })
-export class CurrencyComponent implements OnInit {
+export class CurrencyComponent {
   formSchema = formSchema;
 
-  constructor(private initModal: InfoModalService,
-              private paymentAccountsDAO: PaymentAccountsDAO) {
-  }
-
-  ngOnInit() {
-    this.initModal.show({
-      id: 'accountInit',
-      title: 'ACCOUNT.INIT_MODAL.TITLE',
-      text: 'ACCOUNT.INIT_MODAL.TEXT',
-      doNotShowButton: true
-    });
+  constructor(private paymentAccountsDAO: PaymentAccountsDAO,
+              private toast: ToastService) {
   }
 
   list() {
     return this.paymentAccountsDAO.query()
       .then((result: any) => _.filter(result.paymentAccounts, item => 'BLOCK_CHAINS' !== item.paymentMethod))
+      .catch(() => this.toast.show('TOAST.PAYMENT_METHOD_QUERY_ERROR', 'error'))
   }
 
   create(values) {

@@ -95,11 +95,11 @@
 			"ACCOUNT_NO": "Number konta",
 			"ACCOUNT_NO_IBAN": "Nr. konta (IBAN)",
 			"ACCOUNT_NUMBER": "Numer konta",
-			"CANCEL_CONFIRMATION": "Czy na pewno chcesz odrzucić bieżące zmiany?",
 			"BANK_COUNTRY": "Kraj banku",
 			"BANK_ID": "ID banku (BIC/SWIFT)",
 			"BANK_NAME": "Nazwa banku",
 			"BRANCH_NO": "Numer? (ang. Branch no.)",
+			"CANCEL_CONFIRMATION": "Czy na pewno chcesz odrzucić bieżące zmiany?",
 			"CASH_DEPOSIT": "Depozyt Pieniężny",
 			"CITY": "Miasto",
 			"COUNTRY": "Kraj",
@@ -825,6 +825,7 @@
 		"PAYMENT_METHOD_CREATE_ERROR": "Błąd podczas tworzenia metody płatnosci",
 		"PAYMENT_METHOD_DELETED": "Metoda płatnosci usunięta pomyślnie",
 		"PAYMENT_METHOD_DELETE_ERROR": "Błąd podczas usuwania metody płatnosci",
+		"PAYMENT_METHOD_QUERY_ERROR": "Błąd podczas ładowania metod płatnosci",
 		"SOMETHING_WENT_WRONG": "Coś poszło nie tak",
 		"TRADES": {
 			"CANT_FETCH_DATA": "Błąd: Nie można pobrać/odświeżyć listy transakcji"

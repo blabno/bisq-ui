@@ -17,7 +17,7 @@ export class InfoModalService {
         .includes(params.id)
         .value();
       if (!isHidden) {
-        this.modalCtrl.create(InfoModalComponent, params).present();
+        this.modalCtrl.create(InfoModalComponent, params, {enableBackdropDismiss: !params.disallowCancel}).present();
       }
     }, 0);
   }

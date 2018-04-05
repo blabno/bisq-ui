@@ -28,16 +28,7 @@ a:hover {
 }
 
 .view {
-  display: block;
-  height: calc(100vh - 72px);
-  overflow-y: auto;
   padding: 15px;
-}
-
-@media (max-width: 992px) {
-  .view {
-    height: calc(100vh - 52px);
-  }
 }
 
 .clickable {

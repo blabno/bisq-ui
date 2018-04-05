@@ -1,18 +1,17 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light menu-component">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <button class="navbar-toggler toggler " type="button" data-toggle="collapse" data-target="#navbarToggle"
           aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation" #navbarToggler>
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="section-title">{{sectionTitle}}</div>
   <div class="collapse navbar-collapse menu-content" id="navbarToggle">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item menu-item" routerLinkActive="text-primary" routerLink="/offers/buy"
-          (click)="onMenuItemClick(['MENU.BUY'])">
+          (click)="onMenuItemClick()">
         <i class="fas fa-download menu-icon"></i>
         <div class="item-label">{{ 'MENU.BUY' | translate }}</div>
       </li>
       <li class="nav-item menu-item" routerLinkActive="text-primary" routerLink="/offers/sell"
-          (click)="onMenuItemClick(['MENU.SELL'])">
+          (click)="onMenuItemClick()">
         <i class="fas fa-upload menu-icon"></i>
         <div class="item-label">{{ 'MENU.SELL' | translate }}</div>
       </li>
@@ -24,17 +23,17 @@
         </div>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownPortfolio">
           <!-- <a class="dropdown-item" routerLinkActive="text-primary" routerLink="/portfolio/my-open-offers"
-             (click)="onMenuItemClick(['MENU.PORTFOLIO', 'PORTFOLIO.SUBMENU.MY_OPEN_OFFERS'])">
+             (click)="onMenuItemClick()">
             <i class="fas fa-newspaper menu-icon-nested"></i>
             {{'PORTFOLIO.SUBMENU.MY_OPEN_OFFERS' | translate}}
           </a> -->
           <a class="dropdown-item" routerLinkActive="text-primary" routerLink="/portfolio/open-trades"
-             (click)="onMenuItemClick(['MENU.PORTFOLIO', 'PORTFOLIO.SUBMENU.OPEN_TRADES'])">
+             (click)="onMenuItemClick()">
             <i class="fas fa-suitcase menu-icon-nested"></i>
             {{'PORTFOLIO.SUBMENU.OPEN_TRADES' | translate}}
           </a>
           <!-- <a class="dropdown-item" routerLinkActive="text-primary" routerLink="/portfolio/history"
-             (click)="onMenuItemClick(['MENU.PORTFOLIO', 'PORTFOLIO.SUBMENU.HISTORY'])">
+             (click)="onMenuItemClick()">
             <i class="fas fa-clock menu-icon-nested"></i>
             {{'PORTFOLIO.SUBMENU.HISTORY' | translate}}
           </a> -->
@@ -48,34 +47,32 @@
         </div>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownFunds">
           <a class="dropdown-item" routerLinkActive="text-primary" routerLink="/funds/receive"
-             (click)="onMenuItemClick(['MENU.FUNDS', 'FUNDS.SUBMENU.RECEIVE'])">
+             (click)="onMenuItemClick()">
             <i class="fas fa-cloud-download-alt menu-icon-nested"></i>
             {{'FUNDS.SUBMENU.RECEIVE' | translate}}
           </a>
-          <a class="dropdown-item" routerLinkActive="text-primary" routerLink="/funds/send"
-             (click)="onMenuItemClick(['MENU.FUNDS', 'FUNDS.SUBMENU.SEND'])">
+          <a class="dropdown-item" routerLinkActive="text-primary" routerLink="/funds/send" (click)="onMenuItemClick()">
             <i class="fas fa-cloud-upload-alt menu-icon-nested"></i>
             {{'FUNDS.SUBMENU.SEND' | translate}}
           </a>
           <a class="dropdown-item" routerLinkActive="text-primary" routerLink="/funds/reserved"
-             (click)="onMenuItemClick(['MENU.FUNDS', 'FUNDS.SUBMENU.RESERVED'])">
+             (click)="onMenuItemClick()">
             <i class="fas fa-bookmark menu-icon-nested"></i>
             {{'FUNDS.SUBMENU.RESERVED' | translate}}
           </a>
           <a class="dropdown-item" routerLinkActive="text-primary" routerLink="/funds/locked"
-             (click)="onMenuItemClick(['MENU.FUNDS', 'FUNDS.SUBMENU.LOCKED'])">
+             (click)="onMenuItemClick()">
             <i class="fas fa-lock menu-icon-nested"></i>
             {{'FUNDS.SUBMENU.LOCKED' | translate}}
           </a>
           <a class="dropdown-item" routerLinkActive="text-primary" routerLink="/funds/transaction"
-             (click)="onMenuItemClick(['MENU.FUNDS', 'FUNDS.SUBMENU.TRANSACTIONS'])">
+             (click)="onMenuItemClick()">
             <i class="fas fa-dollar-sign menu-icon-nested"></i>
             {{'FUNDS.SUBMENU.TRANSACTIONS' | translate}}
           </a>
         </div>
       </li>
-      <li class="nav-item menu-item" routerLinkActive="text-primary" routerLink="/support"
-          (click)="onMenuItemClick(['MENU.SUPPORT'])">
+      <li class="nav-item menu-item" routerLinkActive="text-primary" routerLink="/support" (click)="onMenuItemClick()">
         <i class="fas fa-comments menu-icon"></i>
         <div class="item-label">{{ 'MENU.SUPPORT' | translate }}</div>
       </li>
@@ -87,22 +84,22 @@
         </div>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownSettings">
           <a class="dropdown-item" routerLinkActive="text-primary" routerLink="/settings/preferences"
-             (click)="onMenuItemClick(['MENU.SETTINGS', 'SETTINGS.SUBMENU.PREFERENCES'])">
+             (click)="onMenuItemClick()">
             <i class="fas fa-cog menu-icon-nested"></i>
             {{'SETTINGS.SUBMENU.PREFERENCES' | translate}}
           </a>
           <a class="dropdown-item" routerLinkActive="text-primary" routerLink="/settings/network-info"
-             (click)="onMenuItemClick(['MENU.SETTINGS', 'SETTINGS.SUBMENU.NETWORK_INFO'])">
+             (click)="onMenuItemClick()">
             <i class="fas fa-users menu-icon-nested"></i>
             {{'SETTINGS.SUBMENU.NETWORK_INFO' | translate}}
           </a>
           <a class="dropdown-item" routerLinkActive="text-primary" routerLink="/settings/backend-url"
-             (click)="onMenuItemClick(['MENU.SETTINGS', 'SETTINGS.SUBMENU.BACKEND'])">
+             (click)="onMenuItemClick()">
             <i class="fas fa-server menu-icon-nested"></i>
             {{'SETTINGS.SUBMENU.BACKEND' | translate}}
           </a>
           <a class="dropdown-item" routerLinkActive="text-primary" routerLink="/settings/about"
-             (click)="onMenuItemClick(['MENU.SETTINGS', 'SETTINGS.SUBMENU.ABOUT'])">
+             (click)="onMenuItemClick()">
             <i class="fas fa-info-circle menu-icon-nested"></i>
             {{'SETTINGS.SUBMENU.ABOUT' | translate}}
           </a>
@@ -116,22 +113,25 @@
         </div>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownAccount">
           <a class="dropdown-item" routerLinkActive="text-primary" routerLink="/account/currency"
-             (click)="onMenuItemClick(['MENU.ACCOUNT', 'ACCOUNT.SUBMENU.CURRENCY_ACCOUNTS'])">
+             (click)="onMenuItemClick()">
             <i class="fas fa-money-bill-alt menu-icon-nested"></i>
             {{'ACCOUNT.SUBMENU.CURRENCY_ACCOUNTS' | translate}}
           </a>
           <a class="dropdown-item" routerLinkActive="text-primary" routerLink="/account/altcoins"
-             (click)="onMenuItemClick(['MENU.ACCOUNT', 'ACCOUNT.SUBMENU.ALTCOINS_ACCOUNTS'])">
+             (click)="onMenuItemClick()">
             <i class="fas fa-link menu-icon-nested"></i>
             {{'ACCOUNT.SUBMENU.ALTCOINS_ACCOUNTS' | translate}}
           </a>
           <a class="dropdown-item" routerLinkActive="text-primary" routerLink="/account/arbitrator"
-             (click)="onMenuItemClick(['MENU.ACCOUNT', 'ACCOUNT.SUBMENU.ARBITRATOR'])">
+             (click)="onMenuItemClick()">
             <i class="fas fa-gavel menu-icon-nested"></i>
             {{'ACCOUNT.SUBMENU.ARBITRATOR' | translate}}
           </a>
         </div>
       </li>
     </ul>
+  </div>
+  <div class="section-title">
+    <span *ngFor="let item of sectionTitle">{{item | translate}}</span>
   </div>
 </nav>
