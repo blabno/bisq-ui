@@ -38,7 +38,9 @@
   <div class="col-md-6 col-lg-4" *ngFor="let item of list">
     <div class="card">
       <div class="card-header">
-        <i class="fas fa-user-circle" title="Onion adress: {{item.offerer}}"></i>
+        <span title="Onion adress: {{item.ownerNodeAddress}}">
+          <app-gravatar [hashSeed]="item.ownerNodeAddress" size="24"></app-gravatar>
+        </span>
         {{item.market}}
         <span class="float-right">{{item.method}}
           <i class="fas fa-info-circle info"></i>
