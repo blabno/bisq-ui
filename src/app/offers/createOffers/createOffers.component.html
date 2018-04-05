@@ -16,36 +16,50 @@
       </ion-select>
     </ion-item>
     <ion-item>
-      <ion-label>{{(model.isFixedPrice ?  'OFFERS.CREATE.FIXED' : 'OFFERS.CREATE.PERCENTAGE') | translate}}</ion-label>
+      <ion-label>{{(model.isFixedPrice ? 'OFFERS.CREATE.FIXED' : 'OFFERS.CREATE.PERCENTAGE') | translate}}</ion-label>
       <ion-toggle name="isFixedPrice" [(ngModel)]="model.isFixedPrice"></ion-toggle>
     </ion-item>
-    <ion-item>
-      <ion-label floating>{{'OFFERS.CREATE.AMOUNT' | translate}}</ion-label>
-      <ion-input type="number" name="amount" [(ngModel)]="model.amount" (ionChange)="onValueChanges($event)"
-        min="0" required></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label floating>{{'OFFERS.CREATE.PRICE' | translate}}</ion-label>
-      <ion-input type="number" name="fixedPrice" [(ngModel)]="model.fixedPrice" (ionChange)="onValueChanges($event)"
-        min="0" required></ion-input>
-    </ion-item>
+    <div class="row">
+      <div class="col-6">
+        <ion-item>
+          <ion-label floating>{{'OFFERS.CREATE.AMOUNT' | translate}}</ion-label>
+          <ion-input type="number" name="amount" [(ngModel)]="model.amount" (ionChange)="onValueChanges($event)" min="0"
+                     required></ion-input>
+        </ion-item>
+      </div>
+      <div class="col-6">
+        <ion-item>
+          <ion-label floating>{{'OFFERS.CREATE.MINUMUM_AMOUNT' | translate}}</ion-label>
+          <ion-input type="number" name="minAmount" [(ngModel)]="model.minAmount"
+                     (ionChange)="onValueChanges($event)"></ion-input>
+        </ion-item>
+      </div>
+    </div>
     <ion-item>
       <ion-label floating>{{'OFFERS.CREATE.PERCENT_DISTANCE' | translate}}</ion-label>
       <ion-input type="number" name="percentageFromMarketPrice" [(ngModel)]="model.percentageFromMarketPrice"
-        (ionChange)="onValueChanges($event)"></ion-input>
+                 (ionChange)="onValueChanges($event)"></ion-input>
     </ion-item>
-    <ion-item>
-      <ion-label floating>{{'OFFERS.CREATE.PRICE_OVERALL' | translate}}</ion-label>
-      <ion-input type="number" name="calculatedValue" [(ngModel)]="model.calculatedValue"
-        (ionChange)="onValueChanges($event)" min="0"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label floating>{{'OFFERS.CREATE.MINUMUM_AMOUNT' | translate}}</ion-label>
-      <ion-input type="number" name="minAmount" [(ngModel)]="model.minAmount" (ionChange)="onValueChanges($event)"></ion-input>
-    </ion-item>
+    <div class="row">
+      <div class="col-6">
+        <ion-item>
+          <ion-label floating>{{'OFFERS.CREATE.PRICE' | translate}}</ion-label>
+          <ion-input type="number" name="fixedPrice" [(ngModel)]="model.fixedPrice" (ionChange)="onValueChanges($event)"
+                     min="0" required></ion-input>
+        </ion-item>
+      </div>
+      <div class="col-6">
+        <ion-item>
+          <ion-label floating>{{'OFFERS.CREATE.PRICE_OVERALL' | translate}}</ion-label>
+          <ion-input type="number" name="calculatedValue" [(ngModel)]="model.calculatedValue"
+                     (ionChange)="onValueChanges($event)" min="0"></ion-input>
+        </ion-item>
+      </div>
+    </div>
     <ion-item>
       <ion-label floating>{{'OFFERS.CREATE.SECURITY_DEPOSIT' | translate}}</ion-label>
-      <ion-input type="number" name="deposit" [(ngModel)]="model.deposit" (ionChange)="onValueChanges($event)"></ion-input>
+      <ion-input type="number" name="deposit" [(ngModel)]="model.deposit"
+                 (ionChange)="onValueChanges($event)"></ion-input>
     </ion-item>
   </form>
   <div class="buttons" *ngIf="!noAccounts">
