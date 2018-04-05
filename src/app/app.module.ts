@@ -25,6 +25,7 @@ import {CreateOffersComponent} from './offers/createOffers/createOffers.componen
 import {CurrencyComponent} from './account/currency/currency.component';
 import {FormComponent} from './shared/form/form.component';
 import {FundsListComponent} from './funds/list/fundsList.component';
+import {GravatarComponent} from './shared/components/gravatar/gravatar.component';
 import {HistoryComponent} from './portfolio/history/history.component';
 import {InfoModalComponent} from './shared/infoModal/infoModal.component';
 import {LockedComponent} from './funds/locked/locked.component';
@@ -62,6 +63,7 @@ const loadModules = [
   CurrencyComponent,
   FormComponent,
   FundsListComponent,
+  GravatarComponent,
   HistoryComponent,
   InfoModalComponent,
   LockedComponent,
