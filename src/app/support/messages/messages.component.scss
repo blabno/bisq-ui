@@ -1,12 +1,9 @@
 app-support-messages {
   display: block;
-  height: calc(100vh - 112px);
+  height: calc(100vh - 102px);
   overflow-y: auto;
   .desktop-max-width {
     height: 100%;
-  }
-  .back-btn {
-    margin-bottom: 5px;
   }
   .messages-container {
     height: calc(100% - 45px);
@@ -37,7 +34,7 @@ app-support-messages {
           height: 40px;
         }
       }
-      .send-btn {
+      .buttons {
         margin-top: 10px;
         float: right;
       }
@@ -48,5 +45,8 @@ app-support-messages {
 @media (max-width: 992px) {
   app-support-messages {
     height: calc(100vh - 82px);
+    .messages-container {
+      height: 100%;
+    }
   }
 }
