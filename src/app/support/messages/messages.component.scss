@@ -1,15 +1,15 @@
 app-support-messages {
+  display: block;
+  height: calc(100vh - 102px);
+  overflow-y: auto;
   .desktop-max-width {
     height: 100%;
   }
-  .back-btn {
-    margin-bottom: 5px;
-  }
   .messages-container {
-    height: calc(100% - 30px);
+    height: calc(100% - 45px);
     position: relative;
     .top-section {
-      height: calc(100% - 130px);
+      height: calc(100% - 140px);
       width: 100%;
       position: absolute;
       overflow-y: auto;
@@ -34,10 +34,19 @@ app-support-messages {
           height: 40px;
         }
       }
-      .send-btn {
+      .buttons {
         margin-top: 10px;
         float: right;
       }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  app-support-messages {
+    height: calc(100vh - 82px);
+    .messages-container {
+      height: 100%;
     }
   }
 }

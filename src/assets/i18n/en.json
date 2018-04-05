@@ -740,7 +740,7 @@
 	"SETTINGS": {
 		"ABOUT": {
 			"ABOUT_BISQ": "About bisq",
-			"ABOUT_BISQ_TEXT": "Bisq is an open source project and a decentralized network of users who want to exchange Bitcoin with national currencies or alternative crypto currencies in a privacy protecting way. Learn more about Bisq on our project web page.",
+			"ABOUT_BISQ_TEXT": "Bisq is an open source project and a decentralized network of users who want to exchange Bitcoin with national currencies or alternative cryptocurrencies in a privacy protecting way. Learn more about Bisq on our project web page.",
 			"AGPL_LICENSE": "AGPL license",
 			"APPLICATION_VERSION": "Application version",
 			"BISQ_IS_COMMUNITY": "Bisq is not a company but a community project and open for participation. If you want to participate or support Bisq please follow the links below.",
@@ -793,7 +793,6 @@
 			"SELECT_BASE_CURRENCY": "Select base currency",
 			"SHOW_MY_OWN_OFFERS_IN_OFFER_BOOK": "Show my own offers in offer book",
 			"SORT_MARKERS_LISTS": "Sort markers lists with no. of offers/trades",
-			"USE_ANIMATIONS": "Use animations",
 			"USE_CUSTOM_VALUE": "Use custom value",
 			"WIDTHDRAWAL_TRANSACTION_FEE": "Widthdrawal transaction fee"
 		},
@@ -810,9 +809,13 @@
 	},
 	"SUPPORT": {
 		"LIST": {
-			"EMPTY": "There are no disputes to showing"
+			"EMPTY": "There are no disputes to showing",
+			"OFFER_DATE": "Offer date:",
+			"OFFER_ID": "Offer ID:",
+			"TRADE_DATE": "Trade date:"
 		},
 		"MESSAGES": {
+			"INPUT_MESSAGE": "Input Message",
 			"SEND": "Send"
 		}
 	},
