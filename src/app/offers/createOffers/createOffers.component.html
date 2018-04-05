@@ -1,8 +1,5 @@
 <div class="desktop-max-width">
   <app-section-header class="d-none d-lg-block"></app-section-header>
-  <div class="buttons">
-    <button ion-button color="light" routerLink="..">{{ 'BACK' | translate}}</button>
-  </div>
   <form #createForm="ngForm">
     <ion-item>
       <ion-label floating>{{'OFFERS.CREATE.TRADING_ACCOUNT' | translate}}</ion-label>
@@ -58,8 +55,11 @@
       <ion-input type="number" name="deposit" [(ngModel)]="model.deposit" (ionChange)="onValueChanges($event)"></ion-input>
     </ion-item>
   </form>
-  <button ion-button clas="ml-4" color="light" (click)="submit()" [disabled]="creatingOffer">
-    {{ 'OFFERS.CREATE.SAVE' | translate}}
-    <ion-spinner *ngIf="creatingOffer" item-end></ion-spinner>
-  </button>
+  <div class="buttons">
+    <button ion-button (click)="submit()" [disabled]="creatingOffer">
+      {{ 'OFFERS.CREATE.SAVE' | translate}}
+      <ion-spinner *ngIf="creatingOffer" item-end></ion-spinner>
+    </button>
+    <button ion-button color="light" routerLink="..">{{ 'CANCEL' | translate}}</button>
+  </div>
 </div>
