@@ -3,7 +3,9 @@ import {Component, Input, OnChanges} from '@angular/core';
 import {SettingsService} from '../../shared/services/settings.service';
 import {PaymentAccountsDAO} from '../../shared/DAO/paymentAccounts.dao';
 import {Router} from '@angular/router';
+
 import {P2pDAO} from "../../shared/DAO/p2p.dao";
+import {MarketPriceService} from '../../shared/services/marketPrice.service';
 
 @Component({
   selector: 'app-offers-list',
@@ -12,6 +14,7 @@ import {P2pDAO} from "../../shared/DAO/p2p.dao";
 export class OffersListComponent implements OnChanges {
 
   @Input() data: Array<Object>;
+  @Input() prices: Array<Object>;
   @Input() type: 'sell' | 'buy';
   @Input() loading: Boolean;
 
@@ -67,12 +70,20 @@ export class OffersListComponent implements OnChanges {
 
   getOfferAmount(item) {
     let amount = Number(item.amount) / 100000000;
-    let price = Number(item.price) / 10000;
+    let price: any  = this.getOfferPrice(item);
     if (!item.minAmount || Number(item.minAmount) != Number(item.amount)) {
       let minAmount = Number(item.minAmount) / 100000000;
       return _.round(minAmount * price, 2) + ' - ' + _.round(amount * price, 2);
     }
     return _.round(amount * price, 2);
+  }
+
+  getOfferPrice(item) {
+    if(item.useMarketBasedPrice) {
+      return _.round(this.prices[item.baseCurrencyCode + '_' + item.counterCurrencyCode], 2);
+    } else {
+      return _.round(Number(item.price) / 10000, 2);
+    }
   }
 
   takeOffer(offer) {

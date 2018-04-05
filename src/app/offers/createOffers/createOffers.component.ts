@@ -4,7 +4,7 @@ import {ActivatedRoute} from "@angular/router";
 import {PaymentAccountsDAO} from "../../shared/DAO/paymentAccounts.dao";
 import {OffersDAO} from "../../shared/DAO/offers.dao";
 import {ToastService} from "../../shared/services/toast.service";
-import {MarketPrizeService} from "../../shared/services/marketPrize.service";
+import {MarketPriceService} from "../../shared/services/marketPrice.service";
 import t from '../../shared/defineTextToTranslate';
 
 t([
@@ -41,7 +41,7 @@ export class CreateOffersComponent implements OnInit, OnDestroy {
               private paymentsDAO: PaymentAccountsDAO,
               private offersDAO: OffersDAO,
               private toast: ToastService,
-              private marketPrize: MarketPrizeService) {
+              private marketPriceService: MarketPriceService) {
     this.paymentsDAO.query().then((res: any) => {
       this.accountsList = res.paymentAccounts;
       if(!this.accountsList.length){
@@ -71,7 +71,7 @@ export class CreateOffersComponent implements OnInit, OnDestroy {
     const selectedAccount = _.find(this.accountsList, {id: this.model.accountId});
     this.tradeList = selectedAccount.tradeCurrencies;
     this.model.tradeCurrency = selectedAccount.selectedTradeCurrency;
-    this.getMarketPrize(selectedAccount.selectedTradeCurrency);
+    this.getMarketPrice(selectedAccount.selectedTradeCurrency);
   }
 
   onValueChanges(event) {
@@ -111,7 +111,7 @@ export class CreateOffersComponent implements OnInit, OnDestroy {
         }
         break;
       case 'tradeCurrency':
-        this.getMarketPrize(values.priceType);
+        this.getMarketPrice(values.priceType);
         break;
       default:
         _.noop();
@@ -149,8 +149,8 @@ export class CreateOffersComponent implements OnInit, OnDestroy {
     });
   }
 
-  private getMarketPrize(fiatCurrency) {
-    this.marketPrize.get('BTC', fiatCurrency).then(result => {
+  private getMarketPrice(fiatCurrency) {
+    this.marketPriceService.get('BTC', fiatCurrency).then(result => {
       this.marketPrice = result;
       this.calculateBasedOnPercentageFromMarketPrice();
     });

@@ -2,6 +2,8 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {OffersDAO} from "../shared/DAO/offers.dao";
 import {ToastService} from "../shared/services/toast.service";
+import _ from 'lodash';
+import {MarketPriceService} from '../shared/services/marketPrice.service';
 
 @Component({
   selector: 'app-offers',
@@ -11,10 +13,12 @@ export class OffersComponent implements OnInit, OnDestroy {
 
   listType: 'sell' | 'buy';
   offerList = [];
+  currencyPairs = [];
+  prices = []
   private paramSubscribe: any;
   public loading = false;
 
-  constructor(private activeRoute: ActivatedRoute, private offersDAO: OffersDAO, private toast: ToastService) {
+  constructor(private activeRoute: ActivatedRoute, private offersDAO: OffersDAO, private toast: ToastService, private marketPriceService: MarketPriceService) {
   }
 
   ngOnInit() {
@@ -32,6 +36,15 @@ export class OffersComponent implements OnInit, OnDestroy {
     this.loading = true;
     this.offersDAO.query().then(res => {
       this.offerList = res['offers'];
+      let currencyPairs = _.map(this.offerList, offer => {
+        let {baseCurrencyCode, counterCurrencyCode} = offer;
+        return baseCurrencyCode + '_' + counterCurrencyCode;
+      });
+      this.currencyPairs = _.uniq(currencyPairs);
+      let promises = _.map(this.currencyPairs, (val) => this.marketPriceService.getByCode(val));
+      return Promise.all(promises);
+    }).then((marketPrices) => {
+      this.prices = _.zipObject(this.currencyPairs, marketPrices);
       this.loading = false;
     }).catch(() => {
       this.toast.show('TOAST.OFFERS.CANT_FETCH_DATA', 'error');

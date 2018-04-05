@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import _ from 'lodash';
 
 @Injectable()
-export class MarketPrizeService {
+export class MarketPriceService {
   markets;
 
   constructor() {
@@ -26,9 +26,12 @@ export class MarketPrizeService {
   }
 
   get(cryptoSymbol, fiatSymbol) {
+    return this.getByCode(`${cryptoSymbol}_${fiatSymbol}`);
+  }
+
+  getByCode(code) {
     this.refreshMarkets();
-    const price = this.markets[`${cryptoSymbol}_${fiatSymbol}`];
-    return Promise.resolve(price || this.randomNumber(500,30000));
+    return Promise.resolve(this.markets[`${code}`] || _.random(1000, 30000));
   }
 
   list() {
