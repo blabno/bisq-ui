@@ -10,7 +10,10 @@ import t from '../../shared/defineTextToTranslate';
 t([
   'OFFERS.CREATE.FILL_ALL_REQUIRED_FIELDS',
   'OFFERS.CREATE.AMOUNT_MUST_BE_POSITIVE',
-  'OFFERS.CREATE.MIN_AMOUNT_MUST_BE_BIGGER_THAN_AMOUNT'
+  'OFFERS.CREATE.MIN_AMOUNT_MUST_BE_BIGGER_THAN_AMOUNT',
+  'OFFERS.CREATE.FIXED',
+  'OFFERS.CREATE.PERCENTAGE',
+  'OFFERS.CREATE.TYPE',
 ]);
 
 @Component({
@@ -160,11 +163,7 @@ export class CreateOffersComponent implements OnInit, OnDestroy {
       this.router.navigateByUrl(`/offers/${this.type}`);
       this.creatingOffer = false;
     }).catch(error => {
-      if (_.has(error, 'error.errors')) {
-        this.toast.show(error.error.errors.join('. '), 'error');
-      } else {
-        this.toast.show('TOAST.OFFER_CREATE_ERROR', 'error');
-      }
+      this.toast.error(error);
       this.creatingOffer = false;
     });
   }

@@ -98,7 +98,7 @@ export class AccountManagerComponent implements OnInit, OnDestroy {
   }
 
   cancel() {
-    if(this.formDisabled) {
+    if (this.formDisabled) {
       this.doCancel();
       return;
     }
@@ -135,15 +135,11 @@ export class AccountManagerComponent implements OnInit, OnDestroy {
       .then(() => {
         this.doCancel();
         this.refreshList();
-        this.toast.show('TOAST.PAYMENT_METHOD_CREATED', 'info');
+        this.toast.show('TOAST.PAYMENT_METHOD_CREATED', 'success');
         this.creatingAccount = false;
       })
       .catch(error => {
-        if (_.has(error, 'error.errors')) {
-          this.toast.show(error.error.errors.join('. '), 'error');
-        } else {
-          this.toast.show('TOAST.PAYMENT_METHOD_CREATE_ERROR', 'error');
-        }
+        this.toast.error(error, 'TOAST.PAYMENT_METHOD_CREATE_ERROR');
         this.creatingAccount = false;
       });
   }
@@ -167,8 +163,8 @@ export class AccountManagerComponent implements OnInit, OnDestroy {
                 this.toast.show('TOAST.PAYMENT_METHOD_DELETED', 'info');
                 this.deletingAccount = false;
               })
-              .catch(() => {
-                this.toast.show('TOAST.PAYMENT_METHOD_DELETE_ERROR', 'error');
+              .catch(error => {
+                this.toast.error(error, 'TOAST.PAYMENT_METHOD_DELETE_ERROR');
                 this.deletingAccount = false;
               });
           }

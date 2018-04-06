@@ -82,9 +82,9 @@ export class TakeOfferComponent implements OnInit, OnDestroy {
         this.toast.show(t('OFFERS.TAKE_OFFER.TAKE_OFFER_SUCCESS'), 'success');
         this.router.navigateByUrl('/portfolio/open-trades');
       })
-      .catch(() => {
+      .catch(error => {
         this.takingOffer = false;
-        this.toast.show(t('OFFERS.TAKE_OFFER.TAKE_OFFER_ERROR'), 'error');
+        this.toast.error(error, t('OFFERS.TAKE_OFFER.TAKE_OFFER_ERROR'));
       });
   }
 }

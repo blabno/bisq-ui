@@ -825,6 +825,7 @@
 		"ADDRESS_COPIED_TO_CLIPBOARD": "Address copied to clipboard",
 		"FORM_VALIDATION_ERROR": "Missing required fields",
 		"NEW_ADDRESS_CREATE_ERROR": "Unable to create new address",
+		"NOMINATED_SUCCESSFULLY": "Nominated successfully",
 		"OFFERS": {
 			"CANT_FETCH_DATA": "Error: Cant't fetch/refresh offers list"
 		},

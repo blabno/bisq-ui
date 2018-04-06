@@ -181,10 +181,10 @@ export class TradesCacheService {
         this.oldTrades = this.trades;
         return this.trades;
       })
-      .catch(err => {
-        this.toast.show('TOAST.TRADES.CANT_FETCH_DATA', 'error');
+      .catch(error => {
+        this.toast.error(error, 'TOAST.TRADES.CANT_FETCH_DATA');
         clearInterval(this.interval);
-        throw err;
+        throw error;
       });
   }
 
