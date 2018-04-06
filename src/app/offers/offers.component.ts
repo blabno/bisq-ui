@@ -11,14 +11,17 @@ import {MarketPriceService} from '../shared/services/marketPrice.service';
 })
 export class OffersComponent implements OnInit, OnDestroy {
 
-  listType: 'sell' | 'buy';
+  listType: 'sell' | 'buy' | 'my-offers';
   offerList = [];
   currencyPairs = [];
-  prices = []
+  prices = [];
   private paramSubscribe: any;
   public loading = false;
 
-  constructor(private activeRoute: ActivatedRoute, private offersDAO: OffersDAO, private toast: ToastService, private marketPriceService: MarketPriceService) {
+  constructor(private activeRoute: ActivatedRoute,
+              private offersDAO: OffersDAO,
+              private toast: ToastService,
+              private marketPriceService: MarketPriceService) {
   }
 
   ngOnInit() {

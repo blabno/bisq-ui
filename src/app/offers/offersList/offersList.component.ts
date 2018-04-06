@@ -1,12 +1,20 @@
 import _ from 'lodash';
-import {Component, EventEmitter, Input, Output, OnChanges} from '@angular/core';
-import {SettingsService} from '../../shared/services/settings.service';
-import {PaymentAccountsDAO} from '../../shared/DAO/paymentAccounts.dao';
+import {Component, EventEmitter, Input, OnChanges, Output} from '@angular/core';
 import {Router} from '@angular/router';
 
-import {P2pDAO} from "../../shared/DAO/p2p.dao";
-import { InfoModalService } from '../../shared/components/infoModal/infoModal.service';
+import {OffersDAO} from '../../shared/DAO/offers.dao';
+import {P2pDAO} from '../../shared/DAO/p2p.dao';
+import {PaymentAccountsDAO} from '../../shared/DAO/paymentAccounts.dao';
+import {InfoModalService} from '../../shared/components/infoModal/infoModal.service';
+import {SettingsService} from '../../shared/services/settings.service';
+import {ToastService} from '../../shared/services/toast.service';
+
 import t from '../../shared/defineTextToTranslate';
+
+t([
+  'SELL',
+  'BUY'
+]);
 
 @Component({
   selector: 'app-offers-list',
@@ -16,7 +24,7 @@ export class OffersListComponent implements OnChanges {
 
   @Input() data: Array<Object>;
   @Input() prices: Array<Object>;
-  @Input() type: 'sell' | 'buy';
+  @Input() type: 'sell' | 'buy' | 'my-offers';
   @Input() loading: Boolean;
   @Output() refresh = new EventEmitter<any>();
 
@@ -40,11 +48,13 @@ export class OffersListComponent implements OnChanges {
               private paymentsDAO: PaymentAccountsDAO,
               private router: Router,
               private p2p: P2pDAO,
+              private offersDao: OffersDAO,
+              private toast: ToastService,
               private initModal: InfoModalService) {
     this.currencyFilter = this.settings.selectedCurrencyOnOfferList || this.NO_FILTER;
     this.methodFilter = this.NO_FILTER;
     this.p2p.status().then(res => {
-      this.myAddress = _.get(res,'address');
+      this.myAddress = _.get(res, 'address');
       return this.paymentsDAO.query();
     }).then((res: any) => {
       this.accountsList = res.paymentAccounts;
@@ -75,7 +85,7 @@ export class OffersListComponent implements OnChanges {
 
   getOfferAmount(item) {
     let amount = Number(item.amount) / 100000000;
-    let price: any  = this.getOfferPrice(item);
+    let price: any = this.getOfferPrice(item);
     if (!item.minAmount || Number(item.minAmount) != Number(item.amount)) {
       let minAmount = Number(item.minAmount) / 100000000;
       return _.round(minAmount * price, 2).toFixed(2) + ' - ' + _.round(amount * price, 2).toFixed(2) + ' ' + item.counterCurrencyCode;
@@ -101,7 +111,7 @@ export class OffersListComponent implements OnChanges {
   }
 
   takeOffer(offer) {
-    if(!this.checkIfValidPaymentAccount(offer)) {
+    if (!this.checkIfValidPaymentAccount(offer)) {
       this.initModal.show({
         title: t('OFFERS.LIST.NO_MATCHING_ACCOUNT_TITLE'),
         text: t('OFFERS.LIST.NO_MATCHING_ACCOUNT_TEXT'),
@@ -117,12 +127,20 @@ export class OffersListComponent implements OnChanges {
     this.router.navigateByUrl(`offers/${this.type}/take/${offer.id}`);
   }
 
+  deleteOffer(offer) {
+    this.offersDao.remove(offer.id).then(() => {
+      this.refresh.emit();
+    }).catch(error => {
+      this.toast.error(error);
+    });
+  }
+
   checkIfValidPaymentAccount(offer) {
     return this.supportedPaymentsMethods.indexOf(offer.paymentMethodId) >= 0 && this.supportedPaymentsCurrencies.indexOf(offer.currencyCode) >= 0;
   }
 
   private filterData() {
-    if (this.data && this.type) {
+    if (this.data && this.type && 'my-offers' != this.type) {
       let filteredData = _.chain(this.data);
       const dir = this.type === 'sell' ? 'buy' : 'sell';
       const filter = {direction: dir.toUpperCase()};
@@ -131,9 +149,11 @@ export class OffersListComponent implements OnChanges {
       }
       filteredData = filteredData.filter(filter);
       if (!this.settings.showMyOwnOffersInOfferBook) {
-        filteredData = filteredData.filter(o=> this.myAddress !== o.ownerNodeAddress);
+        filteredData = filteredData.filter(o => this.myAddress !== o.ownerNodeAddress);
       }
       this.list = filteredData.value();
+    } else if ('my-offers' === this.type) {
+      this.list = _.filter(this.data, {ownerNodeAddress: this.myAddress});
     }
   }
 }
