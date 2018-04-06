@@ -23,14 +23,15 @@
       <div class="col-6">
         <ion-item>
           <ion-label stacked>{{'OFFERS.CREATE.AMOUNT' | translate}}</ion-label>
-          <ion-input class="suffix" data-suffix="BTC" type="number" name="amount" [(ngModel)]="model.amount" (ionChange)="onValueChanges($event)" min="0"></ion-input>
+          <ion-input class="suffix" data-suffix="BTC" type="number" name="amount" [(ngModel)]="model.amount"
+                     (ionChange)="onValueChanges($event)" min="0" max="1" step="0.001"></ion-input>
         </ion-item>
       </div>
       <div class="col-6">
         <ion-item>
           <ion-label stacked>{{'OFFERS.CREATE.MINUMUM_AMOUNT' | translate}}</ion-label>
           <ion-input class="suffix" data-suffix="BTC" type="number" name="minAmount" [(ngModel)]="model.minAmount"
-                    (ionChange)="onValueChanges($event)"></ion-input>
+                     (ionChange)="onValueChanges($event)" min="0" max="1" step="0.001"></ion-input>
         </ion-item>
       </div>
     </div>

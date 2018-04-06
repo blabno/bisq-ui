@@ -57,10 +57,9 @@ export class TakeOfferComponent implements OnInit {
       });
       this.paymentsDAO.query().then((offer: any) => {
         this.accountsList = offer.paymentAccounts || [];
-        this.supportedAccountsList = _.filter(this.accountsList, [
-          'paymentMethod',
-          this.paymentMethodId
-        ]);
+        this.supportedAccountsList = _.filter(this.accountsList, account =>
+          account.paymentMethod === this.paymentMethodId && _.includes(account.tradeCurrencies, this.tradeCurrency)
+        );
         this.accountId = _.get(this.supportedAccountsList, '[0].id');
       });
     });
