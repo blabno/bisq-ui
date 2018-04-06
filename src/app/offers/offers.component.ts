@@ -46,8 +46,8 @@ export class OffersComponent implements OnInit, OnDestroy {
     }).then((marketPrices) => {
       this.prices = _.zipObject(this.currencyPairs, marketPrices);
       this.loading = false;
-    }).catch(() => {
-      this.toast.show('TOAST.OFFERS.CANT_FETCH_DATA', 'error');
+    }).catch(error => {
+      this.toast.error(error, 'TOAST.OFFERS.CANT_FETCH_DATA');
       this.loading = false;
     });
   }

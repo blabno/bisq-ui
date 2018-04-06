@@ -46,7 +46,7 @@ export class FundsListComponent implements OnInit {
         this.generateInProgress = false;
       })
       .catch(error => {
-        this.toast.show(t('TOAST.NEW_ADDRESS_CREATE_ERROR'), 'error');
+        this.toast.error(error, 'TOAST.NEW_ADDRESS_CREATE_ERROR');
       });
   }
 

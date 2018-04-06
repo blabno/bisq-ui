@@ -638,6 +638,7 @@
 			"GO_TO_ACCOUNTS": "Przejdź do kont",
 			"MINUMUM_AMOUNT": "Minimalna ilość",
 			"MIN_AMOUNT_MUST_BE_BIGGER_THAN_AMOUNT": "Ilość minimalna musi być większa od ilości",
+			"NO_ACCOUNTS": "Nie posiadasz jeszcze żadnego konta walutowego",
 			"PERCENTAGE": "Procentowa cena",
 			"PERCENT_DISTANCE": "Odchylenie od ceny rynkowej (%)",
 			"PRICE": "Cena",
@@ -824,6 +825,7 @@
 		"ADDRESS_COPIED_TO_CLIPBOARD": "Adres skopiowany do schowka",
 		"FORM_VALIDATION_ERROR": "Brak wszystkich wymaganych pól",
 		"NEW_ADDRESS_CREATE_ERROR": "Nie można wygenerować nowego adresu",
+		"NOMINATED_SUCCESSFULLY": "Nominowano pomyślnie",
 		"OFFERS": {
 			"CANT_FETCH_DATA": "Błąd: Nie można pobrać/odświeżyć listy ofert"
 		},

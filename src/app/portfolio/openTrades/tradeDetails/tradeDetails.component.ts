@@ -58,14 +58,14 @@ export class TradeDetailsComponent implements OnInit {
     this.tradesDAO.paymentStarted(this.trade.id)
       .then(() => this.tradesCache.refresh())
       .then(() => this.toast.show(t('PORTFOLIO.OPEN_TRADES.PAYMENT_STARTED'), 'info'))
-      .catch(() => this.showErrorToast());
+      .catch(error => this.toast.error(error));
   }
 
   confirmPaymentReceived() {
     this.tradesDAO.paymentReceived(this.trade.id)
       .then(() => this.tradesCache.refresh())
       .then(() => this.toast.show(t('PORTFOLIO.OPEN_TRADES.PAYMENT_RECEIVED'), 'info'))
-      .catch(() => this.showErrorToast());
+      .catch(error => this.toast.error(error));
   }
 
   withdraw() {
@@ -73,10 +73,6 @@ export class TradeDetailsComponent implements OnInit {
       .then(() => this.tradesCache.refresh())
       .then(() => this.toast.show(t('PORTFOLIO.OPEN_TRADES.WITHDRAW_SUCCESS'), 'info'))
       .then(() => (this.selectedTradeStep++))
-      .catch(() => this.showErrorToast());
-  }
-
-  showErrorToast() {
-    this.toast.show(t('TOAST.SOMETHING_WENT_WRONG'), 'error');
+      .catch(error => this.toast.error(error));
   }
 }

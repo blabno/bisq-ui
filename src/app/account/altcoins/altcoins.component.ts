@@ -22,7 +22,7 @@ export class AltcoinsComponent {
   list() {
     return this.paymentAccountsDAO.query()
       .then((result: any) => _.filter(result.paymentAccounts, item => 'BLOCK_CHAINS' === item.paymentMethod))
-      .catch(() => this.toast.show('TOAST.PAYMENT_METHOD_QUERY_ERROR', 'error'))
+      .catch(error => this.toast.error(error, 'TOAST.PAYMENT_METHOD_QUERY_ERROR'))
   }
 
   create(values) {

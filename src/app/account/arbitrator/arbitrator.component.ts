@@ -46,15 +46,11 @@ export class ArbitratorComponent implements OnInit {
     const enableElement = () => {
       delete this.doingActionOn[address];
     };
-    const errorHandle = res => {
-      if(res.error) {
-        this.toast.show(res.error.errors[0], 'error');
-      } else {
-        this.toast.show('There was problem with arbitrator selection/deselection', 'error');
-      }
+    const errorHandle = error => {
+      this.toast.error(error);
       this.arbitratorsSelection[address] = !event.checked;
-    }
-    if(event.checked) {
+    };
+    if (event.checked) {
       this.arbitratorsDAO.select(address).catch(errorHandle).then(enableElement);
     } else {
       this.arbitratorsDAO.deselect(address).catch(errorHandle).then(enableElement);
@@ -72,10 +68,13 @@ export class ArbitratorComponent implements OnInit {
 
   nominateYourself() {
     this.nominatingInProgress = true;
-    this.arbitratorsDAO.registerYourself(this.languagesSpoken).then(() => {
-      this.getArbitrators();
-      this.nominatingInProgress = false;
-    });
+    this.arbitratorsDAO.registerYourself(this.languagesSpoken)
+      .then(() => {
+        this.getArbitrators();
+        this.nominatingInProgress = false;
+        this.toast.show('TOAST.NOMINATED_SUCCESSFULLY', 'success');
+      })
+      .catch(error => this.toast.error(error));
   }
-  
+
 }
