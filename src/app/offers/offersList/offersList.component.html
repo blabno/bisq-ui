@@ -52,11 +52,13 @@
         <div>{{'OFFERS.LIST.AMOUNT' | translate}}
           <span class="float-right">{{getOfferAmount(item)}}</span>
         </div>
+        <div>{{'OFFERS.LIST.PAYMENT_METHOD' | translate}}
+          <span class="float-right">{{item.paymentMethodId}}</span>
+        </div>
       </div>
       <div (click)="takeOffer(item)" class="btn rounded-0" [ngClass]="{
             'btn-primary': 'buy' === type,
-            'btn-warning': 'sell' === type,
-            'disabled': !checkIfValidPaymentAccount(item.paymentMethodId)
+            'btn-warning': 'sell' === type
             }">
         <span *ngIf="'buy' === type" class="select-button">
           <i class="fas fa-download menu-icon"></i>{{'OFFERS.LIST.BUY' | translate}}</span>

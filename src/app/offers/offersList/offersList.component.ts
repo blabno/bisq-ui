@@ -6,6 +6,8 @@ import {Router} from '@angular/router';
 
 import {P2pDAO} from "../../shared/DAO/p2p.dao";
 import {MarketPriceService} from '../../shared/services/marketPrice.service';
+import { InfoModalService } from '../../shared/components/infoModal/infoModal.service';
+import t from '../../shared/defineTextToTranslate';
 
 @Component({
   selector: 'app-offers-list',
@@ -31,12 +33,14 @@ export class OffersListComponent implements OnChanges {
   ];
   public accountsList = [];
   public supportedPaymentsMethods = [];
+  public supportedPaymentsCurrencies = [];
   private myAddress;
 
   constructor(public settings: SettingsService,
               private paymentsDAO: PaymentAccountsDAO,
               private router: Router,
-              private p2p: P2pDAO) {
+              private p2p: P2pDAO,
+              private initModal: InfoModalService) {
     this.currencyFilter = this.settings.selectedCurrencyOnOfferList || this.NO_FILTER;
     this.methodFilter = this.NO_FILTER;
     this.p2p.status().then(res => {
@@ -45,6 +49,7 @@ export class OffersListComponent implements OnChanges {
     }).then((res: any) => {
       this.accountsList = res.paymentAccounts;
       this.supportedPaymentsMethods = _.map(this.accountsList, 'paymentMethod');
+      this.supportedPaymentsCurrencies = _.map(this.accountsList, 'selectedTradeCurrency');
     }).catch(error => {
       // TODO: handle this error in better way. This is temporary fix to handle missing backend URL in settings
       console.error(error)
@@ -96,14 +101,24 @@ export class OffersListComponent implements OnChanges {
   }
 
   takeOffer(offer) {
-    if(!this.checkIfValidPaymentAccount(offer.paymentMethodId))
+    if(!this.checkIfValidPaymentAccount(offer)) {
+      this.initModal.show({
+        title: t('OFFERS.LIST.NO_MATCHING_ACCOUNT_TITLE'),
+        text: t('OFFERS.LIST.NO_MATCHING_ACCOUNT_TEXT'),
+        redirectButton: {
+          text: t('OFFERS.LIST.NO_MATCHING_ACCOUNT_REDIRECT'),
+          path: '/account/currency',
+          class: 'large center'
+        }
+      });
       return;
+    }
 
     this.router.navigateByUrl(`offers/${this.type}/take/${offer.id}`);
   }
 
-  checkIfValidPaymentAccount(paymentMethodId) {
-    return this.supportedPaymentsMethods.indexOf(paymentMethodId) >= 0;
+  checkIfValidPaymentAccount(offer) {
+    return this.supportedPaymentsMethods.indexOf(offer.paymentMethodId) >= 0 && this.supportedPaymentsCurrencies.indexOf(offer.currencyCode) >= 0;
   }
 
   private filterData() {
