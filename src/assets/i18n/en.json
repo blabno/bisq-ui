@@ -649,7 +649,8 @@
 			"TRADING_ACCOUNT": "Trading account",
 			"TYPE": "Price type"
 		},
-		"CREATE_BUTTON": "Create",
+		"CREATE_BUY_BUTTON": "Create new offer to buy BTC",
+		"CREATE_SELL_BUTTON": "Create new offer to sell BTC",
 		"LIST": {
 			"AMOUNT": "Amount",
 			"BUY": "Buy",
@@ -815,7 +816,8 @@
 	},
 	"SHARED": {
 		"LOADING": "Loading",
-		"NOT_DONE_YET": "Functionality is not done yet"
+		"NOT_DONE_YET": "Functionality is not done yet",
+		"REFRESH": "Refresh"
 	},
 	"SUPPORT": {
 		"LIST": {

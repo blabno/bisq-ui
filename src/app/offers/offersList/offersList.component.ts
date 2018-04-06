@@ -1,11 +1,10 @@
 import _ from 'lodash';
-import {Component, Input, OnChanges} from '@angular/core';
+import {Component, EventEmitter, Input, Output, OnChanges} from '@angular/core';
 import {SettingsService} from '../../shared/services/settings.service';
 import {PaymentAccountsDAO} from '../../shared/DAO/paymentAccounts.dao';
 import {Router} from '@angular/router';
 
 import {P2pDAO} from "../../shared/DAO/p2p.dao";
-import {MarketPriceService} from '../../shared/services/marketPrice.service';
 import { InfoModalService } from '../../shared/components/infoModal/infoModal.service';
 import t from '../../shared/defineTextToTranslate';
 
@@ -19,6 +18,7 @@ export class OffersListComponent implements OnChanges {
   @Input() prices: Array<Object>;
   @Input() type: 'sell' | 'buy';
   @Input() loading: Boolean;
+  @Output() refresh = new EventEmitter<any>();
 
   public NO_FILTER = 'ALL';
   public currencyFilter;

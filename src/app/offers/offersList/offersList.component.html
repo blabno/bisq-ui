@@ -1,9 +1,18 @@
 <app-section-header class="d-none d-lg-block"></app-section-header>
 <div class="row">
-  <div class="col-4">
-    <button ion-button color="light" routerLink="./create">{{ 'OFFERS.CREATE_BUTTON' | translate}}</button>
+  <div class="col-lg-4">
+    <button *ngIf="'buy' === type" ion-button class="create" routerLink="./create">
+      {{ 'OFFERS.CREATE_BUY_BUTTON' | translate}}
+    </button>
+    <button *ngIf="'sell' === type" ion-button class="create" routerLink="./create">
+      {{ 'OFFERS.CREATE_SELL_BUTTON' | translate}}
+    </button>
+    <button ion-button color="light" class="refresh" (click)="refresh.emit()" [disabled]="loading">
+      {{ 'SHARED.REFRESH' | translate}}
+      <ion-spinner *ngIf="loading" item-end></ion-spinner>
+    </button>
   </div>
-  <div class="col-4">
+  <div class="col-lg-4">
     <ion-item class="filter-item">
       <ion-label floating>{{'OFFERS.LIST.FILTER.BY_CURRENCY' | translate}}</ion-label>
       <ion-select [(ngModel)]="currencyFilter" (ionChange)="onCurrencyFilterChange($event)" interface="popover">
@@ -12,8 +21,8 @@
       </ion-select>
     </ion-item>
   </div>
-  <div class="col-4">
-    <ion-item class="filter-item">
+  <div class="col-lg-4">
+    <ion-item class="filter-item last">
       <ion-label floating>{{'OFFERS.LIST.FILTER.BY_METHOD' | translate}}</ion-label>
       <ion-select [(ngModel)]="methodFilter" interface="popover">
         <ion-option [value]="NO_FILTER">{{'OFFERS.LIST.SHOW_ALL' | translate}}</ion-option>
