@@ -35,14 +35,14 @@
       </div>
     </div>
     <ion-item>
-      <ion-label floating>{{'OFFERS.CREATE.PEdRCENT_DISTANCE' | translate}}</ion-label>
+      <ion-label floating>{{'OFFERS.CREATE.PERCENT_DISTANCE' | translate}}</ion-label>
       <ion-input class="suffix" data-suffix="%" type="number" name="percentageFromMarketPrice" [(ngModel)]="model.percentageFromMarketPrice"
                  (ionChange)="onValueChanges($event)"></ion-input>
     </ion-item>
-    <div class="row">
+    <div class="row" [hidden]="!model.tradeCurrency">
       <div class="col-6">
         <ion-item>
-          <ion-label floating>{{'OFFERS.CREATE.PRICE' | translate}}</ion-label>
+        <ion-label floating>{{'OFFERS.CREATE.PRICE' | translate:({ currency: model.tradeCurrency})}}</ion-label>
           <ion-input type="number" name="fixedPrice" [(ngModel)]="model.fixedPrice" (ionChange)="onValueChanges($event)"
                      min="0" required></ion-input>
           <span *ngIf="model.tradeCurrency" class="suffix-dynamic" item-end>{{model.tradeCurrency}}</span>
@@ -50,7 +50,7 @@
       </div>
       <div class="col-6">
         <ion-item>
-          <ion-label floating>{{'OFFERS.CREATE.PRICE_OVERALL' | translate}}</ion-label>
+          <ion-label floating>{{'OFFERS.CREATE.PRICE_OVERALL' | translate:({ currency: model.tradeCurrency })}}</ion-label>
           <ion-input type="number" name="calculatedValue" [(ngModel)]="model.calculatedValue"
                      (ionChange)="onValueChanges($event)" min="0"></ion-input>
           <span *ngIf="model.tradeCurrency" class="suffix-dynamic" item-end>{{model.tradeCurrency}}</span>
