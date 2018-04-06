@@ -59,9 +59,11 @@ export class TradesCacheService {
   private oldTrades;
   private interval;
   private stateChangeSubject = new Subject<string>();
+  private listChangeSubject = new Subject<string>();
 
   stepsMap = stepsMap;
   onStateChange = this.stateChangeSubject.asObservable();
+  onListChange = this.listChangeSubject.asObservable();
 
 
   constructor(private initModal: InfoModalService,
@@ -180,6 +182,7 @@ export class TradesCacheService {
         }));
         this.detectStatusChanged();
         this.oldTrades = this.trades;
+        this.listChangeSubject.next(this.trades);
         return this.trades;
       })
       .catch(error => {

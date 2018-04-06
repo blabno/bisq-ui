@@ -25,6 +25,7 @@ export class CreateOffersComponent implements OnInit, OnDestroy {
   type: 'sell' | 'buy';
   accountsList;
   noAccounts = false;
+  isAltcoinMethod = false;
   tradeList;
   model = {
     accountId: null,
@@ -76,6 +77,7 @@ export class CreateOffersComponent implements OnInit, OnDestroy {
     }
     const selectedAccount = _.find(this.accountsList, {id: this.model.accountId});
     this.tradeList = selectedAccount.tradeCurrencies;
+    this.isAltcoinMethod = 'BLOCK_CHAINS' === selectedAccount.paymentMethod;
     this.model.tradeCurrency = selectedAccount.selectedTradeCurrency;
     this.getMarketPrice(selectedAccount.selectedTradeCurrency);
   }
@@ -97,7 +99,7 @@ export class CreateOffersComponent implements OnInit, OnDestroy {
     switch (elementName) {
       case 'amount':
         setValue.calculatedValue();
-        if (values.amount && values.amount < values.minAmount) {
+        if (values.amount) {
           setValue.minAmount(values.amount);
         }
         break;
@@ -142,7 +144,7 @@ export class CreateOffersComponent implements OnInit, OnDestroy {
     let preparedForm = _.merge({}, _.omit(this.model, ['tradeCurrency', 'calculatedValue', 'deposit', 'isFixedPrice']), {
       fundUsingBisqWallet: true,
       direction: this.type.toUpperCase(),
-      marketPair: 'BTC_' + this.model.tradeCurrency
+      marketPair: this.isAltcoinMethod ? this.model.tradeCurrency + '_BTC' : 'BTC_' + this.model.tradeCurrency
     });
     _.forEach(preparedForm, (value, key) => _.set(preparedForm, key, Number(value) || value));
     if (!preparedForm.amount) {
@@ -161,8 +163,9 @@ export class CreateOffersComponent implements OnInit, OnDestroy {
     preparedForm.percentageFromMarketPrice /= 100;
     preparedForm.priceType = this.model.isFixedPrice ? 'FIXED' : 'PERCENTAGE';
     this.offersDAO.create(preparedForm).then(() => {
+      const redirectSection = 'buy' === this.type ? 'sell' : 'buy';
       this.toast.show('SUCCESS', 'success');
-      this.router.navigateByUrl(`/offers/${this.type}`);
+      this.router.navigateByUrl(`/offers/${redirectSection}`);
       this.creatingOffer = false;
     }).catch(error => {
       this.toast.error(error);
