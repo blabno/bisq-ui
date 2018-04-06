@@ -160,7 +160,7 @@ export class AccountManagerComponent implements OnInit, OnDestroy {
               .then(() => {
                 this.doCancel();
                 this.refreshList();
-                this.toast.show('TOAST.PAYMENT_METHOD_DELETED', 'info');
+                this.toast.show('TOAST.PAYMENT_METHOD_DELETED', 'success');
                 this.deletingAccount = false;
               })
               .catch(error => {

@@ -57,21 +57,21 @@ export class TradeDetailsComponent implements OnInit {
   confirmPaymentStarted() {
     this.tradesDAO.paymentStarted(this.trade.id)
       .then(() => this.tradesCache.refresh())
-      .then(() => this.toast.show(t('PORTFOLIO.OPEN_TRADES.PAYMENT_STARTED'), 'info'))
+      .then(() => this.toast.show(t('PORTFOLIO.OPEN_TRADES.PAYMENT_STARTED'), 'success'))
       .catch(error => this.toast.error(error));
   }
 
   confirmPaymentReceived() {
     this.tradesDAO.paymentReceived(this.trade.id)
       .then(() => this.tradesCache.refresh())
-      .then(() => this.toast.show(t('PORTFOLIO.OPEN_TRADES.PAYMENT_RECEIVED'), 'info'))
+      .then(() => this.toast.show(t('PORTFOLIO.OPEN_TRADES.PAYMENT_RECEIVED'), 'success'))
       .catch(error => this.toast.error(error));
   }
 
   withdraw() {
     this.tradesDAO.paymentWithdraw(this.trade.id)
       .then(() => this.tradesCache.refresh())
-      .then(() => this.toast.show(t('PORTFOLIO.OPEN_TRADES.WITHDRAW_SUCCESS'), 'info'))
+      .then(() => this.toast.show(t('PORTFOLIO.OPEN_TRADES.WITHDRAW_SUCCESS'), 'success'))
       .then(() => (this.selectedTradeStep++))
       .catch(error => this.toast.error(error));
   }
