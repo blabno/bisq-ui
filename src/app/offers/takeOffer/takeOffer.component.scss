@@ -2,8 +2,16 @@ app-take-offer {
   .send-form-button {
     margin-top: 15px;
   }
-  ion-spinner * {
-    stroke: var(--blue);
-    fill: var(--blue);
+  .buttons {
+    overflow: auto;
+    margin-top: 15px;
+    button {
+      float: right;
+      margin-left: 10px;
+    }
+    ion-spinner * {
+      stroke: var(--blue);
+      fill: var(--blue);
+    }
   }
 }
