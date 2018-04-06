@@ -33,7 +33,6 @@ import {MainComponent} from './main/main.component';
 import {MarketComponent} from './market/market.component';
 import {MenuComponent} from './menu/menu.component';
 import {MessagesComponent} from "./support/messages/messages.component";
-import {MyOpenOffersComponent} from './portfolio/myOpenOffers/myOpenOffers.component';
 import {NetworkInfoComponent} from './settings/network-info/network-info.component';
 import {OffersComponent} from './offers/offers.component';
 import {OffersListComponent} from './offers/offersList/offersList.component';
@@ -72,7 +71,6 @@ const loadModules = [
   MarketComponent,
   MenuComponent,
   MessagesComponent,
-  MyOpenOffersComponent,
   NetworkInfoComponent,
   OffersComponent,
   OffersListComponent,

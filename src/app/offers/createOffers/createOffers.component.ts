@@ -144,6 +144,7 @@ export class CreateOffersComponent implements OnInit, OnDestroy {
       direction: this.type.toUpperCase(),
       marketPair: 'BTC_' + this.model.tradeCurrency
     });
+    _.forEach(preparedForm, (value, key) => _.set(preparedForm, key, Number(value) || value));
     if (!preparedForm.amount) {
       this.toast.show('OFFERS.CREATE.AMOUNT_MUST_BE_POSITIVE', 'error');
       this.creatingOffer = false;

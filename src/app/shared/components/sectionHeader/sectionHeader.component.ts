@@ -36,7 +36,7 @@ export class SectionHeaderComponent {
       {path: '/offers/sell/create', title: ['MENU.SELL', t('OFFERS.CREATE.TITLE')]},
       {path: '/offers/sell/take', title: ['MENU.SELL', t('OFFERS.TAKE_OFFER.TITLE')]},
       {path: '/offers/sell', title: ['MENU.SELL']},
-      {path: '/portfolio/my-open-offers', title: ['MENU.PORTFOLIO', 'PORTFOLIO.SUBMENU.MY_OPEN_OFFERS']},
+      {path: '/offers/my-offers', title: ['MENU.PORTFOLIO', 'PORTFOLIO.SUBMENU.MY_OFFERS']},
       {path: '/portfolio/open-trades', title: ['MENU.PORTFOLIO', 'PORTFOLIO.SUBMENU.OPEN_TRADES']},
       {path: '/portfolio/history', title: ['MENU.PORTFOLIO', 'PORTFOLIO.SUBMENU.HISTORY']},
       {path: '/funds/receive', title: ['MENU.FUNDS', 'FUNDS.SUBMENU.RECEIVE']},

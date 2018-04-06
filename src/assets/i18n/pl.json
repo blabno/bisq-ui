@@ -585,6 +585,7 @@
 	},
 	"AS": "jako",
 	"BACK": "Wróć",
+	"BUY": "Kupno",
 	"CANCEL": "Anuluj",
 	"CONFIRM": "Potwierdź",
 	"DISCARD": "Porzuć",
@@ -654,6 +655,7 @@
 		"LIST": {
 			"AMOUNT": "Wartość",
 			"BUY": "Kup",
+			"DELETE": "Usuń",
 			"FILTER": {
 				"BY_CURRENCY": "Filtruj wg. waluty",
 				"BY_METHOD": "Filtruj wg. metodzy płatności"
@@ -662,11 +664,12 @@
 			"NO_MATCHING_ACCOUNT_TEXT": "Nie masz konta handlowego z metodą płatności wymaganą dla tej oferty.\nMusisz utworzyć konto handlowe aby skorzystać z tej oferty.\nCzy chcesz to zrobić teraz?",
 			"NO_MATCHING_ACCOUNT_TITLE": "Brak odpowiedniego konta handlowego.",
 			"NO_OFFERS": "Liczba ofert",
-			"NO_RESULTS": "Brak ofert to wyświetlenia, spróbuj usunąć filtry",
+			"NO_RESULTS": "Brak ofert to wyświetlenia.",
 			"PAYMENT_METHOD": "Sposób płatności",
 			"PRICE": "Cena",
 			"SELL": "Sprzedaj",
-			"SHOW_ALL": "Pokaż wszystko"
+			"SHOW_ALL": "Pokaż wszystko",
+			"TYPE": "Typ oferty"
 		},
 		"TAKE_OFFER": {
 			"AMOUNT_OF_BTC_TO_BUY": "Ilość BTC do kupienia",
@@ -743,11 +746,12 @@
 		},
 		"SUBMENU": {
 			"HISTORY": "Historia",
-			"MY_OPEN_OFFERS": "Moje otwarte oferty",
+			"MY_OFFERS": "Moje otwarte oferty",
 			"OPEN_TRADES": "Aktywne transkacje"
 		}
 	},
 	"SAVE": "Zapisz",
+	"SELL": "Sprzedaż",
 	"SETTINGS": {
 		"ABOUT": {
 			"ABOUT_BISQ": "O bisq",

@@ -585,6 +585,7 @@
 	},
 	"AS": "as",
 	"BACK": "Back",
+	"BUY": "Buy",
 	"CANCEL": "Cancel",
 	"CONFIRM": "Confirm",
 	"DISCARD": "Discard",
@@ -654,6 +655,7 @@
 		"LIST": {
 			"AMOUNT": "Amount",
 			"BUY": "Buy",
+			"DELETE": "Delete offer",
 			"FILTER": {
 				"BY_CURRENCY": "Filter by Currency",
 				"BY_METHOD": "Filter by payment method"
@@ -662,11 +664,12 @@
 			"NO_MATCHING_ACCOUNT_TEXT": "You don't have a trading account with the payment method required for that offer.\nYou need to setup a trading account with that payment method if you want to take this offer.\nDo you want to do this now?",
 			"NO_MATCHING_ACCOUNT_TITLE": "No matching trading account.",
 			"NO_OFFERS": "No. of offers",
-			"NO_RESULTS": "There are no offers to show, try to change your filters",
+			"NO_RESULTS": "There are no offers to show.",
 			"PAYMENT_METHOD": "Payment method",
 			"PRICE": "Price",
 			"SELL": "Sell",
-			"SHOW_ALL": "Show all"
+			"SHOW_ALL": "Show all",
+			"TYPE": "Offer type"
 		},
 		"TAKE_OFFER": {
 			"AMOUNT_OF_BTC_TO_BUY": "Amount of BTC to buy",
@@ -743,11 +746,12 @@
 		},
 		"SUBMENU": {
 			"HISTORY": "History",
-			"MY_OPEN_OFFERS": "My open offers",
+			"MY_OFFERS": "My open offers",
 			"OPEN_TRADES": "Open trades"
 		}
 	},
 	"SAVE": "Save",
+	"SELL": "Sell",
 	"SETTINGS": {
 		"ABOUT": {
 			"ABOUT_BISQ": "About bisq",

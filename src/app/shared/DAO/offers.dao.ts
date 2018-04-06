@@ -17,7 +17,7 @@ export class OffersDAO {
   }
 
   remove(id) {
-    return this.http.delete(`${this.settings.backendUrl}/api/v1/offers/${id}`).toPromise();
+    return this.http.delete(`${this.settings.backendUrl}/api/v1/offers/${id}`, {responseType: 'text'}).toPromise();
   }
 
   create(data) {
