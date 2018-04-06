@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {PaymentAccountsDAO} from "../../shared/DAO/paymentAccounts.dao";
 import {OffersDAO} from "../../shared/DAO/offers.dao";
 import {ToastService} from "../../shared/services/toast.service";
@@ -43,7 +43,8 @@ export class CreateOffersComponent implements OnInit, OnDestroy {
               private paymentsDAO: PaymentAccountsDAO,
               private offersDAO: OffersDAO,
               private toast: ToastService,
-              private marketPriceService: MarketPriceService) {
+              private marketPriceService: MarketPriceService,
+              private router: Router) {
     this.paymentsDAO.query().then((res: any) => {
       this.accountsList = res.paymentAccounts;
       if (!this.accountsList.length) {
@@ -131,6 +132,7 @@ export class CreateOffersComponent implements OnInit, OnDestroy {
   submit() {
     if (!this.createForm.valid) {
       this.toast.show('OFFERS.CREATE.FILL_ALL_REQUIRED_FIELDS', 'error');
+      this.creatingOffer = false;
       return;
     }
     this.creatingOffer = true;
@@ -141,10 +143,12 @@ export class CreateOffersComponent implements OnInit, OnDestroy {
     });
     if (!preparedForm.amount) {
       this.toast.show('OFFERS.CREATE.AMOUNT_MUST_BE_POSITIVE', 'error');
+      this.creatingOffer = false;
       return;
     }
     if (preparedForm.amount < preparedForm.minAmount) {
       this.toast.show('OFFERS.CREATE.MIN_AMOUNT_MUST_BE_BIGGER_THAN_AMOUNT', 'error');
+      this.creatingOffer = false;
       return;
     }
     preparedForm.amount *= 100000000;
@@ -153,9 +157,14 @@ export class CreateOffersComponent implements OnInit, OnDestroy {
     preparedForm.priceType = this.model.isFixedPrice ? 'FIXED' : 'PERCENTAGE';
     this.offersDAO.create(preparedForm).then(res => {
       this.toast.show('SUCCESS', 'success');
+      this.router.navigateByUrl(`/offers/${this.type}`);
       this.creatingOffer = false;
     }).catch(error => {
-      this.toast.show(error.message, 'error');
+      if (_.has(error, 'error.errors')) {
+        this.toast.show(error.error.errors.join('. '), 'error');
+      } else {
+        this.toast.show('TOAST.OFFER_CREATE_ERROR', 'error');
+      }
       this.creatingOffer = false;
     });
   }

@@ -631,13 +631,13 @@
 	"OFFERS": {
 		"CREATE": {
 			"AMOUNT": "Ilość",
-			"AMOUNT_MUST_BE_POSITIVE": "Wartość musi być dodatnia",
+			"AMOUNT_MUST_BE_POSITIVE": "Ilość musi być dodatnia",
 			"CURRENCY": "Waluta",
 			"FILL_ALL_REQUIRED_FIELDS": "Uzupełnij wszystkie wymagane pola",
 			"FIXED": "Stała cena",
 			"GO_TO_ACCOUNTS": "Przejdź do kont",
 			"MINUMUM_AMOUNT": "Minimalna ilość",
-			"MIN_AMOUNT_MUST_BE_BIGGER_THAN_AMOUNT": "Wartość minimalna musi być większa od wartośći",
+			"MIN_AMOUNT_MUST_BE_BIGGER_THAN_AMOUNT": "Ilość minimalna musi być większa od ilości",
 			"PERCENTAGE": "Procentowa cena",
 			"PERCENT_DISTANCE": "Odchylenie od ceny rynkowej (%)",
 			"PRICE": "Cena",
