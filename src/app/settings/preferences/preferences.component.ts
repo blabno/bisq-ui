@@ -40,6 +40,6 @@ export class PreferencesComponent implements OnInit, OnDestroy {
   resetAllHiddenModalsPreferences() {
     this.settings.hiddenModals = [];
     this.settings.saveSettings();
-    this.toast.show(t('SETTINGS.PREFERENCES.ALL_HIDDEN_MODALS_RESETED'), 'info');
+    this.toast.show(t('SETTINGS.PREFERENCES.ALL_HIDDEN_MODALS_RESETED'), 'success');
   }
 }

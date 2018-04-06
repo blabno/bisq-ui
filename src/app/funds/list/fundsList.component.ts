@@ -70,6 +70,6 @@ export class FundsListComponent implements OnInit {
   async addressSelect(event) {
     if (event && event.target && event.target.select) event.target.select();
     await this.clipboard.copy(this.selectedWallet.address);
-    this.toast.show(t('TOAST.ADDRESS_COPIED_TO_CLIPBOARD'), 'info');
+    this.toast.show(t('TOAST.ADDRESS_COPIED_TO_CLIPBOARD'), 'success');
   }
 }
