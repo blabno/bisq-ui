@@ -142,3 +142,16 @@ ion-popover.select-popover ion-list {
     margin-left: 16px;
   }
 }
+
+.suffix::after {
+  content: attr(data-suffix);
+  color: #999;
+  width: 30px
+}
+.suffix > input.text-input  {
+  width: calc(100% - 48px) !important;
+}
+.suffix-dynamic {
+  color: #999;
+  align-self: flex-end;
+}
