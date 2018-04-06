@@ -649,7 +649,8 @@
 			"TRADING_ACCOUNT": "Konto handlowe",
 			"TYPE": "Typ ceny"
 		},
-		"CREATE_BUTTON": "Stwórz",
+		"CREATE_BUY_BUTTON": "Stwórz nową ofertę kupna BTC",
+		"CREATE_SELL_BUTTON": "Stwórz nową ofertę sprzedaży BTC",
 		"LIST": {
 			"AMOUNT": "Wartość",
 			"BUY": "Kup",
@@ -815,7 +816,8 @@
 	},
 	"SHARED": {
 		"LOADING": "Wczytywanie",
-		"NOT_DONE_YET": "Funkcjonalność nie skończona jeszcze"
+		"NOT_DONE_YET": "Funkcjonalność nie skończona jeszcze",
+		"REFRESH": "Odśwież"
 	},
 	"SUPPORT": {
 		"LIST": {

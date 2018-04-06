@@ -23,16 +23,16 @@ export class OffersComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.paramSubscribe = this.activeRoute.params.subscribe(params => {
+      this.refreshOffersList();
       this.listType = params['type'];
     });
-    this.refreshOffersList();
   }
 
   ngOnDestroy() {
     this.paramSubscribe.unsubscribe();
   }
 
-  private refreshOffersList() {
+  refreshOffersList() {
     this.loading = true;
     this.offersDAO.query().then(res => {
       this.offerList = res['offers'];
