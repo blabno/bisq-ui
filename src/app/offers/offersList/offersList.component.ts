@@ -73,17 +73,22 @@ export class OffersListComponent implements OnChanges {
     let price: any  = this.getOfferPrice(item);
     if (!item.minAmount || Number(item.minAmount) != Number(item.amount)) {
       let minAmount = Number(item.minAmount) / 100000000;
-      return _.round(minAmount * price, 2) + ' - ' + _.round(amount * price, 2);
+      return _.round(minAmount * price, 2).toFixed(2) + ' - ' + _.round(amount * price, 2).toFixed(2) + ' ' + item.counterCurrencyCode;
     }
     return _.round(amount * price, 2);
   }
 
   getOfferPrice(item) {
-    if(item.useMarketBasedPrice) {
-      return _.round(this.prices[item.baseCurrencyCode + '_' + item.counterCurrencyCode], 2);
+    if (item.useMarketBasedPrice) {
+      const basePrice = this.prices[item.baseCurrencyCode + '_' + item.counterCurrencyCode];
+      return _.round(basePrice - basePrice * item.marketPriceMargin, 2).toFixed(2);
     } else {
-      return _.round(Number(item.price) / 10000, 2);
+      return _.round(Number(item.price) / 10000, 2).toFixed(2);
     }
+  }
+
+  getOfferMarketPriceMargin(item) {
+    return _.round(item.marketPriceMargin * 100, 2);
   }
 
   getMarket(item) {

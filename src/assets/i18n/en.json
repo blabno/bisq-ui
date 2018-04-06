@@ -664,10 +664,14 @@
 			"SHOW_ALL": "Show all"
 		},
 		"TAKE_OFFER": {
-			"AMOUNT_IN_PLN_TO_RECEIVE": "amount in pln to receive",
+			"AMOUNT_OF_BTC_TO_BUY": "Amount of BTC to buy",
 			"AMOUNT_OF_BTC_TO_SELL": "Amount of BTC to sell",
+			"AMOUNT_TO_RECEIVE": "Amount in {{currency}} to receive",
+			"AMOUNT_TO_SPEND": "Amount in {{currency}} to spend",
 			"PAYMENT_INFO": "Payment info",
-			"PRICE_IN_PLN_FOR_BTC": "Price in pln for BTC",
+			"PERCENTAGE_DISTANCE": "Distance in % from market price",
+			"POSSIBLE_AMOUNT": "Possible amount range",
+			"PRICE_FOR_BTC": "Price in {{currency}} for BTC",
 			"SET_AMOUNT": "Set amount",
 			"TAKE_OFFER": "Take offer",
 			"TAKE_OFFER_ERROR": "Take offer error",

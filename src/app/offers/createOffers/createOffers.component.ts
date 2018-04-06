@@ -87,10 +87,10 @@ export class CreateOffersComponent implements OnInit, OnDestroy {
     const elementName = _.get(event, '_native.nativeElement.name');
     const values = this.createForm.value;
     const setValue = {
-      calculatedValue: (value?) => this.createForm.controls['calculatedValue'].setValue((value || values.amount) * values.fixedPrice),
+      calculatedValue: (value?) => this.createForm.controls['calculatedValue'].setValue(_.round((value || values.amount) * values.fixedPrice, 2)),
       amount: value => this.createForm.controls['amount'].setValue(value),
       minAmount: value => this.createForm.controls['minAmount'].setValue(value),
-      percentageFromMarketPrice: () => this.createForm.controls['percentageFromMarketPrice'].setValue((this.marketPrice - values.fixedPrice) / this.marketPrice * 100)
+      percentageFromMarketPrice: () => this.createForm.controls['percentageFromMarketPrice'].setValue(_.round((this.marketPrice - values.fixedPrice) / this.marketPrice * 100, 2))
     };
     _.forEach(values, (value, key) => _.set(values, key, Number(value) || value));
 
@@ -157,8 +157,9 @@ export class CreateOffersComponent implements OnInit, OnDestroy {
     preparedForm.amount *= 100000000;
     preparedForm.minAmount *= 100000000;
     preparedForm.fixedPrice *= 10000;
+    preparedForm.percentageFromMarketPrice /= 100;
     preparedForm.priceType = this.model.isFixedPrice ? 'FIXED' : 'PERCENTAGE';
-    this.offersDAO.create(preparedForm).then(res => {
+    this.offersDAO.create(preparedForm).then(() => {
       this.toast.show('SUCCESS', 'success');
       this.router.navigateByUrl(`/offers/${this.type}`);
       this.creatingOffer = false;
@@ -176,8 +177,8 @@ export class CreateOffersComponent implements OnInit, OnDestroy {
   }
 
   private calculateBasedOnPercentageFromMarketPrice() {
-    const newFixedPrice = this.marketPrice - (this.createForm.value.percentageFromMarketPrice / 100 * this.marketPrice);
+    const newFixedPrice = _.round(this.marketPrice - (this.createForm.value.percentageFromMarketPrice / 100 * this.marketPrice), 2);
     this.createForm.controls['fixedPrice'].setValue(newFixedPrice);
-    this.createForm.controls['calculatedValue'].setValue(this.createForm.value.amount * newFixedPrice);
+    this.createForm.controls['calculatedValue'].setValue(_.round(this.createForm.value.amount * newFixedPrice, 2));
   }
 }

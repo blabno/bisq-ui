@@ -30,8 +30,8 @@ export class SectionHeaderComponent {
 
   updateSectionTitle(url) {
     const pathsArray = [
-      {path: '/offers/buy/create', title: ['MENU.SELL', t('OFFERS.CREATE.TITLE')]},
-      {path: '/offers/buy/take', title: ['MENU.SELL', t('OFFERS.TAKE_OFFER.TITLE')]},
+      {path: '/offers/buy/create', title: ['MENU.BUY', t('OFFERS.CREATE.TITLE')]},
+      {path: '/offers/buy/take', title: ['MENU.BUY', t('OFFERS.TAKE_OFFER.TITLE')]},
       {path: '/offers/buy', title: ['MENU.BUY']},
       {path: '/offers/sell/create', title: ['MENU.SELL', t('OFFERS.CREATE.TITLE')]},
       {path: '/offers/sell/take', title: ['MENU.SELL', t('OFFERS.TAKE_OFFER.TITLE')]},

@@ -1,22 +1,18 @@
 <div class="desktop-max-width">
   <app-section-header class="d-none d-lg-block"></app-section-header>
-  <div class="buttons">
-    <button ion-button color="light" class="mb-3" routerLink="../..">{{ 'BACK' | translate}}</button>
-  </div>
   <div class="card">
     <div class="card-header">{{'OFFERS.TAKE_OFFER.PAYMENT_INFO' | translate}}</div>
     <div class="card-body">
       <ion-item>
         <ion-label floating>{{'OFFERS.TAKE_OFFER.TRADING_ACCOUNT' | translate}}</ion-label>
-        <ion-select [(ngModel)]="accountId">
-          <ion-option *ngFor="let option of supportedAccountsList" [value]="option.id">{{option.accountName}}</ion-option>
+        <ion-select [(ngModel)]="accountId" [disabled]="1===supportedAccountsList.length">
+          <ion-option *ngFor="let option of supportedAccountsList" [value]="option.id">{{option.accountName}}
+          </ion-option>
         </ion-select>
       </ion-item>
       <ion-item>
-        <ion-item>
-          <ion-label color="primary" stacked>{{'OFFERS.TAKE_OFFER.TRADE_CURRENCY' | translate}}</ion-label>
-          <ion-input readonly></ion-input>
-        </ion-item>
+        <ion-label floating>{{'OFFERS.TAKE_OFFER.TRADE_CURRENCY' | translate}}</ion-label>
+        <ion-input type="text" [value]="tradeCurrency" disabled></ion-input>
       </ion-item>
     </div>
   </div>
@@ -24,17 +20,38 @@
     <div class="card-header">{{'OFFERS.TAKE_OFFER.SET_AMOUNT' | translate}}</div>
     <div class="card-body">
       <ion-item>
-        <ion-label color="primary" stacked>{{'OFFERS.TAKE_OFFER.AMOUNT_OF_BTC_TO_SELL' | translate}}</ion-label>
-        <ion-input type="number" [min]="amountToSellMin" [max]="amountToSell" [(ngModel)]="amountToSell"
-          (ngModelChange)="changeAmountToSell($event)"></ion-input>
+        <ion-label *ngIf="'buy'===type" floating>{{'OFFERS.TAKE_OFFER.AMOUNT_OF_BTC_TO_BUY' | translate}}</ion-label>
+        <ion-label *ngIf="'sell'===type" floating>{{'OFFERS.TAKE_OFFER.AMOUNT_OF_BTC_TO_SELL' | translate}}</ion-label>
+        <ion-input type="number" [min]="amountToSellMin" [max]="amountToSellMax" step="0.001" [(ngModel)]="amountToSell"
+                   (ngModelChange)="changeAmountToSell($event)"
+                   [disabled]="amountToSellMin===amountToSellMax"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="amountToSellMin!==amountToSellMax">
+        <ion-label floating>
+          {{'OFFERS.TAKE_OFFER.POSSIBLE_AMOUNT' | translate}}
+        </ion-label>
+        <ion-input [value]="amountToSellMin + ' - ' + amountToSellMax" disabled></ion-input>
+      </ion-item>
+      <ion-item *ngIf="isPercentageVisible">
+        <ion-label floating>
+          {{'OFFERS.TAKE_OFFER.PERCENTAGE_DISTANCE' | translate}}
+        </ion-label>
+        <ion-input [value]="percentage+'%'" disabled></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label color="primary" stacked>{{'OFFERS.TAKE_OFFER.PRICE_IN_PLN_FOR_BTC' | translate}}</ion-label>
-        <ion-input value="{{costOfBTC | currency:'PLN' }}" readonly></ion-input>
+        <ion-label floating>
+          {{'OFFERS.TAKE_OFFER.PRICE_FOR_BTC' | translate:({currency: tradeCurrency})}}
+        </ion-label>
+        <ion-input [value]="costOfBTC" disabled></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label color="primary" stacked>{{'OFFERS.TAKE_OFFER.AMOUNT_IN_PLN_TO_RECEIVE' | translate}}</ion-label>
-        <ion-input value="{{amountToReceive | currency:'PLN' }}" readonly></ion-input>
+        <ion-label *ngIf="'buy'===type" floating>
+          {{'OFFERS.TAKE_OFFER.AMOUNT_TO_SPEND' | translate:({currency: tradeCurrency})}}
+        </ion-label>
+        <ion-label *ngIf="'sell'===type" floating>
+          {{'OFFERS.TAKE_OFFER.AMOUNT_TO_RECEIVE' | translate:({currency: tradeCurrency})}}
+        </ion-label>
+        <ion-input [value]="amountToReceive" disabled></ion-input>
       </ion-item>
     </div>
   </div>
@@ -45,7 +62,7 @@
        <div class="col">
       <ion-item>
         <ion-label color="primary" stacked>Founds needed</ion-label>
-        <ion-input type="number" readonly></ion-input>
+        <ion-input type="number" disabled></ion-input>
         <button ion-button outline item-end class="padding" (click)="buttonClick()">?</button>
         <button ion-button outline item-end class="padding" (click)="buttonClick()">
           <ion-icon name="md-copy"></ion-icon>
@@ -53,14 +70,14 @@
       </ion-item>
       <ion-item>
         <ion-label color="primary" stacked>Trade wallet address</ion-label>
-        <ion-input readonly></ion-input>
+        <ion-input disabled></ion-input>
         <button ion-button outline item-end class="padding" (click)="buttonClick()">
           <ion-icon name="md-copy"></ion-icon>
         </button>
       </ion-item>
       <ion-item>
         <ion-label color="primary" stacked>Trade wallet balance</ion-label>
-        <ion-input placeholder="0.00 BTC ( Waiting for founds.. )" readonly></ion-input>
+        <ion-input placeholder="0.00 BTC ( Waiting for founds.. )" disabled></ion-input>
         <ion-spinner item-end></ion-spinner>
       </ion-item>
       </div>
@@ -72,20 +89,11 @@
        </div>
     </div>
 </div>-->
-  <div class="row mt-3">
-    <div class="col-sm">
-      <button ion-button full color="light" (click)="takeOffer()" [disabled]="takingOffer">
-        {{'OFFERS.TAKE_OFFER.TAKE_OFFER' | translate}}
-        <ion-spinner *ngIf="takingOffer" item-end></ion-spinner>
-      </button>
-    </div>
-    <!-- <div class="col-sm">
-      <button class="btn button-md" ion-button full>Use Bisq wallet </button>
-    </div>
-    <div class="col-sm">
-    </div>
-    <div class="col-sm">
-      <button class="btn button-md" ion-button full>Use external wallet</button>
-    </div> -->
+  <div class="buttons">
+    <button ion-button (click)="takeOffer()" [disabled]="takingOffer">
+      {{'OFFERS.TAKE_OFFER.TAKE_OFFER' | translate}}
+      <ion-spinner *ngIf="takingOffer" item-end></ion-spinner>
+    </button>
+    <button ion-button color="light" routerLink="../..">{{ 'CANCEL' | translate}}</button>
   </div>
 </div>

@@ -664,10 +664,14 @@
 			"SHOW_ALL": "Pokaż wszystko"
 		},
 		"TAKE_OFFER": {
-			"AMOUNT_IN_PLN_TO_RECEIVE": "Kwota w PLN do otrzymania",
-			"AMOUNT_OF_BTC_TO_SELL": "Kwota BTC do sprzedania",
+			"AMOUNT_OF_BTC_TO_BUY": "Ilość BTC do kupienia",
+			"AMOUNT_OF_BTC_TO_SELL": "Ilość BTC do sprzedania",
+			"AMOUNT_TO_RECEIVE": "Kwota w {{currency}} do otrzymania",
+			"AMOUNT_TO_SPEND": "Kwota w {{currency}} do zapłacenia",
 			"PAYMENT_INFO": "Informacje o płatności",
-			"PRICE_IN_PLN_FOR_BTC": "Cena za BTC w PLN",
+			"PERCENTAGE_DISTANCE": "Rożnica w % od ceny rynkowej",
+			"POSSIBLE_AMOUNT": "Dostępna ilość BTC",
+			"PRICE_FOR_BTC": "Cena za BTC w {{currency}}",
 			"SET_AMOUNT": "Ustaw kwotę",
 			"TAKE_OFFER": "Weź ofertę",
 			"TAKE_OFFER_ERROR": "Błąd w transakcji",
