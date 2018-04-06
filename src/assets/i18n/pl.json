@@ -657,8 +657,12 @@
 				"BY_CURRENCY": "Filtruj wg. waluty",
 				"BY_METHOD": "Filtruj wg. metodzy płatności"
 			},
+			"NO_MATCHING_ACCOUNT_REDIRECT": "Idź do \"Konto\"",
+			"NO_MATCHING_ACCOUNT_TEXT": "Nie masz konta handlowego z metodą płatności wymaganą dla tej oferty.\nMusisz utworzyć konto handlowe aby skorzystać z tej oferty.\nCzy chcesz to zrobić teraz?",
+			"NO_MATCHING_ACCOUNT_TITLE": "Brak odpowiedniego konta handlowego.",
 			"NO_OFFERS": "Liczba ofert",
 			"NO_RESULTS": "Brak ofert to wyświetlenia, spróbuj usunąć filtry",
+			"PAYMENT_METHOD": "Sposób płatności",
 			"PRICE": "Cena",
 			"SELL": "Sprzedaj",
 			"SHOW_ALL": "Pokaż wszystko"

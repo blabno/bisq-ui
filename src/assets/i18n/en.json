@@ -657,8 +657,12 @@
 				"BY_CURRENCY": "Filter by Currency",
 				"BY_METHOD": "Filter by payment method"
 			},
+			"NO_MATCHING_ACCOUNT_REDIRECT": "Go to \"Account\"",
+			"NO_MATCHING_ACCOUNT_TEXT": "You don't have a trading account with the payment method required for that offer.\nYou need to setup a trading account with that payment method if you want to take this offer.\nDo you want to do this now?",
+			"NO_MATCHING_ACCOUNT_TITLE": "No matching trading account.",
 			"NO_OFFERS": "No. of offers",
 			"NO_RESULTS": "There are no offers to show, try to change your filters",
+			"PAYMENT_METHOD": "Payment method",
 			"PRICE": "Price",
 			"SELL": "Sell",
 			"SHOW_ALL": "Show all"
