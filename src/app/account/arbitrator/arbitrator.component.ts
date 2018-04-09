@@ -3,6 +3,7 @@ import {SettingsService} from '../../shared/services/settings.service';
 import {ArbitratorsDAO} from '../../shared/DAO/arbitrators.dao';
 import _ from 'lodash';
 import {ToastService} from '../../shared/services/toast.service';
+const langsJson = require('../../../assets/data/langs.json');
 
 @Component({
   selector: 'app-arbitrator',
@@ -26,6 +27,9 @@ export class ArbitratorComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.languages = _.map(langsJson, (lang, key) => {
+      return {value: key, name: lang.nativeName};
+    });
     this.getArbitrators();
   }
 
