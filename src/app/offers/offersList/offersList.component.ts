@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import {Component, EventEmitter, Input, OnChanges, Output} from '@angular/core';
 import {Router} from '@angular/router';
+import {TranslateService} from '@ngx-translate/core';
 
 import {OffersDAO} from '../../shared/DAO/offers.dao';
 import {P2pDAO} from '../../shared/DAO/p2p.dao';
@@ -50,7 +51,8 @@ export class OffersListComponent implements OnChanges {
               private p2p: P2pDAO,
               private offersDao: OffersDAO,
               private toast: ToastService,
-              private initModal: InfoModalService) {
+              private translate: TranslateService,
+              private infoModal: InfoModalService) {
     this.currencyFilter = this.settings.selectedCurrencyOnOfferList || [this.NO_FILTER];
     this.methodFilter = this.NO_FILTER;
     this.p2p.status().then(res => {
@@ -112,7 +114,7 @@ export class OffersListComponent implements OnChanges {
 
   takeOffer(offer) {
     if (!this.checkIfValidPaymentAccount(offer)) {
-      this.initModal.show({
+      this.infoModal.show({
         title: t('OFFERS.LIST.NO_MATCHING_ACCOUNT_TITLE'),
         text: t('OFFERS.LIST.NO_MATCHING_ACCOUNT_TEXT'),
         redirectButton: {
@@ -137,6 +139,40 @@ export class OffersListComponent implements OnChanges {
 
   checkIfValidPaymentAccount(offer) {
     return this.supportedPaymentsMethods.indexOf(offer.paymentMethodId) >= 0 && this.supportedPaymentsCurrencies.indexOf(offer.currencyCode) >= 0;
+  }
+
+  offerDetails(offer) {
+    let type;
+    if ('BUY' === offer.direction) {
+      type = this.translate.instant('OFFERS.LIST.MAKER') + ' '
+        + this.translate.instant('SHARED.AS') + ' BTC '
+        + this.translate.instant('OFFERS.LIST.BUYER') + ' / '
+        + this.translate.instant('OFFERS.LIST.TAKER') + ' '
+        + this.translate.instant('SHARED.AS') + ' BTC '
+        + this.translate.instant('OFFERS.LIST.SELLER');
+    } else {
+      type = this.translate.instant('OFFERS.LIST.MAKER') + ' '
+        + this.translate.instant('SHARED.AS') + ' BTC '
+        + this.translate.instant('OFFERS.LIST.SELLER') + ' / '
+        + this.translate.instant('OFFERS.LIST.TAKER') + ' '
+        + this.translate.instant('SHARED.AS') + ' BTC '
+        + this.translate.instant('OFFERS.LIST.BUYER');
+    }
+    this.infoModal.show({
+      title: t('OFFERS.LIST.OFFER_DETAILS_TITLE'),
+      text: t('OFFERS.LIST.OFFER_DETAILS_TEXT'),
+      translateParams: {
+        ...offer,
+        type,
+        amount: offer.amount / 1e8,
+        minAmount: offer.minAmount / 1e8,
+        offerAmount: this.getOfferAmount(offer),
+        offerPrice: this.getOfferPrice(offer),
+        buyerDeposit: offer.buyerSecurityDeposit / 1e8,
+        sellerDeposit: offer.sellerSecurityDeposit / 1e8,
+        arbitrators: offer.arbitratorNodeAddresses.join(', ')
+      }
+    });
   }
 
   private filterData() {
