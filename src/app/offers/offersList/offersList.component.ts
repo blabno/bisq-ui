@@ -51,7 +51,7 @@ export class OffersListComponent implements OnChanges {
               private offersDao: OffersDAO,
               private toast: ToastService,
               private initModal: InfoModalService) {
-    this.currencyFilter = this.settings.selectedCurrencyOnOfferList || this.NO_FILTER;
+    this.currencyFilter = this.settings.selectedCurrencyOnOfferList || [this.NO_FILTER];
     this.methodFilter = this.NO_FILTER;
     this.p2p.status().then(res => {
       this.myAddress = _.get(res, 'address');
@@ -143,11 +143,10 @@ export class OffersListComponent implements OnChanges {
     if (this.data && this.type && 'my-offers' != this.type) {
       let filteredData = _.chain(this.data);
       const dir = this.type === 'sell' ? 'buy' : 'sell';
-      const filter = {direction: dir.toUpperCase()};
-      if (this.currencyFilter !== this.NO_FILTER) {
-        _.set(filter, 'currencyCode', this.currencyFilter);
+      filteredData = filteredData.filter({direction: dir.toUpperCase()});
+      if (!_.includes(this.currencyFilter, this.NO_FILTER)) {
+        filteredData = filteredData.filter(o => _.includes(this.currencyFilter, o.currencyCode));
       }
-      filteredData = filteredData.filter(filter);
       if (!this.settings.showMyOwnOffersInOfferBook) {
         filteredData = filteredData.filter(o => this.myAddress !== o.ownerNodeAddress);
       }
