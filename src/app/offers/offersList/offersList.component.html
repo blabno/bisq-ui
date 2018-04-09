@@ -15,7 +15,7 @@
   <div class="col-lg-4" *ngIf="'my-offers' !== type">
     <ion-item class="filter-item">
       <ion-label floating>{{'OFFERS.LIST.FILTER.BY_CURRENCY' | translate}}</ion-label>
-      <ion-select [(ngModel)]="currencyFilter" (ionChange)="onCurrencyFilterChange($event)" interface="popover">
+      <ion-select [(ngModel)]="currencyFilter" (ionChange)="onCurrencyFilterChange($event)" multiple="true">
         <ion-option [value]="NO_FILTER">{{('OFFERS.LIST.SHOW_ALL' | translate)}}</ion-option>
         <ion-option *ngFor="let currency of currencies" [value]="currency.value">{{currency.name}}</ion-option>
       </ion-select>
@@ -74,11 +74,14 @@
             'btn-danger': 'my-offers' === type
             }">
         <div *ngIf="'buy' === type" class="select-button" (click)="takeOffer(item)">
-          <i class="fas fa-download menu-icon"></i>{{'OFFERS.LIST.BUY' | translate}}</div>
+          <i class="fas fa-download menu-icon"></i>{{'OFFERS.LIST.BUY' | translate}}
+        </div>
         <div *ngIf="'sell' === type" class="select-button" (click)="takeOffer(item)">
-          <i class="fas fa-upload menu-icon"></i>{{'OFFERS.LIST.SELL' | translate}}</div>
+          <i class="fas fa-upload menu-icon"></i>{{'OFFERS.LIST.SELL' | translate}}
+        </div>
         <div *ngIf="'my-offers' === type" class="select-button" (click)="deleteOffer(item)">
-          <i class="fas fa-remove menu-icon"></i>{{'OFFERS.LIST.DELETE' | translate}}</div>
+          <i class="fas fa-remove menu-icon"></i>{{'OFFERS.LIST.DELETE' | translate}}
+        </div>
       </div>
     </div>
   </div>
