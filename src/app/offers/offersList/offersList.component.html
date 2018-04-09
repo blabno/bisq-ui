@@ -47,7 +47,10 @@
         <span title="Onion adress: {{item.ownerNodeAddress}}">
           <app-gravatar [hashSeed]="item.ownerNodeAddress" size="24"></app-gravatar>
         </span>
-        <span class="float-right">{{getMarket(item)}}</span>
+        <span class="float-right">
+          {{getMarket(item)}}
+          <i class="fas fa-info-circle info clickable" (click)="offerDetails(item)"></i>
+        </span>
       </div>
       <div class="card-body">
         <div *ngIf="'my-offers' === type">{{'OFFERS.LIST.TYPE' | translate}}
