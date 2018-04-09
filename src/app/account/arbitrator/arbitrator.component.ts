@@ -3,8 +3,7 @@ import {SettingsService} from '../../shared/services/settings.service';
 import {ArbitratorsDAO} from '../../shared/DAO/arbitrators.dao';
 import _ from 'lodash';
 import {ToastService} from '../../shared/services/toast.service';
-const langsJson = require('../../../assets/data/langs.json');
-
+import langsJson from '../../../assets/data/langs';
 @Component({
   selector: 'app-arbitrator',
   templateUrl: 'arbitrator.component.html'
