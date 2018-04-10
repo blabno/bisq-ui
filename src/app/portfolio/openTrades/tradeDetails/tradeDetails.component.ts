@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
+import {TranslateService} from '@ngx-translate/core';
+import {AlertController} from 'ionic-angular';
 import moment from 'moment';
 
 import {ToastService} from '../../../shared/services/toast.service';
@@ -23,9 +25,11 @@ export class TradeDetailsComponent implements OnInit {
   remainingDuration;
 
   constructor(private activeRoute: ActivatedRoute,
+              private alertCtrl: AlertController,
               private toast: ToastService,
               private tradesCache: TradesCacheService,
-              private tradesDAO: TradesDAO) {
+              private tradesDAO: TradesDAO,
+              private translate: TranslateService) {
   }
 
   ngOnInit() {
@@ -54,18 +58,43 @@ export class TradeDetailsComponent implements OnInit {
       });
   }
 
+  confirm(message) {
+    return new Promise(resolve => {
+      this.alertCtrl.create({
+        title: this.translate.instant('WARNING'),
+        message: this.translate.instant(message),
+        buttons: [
+          {
+            text: this.translate.instant('CANCEL'),
+            role: 'cancel',
+            handler: () => resolve(false)
+          },
+          {
+            text: this.translate.instant('CONFIRM'),
+            handler: () => resolve(true)
+          }
+        ]
+      }).present();
+    });
+
+  }
+
   confirmPaymentStarted() {
-    this.tradesDAO.paymentStarted(this.trade.id)
-      .then(() => this.tradesCache.refresh())
-      .then(() => this.toast.show(t('PORTFOLIO.OPEN_TRADES.PAYMENT_STARTED'), 'success'))
-      .catch(error => this.toast.error(error));
+    this.confirm(t('PORTFOLIO.OPEN_TRADES.PAYMENT_STARTED_ALERT')).then(isConfirmed =>
+      isConfirmed && this.tradesDAO.paymentStarted(this.trade.id)
+        .then(() => this.tradesCache.refresh())
+        .then(() => this.toast.show(t('PORTFOLIO.OPEN_TRADES.PAYMENT_STARTED'), 'success'))
+        .catch(error => this.toast.error(error))
+    );
   }
 
   confirmPaymentReceived() {
-    this.tradesDAO.paymentReceived(this.trade.id)
-      .then(() => this.tradesCache.refresh())
-      .then(() => this.toast.show(t('PORTFOLIO.OPEN_TRADES.PAYMENT_RECEIVED'), 'success'))
-      .catch(error => this.toast.error(error));
+    this.confirm(t('PORTFOLIO.OPEN_TRADES.PAYMENT_RECEIVED_ALERT')).then(isConfirmed =>
+      isConfirmed && this.tradesDAO.paymentReceived(this.trade.id)
+        .then(() => this.tradesCache.refresh())
+        .then(() => this.toast.show(t('PORTFOLIO.OPEN_TRADES.PAYMENT_RECEIVED'), 'success'))
+        .catch(error => this.toast.error(error))
+    );
   }
 
   withdraw() {
