@@ -881,7 +881,8 @@
 		"MORE_THAN_ZERO": "Must be bigger than zero",
 		"REQUIRED": "This field is required",
 		"UK_ACCOUNT_NUMBER": "Account number must consist of 8 numbers",
-		"UK_SORT_CODE": "UK sort code must consist of 6 numbers"
+		"UK_SORT_CODE": "UK sort code must consist of 6 numbers",
+		"VALUE_MUST_BE_BETWEEN": "Value must be between"
 	},
 	"WARNING": "Warning"
 }
