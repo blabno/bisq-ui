@@ -109,7 +109,11 @@ export class OffersListComponent implements OnChanges {
   }
 
   getMarket(item) {
-    return item.baseCurrencyCode + '/' + item.counterCurrencyCode;
+    if ('BLOCK_CHAINS' === item.paymentMethodId) {
+      return item.counterCurrencyCode + '/' + item.baseCurrencyCode;
+    } else {
+      return item.baseCurrencyCode + '/' + item.counterCurrencyCode;
+    }
   }
 
   takeOffer(offer) {
