@@ -56,15 +56,15 @@
         <div *ngIf="'my-offers' === type">{{'OFFERS.LIST.TYPE' | translate}}
           <span class="float-right">{{item.direction | translate}}</span>
         </div>
+        <div>{{'OFFERS.LIST.PRICE' | translate}}
+          <span *ngIf="item.useMarketBasedPrice" class="float-right">&nbsp;({{getOfferMarketPriceMargin(item)}}%)</span>
+          <span class="float-right">{{getOfferPrice(item)}}</span>
+        </div>
         <div>BTC (min-max)
           <span class="float-right">{{getOfferBTCAmount(item)}}</span>
         </div>
-        <div>{{'OFFERS.LIST.PRICE' | translate}}
-          <span *ngIf="item.useMarketBasedPrice" class="float-right">&nbsp;({{getOfferMarketPriceMargin(item)}}%)</span>
-          <span class="float-right">&nbsp;{{item.counterCurrencyCode}}</span>
-          <span class="float-right">{{getOfferPrice(item)}}</span>
-        </div>
         <div>{{'OFFERS.LIST.AMOUNT' | translate}}
+          <span class="float-right">&nbsp;{{item.counterCurrencyCode}}</span>
           <span class="float-right">{{getOfferAmount(item)}}</span>
         </div>
         <div>{{'OFFERS.LIST.PAYMENT_METHOD' | translate}}
