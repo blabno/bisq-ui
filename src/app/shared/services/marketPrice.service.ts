@@ -20,11 +20,6 @@ export class MarketPriceService {
     }
   }
 
-  private randomNumber(min,max)
-  {
-    return Math.floor(Math.random()*(max-min+1)+min);
-  }
-
   get(cryptoSymbol, fiatSymbol) {
     return this.getByCode(`${cryptoSymbol}_${fiatSymbol}`);
   }

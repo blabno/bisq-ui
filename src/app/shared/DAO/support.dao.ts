@@ -1,7 +1,4 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-
-import {SettingsService} from '../services/settings.service';
 
 @Injectable()
 export class SupportDAO {
@@ -29,7 +26,7 @@ export class SupportDAO {
     }
   ];
 
-  constructor(private http: HttpClient, private settings: SettingsService) {
+  constructor() {
   }
 
   query() {
