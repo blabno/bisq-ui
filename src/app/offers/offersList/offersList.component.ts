@@ -123,7 +123,7 @@ export class OffersListComponent implements OnChanges {
         text: t('OFFERS.LIST.NO_MATCHING_ACCOUNT_TEXT'),
         redirectButton: {
           text: t('OFFERS.LIST.NO_MATCHING_ACCOUNT_REDIRECT'),
-          path: '/account/currency',
+          path: 'BLOCK_CHAINS' === offer.paymentMethodId ? '/account/altcoins' : '/account/currency',
           class: 'large center'
         }
       });

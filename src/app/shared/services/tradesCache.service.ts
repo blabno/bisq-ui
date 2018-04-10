@@ -82,7 +82,15 @@ export class TradesCacheService {
 
   showInfoModal(trade) {
     let modalOptions;
-    if ('DEPOSIT_CONFIRMED_IN_BLOCK_CHAIN' === trade.state && 'buyer' === trade.tradeRole) {
+    if ('MAKER_RECEIVED_DEPOSIT_TX_PUBLISHED_MSG' === trade.state) {
+      modalOptions = {
+        title: t('TRADES_CACHE.TRADE_TAKEN_TITLE'),
+        text: t('TRADES_CACHE.TRADE_TAKEN_TEXT'),
+        translateParams: {
+          id: trade.id.split('-')[0]
+        }
+      };
+    } else if ('DEPOSIT_CONFIRMED_IN_BLOCK_CHAIN' === trade.state && 'buyer' === trade.tradeRole) {
       modalOptions = {
         title: t('TRADES_CACHE.TRADE_CONFIRMED_IN_BLOCKCHAIN_TITLE'),
         text: t('TRADES_CACHE.TRADE_CONFIRMED_IN_BLOCKCHAIN_BUYER_TEXT'),
@@ -94,8 +102,7 @@ export class TradesCacheService {
           sellerPaymentDetails: trade.sellerPaymentAccount.paymentDetails,
         }
       };
-    }
-    if ('DEPOSIT_CONFIRMED_IN_BLOCK_CHAIN' === trade.state && 'seller' === trade.tradeRole) {
+    } else if ('DEPOSIT_CONFIRMED_IN_BLOCK_CHAIN' === trade.state && 'seller' === trade.tradeRole) {
       modalOptions = {
         title: t('TRADES_CACHE.TRADE_CONFIRMED_IN_BLOCKCHAIN_TITLE'),
         text: t('TRADES_CACHE.TRADE_CONFIRMED_IN_BLOCKCHAIN_SELLER_TEXT'),
@@ -103,8 +110,7 @@ export class TradesCacheService {
           id: trade.id.split('-')[0]
         }
       };
-    }
-    if ('SELLER_RECEIVED_FIAT_PAYMENT_INITIATED_MSG' === trade.state && 'seller' === trade.tradeRole) {
+    } else if ('SELLER_RECEIVED_FIAT_PAYMENT_INITIATED_MSG' === trade.state && 'seller' === trade.tradeRole) {
       modalOptions = {
         title: t('TRADES_CACHE.TRADE_PAYMENT_INITIATED_TITLE'),
         text: t('TRADES_CACHE.TRADE_PAYMENT_INITIATED_TEXT'),
@@ -116,8 +122,7 @@ export class TradesCacheService {
           buyerPaymentName: trade.buyerPaymentAccount.holderName,
         }
       }
-    }
-    if ('BUYER_RECEIVED_PAYOUT_TX_PUBLISHED_MSG' === trade.state && 'buyer' === trade.tradeRole) {
+    } else if ('BUYER_RECEIVED_PAYOUT_TX_PUBLISHED_MSG' === trade.state && 'buyer' === trade.tradeRole) {
       modalOptions = {
         title: t('TRADES_CACHE.TRADE_COMPLETED_TITLE'),
         text: t('TRADES_CACHE.TRADE_COMPLETED_TEXT'),
@@ -131,8 +136,9 @@ export class TradesCacheService {
       this.initModal.show({
         ...modalOptions,
         redirectButton: {
-          text: t('TRADES_CACHE.REDIRECT_TO_OPEN_TRADES'),
-          path: `/portfolio/open-trades/${trade.id}`
+          text: t('TRADES_CACHE.REDIRECT_TO_TRADE_DETAILS'),
+          path: `/portfolio/open-trades/${trade.id}`,
+          class: 'large center'
         }
       });
     }
