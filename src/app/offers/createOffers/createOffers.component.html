@@ -3,18 +3,18 @@
   <form #createForm="ngForm" *ngIf="!noAccounts">
     <ion-item>
       <ion-label floating>{{'OFFERS.CREATE.TRADING_ACCOUNT' | translate}}</ion-label>
-      <ion-select name="accountId" [(ngModel)]="model.accountId" cancelText="{{'ACCOUNT.CANCEL' | translate}}"
-                  (ionChange)="onSelectAccount()" interface="popover" required>
+      <ion-select name="accountId" [(ngModel)]="model.accountId" cancelText="{{'ACCOUNT.CANCEL' | translate}}" (ionChange)="onSelectAccount()" interface="popover" required>
         <ion-option *ngFor="let option of accountsList" [value]="option.id">{{option.accountName}}</ion-option>
       </ion-select>
     </ion-item>
+    <div *ngIf="checkIfRequired('accountId')" class="validation">{{'VALIDATION.REQUIRED' | translate}}</div>
     <ion-item *ngIf="model.accountId">
       <ion-label floating>{{'OFFERS.CREATE.CURRENCY' | translate}}</ion-label>
-      <ion-select name="tradeCurrency" [(ngModel)]="model.tradeCurrency" cancelText="{{'ACCOUNT.CANCEL' | translate}}"
-                  (ionChange)="onValueChanges($event)" interface="popover">
+      <ion-select name="tradeCurrency" [(ngModel)]="model.tradeCurrency" cancelText="{{'ACCOUNT.CANCEL' | translate}}" (ionChange)="onValueChanges($event)" interface="popover" required>
         <ion-option *ngFor="let option of tradeList" [value]="option">{{option}}</ion-option>
       </ion-select>
     </ion-item>
+    <div *ngIf="checkIfRequired('tradeCurrency')" class="validation">{{'VALIDATION.REQUIRED' | translate}}</div>
     <ion-item>
       <ion-label>{{(model.isFixedPrice ? 'OFFERS.CREATE.FIXED' : 'OFFERS.CREATE.PERCENTAGE') | translate}}</ion-label>
       <ion-toggle name="isFixedPrice" [(ngModel)]="model.isFixedPrice"></ion-toggle>
@@ -23,45 +23,49 @@
       <div class="col-6">
         <ion-item>
           <ion-label stacked>{{'OFFERS.CREATE.AMOUNT' | translate}}</ion-label>
-          <ion-input class="suffix" data-suffix="BTC" type="number" name="amount" [(ngModel)]="model.amount"
-                     (ionChange)="onValueChanges($event)" min="0" max="1" step="0.001"></ion-input>
+          <ion-input class="suffix" data-suffix="BTC" type="number" name="amount" [(ngModel)]="model.amount" (ionChange)="onValueChanges($event)" min="0" max="1"
+            step="0.001" required moreThanZero></ion-input>
         </ion-item>
+        <div *ngIf="checkIfRequired('amount')" class="validation">{{'VALIDATION.REQUIRED' | translate}}</div>
+        <div *ngIf="checkIfBiggerThanZero('amount')" class="validation">{{'VALIDATION.MORE_THAN_ZERO' | translate}}</div>
       </div>
       <div class="col-6">
         <ion-item>
           <ion-label stacked>{{'OFFERS.CREATE.MINUMUM_AMOUNT' | translate}}</ion-label>
-          <ion-input class="suffix" data-suffix="BTC" type="number" name="minAmount" [(ngModel)]="model.minAmount"
-                     (ionChange)="onValueChanges($event)" min="0" max="1" step="0.001"></ion-input>
+          <ion-input class="suffix" data-suffix="BTC" type="number" name="minAmount" [(ngModel)]="model.minAmount" (ionChange)="onValueChanges($event)" min="0" max="1"
+            step="0.001" required moreThanZero></ion-input>
         </ion-item>
+        <div *ngIf="checkIfRequired('minAmount')" class="validation">{{'VALIDATION.REQUIRED' | translate}}</div>
+        <div *ngIf="checkIfBiggerThanZero('minAmount')" class="validation">{{'VALIDATION.MORE_THAN_ZERO' | translate}}</div>
       </div>
     </div>
     <ion-item>
       <ion-label floating>{{'OFFERS.CREATE.PERCENT_DISTANCE' | translate}}</ion-label>
-      <ion-input class="suffix" data-suffix="%" type="number" name="percentageFromMarketPrice" [(ngModel)]="model.percentageFromMarketPrice"
-                 (ionChange)="onValueChanges($event)"></ion-input>
+      <ion-input class="suffix" data-suffix="%" type="number" name="percentageFromMarketPrice" [(ngModel)]="model.percentageFromMarketPrice" (ionChange)="onValueChanges($event)"></ion-input>
     </ion-item>
     <div class="row" [hidden]="!model.tradeCurrency">
       <div class="col-6">
         <ion-item>
-        <ion-label floating>{{'OFFERS.CREATE.PRICE' | translate:({ currency: model.tradeCurrency})}}</ion-label>
-          <ion-input type="number" name="fixedPrice" [(ngModel)]="model.fixedPrice" (ionChange)="onValueChanges($event)"
-                     min="0" required></ion-input>
+          <ion-label floating>{{'OFFERS.CREATE.PRICE' | translate:({ currency: model.tradeCurrency})}}</ion-label>
+          <ion-input type="number" name="fixedPrice" [(ngModel)]="model.fixedPrice" (ionChange)="onValueChanges($event)" min="0" required></ion-input>
           <span *ngIf="model.tradeCurrency" class="suffix-dynamic" item-end>{{model.tradeCurrency}}</span>
         </ion-item>
+        <div *ngIf="checkIfRequired('fixedPrice')" class="validation">{{'VALIDATION.REQUIRED' | translate}}</div>
+        <div *ngIf="checkIfBiggerThanZero('fixedPrice')" class="validation">{{'VALIDATION.MORE_THAN_ZERO' | translate}}</div>
       </div>
       <div class="col-6">
         <ion-item>
           <ion-label floating>{{'OFFERS.CREATE.PRICE_OVERALL' | translate:({ currency: model.tradeCurrency })}}</ion-label>
-          <ion-input type="number" name="calculatedValue" [(ngModel)]="model.calculatedValue"
-                     (ionChange)="onValueChanges($event)" min="0"></ion-input>
+          <ion-input type="number" name="calculatedValue" [(ngModel)]="model.calculatedValue" (ionChange)="onValueChanges($event)" min="0" moreThanZero required></ion-input>
           <span *ngIf="model.tradeCurrency" class="suffix-dynamic" item-end>{{model.tradeCurrency}}</span>
         </ion-item>
+        <div *ngIf="checkIfRequired('calculatedValue')" class="validation">{{'VALIDATION.REQUIRED' | translate}}</div>
+        <div *ngIf="checkIfBiggerThanZero('calculatedValue')" class="validation">{{'VALIDATION.MORE_THAN_ZERO' | translate}}</div>
       </div>
     </div>
     <ion-item>
       <ion-label floating>{{'OFFERS.CREATE.SECURITY_DEPOSIT' | translate}}</ion-label>
-      <ion-input class="suffix" data-suffix="BTC" type="number" name="deposit" [(ngModel)]="model.deposit"
-                 (ionChange)="onValueChanges($event)"></ion-input>
+      <ion-input class="suffix" data-suffix="BTC" type="number" name="deposit" [(ngModel)]="model.deposit" (ionChange)="onValueChanges($event)"></ion-input>
     </ion-item>
   </form>
   <div class="buttons" *ngIf="!noAccounts">
@@ -73,7 +77,8 @@
   </div>
   <div *ngIf="noAccounts" class="card no-results-card">
     <div class="card-body">
-      <span>{{'OFFERS.CREATE.NO_ACCOUNTS' | translate}}</span><br/>
+      <span>{{'OFFERS.CREATE.NO_ACCOUNTS' | translate}}</span>
+      <br/>
       <button ion-button color="light" routerLink="..">{{'BACK' | translate}}</button>
       <button ion-button routerLink="/account/currency">{{'OFFERS.CREATE.GO_TO_ACCOUNTS' | translate}}</button>
     </div>

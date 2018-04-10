@@ -874,6 +874,7 @@
 		"EMAIL": "Email is not correct",
 		"EMAIL_OR_CANADIAN_MOBILE": "Invalid phone number format and not an email address",
 		"IBAN": "Number must have length 15 to 34 chars",
+		"MORE_THAN_ZERO": "Must be bigger than zero",
 		"REQUIRED": "This field is required",
 		"UK_ACCOUNT_NUMBER": "Account number must consist of 8 numbers",
 		"UK_SORT_CODE": "UK sort code must consist of 6 numbers"

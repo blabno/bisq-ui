@@ -136,6 +136,7 @@ export class CreateOffersComponent implements OnInit, OnDestroy {
 
   submit() {
     if (!this.createForm.valid) {
+      _.forEach(this.createForm.controls, (control) => control.markAsTouched());
       this.toast.show('OFFERS.CREATE.FILL_ALL_REQUIRED_FIELDS', 'error');
       this.creatingOffer = false;
       return;
@@ -184,5 +185,17 @@ export class CreateOffersComponent implements OnInit, OnDestroy {
     const newFixedPrice = _.round(this.marketPrice - (this.createForm.value.percentageFromMarketPrice / 100 * this.marketPrice), 2);
     this.createForm.controls['fixedPrice'].setValue(newFixedPrice);
     this.createForm.controls['calculatedValue'].setValue(_.round(this.createForm.value.amount * newFixedPrice, 2));
+  }
+
+  checkIfRequired(field) {
+    return this.checkIfTouched(field) && _.get(this.createForm, `controls[${field}].errors.required`);
+  }
+
+  checkIfBiggerThanZero(field) {
+    return this.checkIfTouched(field) && _.get(this.createForm, `controls[${field}].errors.moreThanZero`);
+  }
+
+  checkIfTouched(field) {
+    return _.get(this.createForm, `controls[${field}].touched`);
   }
 }
