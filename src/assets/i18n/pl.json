@@ -874,6 +874,7 @@
 		"EMAIL": "Email jest niepoprawny",
 		"EMAIL_OR_CANADIAN_MOBILE": "Niepoprawny email lub numer telefonu",
 		"IBAN": "Numer musi mieć od 15 do 34 znaków",
+		"MORE_THAN_ZERO": "Musi być większe niż zero",
 		"REQUIRED": "To pole jest wymagane",
 		"UK_ACCOUNT_NUMBER": "Number konta musi zawierać 8 cyfr",
 		"UK_SORT_CODE": "Numer porządkowy UK musi zawierać 6 cyfr"

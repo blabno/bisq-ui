@@ -50,6 +50,7 @@ import {TradeStatusComponent} from './portfolio/openTrades/tradeStatus/tradeStat
 import {TransactionComponent} from './funds/transactions/transaction.component';
 import {WalletPassComponent} from './account/wallet-pass/wallet-pass.component';
 import {WalletSeedComponent} from './account/wallet-seed/wallet-seed.component';
+import {MoreThanZeroValidator} from './shared/validators/moreThanZero.directive';
 
 const loadModules = [
   AboutComponent,
@@ -90,12 +91,16 @@ const loadModules = [
   WalletSeedComponent
 ];
 
+const directives = [
+  MoreThanZeroValidator
+]
+
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
 @NgModule({
-  declarations: loadModules,
+  declarations: [...loadModules, ...directives],
   imports: [
     BrowserModule,
     FormsModule,
