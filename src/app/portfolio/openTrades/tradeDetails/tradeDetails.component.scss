@@ -16,5 +16,11 @@ app-trade-details {
     margin-top: 0;
     margin-left: 10px;
   }
+  .arrow {
+    font-size: 22px;
+  }
+  .collapsed > .arrow {
+    transform: rotate(180deg);
+  }
 }
 
