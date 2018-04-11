@@ -10,6 +10,9 @@ app-offers-list {
   }
   .filter-item {
     padding-left: 0;
+    .select-placeholder {
+      color: black
+    }
   }
   .filter-label {
     text-overflow: ellipsis;

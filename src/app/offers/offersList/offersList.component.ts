@@ -76,6 +76,9 @@ export class OffersListComponent implements OnChanges {
 
   onFilterChange() {
     this.filterData();
+    if (!_.size(this.currencyFilter)) {
+      this.currencyFilter = [this.NO_FILTER];
+    }
     this.settings.selectedCurrencyOnOfferList = this.currencyFilter;
     this.settings.selectedPaymentMethodOnOfferList = this.methodFilter;
     this.settings.saveSettings();
