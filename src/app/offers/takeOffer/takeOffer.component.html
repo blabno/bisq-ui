@@ -26,6 +26,7 @@
                    (ngModelChange)="changeAmountToSell($event)"
                    [disabled]="amountToSellMin===amountToSellMax"></ion-input>
       </ion-item>
+      <div *ngIf="amountToSellMin > amountToSell || amountToSell > amountToSellMax" class="validation">{{'VALIDATION.VALUE_MUST_BE_BETWEEN' | translate}} {{amountToSellMin}} - {{amountToSellMax}}</div>
       <ion-item *ngIf="amountToSellMin!==amountToSellMax">
         <ion-label floating>
           {{'OFFERS.TAKE_OFFER.POSSIBLE_AMOUNT' | translate}}

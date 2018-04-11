@@ -86,6 +86,9 @@ export class TakeOfferComponent implements OnInit {
   }
 
   public takeOffer() {
+    if (this.amountToSellMin > this.amountToSell || this.amountToSell > this.amountToSellMax) {
+      return;
+    }
     this.takingOffer = true;
     this.offersDAO
       .take(this.offerId, {

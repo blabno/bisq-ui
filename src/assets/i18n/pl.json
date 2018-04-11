@@ -881,7 +881,8 @@
 		"MORE_THAN_ZERO": "Musi być większe niż zero",
 		"REQUIRED": "To pole jest wymagane",
 		"UK_ACCOUNT_NUMBER": "Number konta musi zawierać 8 cyfr",
-		"UK_SORT_CODE": "Numer porządkowy UK musi zawierać 6 cyfr"
+		"UK_SORT_CODE": "Numer porządkowy UK musi zawierać 6 cyfr",
+		"VALUE_MUST_BE_BETWEEN": "Wartość musi być pomiędzy"
 	},
 	"WARNING": "Ostrzeżenie"
 }
