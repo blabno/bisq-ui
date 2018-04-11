@@ -1,8 +1,5 @@
 import {
-  ReactiveFormsModule,
   NG_VALIDATORS,
-  FormsModule,
-  FormGroup,
   FormControl,
   ValidatorFn,
   Validator,
