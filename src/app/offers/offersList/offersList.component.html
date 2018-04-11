@@ -33,17 +33,18 @@
   <div class="col-lg-4">
     <ion-item class="filter-item show" [ngClass]="{show: isFilterVisible}">
       <ion-label floating>{{'OFFERS.LIST.FILTER.BY_CURRENCY' | translate}}</ion-label>
-      <ion-select [(ngModel)]="currencyFilter" (ionChange)="onCurrencyFilterChange($event)" multiple="true">
+      <ion-select [(ngModel)]="currencyFilter" (ionChange)="onFilterChange()" multiple="true">
         <ion-option [value]="NO_FILTER">{{('OFFERS.LIST.SHOW_ALL' | translate)}}</ion-option>
-        <ion-option *ngFor="let currency of currencies" [value]="currency.value">{{currency.name}}</ion-option>
+        <ion-option *ngFor="let currency of currencies" [value]="currency">{{currency}}</ion-option>
       </ion-select>
     </ion-item>
   </div>
   <div class="col-lg-4">
     <ion-item class="filter-item last" [ngClass]="{show: isFilterVisible}">
       <ion-label floating>{{'OFFERS.LIST.FILTER.BY_METHOD' | translate}}</ion-label>
-      <ion-select [(ngModel)]="methodFilter" interface="popover">
+      <ion-select [(ngModel)]="methodFilter" (ionChange)="onFilterChange()" interface="popover">
         <ion-option [value]="NO_FILTER">{{'OFFERS.LIST.SHOW_ALL' | translate}}</ion-option>
+        <ion-option *ngFor="let paymentMethod of supportedPaymentsMethods" [value]="paymentMethod">{{paymentMethod}}</ion-option>
       </ion-select>
     </ion-item>
   </div>
