@@ -656,6 +656,7 @@
 			"BUY": "Buy",
 			"BUYER": "buyer",
 			"DELETE": "Delete offer",
+			"DELETE_CONFIRM": "Are you sure you want to delete the offer?",
 			"FILTER": {
 				"BY_CURRENCY": "Filter by Currency",
 				"BY_METHOD": "Filter by payment method"
@@ -849,7 +850,11 @@
 		"NEW_ADDRESS_CREATE_ERROR": "Unable to create new address",
 		"NOMINATED_SUCCESSFULLY": "Nominated successfully",
 		"OFFERS": {
-			"CANT_FETCH_DATA": "Error: Cant't fetch/refresh offers list"
+			"CANT_FETCH_DATA": "Error: Cant't fetch/refresh offers list",
+			"LIST": {
+				"DELETED": "The offer has been successfully removed",
+				"DELETE_ERROR": "An error was encountered while deleting the offer"
+			}
 		},
 		"PAYMENT_METHOD_CREATED": "Payment method created successfully",
 		"PAYMENT_METHOD_CREATE_ERROR": "Error during creating payment method",
