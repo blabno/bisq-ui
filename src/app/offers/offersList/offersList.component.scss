@@ -8,28 +8,76 @@ app-offers-list {
       margin-bottom: 8px;
     }
   }
-  .card {
-    i.info {
-      font-size: 18px;
-      margin-top: 2px;
-      margin-left: 6px;
+  .filter-item {
+    padding-left: 0;
+  }
+  .filter-label {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-top: 1px;
+  }
+  .table {
+    th {
+      text-align: center;
+      padding-left: 2px;
+      padding-right: 2px;
+      &.price {
+        text-align: right;
+        padding-right: 6px;
+      }
     }
-    .select-button {
-      font-size: 15px;
-      i {
-        margin-right: 5px;
+    td {
+      vertical-align: middle;
+      text-align: center;
+      padding-left: 1px;
+      padding-right: 1px;
+      &.price {
+        text-align: right;
+        padding-right: 6px;
+      }
+      &.payment-method i {
+        font-size: 16px;
+        margin-left: 4px;
+      }
+      &.action {
+        i {
+          margin-right: 6px;
+        }
+        .btn {
+          font-size: 14px;
+        }
+      }
+      &.owner {
+        min-width: 38px;
+      }
+      &.info i {
+        font-size: 16px;
+        margin-top: 8px;
+        margin-bottom: 7px;
+        margin-right: 6px;
       }
     }
   }
   .info {
     color: var(--info);
   }
-  .filter-item {
-    padding-left: 0;
-  }
+
   @media (max-width: 992px) {
-    .filter-item.last {
-      margin-bottom: 20px;
+    button.create {
+      display: block;
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+    }
+    .filter-item {
+      display: none;
+      &.show {
+        display: flex;
+      }
+      &.last {
+        margin-bottom: 20px;
+      }
     }
   }
 }

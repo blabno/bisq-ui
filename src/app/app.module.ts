@@ -34,6 +34,7 @@ import {MarketComponent} from './market/market.component';
 import {MenuComponent} from './menu/menu.component';
 import {MessagesComponent} from "./support/messages/messages.component";
 import {NetworkInfoComponent} from './settings/network-info/network-info.component';
+import {OfferDetailsComponent} from './offers/offerDetails/offerDetails.component';
 import {OffersComponent} from './offers/offers.component';
 import {OffersListComponent} from './offers/offersList/offersList.component';
 import {PreferencesComponent} from './settings/preferences/preferences.component';
@@ -73,6 +74,7 @@ const loadModules = [
   MenuComponent,
   MessagesComponent,
   NetworkInfoComponent,
+  OfferDetailsComponent,
   OffersComponent,
   OffersListComponent,
   PreferencesComponent,

@@ -1,8 +1,8 @@
-app-info-modal {
+app-offer-details {
   .body {
     margin: 16px;
-    span {
-      white-space: pre-line;
+    .label {
+      font-weight: bold;
     }
     button {
       margin-top: 16px;

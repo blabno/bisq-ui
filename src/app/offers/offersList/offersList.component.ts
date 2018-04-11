@@ -2,6 +2,7 @@ import _ from 'lodash';
 import {Component, EventEmitter, Input, OnChanges, Output} from '@angular/core';
 import {Router} from '@angular/router';
 import {TranslateService} from '@ngx-translate/core';
+import {ModalController} from 'ionic-angular';
 
 import {AlertController} from "ionic-angular";
 
@@ -11,6 +12,7 @@ import {PaymentAccountsDAO} from '../../shared/DAO/paymentAccounts.dao';
 import {InfoModalService} from '../../shared/components/infoModal/infoModal.service';
 import {SettingsService} from '../../shared/services/settings.service';
 import {ToastService} from '../../shared/services/toast.service';
+import {OfferDetailsComponent} from '../offerDetails/offerDetails.component';
 
 import t from '../../shared/defineTextToTranslate';
 
@@ -32,6 +34,7 @@ export class OffersListComponent implements OnChanges {
   @Output() refresh = new EventEmitter<any>();
 
   public NO_FILTER = 'ALL';
+  public isFilterVisible;
   public currencyFilter;
   public methodFilter;
   public list = [];
@@ -55,7 +58,8 @@ export class OffersListComponent implements OnChanges {
               private toast: ToastService,
               private translate: TranslateService,
               private infoModal: InfoModalService,
-              private alertCtrl: AlertController) {
+              private alertCtrl: AlertController,
+              private modalCtrl: ModalController) {
     this.currencyFilter = this.settings.selectedCurrencyOnOfferList || [this.NO_FILTER];
     this.methodFilter = this.NO_FILTER;
     this.p2p.status().then(res => {
@@ -83,19 +87,25 @@ export class OffersListComponent implements OnChanges {
 
   getOfferBTCAmount(item) {
     if (item.minAmount === false || Number(item.minAmount) != Number(item.amount)) {
-      return item.minAmount / 100000000 + ' - ' + item.amount / 100000000;
+      return item.minAmount / 1e8 + ' - ' + item.amount / 1e8;
     }
-    return item.amount / 100000000;
+    return item.amount / 1e8;
   }
 
   getOfferAmount(item) {
-    let amount = Number(item.amount) / 100000000;
+    let currency;
+    let amount = Number(item.amount) / 1e8;
     let price: any = this.getOfferPrice(item);
-    if (!item.minAmount || Number(item.minAmount) != Number(item.amount)) {
-      let minAmount = Number(item.minAmount) / 100000000;
-      return _.round(minAmount * price, 2).toFixed(2) + ' - ' + _.round(amount * price, 2).toFixed(2) + ' ' + item.counterCurrencyCode;
+    if ('BLOCK_CHAINS' === item.paymentMethodId) {
+      currency = item.baseCurrencyCode;
+    } else {
+      currency = item.counterCurrencyCode;
     }
-    return _.round(amount * price, 2);
+    if (!item.minAmount || Number(item.minAmount) != Number(item.amount)) {
+      let minAmount = Number(item.minAmount) / 1e8;
+      return _.round(minAmount * price, 2).toFixed(2) + ' - ' + _.round(amount * price, 2).toFixed(2) + ' ' + currency;
+    }
+    return _.round(amount * price, 2) + ' ' + currency;
   }
 
   getOfferPrice(item) {
@@ -103,7 +113,7 @@ export class OffersListComponent implements OnChanges {
       const basePrice = this.prices[item.baseCurrencyCode + '_' + item.counterCurrencyCode];
       return _.round(basePrice - basePrice * item.marketPriceMargin, 2).toFixed(2);
     } else {
-      return _.round(Number(item.price) / 10000, 2).toFixed(2);
+      return _.round(Number(item.price) / 1e4, 2).toFixed(2);
     }
   }
 
@@ -111,7 +121,7 @@ export class OffersListComponent implements OnChanges {
     return _.round(item.marketPriceMargin * 100, 2);
   }
 
-  getMarket(item) {
+  getOfferMarket(item) {
     if ('BLOCK_CHAINS' === item.paymentMethodId) {
       return item.counterCurrencyCode + '/' + item.baseCurrencyCode;
     } else {
@@ -164,37 +174,22 @@ export class OffersListComponent implements OnChanges {
   }
 
   offerDetails(offer) {
-    let type;
-    if ('BUY' === offer.direction) {
-      type = this.translate.instant('OFFERS.LIST.MAKER') + ' '
-        + this.translate.instant('SHARED.AS') + ' BTC '
-        + this.translate.instant('OFFERS.LIST.BUYER') + ' / '
-        + this.translate.instant('OFFERS.LIST.TAKER') + ' '
-        + this.translate.instant('SHARED.AS') + ' BTC '
-        + this.translate.instant('OFFERS.LIST.SELLER');
-    } else {
-      type = this.translate.instant('OFFERS.LIST.MAKER') + ' '
-        + this.translate.instant('SHARED.AS') + ' BTC '
-        + this.translate.instant('OFFERS.LIST.SELLER') + ' / '
-        + this.translate.instant('OFFERS.LIST.TAKER') + ' '
-        + this.translate.instant('SHARED.AS') + ' BTC '
-        + this.translate.instant('OFFERS.LIST.BUYER');
+    this.modalCtrl.create(OfferDetailsComponent, {
+      ...offer,
+      offerAmount: this.getOfferAmount(offer),
+      offerPrice: this.getOfferPrice(offer),
+      takeOffer: offer => this.takeOffer(offer)
+    }).present();
+  }
+
+  offerDetailsMobileOnly(offer) {
+    if (992 > window.innerWidth) {
+      this.offerDetails(offer)
     }
-    this.infoModal.show({
-      title: t('OFFERS.LIST.OFFER_DETAILS_TITLE'),
-      text: t('OFFERS.LIST.OFFER_DETAILS_TEXT'),
-      translateParams: {
-        ...offer,
-        type,
-        amount: offer.amount / 1e8,
-        minAmount: offer.minAmount / 1e8,
-        offerAmount: this.getOfferAmount(offer),
-        offerPrice: this.getOfferPrice(offer),
-        buyerDeposit: offer.buyerSecurityDeposit / 1e8,
-        sellerDeposit: offer.sellerSecurityDeposit / 1e8,
-        arbitrators: offer.arbitratorNodeAddresses.join(', ')
-      }
-    });
+  }
+
+  toggleFilters() {
+    this.isFilterVisible = !this.isFilterVisible;
   }
 
   private filterData() {

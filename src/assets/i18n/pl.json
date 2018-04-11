@@ -651,30 +651,45 @@
 		},
 		"CREATE_BUY_BUTTON": "Stwórz nową ofertę kupna BTC",
 		"CREATE_SELL_BUTTON": "Stwórz nową ofertę sprzedaży BTC",
+		"DETAILS": {
+			"AMOUNT": "Ilość BTC",
+			"ARBITRATORS": "Zaakceptowani arbitrzy",
+			"BUY_BTC": "Kup BTC",
+			"CREATE_DATE": "Data stworzenia",
+			"CURRENCY_AMOUNT": "Kwota w {{currencyCode}}",
+			"MAKER_ADDRESS": "Onion adres twórcy",
+			"MAKER_FEE_ID": "ID opłaty za stworzenie",
+			"MIN_AMOUNT": "Min. ilość BTC",
+			"OFFER_ID": "ID oferty",
+			"PAYMENT_METHOD": "Metoda płatności",
+			"PRICE": "Cena",
+			"SECURITY_DEPOSIT": "Depozyt bezpieczeństwa",
+			"SELL_BTC": "Sprzedaj BTC",
+			"TITLE": "Szczegóły oferty",
+			"TYPE": "Typ oferty",
+			"TYPE_MAKER": "Twórca jako kupujący BTC / Przyjmujący jako sprzedawca BTC",
+			"TYPE_TAKER": "Przyjmujący jako kupujący BTC / Twórca jako sprzedawca BTC"
+		},
 		"LIST": {
+			"ACTION": "Akcja",
 			"AMOUNT": "Wartość",
 			"BUY": "Kup",
-			"BUYER": "kupiec",
 			"DELETE": "Usuń",
 			"DELETE_CONFIRM": "Czy jesteś pewien że chcesz usunąć ofertę?",
 			"FILTER": {
 				"BY_CURRENCY": "Filtruj wg. waluty",
 				"BY_METHOD": "Filtruj wg. metodzy płatności"
 			},
-			"MAKER": "Twórca",
+			"MARKET": "Market",
 			"NO_MATCHING_ACCOUNT_REDIRECT": "Idź do \"Konto\"",
 			"NO_MATCHING_ACCOUNT_TEXT": "Nie masz konta handlowego z metodą płatności wymaganą dla tej oferty.\nMusisz utworzyć konto handlowe aby skorzystać z tej oferty.\nCzy chcesz to zrobić teraz?",
 			"NO_MATCHING_ACCOUNT_TITLE": "Brak odpowiedniego konta handlowego.",
 			"NO_OFFERS": "Liczba ofert",
 			"NO_RESULTS": "Brak ofert to wyświetlenia.",
-			"OFFER_DETAILS_TEXT": "Typ oferty: {{type}}\nIlość BTC: {{amount}}\nMin. ilość BTC: {{minAmount}}\nKwota w {{currencyCode}}: {{offerAmount}}\nCena: {{offerPrice}}\n Metoda płatności: {{paymentMethodId}}\n\nID oferty: {{id}}\nOnion adres twórcy : {{ownerNodeAddress}}\nData stworzenia: {{date}}\nDepozyt bezpieczeństwa: Kupujący {{buyerDeposit}} / Sprzedający {{sellerDeposit}}\nZaakceptowani arbitrzy: {{arbitrators}}\nID opłaty za stworzenie: {{offerFeePaymentTxId}}",
-			"OFFER_DETAILS_TITLE": "Szczegóły oferty",
 			"PAYMENT_METHOD": "Sposób płatności",
 			"PRICE": "Cena",
 			"SELL": "Sprzedaj",
-			"SELLER": "sprzedawca",
 			"SHOW_ALL": "Pokaż wszystko",
-			"TAKER": "Przyjmujący",
 			"TYPE": "Typ oferty"
 		},
 		"TAKE_OFFER": {
@@ -828,9 +843,12 @@
 	},
 	"SHARED": {
 		"AS": "jako",
+		"BUYER": "Kupujący",
+		"FILTER": "Filtr",
 		"LOADING": "Wczytywanie",
 		"NOT_DONE_YET": "Funkcjonalność nie skończona jeszcze",
-		"REFRESH": "Odśwież"
+		"REFRESH": "Odśwież",
+		"SELLER": "Sprzedający"
 	},
 	"SUPPORT": {
 		"LIST": {
