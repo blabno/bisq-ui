@@ -8,9 +8,9 @@ enum BaseCurrencies {
 }
 
 enum Countries {
-  POLAND = 'Poland',
-  GERMANY = 'Germany',
-  RUSSIA = 'Russia'
+  PL = 'Poland',
+  GER = 'Germany',
+  RU= 'Russia'
 }
 
 enum BitcoinExplorers {
@@ -22,7 +22,7 @@ export class SettingsService {
   public backendUrl = '';
   public baseCurrency: BaseCurrencies = BaseCurrencies.BITCOIN;
   public language = 'en';
-  public country: Countries = Countries.POLAND;
+  public country: Countries = Countries.PL;
   public bitcoinExplorer: BitcoinExplorers = BitcoinExplorers.BITAPS;
   public widthdrawalTransactionFee = 20;
   public maxDeviationFromMarketPrice = 30;
