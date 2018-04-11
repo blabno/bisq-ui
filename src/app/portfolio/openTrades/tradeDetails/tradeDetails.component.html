@@ -18,8 +18,9 @@
   </div>
   <div class="col-lg-8">
     <div class="card" *ngIf="4 !== selectedTradeStep">
-      <div class="card-header information" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false">
+      <div class="card-header information collapsed" data-toggle="collapse" data-target="#collapseOne">
         {{'PORTFOLIO.OPEN_TRADES.TRADE_INFORMATION' | translate}}
+        <i class="fas fa-angle-up float-right arrow"></i>
       </div>
       <div id="collapseOne" class="collapse">
         <div class="card-body">
