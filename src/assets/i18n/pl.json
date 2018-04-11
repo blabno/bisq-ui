@@ -656,6 +656,7 @@
 			"BUY": "Kup",
 			"BUYER": "kupiec",
 			"DELETE": "Usuń",
+			"DELETE_CONFIRM": "Czy jesteś pewien że chcesz usunąć ofertę?",
 			"FILTER": {
 				"BY_CURRENCY": "Filtruj wg. waluty",
 				"BY_METHOD": "Filtruj wg. metodzy płatności"
@@ -849,7 +850,11 @@
 		"NEW_ADDRESS_CREATE_ERROR": "Nie można wygenerować nowego adresu",
 		"NOMINATED_SUCCESSFULLY": "Nominowano pomyślnie",
 		"OFFERS": {
-			"CANT_FETCH_DATA": "Błąd: Nie można pobrać/odświeżyć listy ofert"
+			"CANT_FETCH_DATA": "Błąd: Nie można pobrać/odświeżyć listy ofert",
+			"LIST": {
+				"DELETED": "Pomyślnie usunięto ofertę",
+				"DELETE_ERROR": "Napotkano błąd podczas usuwania oferty"
+			}
 		},
 		"PAYMENT_METHOD_CREATED": "Metoda płatnosci stworzona pomyślnie",
 		"PAYMENT_METHOD_CREATE_ERROR": "Błąd podczas tworzenia metody płatnosci",

@@ -3,6 +3,8 @@ import {Component, EventEmitter, Input, OnChanges, Output} from '@angular/core';
 import {Router} from '@angular/router';
 import {TranslateService} from '@ngx-translate/core';
 
+import {AlertController} from "ionic-angular";
+
 import {OffersDAO} from '../../shared/DAO/offers.dao';
 import {P2pDAO} from '../../shared/DAO/p2p.dao';
 import {PaymentAccountsDAO} from '../../shared/DAO/paymentAccounts.dao';
@@ -52,7 +54,8 @@ export class OffersListComponent implements OnChanges {
               private offersDao: OffersDAO,
               private toast: ToastService,
               private translate: TranslateService,
-              private infoModal: InfoModalService) {
+              private infoModal: InfoModalService,
+              private alertCtrl: AlertController) {
     this.currencyFilter = this.settings.selectedCurrencyOnOfferList || [this.NO_FILTER];
     this.methodFilter = this.NO_FILTER;
     this.p2p.status().then(res => {
@@ -134,11 +137,26 @@ export class OffersListComponent implements OnChanges {
   }
 
   deleteOffer(offer) {
-    this.offersDao.remove(offer.id).then(() => {
-      this.refresh.emit();
-    }).catch(error => {
-      this.toast.error(error);
-    });
+    this.alertCtrl.create({
+      title: this.translate.instant('WARNING'),
+      message: t('OFFERS.LIST.DELETE_CONFIRM'),
+      buttons: [
+        {
+          text: this.translate.instant('CANCEL'),
+        },
+        {
+          text: this.translate.instant('CONFIRM'),
+          handler: () => {
+            this.offersDao.remove(offer.id).then(() => {
+              this.toast.show('TOAST.OFFERS.LIST.DELETED', 'success');
+              this.refresh.emit();
+            }).catch(error => {
+              this.toast.error(error, 'TOAST.OFFERS.LIST.DELETE_ERROR');
+            });
+          }
+        }
+      ]
+    }).present();
   }
 
   checkIfValidPaymentAccount(offer) {
