@@ -40,7 +40,7 @@
     <span>{{'OFFERS.LIST.NO_RESULTS' | translate}}</span>
   </div>
 </div>
-<div *ngIf="list.length" class="row">
+<div *ngIf="list.length && !loading" class="row">
   <div class="col-md-6 col-lg-4" *ngFor="let item of list">
     <div class="card">
       <div class="card-header">
