@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      {{'OFFERS.DETAILS.TITLE' | translate}}
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <ion-icon name="md-close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="body">
+    <div class="label">{{'OFFERS.DETAILS.TYPE' | translate}}</div>
+    <div *ngIf="'BUY' === offer.direction">{{'OFFERS.DETAILS.TYPE_MAKER' | translate}}</div>
+    <div *ngIf="'SELL' === offer.direction">{{'OFFERS.DETAILS.TYPE_TAKER' | translate}}</div>
+    <div class="label">{{'OFFERS.DETAILS.AMOUNT' | translate}}</div>
+    <div>{{offer.amount / 1e8}}</div>
+    <div class="label">{{'OFFERS.DETAILS.MIN_AMOUNT' | translate}}</div>
+    <div>{{offer.minAmount / 1e8}}</div>
+    <div class="label">{{'OFFERS.DETAILS.CURRENCY_AMOUNT' | translate:offer}}</div>
+    <div>{{offer.offerAmount}}</div>
+    <div class="label">{{'OFFERS.DETAILS.PRICE' | translate}}</div>
+    <div>{{offer.offerAmount}}</div>
+    <div class="label">{{'OFFERS.DETAILS.PAYMENT_METHOD' | translate}}</div>
+    <div>{{offer.paymentMethodId}}</div>
+    <br/>
+    <div class="label">{{'OFFERS.DETAILS.OFFER_ID' | translate}}</div>
+    <div>{{offer.id}}</div>
+    <div class="label">{{'OFFERS.DETAILS.MAKER_ADDRESS' | translate}}</div>
+    <div>{{offer.ownerNodeAddress}}</div>
+    <div class="label">{{'OFFERS.DETAILS.CREATE_DATE' | translate}}</div>
+    <div>{{offer.date}}</div>
+    <div class="label">{{'OFFERS.DETAILS.SECURITY_DEPOSIT' | translate}}</div>
+    <div>
+      {{'SHARED.BUYER' | translate}}: {{offer.buyerDeposit}} BTC /
+      {{'SHARED.SELLER' | translate}}: {{offer.sellerDeposit}} BTC
+    </div>
+    <div class="label">{{'OFFERS.DETAILS.ARBITRATORS' | translate}}</div>
+    <div>{{offer.arbitratorNodeAddresses.join(', ')}}</div>
+    <div class="label">{{'OFFERS.DETAILS.MAKER_FEE_ID' | translate}}</div>
+    <div>{{offer.offerFeePaymentTxId}}</div>
+
+    <div class="button-wrapper large center">
+      <button *ngIf="'SELL' === offer.direction" class="btn btn-primary" (click)="takeOffer()">
+        {{'OFFERS.DETAILS.BUY_BTC' | translate}}
+      </button>
+      <button *ngIf="'BUY' === offer.direction" class="btn btn-primary" (click)="takeOffer()">
+        {{'OFFERS.DETAILS.SELL_BTC' | translate}}
+      </button>
+    </div>
+
+  </div>
+</ion-content>

@@ -7,13 +7,31 @@
     <button *ngIf="'sell' === type" ion-button class="create" routerLink="./create">
       {{ 'OFFERS.CREATE_SELL_BUTTON' | translate}}
     </button>
-    <button ion-button color="light" class="refresh" (click)="refresh.emit()" [disabled]="loading">
+    <button ion-button color="light" class="refresh d-none d-lg-inline-block" (click)="refresh.emit()"
+            [disabled]="loading">
       {{ 'SHARED.REFRESH' | translate}}
       <ion-spinner *ngIf="loading" item-end></ion-spinner>
     </button>
+    <div class="row d-lg-none">
+      <div class="col-4">
+        <button ion-button full color="light" class="refresh" (click)="refresh.emit()" [disabled]="loading">
+          {{ 'SHARED.REFRESH' | translate}}
+          <ion-spinner *ngIf="loading" item-end></ion-spinner>
+        </button>
+      </div>
+      <div class="col-4">
+        <button ion-button full color="light" class="refresh" (click)="toggleFilters()">
+          {{ 'SHARED.FILTER' | translate}}
+        </button>
+      </div>
+      <div class="col-4">
+        <div *ngIf="NO_FILTER !== methodFilter" class="filter-label">{{methodFilter}}</div>
+        <div *ngIf="0 > currencyFilter.indexOf(NO_FILTER)" class="filter-label">{{currencyFilter}}</div>
+      </div>
+    </div>
   </div>
-  <div class="col-lg-4" *ngIf="'my-offers' !== type">
-    <ion-item class="filter-item">
+  <div class="col-lg-4">
+    <ion-item class="filter-item show" [ngClass]="{show: isFilterVisible}">
       <ion-label floating>{{'OFFERS.LIST.FILTER.BY_CURRENCY' | translate}}</ion-label>
       <ion-select [(ngModel)]="currencyFilter" (ionChange)="onCurrencyFilterChange($event)" multiple="true">
         <ion-option [value]="NO_FILTER">{{('OFFERS.LIST.SHOW_ALL' | translate)}}</ion-option>
@@ -21,8 +39,8 @@
       </ion-select>
     </ion-item>
   </div>
-  <div class="col-lg-4" *ngIf="'my-offers' !== type">
-    <ion-item class="filter-item last">
+  <div class="col-lg-4">
+    <ion-item class="filter-item last" [ngClass]="{show: isFilterVisible}">
       <ion-label floating>{{'OFFERS.LIST.FILTER.BY_METHOD' | translate}}</ion-label>
       <ion-select [(ngModel)]="methodFilter" interface="popover">
         <ion-option [value]="NO_FILTER">{{'OFFERS.LIST.SHOW_ALL' | translate}}</ion-option>
@@ -40,38 +58,40 @@
     <span>{{'OFFERS.LIST.NO_RESULTS' | translate}}</span>
   </div>
 </div>
-<div *ngIf="list.length && !loading" class="row">
-  <div class="col-md-6 col-lg-4" *ngFor="let item of list">
-    <div class="card">
-      <div class="card-header">
-        <span title="Onion adress: {{item.ownerNodeAddress}}">
-          <app-gravatar [hashSeed]="item.ownerNodeAddress" size="24"></app-gravatar>
-        </span>
-        <span class="float-right">
-          {{getMarket(item)}}
-          <i class="fas fa-info-circle info clickable" (click)="offerDetails(item)"></i>
-        </span>
-      </div>
-      <div class="card-body">
-        <div *ngIf="'my-offers' === type">{{'OFFERS.LIST.TYPE' | translate}}
-          <span class="float-right">{{item.direction | translate}}</span>
-        </div>
-        <div>{{'OFFERS.LIST.PRICE' | translate}}
-          <span *ngIf="item.useMarketBasedPrice" class="float-right">&nbsp;({{getOfferMarketPriceMargin(item)}}%)</span>
-          <span class="float-right">{{getOfferPrice(item)}}</span>
-        </div>
-        <div>BTC (min-max)
-          <span class="float-right">{{getOfferBTCAmount(item)}}</span>
-        </div>
-        <div>{{'OFFERS.LIST.AMOUNT' | translate}}
-          <span class="float-right">&nbsp;{{item.counterCurrencyCode}}</span>
-          <span class="float-right">{{getOfferAmount(item)}}</span>
-        </div>
-        <div>{{'OFFERS.LIST.PAYMENT_METHOD' | translate}}
-          <span class="float-right">{{item.paymentMethodId}}</span>
-        </div>
-      </div>
-      <div class="btn rounded-0" [ngClass]="{
+<table *ngIf="list.length && !loading" class="table table-striped">
+  <thead>
+  <tr>
+    <th>{{'OFFERS.LIST.MARKET' | translate}}</th>
+    <th *ngIf="'my-offers' === type"> {{'OFFERS.LIST.TYPE' | translate}}</th>
+    <th class="price">{{'OFFERS.LIST.PRICE' | translate}}</th>
+    <th class="d-sm-none">BTC</th>
+    <th class="d-none d-sm-table-cell">BTC (min-max)</th>
+    <th class="d-none d-md-table-cell">{{'OFFERS.LIST.AMOUNT' | translate}}</th>
+    <th class="payment-method d-none d-lg-table-cell">{{'OFFERS.LIST.PAYMENT_METHOD' | translate}}</th>
+    <th class="action d-none d-lg-table-cell">{{'OFFERS.LIST.ACTION' | translate}}</th>
+    <th class="owner d-none d-md-table-cell"></th>
+    <th class="info d-lg-none"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of list" (click)="offerDetailsMobileOnly(item)">
+    <td>{{getOfferMarket(item)}}</td>
+    <td *ngIf="'my-offers' === type">{{item.direction | translate}}</td>
+    <td class="price">
+      <span *ngIf="item.useMarketBasedPrice" class="d-none d-sm-inline">
+        ({{getOfferMarketPriceMargin(item)}}%)
+      </span>
+      <span>{{getOfferPrice(item)}}</span>
+    </td>
+    <td class="d-sm-none">{{item.amount / 1e8}}</td>
+    <td class="d-none d-sm-table-cell">{{getOfferBTCAmount(item)}}</td>
+    <td class="d-none d-md-table-cell">{{getOfferAmount(item)}}</td>
+    <td class="payment-method d-none d-lg-table-cell">
+      {{item.paymentMethodId}}
+      <i class="fas fa-info-circle info clickable" (click)="offerDetails(item)"></i>
+    </td>
+    <td class="action d-none d-lg-table-cell">
+      <div class="btn" [ngClass]="{
             'btn-primary': 'buy' === type,
             'btn-warning': 'sell' === type,
             'btn-danger': 'my-offers' === type
@@ -86,6 +106,13 @@
           <i class="fas fa-trash-alt menu-icon"></i>{{'OFFERS.LIST.DELETE' | translate}}
         </div>
       </div>
-    </div>
-  </div>
-</div>
+    </td>
+    <td class="owner d-none d-md-table-cell" title="Onion adress: {{item.ownerNodeAddress}}">
+      <app-gravatar [hashSeed]="item.ownerNodeAddress" size="24"></app-gravatar>
+    </td>
+    <td class="info d-lg-none">
+      <i class="fas fa-info-circle info clickable"></i>
+    </td>
+  </tr>
+  </tbody>
+</table>

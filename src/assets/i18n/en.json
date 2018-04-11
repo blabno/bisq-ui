@@ -651,30 +651,45 @@
 		},
 		"CREATE_BUY_BUTTON": "Create new offer to buy BTC",
 		"CREATE_SELL_BUTTON": "Create new offer to sell BTC",
+		"DETAILS": {
+			"AMOUNT": "BTC amount",
+			"ARBITRATORS": "Accepted arbitrators",
+			"BUY_BTC": "Buy BTC",
+			"CREATE_DATE": "Creation date",
+			"CURRENCY_AMOUNT": "{{currencyCode}} amount",
+			"MAKER_ADDRESS": "Maker's onion address",
+			"MAKER_FEE_ID": "Maker fee transaction ID",
+			"MIN_AMOUNT": "Min. BTC amount",
+			"OFFER_ID": "Offer ID",
+			"PAYMENT_METHOD": "Payment method",
+			"PRICE": "Price",
+			"SECURITY_DEPOSIT": "Security deposit",
+			"SELL_BTC": "Sell BTC",
+			"TITLE": "Offer details",
+			"TYPE": "Offer type",
+			"TYPE_MAKER": "Maker as BTC buyer / Taker as BTC seller",
+			"TYPE_TAKER": "Taker as BTC buyer / Maker as BTC seller"
+		},
 		"LIST": {
+			"ACTION": "Action",
 			"AMOUNT": "Amount",
 			"BUY": "Buy",
-			"BUYER": "buyer",
 			"DELETE": "Delete offer",
 			"DELETE_CONFIRM": "Are you sure you want to delete the offer?",
 			"FILTER": {
 				"BY_CURRENCY": "Filter by Currency",
 				"BY_METHOD": "Filter by payment method"
 			},
-			"MAKER": "Maker",
+			"MARKET": "Market",
 			"NO_MATCHING_ACCOUNT_REDIRECT": "Go to \"Account\"",
 			"NO_MATCHING_ACCOUNT_TEXT": "You don't have a trading account with the payment method required for that offer.\nYou need to setup a trading account with that payment method if you want to take this offer.\nDo you want to do this now?",
 			"NO_MATCHING_ACCOUNT_TITLE": "No matching trading account.",
 			"NO_OFFERS": "No. of offers",
 			"NO_RESULTS": "There are no offers to show.",
-			"OFFER_DETAILS_TEXT": "Offer type: {{type}}\nBTC amount: {{amount}}\nMin. BTC amount: {{minAmount}}\n{{currencyCode}} amount: {{offerAmount}}\nPrice: {{offerPrice}}\n Payment method: {{paymentMethodId}}\n\nOffer ID: {{id}}\nMaker's onion address: {{ownerNodeAddress}}\nCreation date: {{date}}\nSecurity deposit: Buyer {{buyerDeposit}} / Seller {{sellerDeposit}}\nAccepted arbitrators: {{arbitrators}}\nMaker fee transaction ID: {{offerFeePaymentTxId}}",
-			"OFFER_DETAILS_TITLE": "Offer details",
 			"PAYMENT_METHOD": "Payment method",
 			"PRICE": "Price",
 			"SELL": "Sell",
-			"SELLER": "seller",
 			"SHOW_ALL": "Show all",
-			"TAKER": "Taker",
 			"TYPE": "Offer type"
 		},
 		"TAKE_OFFER": {
@@ -828,9 +843,12 @@
 	},
 	"SHARED": {
 		"AS": "as",
+		"BUYER": "Buyer",
+		"FILTER": "Filter",
 		"LOADING": "Loading",
 		"NOT_DONE_YET": "Functionality is not done yet",
-		"REFRESH": "Refresh"
+		"REFRESH": "Refresh",
+		"SELLER": "Seller"
 	},
 	"SUPPORT": {
 		"LIST": {
