@@ -38,6 +38,7 @@ export class SettingsService {
   public autoSelectArbitratorsWithMatchingLanguage = true;
   // OFFERS LIST
   public selectedCurrencyOnOfferList = ['ALL'];
+  public selectedPaymentMethodOnOfferList = 'ALL';
   // HIDDEN MODALS
   public hiddenModals = [];
 

@@ -38,13 +38,7 @@ export class OffersListComponent implements OnChanges {
   public currencyFilter;
   public methodFilter;
   public list = [];
-  public currencies = [
-    {value: 'USD', name: 'USD'},
-    {value: 'PLN', name: 'PLN'},
-    {value: 'BTC', name: 'BTC'},
-    {value: 'DASH', name: 'DASH'},
-    {value: 'ETH', name: 'ETH'}
-  ];
+  public currencies = [];
   public accountsList = [];
   public supportedPaymentsMethods = [];
   public supportedPaymentsCurrencies = [];
@@ -61,14 +55,14 @@ export class OffersListComponent implements OnChanges {
               private alertCtrl: AlertController,
               private modalCtrl: ModalController) {
     this.currencyFilter = this.settings.selectedCurrencyOnOfferList || [this.NO_FILTER];
-    this.methodFilter = this.NO_FILTER;
+    this.methodFilter = this.settings.selectedPaymentMethodOnOfferList || this.NO_FILTER;
     this.p2p.status().then(res => {
       this.myAddress = _.get(res, 'address');
       return this.paymentsDAO.query();
     }).then((res: any) => {
       this.accountsList = res.paymentAccounts;
-      this.supportedPaymentsMethods = _.map(this.accountsList, 'paymentMethod');
-      this.supportedPaymentsCurrencies = _.map(this.accountsList, 'selectedTradeCurrency');
+      this.supportedPaymentsMethods = _.uniq(_.map(this.accountsList, 'paymentMethod'));
+      this.supportedPaymentsCurrencies = _.uniq(_.map(this.accountsList, 'selectedTradeCurrency'));
     }).catch(error => {
       // TODO: handle this error in better way. This is temporary fix to handle missing backend URL in settings
       console.error(error)
@@ -77,11 +71,13 @@ export class OffersListComponent implements OnChanges {
 
   ngOnChanges() {
     this.filterData();
+    this.createCurrenciesList()
   }
 
-  onCurrencyFilterChange(e) {
+  onFilterChange() {
     this.filterData();
-    this.settings.selectedCurrencyOnOfferList = e;
+    this.settings.selectedCurrencyOnOfferList = this.currencyFilter;
+    this.settings.selectedPaymentMethodOnOfferList = this.methodFilter;
     this.settings.saveSettings();
   }
 
@@ -192,6 +188,13 @@ export class OffersListComponent implements OnChanges {
     this.isFilterVisible = !this.isFilterVisible;
   }
 
+  private createCurrenciesList() {
+    this.currencies = _.chain(this.data)
+      .filter({direction: this.type === 'sell' ? 'BUY' : 'SELL'})
+      .map(offer => [offer.baseCurrencyCode, offer.counterCurrencyCode])
+      .flatten().uniq().without('BTC').value();
+  }
+
   private filterData() {
     if (this.data && this.type && 'my-offers' != this.type) {
       let filteredData = _.chain(this.data);
@@ -199,6 +202,9 @@ export class OffersListComponent implements OnChanges {
       filteredData = filteredData.filter({direction: dir.toUpperCase()});
       if (!_.includes(this.currencyFilter, this.NO_FILTER)) {
         filteredData = filteredData.filter(o => _.includes(this.currencyFilter, o.currencyCode));
+      }
+      if (this.NO_FILTER !== this.methodFilter) {
+        filteredData = filteredData.filter({paymentMethodId: this.methodFilter});
       }
       if (!this.settings.showMyOwnOffersInOfferBook) {
         filteredData = filteredData.filter(o => this.myAddress !== o.ownerNodeAddress);
