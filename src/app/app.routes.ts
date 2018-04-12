@@ -8,9 +8,8 @@ import {SendComponent} from './funds/send/send.component';
 import {ReservedComponent} from './funds/reserved/reserved.component';
 import {LockedComponent} from './funds/locked/locked.component';
 import {TransactionComponent} from './funds/transactions/transaction.component';
-import {TradeListComponent} from './portfolio/openTrades/tradeList/tradeList.component';
+import {TradeListComponent} from './portfolio/tradeList/tradeList.component';
 import {TradeDetailsComponent} from './portfolio/openTrades/tradeDetails/tradeDetails.component';
-import {HistoryComponent} from './portfolio/history/history.component';
 import {PreferencesComponent} from './settings/preferences/preferences.component';
 import {NetworkInfoComponent} from './settings/network-info/network-info.component';
 import {AboutComponent} from './settings/about/about.component';
@@ -32,7 +31,7 @@ const appRoutes: Routes = [
   {path: 'portfolio', redirectTo: 'portfolio/my-open-offers', pathMatch: 'full'},
   {path: 'portfolio/open-trades', component: TradeListComponent},
   {path: 'portfolio/open-trades/:id', component: TradeDetailsComponent},
-  {path: 'portfolio/history', component: HistoryComponent},
+  {path: 'portfolio/history', component: TradeListComponent},
 
   {path: 'funds', redirectTo: 'funds/receive', pathMatch: 'full'},
   {path: 'funds/receive', component: ReceiveComponent},
