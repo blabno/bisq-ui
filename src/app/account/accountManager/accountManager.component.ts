@@ -31,7 +31,7 @@ export class AccountManagerComponent implements OnInit, OnDestroy {
   deletingAccount;
   loading = true;
 
-  constructor(private initModal: InfoModalService,
+  constructor(private infoModal: InfoModalService,
               private translate: TranslateService,
               private toast: ToastService,
               private platform: Platform,
@@ -43,7 +43,7 @@ export class AccountManagerComponent implements OnInit, OnDestroy {
       this.accounts = result || [];
       this.loading = false;
     });
-    this.initModal.show({
+    this.infoModal.show({
       id: 'accountInit',
       title: 'ACCOUNT.INIT_MODAL.TITLE',
       text: 'ACCOUNT.INIT_MODAL.TEXT',
