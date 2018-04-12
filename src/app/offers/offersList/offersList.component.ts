@@ -15,6 +15,7 @@ import {ToastService} from '../../shared/services/toast.service';
 import {OfferDetailsComponent} from '../offerDetails/offerDetails.component';
 
 import t from '../../shared/defineTextToTranslate';
+import {PreferencesDAO} from '../../shared/DAO/preferences.dao';
 
 t([
   'SELL',
@@ -43,6 +44,7 @@ export class OffersListComponent implements OnChanges {
   public supportedPaymentsMethods = [];
   public supportedPaymentsCurrencies = [];
   private myAddress;
+  public currenciesFromSettings = [];
 
   constructor(public settings: SettingsService,
               private paymentsDAO: PaymentAccountsDAO,
@@ -53,16 +55,20 @@ export class OffersListComponent implements OnChanges {
               private translate: TranslateService,
               private infoModal: InfoModalService,
               private alertCtrl: AlertController,
-              private modalCtrl: ModalController) {
+              private modalCtrl: ModalController,
+              private preferencesDAO: PreferencesDAO) {
     this.currencyFilter = this.settings.selectedCurrencyOnOfferList || [this.NO_FILTER];
     this.methodFilter = this.settings.selectedPaymentMethodOnOfferList || this.NO_FILTER;
     this.p2p.status().then(res => {
       this.myAddress = _.get(res, 'address');
+      return preferencesDAO.get();
+    }).then((settings: any)=> {
+      this.currenciesFromSettings = [...settings.cryptoCurrencies, ...settings.fiatCurrencies];
       return this.paymentsDAO.query();
     }).then((res: any) => {
       this.accountsList = res.paymentAccounts;
       this.supportedPaymentsMethods = _.uniq(_.map(this.accountsList, 'paymentMethod'));
-      this.supportedPaymentsCurrencies = _.uniq(_.map(this.accountsList, 'selectedTradeCurrency'));
+      this.supportedPaymentsCurrencies = _.intersection(_.uniq(_.map(this.accountsList, 'selectedTradeCurrency')), this.currenciesFromSettings);
     }).catch(error => {
       // TODO: handle this error in better way. This is temporary fix to handle missing backend URL in settings
       console.error(error)

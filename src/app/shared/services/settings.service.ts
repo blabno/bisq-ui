@@ -19,6 +19,7 @@ enum BitcoinExplorers {
 
 @Injectable()
 export class SettingsService {
+  public backendSettings = {};
   public backendUrl = '';
   public baseCurrency: BaseCurrencies = BaseCurrencies.BITCOIN;
   public language = 'en';

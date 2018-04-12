@@ -2,4 +2,7 @@ app-arbitrator {
   .borderless {
     border: none;
   }
+  ion-item.item.item-checkbox {
+    margin-top: 0px;
+  }
 }

@@ -35,7 +35,7 @@
       <ion-label floating>{{'OFFERS.LIST.FILTER.BY_CURRENCY' | translate}}</ion-label>
       <ion-select [(ngModel)]="currencyFilter" (ionChange)="onFilterChange()" multiple="true"
                   placeholder="{{'OFFERS.LIST.SHOW_ALL' | translate}}">
-        <ion-option *ngFor="let currency of currencies" [value]="currency">{{currency}}</ion-option>
+        <ion-option *ngFor="let currency of supportedPaymentsCurrencies" [value]="currency">{{currency}}</ion-option>
       </ion-select>
     </ion-item>
   </div>

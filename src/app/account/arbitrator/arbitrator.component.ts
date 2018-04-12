@@ -4,6 +4,8 @@ import {ArbitratorsDAO} from '../../shared/DAO/arbitrators.dao';
 import _ from 'lodash';
 import {ToastService} from '../../shared/services/toast.service';
 import langsJson from '../../../assets/data/langs';
+import {PreferencesDAO} from '../../shared/DAO/preferences.dao';
+import t from '../../shared/defineTextToTranslate';
 @Component({
   selector: 'app-arbitrator',
   templateUrl: 'arbitrator.component.html'
@@ -20,8 +22,12 @@ export class ArbitratorComponent implements OnInit {
   public loading;
   public languagesSpoken;
   public doingActionOn = {};
+  public settingsModel = {
+    autoSelectArbitrators: false 
+  };
+  public savingSettings = false;
 
-  constructor(public settings: SettingsService, private arbitratorsDAO: ArbitratorsDAO, private toast: ToastService) {
+  constructor(public settings: SettingsService, private arbitratorsDAO: ArbitratorsDAO, private toast: ToastService, private preferencesDAO: PreferencesDAO) {
     this.languagesSpoken = (this.settings.languagesSpoken.length && this.settings.languagesSpoken) || ['en'];
   }
 
@@ -30,6 +36,9 @@ export class ArbitratorComponent implements OnInit {
       return {value: key, name: lang.nativeName};
     });
     this.getArbitrators();
+    this.preferencesDAO.get().then(res => {
+      _.merge(this.settingsModel, res);
+    });
   }
 
   getArbitrators() {
@@ -80,4 +89,16 @@ export class ArbitratorComponent implements OnInit {
       .catch(error => this.toast.error(error));
   }
 
+  saveSettings() {
+    if(this.savingSettings) return;
+    this.savingSettings = true;
+    this.preferencesDAO.set(this.settingsModel).then( res => {
+      _.merge(this.settingsModel, res);
+      this.savingSettings = false;
+      this.toast.show(t('ACCOUNT.ARBITRATOR.AUTO_SELECT_ARBITRATORS_SAVED'), 'success');
+    }).catch(err => {
+      this.savingSettings = false;
+      this.toast.show(_.get(err, 'error.errors[0]') || t('ACCOUNT.ARBITRATOR.AUTO_SELECT_ARBITRATORS_ERROR'), 'error');
+    }); 
+  }
 }
