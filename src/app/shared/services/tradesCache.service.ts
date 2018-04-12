@@ -6,6 +6,7 @@ import {InfoModalService} from '../components/infoModal/infoModal.service';
 import {ToastService} from './toast.service';
 import {TradesDAO} from '../DAO/trades.dao';
 import t from '../defineTextToTranslate';
+import {Router} from '@angular/router';
 
 const step1 = {
   number: 1,
@@ -68,7 +69,8 @@ export class TradesCacheService {
 
   constructor(private infoModal: InfoModalService,
               private toast: ToastService,
-              private tradesDAO: TradesDAO) {
+              private tradesDAO: TradesDAO,
+              private router: Router) {
   }
 
   init() {
@@ -81,6 +83,13 @@ export class TradesCacheService {
   }
 
   showInfoModal(trade) {
+    const url = this.router.url || '';
+    const regexMatch = url.match(/\/portfolio\/open-trades\/(.*)+/);
+    let redirectButtonText = t('TRADES_CACHE.REDIRECT_TO_TRADE_DETAILS');
+    if(regexMatch && regexMatch[1] === trade.id) {
+      redirectButtonText = t('TRADES_CACHE.CLOSE');
+    }
+
     let modalOptions;
     if ('MAKER_RECEIVED_DEPOSIT_TX_PUBLISHED_MSG' === trade.state) {
       modalOptions = {
@@ -136,7 +145,7 @@ export class TradesCacheService {
       this.infoModal.show({
         ...modalOptions,
         redirectButton: {
-          text: t('TRADES_CACHE.REDIRECT_TO_TRADE_DETAILS'),
+          text: redirectButtonText,
           path: `/portfolio/open-trades/${trade.id}`,
           class: 'center'
         }

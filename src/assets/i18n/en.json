@@ -894,6 +894,7 @@
 		}
 	},
 	"TRADES_CACHE": {
+		"CLOSE": "Close",
 		"REDIRECT_TO_TRADE_DETAILS": "Go to trade details",
 		"TRADE_COMPLETED_TEXT": "The {{baseCurrency}} seller confirmed payment received. The trade is now completed and you can withdraw your funds.",
 		"TRADE_COMPLETED_TITLE": "Your trade ({{id}}) has finished",

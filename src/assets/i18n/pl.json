@@ -894,6 +894,7 @@
 		}
 	},
 	"TRADES_CACHE": {
+		"CLOSE": "Zamknij",
 		"REDIRECT_TO_TRADE_DETAILS": "Przejdź do szczegółów oferty",
 		"TRADE_COMPLETED_TEXT": "Sprzedawca {{baseCurrency}} potwierdził otrzymaną płatność. Handel został już zakończony i możesz wypłacić środki.",
 		"TRADE_COMPLETED_TITLE": "Twoja transakcja ({{id}}) została zakończona",
