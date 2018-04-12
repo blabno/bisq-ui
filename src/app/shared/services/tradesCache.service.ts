@@ -66,7 +66,7 @@ export class TradesCacheService {
   onListChange = this.listChangeSubject.asObservable();
 
 
-  constructor(private initModal: InfoModalService,
+  constructor(private infoModal: InfoModalService,
               private toast: ToastService,
               private tradesDAO: TradesDAO) {
   }
@@ -133,12 +133,12 @@ export class TradesCacheService {
       };
     }
     if (modalOptions) {
-      this.initModal.show({
+      this.infoModal.show({
         ...modalOptions,
         redirectButton: {
           text: t('TRADES_CACHE.REDIRECT_TO_TRADE_DETAILS'),
           path: `/portfolio/open-trades/${trade.id}`,
-          class: 'large center'
+          class: 'center'
         }
       });
     }

@@ -53,7 +53,7 @@ export class AppComponent {
   constructor(platform: Platform,
               statusBar: StatusBar,
               splashScreen: SplashScreen,
-              private initModal: InfoModalService,
+              private infoModal: InfoModalService,
               private settings: SettingsService,
               private tradesCache: TradesCacheService,
               private translate: TranslateService) {
@@ -62,13 +62,13 @@ export class AppComponent {
     this.translate.addLangs(['pl', 'en']);
     this.tradesCache.init();
     if (!this.settings.backendUrl) {
-      this.initModal.show({
+      this.infoModal.show({
         title: t('SETTINGS.BACKEND_URL_MISSING_TITLE'),
         text: t('SETTINGS.BACKEND_URL_MISSING_TEXT'),
         redirectButton: {
           text: t('SETTINGS.BACKEND_URL_MISSING_REDIRECT'),
           path: '/settings/backend-url',
-          class: 'large center'
+          class: 'center'
         },
         disallowCancel: true
       });

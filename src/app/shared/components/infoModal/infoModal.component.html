@@ -13,15 +13,16 @@
 
 <ion-content>
   <div class="body">
-    <div><span>{{data.text | translate:data.translateParams}}</span></div>
-    <button *ngIf="doNotShowButton" class="btn" (click)="dismissPermanently()">
-      {{'INFO_MODAL.DO_NOT_SHOW_AGAIN' | translate}}
-    </button>
-    <div *ngIf="redirectButton" class="button-wrapper" [ngClass]="redirectButton.class">
-      <button class="btn btn-primary" (click)="redirect()">
-        {{redirectButton.text | translate}}
-      </button>
+    <span class="text">{{data.text | translate:data.translateParams}}</span>
+    <div class="buttons">
+      <div class="button-wrapper" [ngClass]="redirectButton && redirectButton.class">
+        <button *ngIf="doNotShowButton" ion-button color="light" (click)="dismissPermanently()">
+          {{'INFO_MODAL.DO_NOT_SHOW_AGAIN' | translate}}
+        </button>
+        <button *ngIf="redirectButton" ion-button (click)="redirect()">
+          {{redirectButton.text | translate}}
+        </button>
+      </div>
     </div>
-
   </div>
 </ion-content>
