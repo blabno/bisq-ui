@@ -1,4 +1,12 @@
 <app-section-header class="d-none d-lg-block"></app-section-header>
+<div class="row" *ngIf="'history' === listType">
+  <div class="col-12">
+    <button ion-button color="light" (click)="exportHistory()" class="export-button">
+      {{'PORTFOLIO.HISTORY.EXPORT' | translate}}
+      <ion-spinner *ngIf="exportingHistory"></ion-spinner>
+    </button>
+  </div>
+</div>
 <div class="row">
   <div class="col-md-6 col-lg-4" *ngFor="let item of trades; let i = index">
     <div class="card">
@@ -24,21 +32,36 @@
           <span class="float-right">{{item.tradePrice * item.tradeAmount / 10e11 | number:'.2-2'}} EUR</span>
           <!-- Todo: Change EUR to used currency in trade-->
         </div>
-        <div>{{'PORTFOLIO.OPEN_TRADES.PAYMENT_METHOD' | translate}}
-          <span class="float-right">{{item.offer.paymentMethodId}} ({{item.offer.countryCode}})</span>
-        </div>
-        <div>{{'PORTFOLIO.OPEN_TRADES.MY_ROLE' | translate}}
-          <span class="float-right">
-              {{item.offer.baseCurrencyCode}} {{item.tradeRole}} {{'SHARED.AS' | translate}} {{item.offerRole}}
+        <div *ngIf="'open-trades' === listType">
+          <div>{{'PORTFOLIO.OPEN_TRADES.PAYMENT_METHOD' | translate}}
+            <span class="float-right">{{item.offer.paymentMethodId}} ({{item.offer.countryCode}})</span>
+          </div>
+          <div>{{'PORTFOLIO.OPEN_TRADES.MY_ROLE' | translate}}
+            <span class="float-right">
+                {{item.offer.baseCurrencyCode}} {{item.tradeRole}} {{'SHARED.AS' | translate}} {{item.offerRole}}
             </span>
+          </div>
+        </div>
+        <div *ngIf="'history' === listType">
+          <div>{{'PORTFOLIO.HISTORY.TYPE' | translate}}
+            <span class="float-right">
+              <span *ngIf="'seller' === item.tradeRole"> {{'PORTFOLIO.HISTORY.TYPE_SELL' | translate}}</span>
+              <span *ngIf="'buyer' === item.tradeRole"> {{'PORTFOLIO.HISTORY.TYPE_BUY' | translate}}</span>
+            </span>
+          </div>
+          <div>{{'PORTFOLIO.HISTORY.STATUS' | translate}}
+            <span class="float-right">Completed</span>
+            <!--Todo: After created API for history, display status from historical trade-->
+          </div>
         </div>
       </div>
-      <div class="progress">
+      <div class="progress" *ngIf="'open-trades' === listType">
         <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar"
              aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
              [ngStyle]="{width: stepsMap[item.state].percentage + '%'}"></div>
       </div>
-      <div class="btn btn-info rounded-0" [routerLink]="'/portfolio/open-trades/'+item.id">
+      <div class="btn btn-info rounded-0" *ngIf="'open-trades' === listType"
+           [routerLink]="'/portfolio/open-trades/'+item.id">
         <span class="select-button">{{stepsMap[item.state].labels[item.tradeRole] | translate}}</span>
       </div>
     </div>
@@ -50,6 +73,7 @@
 </div>
 <div *ngIf="!trades.length && !loading" class="card no-results-card">
   <div class="card-body">
-    <span> {{'PORTFOLIO.OPEN_TRADES.NO_RESULTS' | translate}}</span>
+    <span *ngIf="'open-trades' === listType"> {{'PORTFOLIO.OPEN_TRADES.NO_RESULTS' | translate}}</span>
+    <span *ngIf="'history' === listType">{{'PORTFOLIO.HISTORY.NO_RESULTS' | translate}}</span>
   </div>
 </div>

@@ -26,7 +26,6 @@ import {CurrencyComponent} from './account/currency/currency.component';
 import {FormComponent} from './shared/components/form/form.component';
 import {FundsListComponent} from './funds/list/fundsList.component';
 import {GravatarComponent} from './shared/components/gravatar/gravatar.component';
-import {HistoryComponent} from './portfolio/history/history.component';
 import {InfoModalComponent} from './shared/components/infoModal/infoModal.component';
 import {LockedComponent} from './funds/locked/locked.component';
 import {MainComponent} from './main/main.component';
@@ -46,7 +45,7 @@ import {SummaryComponent} from './market/summary/summary.component';
 import {SupportComponent} from "./support/support.component";
 import {TakeOfferComponent} from './offers/takeOffer/takeOffer.component';
 import {TradeDetailsComponent} from './portfolio/openTrades/tradeDetails/tradeDetails.component';
-import {TradeListComponent} from './portfolio/openTrades/tradeList/tradeList.component';
+import {TradeListComponent} from './portfolio/tradeList/tradeList.component';
 import {TradeStatusComponent} from './portfolio/openTrades/tradeStatus/tradeStatus.component';
 import {TransactionComponent} from './funds/transactions/transaction.component';
 import {WalletPassComponent} from './account/wallet-pass/wallet-pass.component';
@@ -66,7 +65,6 @@ const loadModules = [
   FormComponent,
   FundsListComponent,
   GravatarComponent,
-  HistoryComponent,
   InfoModalComponent,
   LockedComponent,
   MainComponent,
@@ -95,7 +93,7 @@ const loadModules = [
 
 const directives = [
   MoreThanZeroValidator
-]
+];
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');

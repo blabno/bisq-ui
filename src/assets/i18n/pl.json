@@ -711,6 +711,14 @@
 		}
 	},
 	"PORTFOLIO": {
+		"HISTORY": {
+			"EXPORT": "Eksportuj do CSV",
+			"NO_RESULTS": "Brak elementów do wyświetlenia",
+			"STATUS": "Status",
+			"TYPE": "Typ",
+			"TYPE_BUY": "Kupno",
+			"TYPE_SELL": "Sprzedaż"
+		},
 		"OPEN_TRADES": {
 			"AMOUNT": "Kwota w BTC",
 			"AMOUNT_TO_TRANSFER": "Kwota do transferu",
@@ -755,7 +763,7 @@
 			"TRADE_FEE": "Koszt wymiany",
 			"TRADE_INFORMATION": "Informacje dotyczące wymiany",
 			"UNTIL": "do",
-			"VOLUME": "ilość",
+			"VOLUME": "Ilość",
 			"WAIT_FOR_PAYMENT": "Oczekuj płatnośći",
 			"WAIT_FOR_SELLER": "Poczekaj na potwierdzenie płatności sprzedawcy BTC",
 			"WITHDRAW": "Wybierz",
@@ -816,21 +824,22 @@
 		"PREFERENCES": {
 			"ALL_HIDDEN_MODALS_RESETED": "Wszystkie ustawienia ukrycia modali zresetowane",
 			"AUTO_SELECT_ARBITRATORS": "Automatycznie przydziel arbitrów",
+			"BASE_CURRENCY": "Podstawowa waluta",
 			"BITCOIN_BLOCK_EXPLORER": "Serwis do Bitcoin block",
 			"COUNTRY": "Kraj",
 			"CURRENCIES_IN_MARKET_PRICE_FEED_LIST": "Lista dostępnych walut",
 			"DISPLAY_ALTCOINS": "Pokazywane kryptowaluty",
 			"DISPLAY_NATIONAL_CURRENCIES": "Pokazywane waluty krajowe",
 			"DISPLAY_OPTIONS": "Opcje wyświetlania",
+			"ERROR_WHILE_SAVING": "Błąd podczas zapisu",
 			"GENERAL_PREFERENCES": "Ogólne",
 			"IGNORE_PEERS_WITH_ONION_ADDRESS": "Ignorowane połączenia",
 			"LANGUAGE": "Język",
 			"MAX_DEVIATION_FROM_MARKET_PRICE": "Maks. różnica od ceny",
 			"PREFERED_CURRENCY": "Preferowana waluta",
 			"RESET_ALL": "Zresetuj wszystkie \"Nie pokazuj tego\"",
-			"SELECT_BASE_CURRENCY": "Wybierz podstawową walutę",
-			"SHOW_MY_OWN_OFFERS_IN_OFFER_BOOK": "Pokaż moje oferty na liście ofert",
-			"SORT_MARKERS_LISTS": "Posortuj listę zgodnie z ilością ofert/transakcji",
+			"SAVE": "Zapisz",
+			"SETTINGS_SAVED": "Ustawienia zapisane",
 			"USE_CUSTOM_VALUE": "Użyj własnej wartośći",
 			"WIDTHDRAWAL_TRANSACTION_FEE": "Cena transakcji"
 		},

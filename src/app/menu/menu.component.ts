@@ -8,10 +8,6 @@ export class MenuComponent {
   @ViewChild('navbarToggler') navbarToggler;
 
   sectionTitle = ['MENU.ACCOUNT', 'ACCOUNT.SUBMENU.CURRENCY_ACCOUNTS'];
-  routerSubscribe;
-
-  constructor() {
-  }
 
   onMenuItemClick() {
     if (992 > window.innerWidth) {
