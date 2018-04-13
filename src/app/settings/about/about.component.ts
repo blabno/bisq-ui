@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import _ from 'lodash';
 
 @Component({
   selector: 'app-about',
@@ -14,21 +13,15 @@ export class AboutComponent {
   public miningFeesEstimationProviders = [
     {name: '21', www: 'https://bitcoinfees.earn.com'}
   ];
-  public subsystems = [
-    {name: 'Network version', version: '1'},
-    {name: 'P2P message version', version: '10'},
-    {name: 'Local DB version', version: '1'},
-    {name: 'Trade protocol version', version: '1'}
-  ];
+  public subsystems = {
+    network: '1',
+    p2p: '10',
+    localDb: '0.5.8',
+    tradeProtocol: '3.0'
+  };
   public appVersion = '0.0.1';
 
   constructor() {
-  }
-
-  public getSubsystemsString() {
-    return _.map(this.subsystems, system => {
-      return `${system.name}: ${system.version}`;
-    }).join('; ');
   }
 
   public openLink(url) {

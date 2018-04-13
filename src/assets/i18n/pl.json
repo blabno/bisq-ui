@@ -78,14 +78,11 @@
 			"NO_RESULTS": "Brak altcoinow do wyświetlenia"
 		},
 		"ARBITRATOR": {
-			"ARBITRATOR_ADDRESS": "Adres",
 			"AUTO_SELECT_ARBITRATORS": "Automatycznie przydziel arbitrów",
 			"AUTO_SELECT_ARBITRATORS_ERROR": "Nie zapisano zmiany przy Automatycznym przydzielaniu arbitrów",
 			"AUTO_SELECT_ARBITRATORS_SAVED": "Zapisano zmiane przy Automatycznym przydzielaniu arbitrów",
-			"AUTO_SELECT_ARBITRATORS_WITH_MATCHING_LANGUAGE": "Automatycznie przydziel arbitra o tym samym języku",
 			"NOMINATE_YOURSELF": "Nominuj siebie",
 			"NO_RESULTS": "Brak zarejestrowanych arbitrów",
-			"SELECTED": "Wybrany",
 			"WHICH_ARBITRATORS_DO_YOU_ACCEPT": "Których arbitratorów wybierasz",
 			"WHICH_LANGUAGE_DO_YOU_SPEAK": "Wybierz języki, które umiesz"
 		},

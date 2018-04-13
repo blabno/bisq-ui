@@ -78,14 +78,11 @@
 			"NO_RESULTS": "There are no altcoins to show"
 		},
 		"ARBITRATOR": {
-			"ARBITRATOR_ADDRESS": "Address",
 			"AUTO_SELECT_ARBITRATORS": "Auto select arbitrators",
 			"AUTO_SELECT_ARBITRATORS_ERROR": "Setting 'Auto select arbitrators' failed",
 			"AUTO_SELECT_ARBITRATORS_SAVED": "Setting 'Auto select arbitrators' completed",
-			"AUTO_SELECT_ARBITRATORS_WITH_MATCHING_LANGUAGE": "Auto select arbitrators with matching language",
 			"NOMINATE_YOURSELF": "Nominate yourself",
 			"NO_RESULTS": "There are no registered arbitrators",
-			"SELECTED": "Selected",
 			"WHICH_ARBITRATORS_DO_YOU_ACCEPT": "Which arbitrators do you accept",
 			"WHICH_LANGUAGE_DO_YOU_SPEAK": "Which language do you speak"
 		},

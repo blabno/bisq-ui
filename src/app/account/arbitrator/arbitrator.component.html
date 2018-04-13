@@ -6,42 +6,22 @@
       <ion-option *ngFor="let lang of languages" [value]="lang.value">{{lang.name}}</ion-option>
     </ion-select>
   </ion-item>
-  <!-- <ion-item>
-    <div class="checkbox">
-      <label>
-        <input type="checkbox" [(ngModel)]="settings.autoSelectArbitratorsWithMatchingLanguage"
-               (ionChange)="settings.saveSettings()">
-        {{'ACCOUNT.ARBITRATOR.AUTO_SELECT_ARBITRATORS_WITH_MATCHING_LANGUAGE' | translate }} </label>
-    </div>
-  </ion-item> -->
-  <div class="card mt-2">
-    <div class="card-header">{{'ACCOUNT.ARBITRATOR.WHICH_ARBITRATORS_DO_YOU_ACCEPT' | translate }}</div>
-    <div class="card-body">
-      <div *ngIf="loading" class="d-flex justify-content-center align-items-center m-4 loading">
-        <h1>{{'SHARED.LOADING' | translate}}..</h1>
-        <ion-spinner></ion-spinner>
-      </div>
-      <div *ngIf="!arbitrators.length && !loading" class="card no-results-card borderless">
-        <div class="card-body">
-          <span>{{'ACCOUNT.ARBITRATOR.NO_RESULTS' | translate}}</span>
-        </div>
-      </div>
-      <div *ngIf="arbitrators.length && !loading" class="row">
-        <div class="col-md-6 col-lg-4" *ngFor="let arbitrator of arbitrators">
-          <div class="card">
-            <div class="card-header">{{'ACCOUNT.ARBITRATOR.ARBITRATOR_ADDRESS' | translate }} : {{arbitrator.address}}</div>
-            <div class="buttons">
-              <ion-item>
-                <ion-label>{{'ACCOUNT.ARBITRATOR.SELECTED' | translate}}</ion-label>
-                <ion-toggle [(ngModel)]="arbitratorsSelection[arbitrator.address]" [disabled]="doingActionOn[arbitrator.address]"
+  <ion-item>
+    <ion-label>{{'ACCOUNT.ARBITRATOR.WHICH_ARBITRATORS_DO_YOU_ACCEPT' | translate }}</ion-label>
+  </ion-item>
+  <ion-list *ngIf="arbitrators.length && !loading">
+    <ion-item *ngFor="let arbitrator of arbitrators">
+      <ion-label>{{arbitrator.address}}</ion-label>
+      <ion-toggle [(ngModel)]="arbitratorsSelection[arbitrator.address]" [disabled]="doingActionOn[arbitrator.address]"
                   (ionChange)="onSelectionChange($event, arbitrator.address)"></ion-toggle>
-              </ion-item>
-            </div>
-          </div>
-        </div>
-      </div>
+    </ion-item>
+  </ion-list>
+  <div *ngIf="!arbitrators.length && !loading" class="card no-results-card borderless">
+    <div class="card-body">
+      <span>{{'ACCOUNT.ARBITRATOR.NO_RESULTS' | translate}}</span>
     </div>
   </div>
+
   <div class="row ml-4">
     <ion-item class="col-6">
       <ion-label>{{'ACCOUNT.ARBITRATOR.AUTO_SELECT_ARBITRATORS' | translate }}</ion-label>
