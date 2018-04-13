@@ -18,7 +18,8 @@ export class TradeDetailsComponent implements OnInit {
   stepsMap;
   selectedTradeStep;
   selectedTradeRole;
-  onStateChange;
+  stateChangeSubscriber;
+  paramSubscriber;
 
   endDate;
   tradeDuration;
@@ -34,15 +35,21 @@ export class TradeDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.init();
-    this.onStateChange = this.tradesCache.onStateChange.subscribe(tradeId => {
+    this.stateChangeSubscriber = this.tradesCache.onStateChange.subscribe(tradeId => {
       if (tradeId === this.trade.id) {
+        this.init();
+      }
+    });
+    this.paramSubscriber = this.activeRoute.params.subscribe(params => {
+      if (this.trade && this.trade.id !== params.id) {
         this.init();
       }
     });
   }
 
   ngOnDestroy() {
-    this.onStateChange.unsubscribe();
+    this.stateChangeSubscriber.unsubscribe();
+    this.paramSubscriber.unsubscribe();
   }
 
   init() {
