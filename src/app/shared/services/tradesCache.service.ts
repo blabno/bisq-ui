@@ -102,7 +102,9 @@ export class TradesCacheService {
     } else if ('DEPOSIT_CONFIRMED_IN_BLOCK_CHAIN' === trade.state && 'buyer' === trade.tradeRole) {
       modalOptions = {
         title: t('TRADES_CACHE.TRADE_CONFIRMED_IN_BLOCKCHAIN_TITLE'),
-        text: t('TRADES_CACHE.TRADE_CONFIRMED_IN_BLOCKCHAIN_BUYER_TEXT'),
+        text: 'BLOCK_CHAINS' === trade.offer.paymentMethodId ?
+          t('TRADES_CACHE.TRADE_CONFIRMED_IN_BLOCKCHAIN_BUYER_ALTCOIN_TEXT') :
+          t('TRADES_CACHE.TRADE_CONFIRMED_IN_BLOCKCHAIN_BUYER_FIAT_TEXT'),
         translateParams: {
           id: trade.id.split('-')[0],
           volume: _.round(trade.tradePrice * trade.tradeAmount / 10e11, 2),
@@ -122,13 +124,16 @@ export class TradesCacheService {
     } else if ('SELLER_RECEIVED_FIAT_PAYMENT_INITIATED_MSG' === trade.state && 'seller' === trade.tradeRole) {
       modalOptions = {
         title: t('TRADES_CACHE.TRADE_PAYMENT_INITIATED_TITLE'),
-        text: t('TRADES_CACHE.TRADE_PAYMENT_INITIATED_TEXT'),
+        text: 'BLOCK_CHAINS' === trade.offer.paymentMethodId ?
+          t('TRADES_CACHE.TRADE_PAYMENT_INITIATED_ALTCOIN_TEXT') :
+          t('TRADES_CACHE.TRADE_PAYMENT_INITIATED_FIAT_TEXT'),
         translateParams: {
           id: trade.id.split('-')[0],
           counterCurrency: trade.offer.counterCurrencyCode,
           volume: _.round(trade.tradePrice * trade.tradeAmount / 10e11, 2),
           baseCurrency: trade.offer.baseCurrencyCode,
           buyerPaymentName: trade.buyerPaymentAccount.holderName,
+          sellerAddress: trade.sellerPaymentAccount.address,
         }
       }
     } else if ('BUYER_RECEIVED_PAYOUT_TX_PUBLISHED_MSG' === trade.state && 'buyer' === trade.tradeRole) {

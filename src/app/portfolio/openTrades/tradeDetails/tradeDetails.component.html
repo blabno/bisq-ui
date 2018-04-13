@@ -1,10 +1,14 @@
 <app-section-header class="d-none d-lg-block"></app-section-header>
 <div *ngIf="trade" class="row">
   <div class="col-lg-4">
-    <app-trade-status [text]="stepsMap.steps[0].labels[selectedTradeRole]" [currentStep]="selectedTradeStep" definedStep="1"></app-trade-status>
-    <app-trade-status [text]="stepsMap.steps[1].labels[selectedTradeRole]" [currentStep]="selectedTradeStep" definedStep="2"></app-trade-status>
-    <app-trade-status [text]="stepsMap.steps[2].labels[selectedTradeRole]" [currentStep]="selectedTradeStep" definedStep="3"></app-trade-status>
-    <app-trade-status [text]="stepsMap.steps[3].labels[selectedTradeRole]" [currentStep]="selectedTradeStep" definedStep="4"></app-trade-status>
+    <app-trade-status [text]="stepsMap.steps[0].labels[selectedTradeRole]" [currentStep]="selectedTradeStep"
+                      definedStep="1"></app-trade-status>
+    <app-trade-status [text]="stepsMap.steps[1].labels[selectedTradeRole]" [currentStep]="selectedTradeStep"
+                      definedStep="2"></app-trade-status>
+    <app-trade-status [text]="stepsMap.steps[2].labels[selectedTradeRole]" [currentStep]="selectedTradeStep"
+                      definedStep="3"></app-trade-status>
+    <app-trade-status [text]="stepsMap.steps[3].labels[selectedTradeRole]" [currentStep]="selectedTradeStep"
+                      definedStep="4"></app-trade-status>
     <div *ngIf="'NO_DISPUTE' != trade.disputeState">
       <div class="card" *ngIf="'DISPUTE_REQUESTED' === trade.disputeState">
         <div class="card-header">{{'PORTFOLIO.OPEN_TRADES.DISPUTE_OPENED' | translate}}</div>
@@ -69,12 +73,14 @@
           </div>
           <div class="label">{{'PORTFOLIO.OPEN_TRADES.BUYER_DETAILS' | translate}}</div>
           <div>{{trade.buyerPaymentAccount.paymentDetails}}</div>
-          <div class="label">{{'PORTFOLIO.OPEN_TRADES.COUNTRY_OF_BANK' | translate}}</div>
-          <div>{{trade.buyerPaymentAccount.countryCode}}</div>
-          <div class="label">IBAN</div>
-          <div>{{trade.buyerPaymentAccount.iban}}</div>
-          <div class="label">BIC</div>
-          <div>{{trade.buyerPaymentAccount.bic}}</div>
+          <div *ngIf="'SEPA' === trade.offer.paymentMethodId || 'SEPA_INSTANT' === trade.offer.paymentMethodId">
+            <div class="label">{{'PORTFOLIO.OPEN_TRADES.COUNTRY_OF_BANK' | translate}}</div>
+            <div>{{trade.buyerPaymentAccount.countryCode}}</div>
+            <div class="label">IBAN</div>
+            <div>{{trade.buyerPaymentAccount.iban}}</div>
+            <div class="label">BIC</div>
+            <div>{{trade.buyerPaymentAccount.bic}}</div>
+          </div>
           <div class="label">{{'PORTFOLIO.OPEN_TRADES.REASON_FOR_PAYMENT' | translate}}</div>
           <div>{{trade.id.split('-')[0]}}</div>
         </div>
