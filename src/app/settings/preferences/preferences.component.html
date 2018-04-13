@@ -77,8 +77,8 @@
           <ion-item class="card-body">
             <ion-label floating>{{'SETTINGS.PREFERENCES.DISPLAY_NATIONAL_CURRENCIES' | translate }}</ion-label>
             <ion-select [(ngModel)]="settingsModel.fiatCurrencies" multiple="true" interface="popover">
-              <ion-option *ngFor="let nationalCurrency of availablecryptoCurrencies" [value]="nationalCurrency">
-                {{nationalCurrency}}
+              <ion-option *ngFor="let nationalCurrency of nationalCurrencies" [value]="nationalCurrency.symbol">
+                {{nationalCurrency.name}} ({{nationalCurrency.symbol}})
               </ion-option>
             </ion-select>
           </ion-item>
@@ -87,8 +87,8 @@
           <ion-item class="card-body">
             <ion-label floating>{{'SETTINGS.PREFERENCES.DISPLAY_ALTCOINS' | translate }}</ion-label>
             <ion-select [(ngModel)]="settingsModel.cryptoCurrencies" multiple="true" interface="popover">
-              <ion-option *ngFor="let cryptocCurrency of availableFiatCurrencies" [value]="cryptocCurrency">
-                {{cryptocCurrency}}
+              <ion-option *ngFor="let cryptocCurrency of cryptoCurrencies" [value]="cryptocCurrency.symbol">
+                {{cryptocCurrency.name}} ({{cryptocCurrency.symbol}})
               </ion-option>
             </ion-select>
           </ion-item>

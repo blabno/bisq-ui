@@ -33,7 +33,8 @@
             <div class="buttons">
               <ion-item>
                 <ion-label>{{'ACCOUNT.ARBITRATOR.SELECTED' | translate}}</ion-label>
-                <ion-toggle [(ngModel)]="arbitratorsSelection[arbitrator.address]" [disabled]="doingActionOn[arbitrator.address]" (ionChange)="onSelectionChange($event, arbitrator.address)"></ion-toggle>
+                <ion-toggle [(ngModel)]="arbitratorsSelection[arbitrator.address]" [disabled]="doingActionOn[arbitrator.address]"
+                  (ionChange)="onSelectionChange($event, arbitrator.address)"></ion-toggle>
               </ion-item>
             </div>
           </div>
@@ -41,7 +42,17 @@
       </div>
     </div>
   </div>
-  <button ion-button item-end color="light" class="float-right" (click)="nominateYourself()" [disabled]="nominatingInProgress">
-    {{'ACCOUNT.ARBITRATOR.NOMINATE_YOURSELF' | translate}}
-    <ion-spinner *ngIf="nominatingInProgress" item-end></ion-spinner>
-  </button>
+  <div class="row ml-4">
+    <ion-item class="col-6">
+      <ion-label>{{'ACCOUNT.ARBITRATOR.AUTO_SELECT_ARBITRATORS' | translate }}</ion-label>
+      <ion-checkbox [(ngModel)]="settingsModel.autoSelectArbitrators" (ionChange)="saveSettings()"></ion-checkbox>
+      <ion-spinner *ngIf="savingSettings" item-end></ion-spinner>
+    </ion-item>
+    <div class="col-6">
+      <button ion-button item-end color="light" class="float-right" (click)="nominateYourself()" [disabled]="nominatingInProgress">
+        {{'ACCOUNT.ARBITRATOR.NOMINATE_YOURSELF' | translate}}
+        <ion-spinner *ngIf="nominatingInProgress" item-end></ion-spinner>
+      </button>
+    </div>
+  </div>
+</div>

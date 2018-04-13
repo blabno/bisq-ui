@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 import {CurrenciesDAO} from '../../shared/DAO/currencies.dao';
 import _ from 'lodash';
@@ -11,7 +11,7 @@ import {PreferencesDAO} from '../../shared/DAO/preferences.dao';
   templateUrl: 'preferences.component.html'
 })
 
-export class PreferencesComponent implements OnInit, OnDestroy {
+export class PreferencesComponent implements OnInit {
   public savingSettings = false;
   public languagesNames = {pl: 'Polski', en: 'English'};
   public widthdrawalTransactionFeeEnabled = false;
@@ -22,11 +22,12 @@ export class PreferencesComponent implements OnInit, OnDestroy {
   public availablecryptoCurrencies = [];
   public availableFiatCurrencies = [];
   public userCountries = [];
+  public luzna = ['ACH'];
   public settingsModel = {
     "autoSelectArbitrators": true,
     "baseCurrencyNetwork": "BTC",
     "blockChainExplorer": "Blockcypher",
-    "cryptoCurrencies": [],
+    "cryptoCurrencies": ['ACH'],
     "fiatCurrencies": [],
     "ignoredTraders": [],
     "maxPriceDistance": 0.3,
@@ -53,14 +54,12 @@ export class PreferencesComponent implements OnInit, OnDestroy {
       this.userCountries = res.userCountries || [];
       return this.preferencesDAO.get();
     }).then((res: any) => {
-      _.merge(this.settingsModel, res);
+      this.settingsModel = res;
     });
   }
 
-  ngOnDestroy() {
-  }
-
   saveSettings() {
+    if(this.savingSettings) return;
     this.savingSettings = true;
     this.preferencesDAO.set(this.settingsModel).then( res => {
       _.merge(this.settingsModel, res);
