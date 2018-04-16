@@ -1,15 +1,36 @@
 app-funds-transaction {
-    .red-icon {
-        color: red
+  .table {
+    table-layout:fixed;
+    td {
+      vertical-align: middle;
     }
-    .green-icon {
-        color: green
+    tbody {
+      tr {
+        height: 57px;
+      }
+    }
+    .transaction-direction {
+      width: 25px;
+    }
+    .transaction {
+      height: 57px;
     }
     .transaction-id {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        color: blue;
-        text-decoration: underline;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      word-wrap: normal;
     }
+    .transaction-date {
+      width: 100px;
+    }
+    .transaction-value {
+      width: 100px;
+    }
+    .red-icon {
+      color: red
+    }
+    .green-icon {
+      color: green
+    }
+  }
  }
