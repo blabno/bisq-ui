@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import {Component, OnInit} from '@angular/core';
 import {WalletDAO} from '../../shared/DAO/wallet.dao';
 
@@ -13,7 +14,7 @@ export class TransactionComponent implements OnInit {
 
   ngOnInit() {
     this.walletDAO.getTransactions().then((result: any) => {
-      this.transactions = result.transactions || [];
+      this.transactions = _.sortBy(result.transactions || [], 'updateTime');
       this.loading = false;
     });
   }
