@@ -47,7 +47,7 @@ export class PreferencesComponent implements OnInit {
       this.cryptoCurrencies = _.filter(this.currencies, {type: 'crypto'});
       this.nationalCurrencies = _.filter(this.currencies, {type: 'fiat'});
       return this.preferencesDAO.getAvailableValues();
-    }).then((res: any) => {
+    }).then((res: any) => { 
       this.blockChainExplorers = res.blockChainExplorers || [];
       this.availablecryptoCurrencies  = res.cryptoCurrencies || [];
       this.availableFiatCurrencies = res.fiatCurrencies || [];

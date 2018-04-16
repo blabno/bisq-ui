@@ -15,6 +15,7 @@ import {SupportDAO} from "./shared/DAO/support.dao";
 import {TradesDAO} from './shared/DAO/trades.dao';
 import {WalletDAO} from './shared/DAO/wallet.dao';
 import {PreferencesDAO} from './shared/DAO/preferences.dao';
+import {NetworkDAO} from './shared/DAO/network.dao';
 
 import {ClipboardService} from './shared/services/clipboard.service';
 import {InfoModalService} from './shared/components/infoModal/infoModal.service';
@@ -44,7 +45,8 @@ t('WARNING');
     SettingsService,
     ToastService,
     TradesCacheService,
-    PreferencesDAO
+    PreferencesDAO,
+    NetworkDAO
   ]
 })
 export class AppComponent {
