@@ -1,16 +1,14 @@
 <div class="desktop-max-width">
   <app-section-header class="d-none d-lg-block"></app-section-header>
   <ion-item>
-    <ion-label stacked>TYPE SERVER ADDRESS</ion-label>
+    <ion-label stacked>{{'SETTINGS.BACKEND_URL_INPUT_LABEL' | translate}}</ion-label>
     <ion-input [(ngModel)]="settings.backendUrl" [ngClass]="{invalid: invalidUrl}" (ionChange)="change()"
       (keypress)="addressKeyHandler($event.keyCode)"></ion-input>
     <button *ngIf="!isSavingAlready"  ion-button item-end (click)="save()" class="save-button">{{'SAVE' | translate}}</button>
     <ion-spinner *ngIf="isSavingAlready" item-end></ion-spinner>
   </ion-item>
   <ion-list>
-    <ion-list-header>
-      Or pick address from preset:
-    </ion-list-header>
+    <ion-list-header>{{'SETTINGS.BACKEND_URL_ALT_LABEL' | translate}}</ion-list-header>
     <button *ngFor="let item of items" ion-item (click)="selectUrl(item)">
       {{item}}
     </button>

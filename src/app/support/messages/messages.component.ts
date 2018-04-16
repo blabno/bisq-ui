@@ -38,7 +38,7 @@ export class MessagesComponent implements OnDestroy, OnInit {
     this.isGettingMessages = true;
     this.scrollToEndMessages();
     this.supportDao.getMessages(this.id).then((res:any) => {
-      this.messages = _.sortBy(res, 'date');
+      this.messages = _.sortBy(res, o => new Date(o.date));
       this.isGettingMessages = false;
       this.scrollToEndMessages();
     });

@@ -804,6 +804,8 @@
 			"VERSIONS_OF_SUBSYSTEMS": "Wersje podsystemów",
 			"VERSION_DETAILS": "Wersje"
 		},
+		"BACKEND_URL_ALT_LABEL": "Lub wybierz jeden z poniższych:",
+		"BACKEND_URL_INPUT_LABEL": "WPROWADŹ ADRES SERWERA",
 		"BACKEND_URL_MISSING_REDIRECT": "Przejdź do ustawień ",
 		"BACKEND_URL_MISSING_TEXT": "Ta aplikacja wymaga prawidłowego adresu URL do działającego serwera BISQ",
 		"BACKEND_URL_MISSING_TITLE": "Brak adresu serwera",
@@ -820,7 +822,7 @@
 			"MY_ONION_ADDRESS": "Mój adres onion",
 			"OPEN_TOR_SETTINGS": "Otwórz ustawienia TORa",
 			"P2P_NETWORK": "Sieć P2P",
-			"PING": "Opóźnienie",
+			"PING": "Ping",
 			"RECEIVED": "Odebrane",
 			"RESYNC_SPV_CHAIN": "Synchronizuj łańcuch SPV",
 			"SEND": "Wysłane",

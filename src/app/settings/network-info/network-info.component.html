@@ -95,8 +95,9 @@
                 </div>
                 <div class="row">
                   <div class="col-6">{{'SETTINGS.NETWORK_INFO.PING' | translate}}</div>
-                  <div class="col-6">{{connection.roundTripTime}} MS</div>
+                  <div class="col-6">{{connection.roundTripTime}} ms</div>
                 </div>
+                <hr>
                 <div class="row">
                   <div class="col-12"> {{ 'SETTINGS.NETWORK_INFO.SEND' | translate }}: {{humanizeBytes(connection.sentBytes)}},
                     {{ 'SETTINGS.NETWORK_INFO.RECEIVED' | translate }}: {{humanizeBytes(connection.receivedBytes)}}</div>
