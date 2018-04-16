@@ -659,6 +659,7 @@
 			"BUY_BTC": "Buy BTC",
 			"CREATE_DATE": "Creation date",
 			"CURRENCY_AMOUNT": "{{currencyCode}} amount",
+			"DELETE": "Delete offer",
 			"MAKER_ADDRESS": "Maker's onion address",
 			"MAKER_FEE_ID": "Maker fee transaction ID",
 			"MIN_AMOUNT": "Min. BTC amount",

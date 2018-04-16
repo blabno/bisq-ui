@@ -17,6 +17,11 @@ export class OfferDetailsComponent {
     this.dismiss();
   }
 
+  deleteOffer() {
+    this.offer.deleteOffer(this.params.data);
+    this.dismiss();
+  }
+
   dismiss() {
     this.viewCtrl.dismiss();
   }

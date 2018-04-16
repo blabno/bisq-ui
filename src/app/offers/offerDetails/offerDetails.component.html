@@ -44,11 +44,14 @@
     <div>{{offer.offerFeePaymentTxId}}</div>
 
     <div class="button-wrapper large center">
-      <button *ngIf="'SELL' === offer.direction" class="btn btn-primary" (click)="takeOffer()">
+      <button *ngIf="'SELL' === offer.direction && !offer.deleteOffer" class="btn btn-primary" (click)="takeOffer()">
         {{'OFFERS.DETAILS.BUY_BTC' | translate}}
       </button>
-      <button *ngIf="'BUY' === offer.direction" class="btn btn-primary" (click)="takeOffer()">
+      <button *ngIf="'BUY' === offer.direction && !offer.deleteOffer" class="btn btn-primary" (click)="takeOffer()">
         {{'OFFERS.DETAILS.SELL_BTC' | translate}}
+      </button>
+      <button *ngIf="offer.deleteOffer" class="btn btn-danger" (click)="deleteOffer()">
+        {{'OFFERS.DETAILS.DELETE' | translate}}
       </button>
     </div>
 

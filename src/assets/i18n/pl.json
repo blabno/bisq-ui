@@ -659,6 +659,7 @@
 			"BUY_BTC": "Kup BTC",
 			"CREATE_DATE": "Data stworzenia",
 			"CURRENCY_AMOUNT": "Kwota w {{currencyCode}}",
+			"DELETE": "Usuń",
 			"MAKER_ADDRESS": "Onion adres twórcy",
 			"MAKER_FEE_ID": "ID opłaty za stworzenie",
 			"MIN_AMOUNT": "Min. ilość BTC",
