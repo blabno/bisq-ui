@@ -1,5 +1,5 @@
 <app-section-header class="d-none d-lg-block"></app-section-header>
-<div *ngIf="trade" class="row">
+<div *ngIf="trade" class="row p-2">
   <div class="col-lg-4">
     <app-trade-status [text]="stepsMap.steps[0].labels[selectedTradeRole]" [currentStep]="selectedTradeStep"
                       definedStep="1"></app-trade-status>

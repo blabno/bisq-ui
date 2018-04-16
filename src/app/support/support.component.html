@@ -3,12 +3,12 @@
   <h1>{{'SHARED.LOADING' | translate }}</h1>
   <ion-spinner></ion-spinner>
 </div>
-<div *ngIf="!list.length && !loading" class="card no-results-card">
+<div *ngIf="!list.length && !loading" class="card no-results-card p2">
   <div class="card-body">
     <span>{{'SUPPORT.LIST.EMPTY' | translate}}</span>
   </div>
 </div>
-<div *ngIf="list.length" class="row">
+<div *ngIf="list.length" class="row p-2">
   <div class="col-md-6 col-lg-4" *ngFor="let item of list">
     <div class="card clickable" [routerLink]="item.id">
       <div class="card-header">
