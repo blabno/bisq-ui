@@ -7,7 +7,7 @@ import {ModalController} from 'ionic-angular';
 import {AlertController} from "ionic-angular";
 
 import {OffersDAO} from '../../shared/DAO/offers.dao';
-import {P2pDAO} from '../../shared/DAO/p2p.dao';
+import {NetworkDAO} from '../../shared/DAO/network.dao';
 import {PaymentAccountsDAO} from '../../shared/DAO/paymentAccounts.dao';
 import {InfoModalService} from '../../shared/components/infoModal/infoModal.service';
 import {SettingsService} from '../../shared/services/settings.service';
@@ -49,7 +49,7 @@ export class OffersListComponent implements OnChanges {
   constructor(public settings: SettingsService,
               private paymentsDAO: PaymentAccountsDAO,
               private router: Router,
-              private p2p: P2pDAO,
+              private networkDAO: NetworkDAO,
               private offersDao: OffersDAO,
               private toast: ToastService,
               private translate: TranslateService,
@@ -59,7 +59,7 @@ export class OffersListComponent implements OnChanges {
               private preferencesDAO: PreferencesDAO) {
     this.currencyFilter = this.settings.selectedCurrencyOnOfferList || [this.NO_FILTER];
     this.methodFilter = this.settings.selectedPaymentMethodOnOfferList || this.NO_FILTER;
-    this.p2p.status().then(res => {
+    this.networkDAO.getP2PNetworkStatus().then(res => {
       this.myAddress = _.get(res, 'address');
       return preferencesDAO.get();
     }).then((settings: any)=> {

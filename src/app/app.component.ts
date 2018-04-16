@@ -9,12 +9,12 @@ import {MainComponent} from './main/main.component';
 import {ArbitratorsDAO} from './shared/DAO/arbitrators.dao';
 import {CurrenciesDAO} from './shared/DAO/currencies.dao';
 import {OffersDAO} from './shared/DAO/offers.dao';
-import {P2pDAO} from './shared/DAO/p2p.dao';
 import {PaymentAccountsDAO} from './shared/DAO/paymentAccounts.dao';
 import {SupportDAO} from "./shared/DAO/support.dao";
 import {TradesDAO} from './shared/DAO/trades.dao';
 import {WalletDAO} from './shared/DAO/wallet.dao';
 import {PreferencesDAO} from './shared/DAO/preferences.dao';
+import {NetworkDAO} from './shared/DAO/network.dao';
 
 import {ClipboardService} from './shared/services/clipboard.service';
 import {InfoModalService} from './shared/components/infoModal/infoModal.service';
@@ -33,7 +33,6 @@ t('WARNING');
     ArbitratorsDAO,
     CurrenciesDAO,
     OffersDAO,
-    P2pDAO,
     PaymentAccountsDAO,
     SupportDAO,
     TradesDAO,
@@ -44,7 +43,8 @@ t('WARNING');
     SettingsService,
     ToastService,
     TradesCacheService,
-    PreferencesDAO
+    PreferencesDAO,
+    NetworkDAO
   ]
 })
 export class AppComponent {

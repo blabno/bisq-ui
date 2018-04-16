@@ -2,7 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 
 import {SettingsService} from '../../shared/services/settings.service';
-import {P2pDAO} from '../../shared/DAO/p2p.dao';
+import {NetworkDAO} from '../../shared/DAO/network.dao';
 import {TradesCacheService} from '../../shared/services/tradesCache.service';
 import {ToastService} from '../../shared/services/toast.service';
 import t from '../../shared/defineTextToTranslate';
@@ -22,7 +22,7 @@ export class BackendUrlComponent implements OnInit, OnDestroy {
   isSavingAlready = false;
 
   constructor(public settings: SettingsService,
-              private p2pDAO: P2pDAO,
+              private networkDAO: NetworkDAO,
               private router: Router,
               private toast: ToastService,
               private tradesCache: TradesCacheService) {
@@ -54,7 +54,7 @@ export class BackendUrlComponent implements OnInit, OnDestroy {
       return;
     }
     this.isSavingAlready = true;
-    this.p2pDAO.status()
+    this.networkDAO.getP2PNetworkStatus()
       .then(() => {
         this.invalidUrl = false;
         this.toast.show(t('SETTINGS.BACKEND_URL_UPDATED'), 'success');
