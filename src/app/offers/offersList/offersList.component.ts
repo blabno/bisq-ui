@@ -19,7 +19,8 @@ import {PreferencesDAO} from '../../shared/DAO/preferences.dao';
 
 t([
   'SELL',
-  'BUY'
+  'BUY',
+  'OFFERS.LIST.DELETE_CONFIRM'
 ]);
 
 @Component({
@@ -154,7 +155,7 @@ export class OffersListComponent implements OnChanges {
   deleteOffer(offer) {
     this.alertCtrl.create({
       title: this.translate.instant('WARNING'),
-      message: t('OFFERS.LIST.DELETE_CONFIRM'),
+      message: this.translate.instant('OFFERS.LIST.DELETE_CONFIRM'),
       buttons: [
         {
           text: this.translate.instant('CANCEL'),
@@ -179,11 +180,21 @@ export class OffersListComponent implements OnChanges {
   }
 
   offerDetails(offer) {
+    let action = {
+      deleteOffer: null,
+      takeOffer: null
+    };
+    if(this.myAddress === offer.ownerNodeAddress) {
+      action.deleteOffer = offer => this.deleteOffer(offer);
+    }
+    else {
+      action.takeOffer = offer => this.takeOffer(offer)
+    }
     this.modalCtrl.create(OfferDetailsComponent, {
       ...offer,
       offerAmount: this.getOfferAmount(offer),
       offerPrice: this.getOfferPrice(offer),
-      takeOffer: offer => this.takeOffer(offer)
+      ...action
     }).present();
   }
 
