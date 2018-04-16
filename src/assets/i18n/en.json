@@ -589,6 +589,7 @@
 	"CONFIRM": "Confirm",
 	"DISCARD": "Discard",
 	"FUNDS": {
+		"DATE": "Date",
 		"RECEIVE": {
 			"ADDRESS": "Address",
 			"AMOUNT_IN_BTC": "Amount in BTC (Optional)",
@@ -605,9 +606,10 @@
 			"TRANSACTIONS": "Transactions"
 		},
 		"TRANSACTIONS": {
-			"NO_RESULTS": "There are no transactions to show",
-			"TRANSACTION_ID": "Transaction ID"
-		}
+			"NO_RESULTS": "There are no transactions to show"
+		},
+		"TRANSACTION_ID": "TxID",
+		"VALUE": "Value"
 	},
 	"INFO_MODAL": {
 		"DO_NOT_SHOW_AGAIN": "Don't show again"

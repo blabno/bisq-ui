@@ -589,6 +589,7 @@
 	"CONFIRM": "Potwierdź",
 	"DISCARD": "Porzuć",
 	"FUNDS": {
+		"DATE": "Data",
 		"RECEIVE": {
 			"ADDRESS": "Adres",
 			"AMOUNT_IN_BTC": "Kwota w BTC (Opcjonalne)",
@@ -605,9 +606,10 @@
 			"TRANSACTIONS": "Transakcje"
 		},
 		"TRANSACTIONS": {
-			"NO_RESULTS": "Nie posiadasz transakcji do wyświetlenia",
-			"TRANSACTION_ID": "ID Transakcji"
-		}
+			"NO_RESULTS": "Nie posiadasz transakcji do wyświetlenia"
+		},
+		"TRANSACTION_ID": "TxID",
+		"VALUE": "Wartość"
 	},
 	"INFO_MODAL": {
 		"DO_NOT_SHOW_AGAIN": "Nie pokazuj ponownie"
