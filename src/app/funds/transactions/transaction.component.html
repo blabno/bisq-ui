@@ -1,31 +1,33 @@
-<app-section-header class="d-none d-lg-block"></app-section-header>
-<div *ngIf="loading" class="d-flex justify-content-center align-items-center m-4 loading">
-  <h1>{{'SHARED.LOADING' | translate}}..</h1>
-  <ion-spinner></ion-spinner>
-</div>
-<div *ngIf="!transactions.length && !loading" class="card no-results-card">
-  <div class="card-body">
-    <span>{{'FUNDS.TRANSACTIONS.NO_RESULTS' | translate}}</span>
+<div class="desktop-max-width">
+  <app-section-header class="d-none d-lg-block"></app-section-header>
+  <div *ngIf="loading" class="d-flex justify-content-center align-items-center m-4 loading">
+    <h1>{{'SHARED.LOADING' | translate}}..</h1>
+    <ion-spinner></ion-spinner>
   </div>
+  <div *ngIf="!transactions.length && !loading" class="card no-results-card">
+    <div class="card-body">
+      <span>{{'FUNDS.TRANSACTIONS.NO_RESULTS' | translate}}</span>
+    </div>
+  </div>
+  <table *ngIf="!loading && transactions.length" class="table table-striped">
+    <thead>
+      <tr>
+          <th class="transaction-direction"></th>
+          <th class="transaction-id">{{'FUNDS.TRANSACTION_ID' | translate}}</th>
+          <th class="transaction-date">{{'FUNDS.DATE' | translate}}</th>
+          <th class="transaction-value">{{'FUNDS.VALUE' | translate}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let transaction of transactions" class="transaction">
+        <td class="transaction-direction">
+          <i *ngIf="transaction.value >= 0" class="fas fa-plus-circle green-icon"></i>
+          <i *ngIf="0 > transaction.value" class="fas fa-minus-circle red-icon"></i>
+        </td>
+        <td class="transaction-id">{{transaction.hash}}</td>
+        <td class="transaction-date">{{transaction.updateTime | date:'medium'}}</td>
+        <td class="transaction-value">{{transaction.value/1e8}} BTC</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
-<table *ngIf="!loading && transactions.length" class="table table-striped">
-  <thead>
-  <tr>
-    <th class="transaction-direction"></th>
-    <th class="transaction-id">{{'FUNDS.TRANSACTION_ID' | translate}}</th>
-    <th class="transaction-date">{{'FUNDS.DATE' | translate}}</th>
-    <th class="transaction-value">{{'FUNDS.VALUE' | translate}}</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let transaction of transactions" class="transaction">
-    <td class="transaction-direction">
-      <i *ngIf="transaction.value >= 0" class="fas fa-plus-circle green-icon"></i>
-      <i *ngIf="0 > transaction.value" class="fas fa-minus-circle red-icon"></i>
-    </td>
-    <td class="transaction-id">{{transaction.hash}}</td>
-    <td class="transaction-date">{{transaction.updateTime | date:'medium'}}</td>
-    <td class="transaction-value">{{transaction.value/1e8}} BTC</td>
-  </tr>
-  </tbody>
-</table>

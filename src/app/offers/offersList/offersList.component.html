@@ -1,5 +1,5 @@
 <app-section-header class="d-none d-lg-block"></app-section-header>
-<div class="row">
+<div class="row px-4">
   <div class="col-lg-4">
     <button *ngIf="'buy' === type" ion-button class="create" routerLink="./create">
       {{ 'OFFERS.CREATE_BUY_BUTTON' | translate}}
@@ -49,7 +49,7 @@
     </ion-item>
   </div>
 </div>
-<div>{{'OFFERS.LIST.NO_OFFERS' | translate}}: {{list.length || 0}}</div>
+<div class="pl-4">{{'OFFERS.LIST.NO_OFFERS' | translate}}: {{list.length || 0}}</div>
 <div *ngIf="loading" class="d-flex justify-content-center align-items-center m-4 loading">
   <h1>{{'SHARED.LOADING' | translate}}..</h1>
   <ion-spinner></ion-spinner>
