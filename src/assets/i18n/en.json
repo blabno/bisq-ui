@@ -805,6 +805,8 @@
 			"VERSIONS_OF_SUBSYSTEMS": "Versions of subsystems",
 			"VERSION_DETAILS": "Version details"
 		},
+		"BACKEND_URL_ALT_LABEL": "Or pick address from preset:",
+		"BACKEND_URL_INPUT_LABEL": "TYPE SERVER ADDRESS",
 		"BACKEND_URL_MISSING_REDIRECT": "Go to setup",
 		"BACKEND_URL_MISSING_TEXT": "This application requires correct URL address to running BISQ server.",
 		"BACKEND_URL_MISSING_TITLE": "Server address is undefined",
