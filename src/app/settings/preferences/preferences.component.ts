@@ -22,7 +22,6 @@ export class PreferencesComponent implements OnInit {
   public availablecryptoCurrencies = [];
   public availableFiatCurrencies = [];
   public userCountries = [];
-  public luzna = ['ACH'];
   public settingsModel = {
     "autoSelectArbitrators": true,
     "baseCurrencyNetwork": "BTC",
@@ -55,12 +54,14 @@ export class PreferencesComponent implements OnInit {
       return this.preferencesDAO.get();
     }).then((res: any) => {
       this.settingsModel = res;
+      this.translate.use(this.settingsModel.userLanguage);
     });
   }
 
   saveSettings() {
     if(this.savingSettings) return;
     this.savingSettings = true;
+    this.translate.use(this.settingsModel.userLanguage);
     this.preferencesDAO.set(this.settingsModel).then( res => {
       _.merge(this.settingsModel, res);
       this.savingSettings = false;
@@ -72,7 +73,6 @@ export class PreferencesComponent implements OnInit {
   }
 
   langChange(e) {
-    this.translate.use(e);
     this.settingsModel.userLanguage = e;
   }
 

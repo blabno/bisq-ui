@@ -12,8 +12,8 @@
       </ion-item>
       <ion-item>
         <ion-label floating>{{ 'SETTINGS.PREFERENCES.LANGUAGE' | translate }}</ion-label>
-        <ion-select (ionChange)="langChange($event)" interface="popover">
-          <ion-option *ngFor="let l of translate.getLangs()" [value]="l" [selected]="translate.currentLang === l">
+        <ion-select (ionChange)="langChange($event)" [(ngModel)]="settingsModel.userLanguage" interface="popover">
+          <ion-option *ngFor="let l of translate.getLangs()" [value]="l">
             {{languagesNames[l]}}
           </ion-option>
         </ion-select>
