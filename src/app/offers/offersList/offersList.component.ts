@@ -208,6 +208,10 @@ export class OffersListComponent implements OnChanges {
     this.isFilterVisible = !this.isFilterVisible;
   }
 
+  isMyOffer(offer) {
+    return this.myAddress === offer.ownerNodeAddress
+  }
+
   private createCurrenciesList() {
     this.currencies = _.chain(this.data)
       .filter({direction: this.type === 'sell' ? 'BUY' : 'SELL'})

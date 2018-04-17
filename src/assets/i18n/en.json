@@ -853,6 +853,7 @@
 			"RESET_ALL": "Reset all \"Don't show again\" flags",
 			"SAVE": "Save",
 			"SETTINGS_SAVED": "Settings saved",
+			"SHOW_MY_OWN_OFFERS_IN_OFFER_BOOK": "Show my own offers on offers list",
 			"USE_CUSTOM_VALUE": "Use custom value",
 			"WIDTHDRAWAL_TRANSACTION_FEE": "Widthdrawal transaction fee"
 		},

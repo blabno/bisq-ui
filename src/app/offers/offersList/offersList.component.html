@@ -93,17 +93,17 @@
     </td>
     <td class="action d-none d-lg-table-cell">
       <div class="btn" [ngClass]="{
-            'btn-primary': 'buy' === type,
-            'btn-warning': 'sell' === type,
-            'btn-danger': 'my-offers' === type
+            'btn-primary': 'buy' === type && !isMyOffer(item),
+            'btn-warning': 'sell' === type && !isMyOffer(item),
+            'btn-danger': isMyOffer(item)
             }">
-        <div *ngIf="'buy' === type" class="select-button" (click)="takeOffer(item)">
+        <div *ngIf="'buy' === type && !isMyOffer(item)" class="select-button" (click)="takeOffer(item)">
           <i class="fas fa-download menu-icon"></i>{{'OFFERS.LIST.BUY' | translate}}
         </div>
-        <div *ngIf="'sell' === type" class="select-button" (click)="takeOffer(item)">
+        <div *ngIf="'sell' === type && !isMyOffer(item)" class="select-button" (click)="takeOffer(item)">
           <i class="fas fa-upload menu-icon"></i>{{'OFFERS.LIST.SELL' | translate}}
         </div>
-        <div *ngIf="'my-offers' === type" class="select-button" (click)="deleteOffer(item)">
+        <div *ngIf="isMyOffer(item)" class="select-button" (click)="deleteOffer(item)">
           <i class="fas fa-trash-alt menu-icon"></i>{{'OFFERS.LIST.DELETE' | translate}}
         </div>
       </div>
