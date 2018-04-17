@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {Injectable, NgZone} from '@angular/core';
 import {Subject} from 'rxjs/Subject';
 import _ from 'lodash';
 
@@ -70,12 +70,15 @@ export class TradesCacheService {
   constructor(private infoModal: InfoModalService,
               private toast: ToastService,
               private tradesDAO: TradesDAO,
-              private router: Router) {
+              private router: Router,
+              private ngZone: NgZone) {
   }
 
   init() {
     this.stop();
-    this.interval = setInterval(() => this.refresh().catch(_.noop), 10 * 1000);
+    this.ngZone.runOutsideAngular(() => {
+      this.interval = setInterval(() => this.refresh().catch(_.noop), 10 * 1000);
+    });
   }
 
   stop() {
