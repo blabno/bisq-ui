@@ -100,6 +100,11 @@
     <div class="card-header">{{'SETTINGS.PREFERENCES.DISPLAY_OPTIONS' | translate }}</div>
     <div class="card-body">
       <ion-item>
+        <ion-label>{{'SETTINGS.PREFERENCES.SHOW_MY_OWN_OFFERS_IN_OFFER_BOOK' | translate }}</ion-label>
+        <ion-checkbox [(ngModel)]="settings.showMyOwnOffersInOfferBook"
+                      (ionChange)="settings.saveSettings()"></ion-checkbox>
+      </ion-item>
+      <ion-item>
         <button ion-button color="light" (click)="resetAllHiddenModalsPreferences()">{{'SETTINGS.PREFERENCES.RESET_ALL' | translate }}</button>
       </ion-item>
     </div>
