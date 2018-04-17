@@ -16,10 +16,10 @@
     <span class="text">{{data.text | translate:data.translateParams}}</span>
     <div class="buttons">
       <div class="button-wrapper" [ngClass]="redirectButton && redirectButton.class">
-        <button *ngIf="doNotShowButton" ion-button color="light" (click)="dismissPermanently()">
+        <button *ngIf="doNotShowButton" ion-button name="do-not-show" color="light" (click)="dismissPermanently()">
           {{'INFO_MODAL.DO_NOT_SHOW_AGAIN' | translate}}
         </button>
-        <button *ngIf="redirectButton" ion-button (click)="redirect()">
+        <button *ngIf="redirectButton" ion-button name="redirect" (click)="redirect()">
           {{redirectButton.text | translate}}
         </button>
       </div>
