@@ -58,7 +58,7 @@
     <button *ngIf="selectedWallet.address" ion-button (click)="getBack()">
       {{'FUNDS.RECEIVE.BACK' | translate}}
     </button>
-    <button ion-button color="light" (click)="generateAddress()" [disabled]="generateInProgress">
+    <button *ngIf="type === 'RECEIVE_FUNDS'" ion-button color="light" (click)="generateAddress()" [disabled]="generateInProgress">
       {{'FUNDS.RECEIVE.NEW_ADDRESS' | translate}}
       <ion-spinner *ngIf="generateInProgress" item-end></ion-spinner>
     </button>
