@@ -27,7 +27,7 @@ function seedAccounts() {
           paymentDetails: 'Uphold - Account: 987987',
           paymentMethod: 'UPHOLD',
           selectedTradeCurrency: 'USD',
-          tradeCurrencies: ['USD', 'EUR',],
+          tradeCurrencies: ['USD', 'EUR'],
           accountId: '987987'
         }
       ]

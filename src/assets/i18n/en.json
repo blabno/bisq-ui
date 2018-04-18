@@ -589,11 +589,13 @@
 	"CONFIRM": "Confirm",
 	"DISCARD": "Discard",
 	"FUNDS": {
+		"ADDRESS": "Address",
+		"BALANCE": "Balance",
+		"CONFIRMATIONS": "Conf.",
 		"DATE": "Date",
 		"RECEIVE": {
 			"ADDRESS": "Address",
 			"AMOUNT_IN_BTC": "Amount in BTC (Optional)",
-			"BACK": "Back",
 			"FUND_YOUR_WALLET": "Fund your wallet",
 			"NEW_ADDRESS": "Generate new address",
 			"NO_RESULTS": "No wallet addresses"
