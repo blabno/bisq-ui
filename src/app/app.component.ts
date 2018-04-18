@@ -56,9 +56,12 @@ export class AppComponent {
               private infoModal: InfoModalService,
               private settings: SettingsService,
               private tradesCache: TradesCacheService,
-              private translate: TranslateService) {
+              private translate: TranslateService,
+              private preferences: PreferencesDAO) {
     this.translate.setDefaultLang('en');
-    this.translate.use(settings.language);
+    this.preferences.get().then((res: any) => {
+      this.translate.use(res.userLanguage);
+    });
     this.translate.addLangs(['pl', 'en']);
     this.tradesCache.init();
     if (!this.settings.backendUrl) {
