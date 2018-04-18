@@ -589,11 +589,13 @@
 	"CONFIRM": "Potwierdź",
 	"DISCARD": "Porzuć",
 	"FUNDS": {
+		"ADDRESS": "Adres",
+		"BALANCE": "Saldo",
+		"CONFIRMATIONS": "Potw.",
 		"DATE": "Data",
 		"RECEIVE": {
 			"ADDRESS": "Adres",
 			"AMOUNT_IN_BTC": "Kwota w BTC (Opcjonalne)",
-			"BACK": "Powrót",
 			"FUND_YOUR_WALLET": "Zasil konto",
 			"NEW_ADDRESS": "Wygeneruj nowy adres",
 			"NO_RESULTS": "Brak adresów"

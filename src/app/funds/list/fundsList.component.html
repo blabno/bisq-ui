@@ -1,18 +1,22 @@
 <div class="desktop-max-width p-2">
-  <app-section-header class="d-none d-lg-block"></app-section-header>
-  <div *ngIf="!selectedWallet.address && !loading" class="row">
-    <div class="col-md-6 col-lg-4 mb-2" *ngFor="let wallet of walletAddresses">
-      <div class="card clickable" (click)="selectWallet(wallet)">
-        <div class="card-header" [ngClass]="{'selected-wallet': wallet.address === selectedWallet.address}">
-          <div class="row">
-            <div class="col-6 wallet-address"> {{wallet.address}}</div>
-            <div class="col-6"> {{wallet.balance / 100000000}} BTC </div>
-          </div>
-        </div>
-        <div class="card-body confirmations">Confirmations: {{wallet.confirmations}}</div>
-      </div>
-    </div>
-  </div>
+<app-section-header class="d-none d-lg-block"></app-section-header>
+<table class="table table-striped" *ngIf="!selectedWallet.address && !loading && walletAddresses.length">
+  <thead>
+  <tr>
+    <th  class="funds-address">{{'FUNDS.ADDRESS' | translate}}</th>
+    <th class="funds-confirmations">{{'FUNDS.CONFIRMATIONS' | translate}}</th>
+    <th class="funds-balance">{{'FUNDS.BALANCE' | translate}}</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let wallet of walletAddresses" class="clickable" (click)="selectWallet(wallet)">
+    <td  class="funds-address">{{wallet.address}}</td>
+    <td class="funds-confirmations">{{wallet.confirmations}}</td>
+    <td class="funds-balance">{{wallet.balance / 1e8}} BTC </td>
+  </tr>
+  </tbody>
+</table>
+
   <div *ngIf="selectedWallet.address" class="card">
     <div class="card-header">{{'FUNDS.RECEIVE.FUND_YOUR_WALLET' | translate}}</div>
     <div class="card-body">
@@ -56,7 +60,7 @@
   </div>
   <div class="buttons">
     <button *ngIf="selectedWallet.address" ion-button (click)="getBack()">
-      {{'FUNDS.RECEIVE.BACK' | translate}}
+      {{'BACK' | translate}}
     </button>
     <button *ngIf="type === 'RECEIVE_FUNDS'" ion-button color="light" (click)="generateAddress()" [disabled]="generateInProgress">
       {{'FUNDS.RECEIVE.NEW_ADDRESS' | translate}}

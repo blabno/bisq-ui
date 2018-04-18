@@ -5,17 +5,20 @@ app-funds-list {
   .field-label {
     text-align: right;
   }
-  .selected-wallet {
-    background: var(--blue);
-    color: var(--light);
+  table {
+    table-layout:fixed;
   }
-  .wallet-address {
+  .funds-address {
     overflow: hidden;
-    display: inline-block;
     text-overflow: ellipsis;
-    white-space: nowrap;
+    word-wrap: normal;
   }
-  .confirmations {
+  .funds-confirmations {
     text-align: center;
+    width: 55px;
+  }
+  .funds-balance {
+    text-align: right;
+    width:150px;
   }
 }

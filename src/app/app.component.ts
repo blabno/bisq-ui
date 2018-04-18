@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import {Component} from '@angular/core';
 import {Platform} from 'ionic-angular';
 import {StatusBar} from '@ionic-native/status-bar';
@@ -61,7 +62,7 @@ export class AppComponent {
     this.translate.setDefaultLang('en');
     this.preferences.get().then((res: any) => {
       this.translate.use(res.userLanguage);
-    });
+    }).catch(_.noop);
     this.translate.addLangs(['pl', 'en']);
     this.tradesCache.init();
     if (!this.settings.backendUrl) {
