@@ -1,4 +1,5 @@
-import {Routes} from '@angular/router';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 import {MarketComponent} from './market/market.component';
 import {OffersComponent} from './offers/offers.component';
 import {CreateOffersComponent} from './offers/createOffers/createOffers.component';
@@ -52,10 +53,11 @@ const appRoutes: Routes = [
   {path: 'settings/preferences', component: PreferencesComponent},
   {path: 'settings/network-info', component: NetworkInfoComponent},
   {path: 'settings/about', component: AboutComponent},
-  {path: 'settings/backend-url', component: BackendUrlComponent},
-
-  {path: 'network', component: MarketComponent},
-  {path: 'about', component: MarketComponent},
+  {path: 'settings/backend-url', component: BackendUrlComponent}
 ];
 
-export default appRoutes;
+@NgModule({
+  imports: [RouterModule.forRoot(appRoutes)],
+  exports: [RouterModule],
+})
+export class AppRoutingModule { }

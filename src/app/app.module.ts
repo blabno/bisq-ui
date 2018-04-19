@@ -1,6 +1,5 @@
 import {ErrorHandler, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-import {RouterModule} from '@angular/router';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
@@ -11,8 +10,6 @@ import {NgxQRCodeModule} from 'ngx-qrcode2';
 import {Clipboard} from '@ionic-native/clipboard';
 import {SplashScreen} from '@ionic-native/splash-screen';
 import {StatusBar} from '@ionic-native/status-bar';
-
-import appRoutes from './app.routes';
 
 import {AboutComponent} from './settings/about/about.component';
 import {AccountManagerComponent} from './account/accountManager/accountManager.component';
@@ -52,7 +49,9 @@ import {WalletPassComponent} from './account/wallet-pass/wallet-pass.component';
 import {WalletSeedComponent} from './account/wallet-seed/wallet-seed.component';
 import {MoreThanZeroValidator} from './shared/validators/moreThanZero.directive';
 
-const loadModules = [
+import {AppRoutingModule} from './appRouting.module';
+
+const loadComponents = [
   AboutComponent,
   AccountManagerComponent,
   AltcoinsComponent,
@@ -100,12 +99,12 @@ export function createTranslateLoader(http: HttpClient) {
 }
 
 @NgModule({
-  declarations: [...loadModules, ...directives],
+  declarations: [...loadComponents, ...directives],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes),
+    AppRoutingModule,
     IonicModule.forRoot(AppComponent),
     HttpClientModule,
     TranslateModule.forRoot({
@@ -118,7 +117,7 @@ export function createTranslateLoader(http: HttpClient) {
     NgxQRCodeModule
   ],
   bootstrap: [IonicApp],
-  entryComponents: loadModules,
+  entryComponents: loadComponents,
   providers: [
     Clipboard,
     StatusBar,
