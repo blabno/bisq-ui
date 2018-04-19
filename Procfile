@@ -1,2 +1,2 @@
-ionic: npm run serve
+ionic: npm run ionic-serve
 electron: node electron-wait-ionic.js
