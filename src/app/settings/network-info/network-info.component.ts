@@ -1,3 +1,4 @@
+import Promise from 'bluebird';
 import {Component, OnInit} from '@angular/core';
 import {ToastService} from '../../shared/services/toast.service';
 import t from '../../shared/defineTextToTranslate';
@@ -25,15 +26,13 @@ export class NetworkInfoComponent implements OnInit {
   constructor(private toast: ToastService, private networkDAO: NetworkDAO) {}
 
   ngOnInit() {
-    this.networkDAO
-      .getBitcoinStatus()
-      .then(res => {
-        this.bitcoinStatus = res || {};
-        return this.networkDAO.getP2PNetworkStatus();
-      })
-      .then(res => {
-        this.p2pStatus = res || {};
-      });
+    Promise.props({
+      bitcoin: this.networkDAO.getBitcoinStatus(),
+      p2p: this.networkDAO.getP2PNetworkStatus()
+    }).then( res => {
+      this.bitcoinStatus = res.bitcoin || {};
+      this.p2pStatus = res.p2p || {};
+    });
   }
 
   notDoneYet() {
