@@ -660,6 +660,7 @@
 			"CREATE_DATE": "Data stworzenia",
 			"CURRENCY_AMOUNT": "Kwota w {{currencyCode}}",
 			"DELETE": "Usuń",
+			"DISTANCE": "Różnica w cenie rynkowej",
 			"MAKER_ADDRESS": "Onion adres twórcy",
 			"MAKER_FEE_ID": "ID opłaty za stworzenie",
 			"MIN_AMOUNT": "Min. ilość BTC",
@@ -683,7 +684,10 @@
 				"BY_CURRENCY": "Filtruj wg. waluty",
 				"BY_METHOD": "Filtruj wg. metodzy płatności"
 			},
+			"LESS": "mniej",
 			"MARKET": "Market",
+			"MARKET_PRICE_DETAILS": "Szczegóły ceny",
+			"MORE": "więcej",
 			"NO_MATCHING_ACCOUNT_REDIRECT": "Idź do \"Konto\"",
 			"NO_MATCHING_ACCOUNT_TEXT": "Nie masz konta handlowego z metodą płatności wymaganą dla tej oferty.\nMusisz utworzyć konto handlowe aby skorzystać z tej oferty.\nCzy chcesz to zrobić teraz?",
 			"NO_MATCHING_ACCOUNT_TITLE": "Brak odpowiedniego konta handlowego.",
@@ -693,7 +697,9 @@
 			"PRICE": "Cena",
 			"SELL": "Sprzedaj",
 			"SHOW_ALL": "Pokaż wszystko",
-			"TYPE": "Typ oferty"
+			"TO_SHOW_PRICE_DETAILS_OF_OFFER": "Aby pokazać szczegóły ceny, wybierz cene oferty która Cię interesuje",
+			"TYPE": "Typ oferty",
+			"YOU_WILL_GET": "Dostaniesz {{percentage}}% {{state}} więcej od aktualnej ceny rynkowej (Aktualizowane co minutę)."
 		},
 		"TAKE_OFFER": {
 			"AMOUNT_OF_BTC_TO_BUY": "Ilość BTC do kupienia",

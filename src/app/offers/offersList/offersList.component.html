@@ -7,8 +7,7 @@
     <button *ngIf="'sell' === type" ion-button class="create" routerLink="./create">
       {{ 'OFFERS.CREATE_SELL_BUTTON' | translate}}
     </button>
-    <button ion-button color="light" class="refresh d-none d-lg-inline-block" (click)="refresh.emit()"
-            [disabled]="loading">
+    <button ion-button color="light" class="refresh d-none d-lg-inline-block" (click)="refresh.emit()" [disabled]="loading">
       {{ 'SHARED.REFRESH' | translate}}
       <ion-spinner *ngIf="loading" item-end></ion-spinner>
     </button>
@@ -33,8 +32,7 @@
   <div class="col-lg-4">
     <ion-item class="filter-item show" [ngClass]="{show: isFilterVisible}">
       <ion-label floating>{{'OFFERS.LIST.FILTER.BY_CURRENCY' | translate}}</ion-label>
-      <ion-select [(ngModel)]="currencyFilter" (ionChange)="onFilterChange()" multiple="true"
-                  placeholder="{{'OFFERS.LIST.SHOW_ALL' | translate}}">
+      <ion-select [(ngModel)]="currencyFilter" (ionChange)="onFilterChange()" multiple="true" placeholder="{{'OFFERS.LIST.SHOW_ALL' | translate}}">
         <ion-option *ngFor="let currency of supportedPaymentsCurrencies" [value]="currency">{{currency}}</ion-option>
       </ion-select>
     </ion-item>
@@ -61,59 +59,62 @@
 </div>
 <table *ngIf="list.length && !loading" class="table table-striped">
   <thead>
-  <tr>
-    <th>{{'OFFERS.LIST.MARKET' | translate}}</th>
-    <th *ngIf="'my-offers' === type"> {{'OFFERS.LIST.TYPE' | translate}}</th>
-    <th class="price">{{'OFFERS.LIST.PRICE' | translate}}</th>
-    <th class="d-sm-none">BTC</th>
-    <th class="d-none d-sm-table-cell">BTC (min-max)</th>
-    <th class="d-none d-md-table-cell">{{'OFFERS.LIST.AMOUNT' | translate}}</th>
-    <th class="payment-method d-none d-lg-table-cell">{{'OFFERS.LIST.PAYMENT_METHOD' | translate}}</th>
-    <th class="action d-none d-lg-table-cell">{{'OFFERS.LIST.ACTION' | translate}}</th>
-    <th class="owner d-none d-md-table-cell"></th>
-    <th class="info d-lg-none"></th>
-  </tr>
+    <tr>
+      <th>{{'OFFERS.LIST.MARKET' | translate}}</th>
+      <th *ngIf="'my-offers' === type"> {{'OFFERS.LIST.TYPE' | translate}}</th>
+      <th class="price clickable" (click)="showPriceDetailsInfo()">{{'OFFERS.LIST.PRICE' | translate}}
+        <i class="fas fa-question-circle info"></i>
+      </th>
+      <th class="d-sm-none">BTC</th>
+      <th class="d-none d-sm-table-cell">BTC (min-max)</th>
+      <th class="d-none d-md-table-cell">{{'OFFERS.LIST.AMOUNT' | translate}}</th>
+      <th class="payment-method d-none d-lg-table-cell">{{'OFFERS.LIST.PAYMENT_METHOD' | translate}}</th>
+      <th class="action d-none d-lg-table-cell">{{'OFFERS.LIST.ACTION' | translate}}</th>
+      <th class="owner d-none d-md-table-cell"></th>
+      <th class="info d-lg-none"></th>
+    </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let item of list" (click)="offerDetailsMobileOnly(item)">
-    <td>{{getOfferMarket(item)}}</td>
-    <td *ngIf="'my-offers' === type">{{item.direction | translate}}</td>
-    <td class="price">
-      <span *ngIf="item.useMarketBasedPrice" class="d-none d-sm-inline">
-        ({{getOfferMarketPriceMargin(item)}}%)
-      </span>
-      <span>{{getOfferPrice(item)}}</span>
-    </td>
-    <td class="d-sm-none">{{item.amount / 1e8}}</td>
-    <td class="d-none d-sm-table-cell">{{getOfferBTCAmount(item)}}</td>
-    <td class="d-none d-md-table-cell">{{getOfferAmount(item)}}</td>
-    <td class="payment-method d-none d-lg-table-cell">
-      {{item.paymentMethodId}}
-      <i class="fas fa-info-circle info clickable" (click)="offerDetails(item)"></i>
-    </td>
-    <td class="action d-none d-lg-table-cell">
-      <div class="btn" [ngClass]="{
+    <tr *ngFor="let item of list" (click)="offerDetailsMobileOnly(item)">
+      <td>{{getOfferMarket(item)}}</td>
+      <td *ngIf="'my-offers' === type">{{item.direction | translate}}</td>
+      <td class="price clickable" (click)="priceDetails(item, $event)" [ngClass]="{'clickable': item.useMarketBasedPrice}">
+        <span>{{getOfferPrice(item)}}</span>
+        <span *ngIf="item.useMarketBasedPrice" class="d-none d-sm-inline">
+          ({{getOfferMarketPriceMargin(item)}}%)
+        </span>
+        <i *ngIf="item.useMarketBasedPrice" class="fas fa-chart-line info"></i>
+      </td>
+      <td class="d-sm-none">{{item.amount / 1e8}}</td>
+      <td class="d-none d-sm-table-cell">{{getOfferBTCAmount(item)}}</td>
+      <td class="d-none d-md-table-cell">{{getOfferAmount(item)}}</ td>
+        <td class="payment-method d-none d-lg-table-cell">
+          {{item.paymentMethodId}}
+          <i class="fas fa-info-circle info clickable" (click)="offerDetails(item)"></i>
+        </td>
+        <td class="action d-none d-lg-table-cell">
+          <div class="btn" [ngClass]="{
             'btn-primary': 'buy' === type && !isMyOffer(item),
             'btn-warning': 'sell' === type && !isMyOffer(item),
             'btn-danger': isMyOffer(item)
             }">
-        <div *ngIf="'buy' === type && !isMyOffer(item)" class="select-button" (click)="takeOffer(item)">
-          <i class="fas fa-download menu-icon"></i>{{'OFFERS.LIST.BUY' | translate}}
-        </div>
-        <div *ngIf="'sell' === type && !isMyOffer(item)" class="select-button" (click)="takeOffer(item)">
-          <i class="fas fa-upload menu-icon"></i>{{'OFFERS.LIST.SELL' | translate}}
-        </div>
-        <div *ngIf="isMyOffer(item)" class="select-button" (click)="deleteOffer(item)">
-          <i class="fas fa-trash-alt menu-icon"></i>{{'OFFERS.LIST.DELETE' | translate}}
-        </div>
-      </div>
-    </td>
-    <td class="owner d-none d-md-table-cell" title="Onion adress: {{item.ownerNodeAddress}}">
-      <app-gravatar [hashSeed]="item.ownerNodeAddress" size="24"></app-gravatar>
-    </td>
-    <td class="info d-lg-none">
-      <i class="fas fa-info-circle info clickable"></i>
-    </td>
-  </tr>
+            <div *ngIf="'buy' === type && !isMyOffer(item)" class="select-button" (click)="takeOffer(item)">
+              <i class="fas fa-download menu-icon"></i>{{'OFFERS.LIST.BUY' | translate}}
+            </div>
+            <div *ngIf="'sell' === type && !isMyOffer(item)" class="select-button" (click)="takeOffer(item)">
+              <i class="fas fa-upload menu-icon"></i>{{'OFFERS.LIST.SELL' | translate}}
+            </div>
+            <div *ngIf="isMyOffer(item)" class="select-button" (click)="deleteOffer(item)">
+              <i class="fas fa-trash-alt menu-icon"></i>{{'OFFERS.LIST.DELETE' | translate}}
+            </div>
+          </div>
+        </td>
+        <td class="owner d-none d-md-table-cell" title="Onion adress: {{item.ownerNodeAddress}}">
+          <app-gravatar [hashSeed]="item.ownerNodeAddress" size="24"></app-gravatar>
+        </td>
+        <td class="info d-lg-none">
+          <i class="fas fa-info-circle info clickable"></i>
+        </td>
+    </tr>
   </tbody>
 </table>

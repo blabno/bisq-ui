@@ -23,7 +23,8 @@
     <div class="label">{{'OFFERS.DETAILS.CURRENCY_AMOUNT' | translate:offer}}</div>
     <div>{{offer.offerAmount}}</div>
     <div class="label">{{'OFFERS.DETAILS.PRICE' | translate}}</div>
-    <div>{{offer.offerAmount}}</div>
+    <div *ngIf="offer.useMarketBasedPrice" class="float-right distance-text">( {{'OFFERS.DETAILS.DISTANCE' | translate}}: {{getOfferMarketPriceMargin(offer)}}% )</div>
+    <div>{{offer.offerPrice}}</div>
     <div class="label">{{'OFFERS.DETAILS.PAYMENT_METHOD' | translate}}</div>
     <div>{{offer.paymentMethodId}}</div>
     <br/>

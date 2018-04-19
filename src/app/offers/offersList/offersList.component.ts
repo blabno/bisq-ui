@@ -20,7 +20,8 @@ import {PreferencesDAO} from '../../shared/DAO/preferences.dao';
 t([
   'SELL',
   'BUY',
-  'OFFERS.LIST.DELETE_CONFIRM'
+  'OFFERS.LIST.DELETE_CONFIRM',
+  'OFFERS.LIST.MARKET_PRICE_DETAILS',
 ]);
 
 @Component({
@@ -122,17 +123,51 @@ export class OffersListComponent implements OnChanges {
       return _.round(Number(item.price) / 1e4, 2).toFixed(2);
     }
   }
+  
+  getOfferMarketPrice(item) {
+    return (this.prices[item.baseCurrencyCode + '_' + item.counterCurrencyCode]).toFixed(2);
+  }
 
   getOfferMarketPriceMargin(item) {
     return _.round(item.marketPriceMargin * 100, 2);
   }
 
+  showPriceDetailsInfo() {
+    this.alertCtrl.create({
+      title: this.translate.instant('OFFERS.LIST.MARKET_PRICE_DETAILS'),
+      message: this.translate.instant('OFFERS.LIST.TO_SHOW_PRICE_DETAILS_OF_OFFER'),
+      buttons: [
+        {
+          text: this.translate.instant('CANCEL'),
+        }
+      ]
+    }).present();
+  }
+  
+  priceDetails(item, event) {
+    event.stopPropagation();
+    if (!item.useMarketBasedPrice) return;
+    this.alertCtrl
+      .create({
+        title: this.translate.instant('OFFERS.LIST.MARKET_PRICE_DETAILS'),
+        message: this.translate.instant('OFFERS.LIST.YOU_WILL_GET', {
+          percentage: Math.abs(this.getOfferMarketPriceMargin(item)),
+          state:
+            item.marketPriceMargin < 0
+              ? this.translate.instant('OFFERS.LIST.MORE')
+              : this.translate.instant('OFFERS.LIST.LESS')
+        }),
+        buttons: [
+          {
+            text: this.translate.instant('CANCEL')
+          }
+        ]
+      })
+      .present();
+  }
+
   getOfferMarket(item) {
-    if ('BLOCK_CHAINS' === item.paymentMethodId) {
-      return item.counterCurrencyCode + '/' + item.baseCurrencyCode;
-    } else {
-      return item.baseCurrencyCode + '/' + item.counterCurrencyCode;
-    }
+    return item.baseCurrencyCode + '/' + item.counterCurrencyCode;
   }
 
   takeOffer(offer) {

@@ -660,6 +660,7 @@
 			"CREATE_DATE": "Creation date",
 			"CURRENCY_AMOUNT": "{{currencyCode}} amount",
 			"DELETE": "Delete offer",
+			"DISTANCE": "Distance from market price",
 			"MAKER_ADDRESS": "Maker's onion address",
 			"MAKER_FEE_ID": "Maker fee transaction ID",
 			"MIN_AMOUNT": "Min. BTC amount",
@@ -683,7 +684,10 @@
 				"BY_CURRENCY": "Filter by Currency",
 				"BY_METHOD": "Filter by payment method"
 			},
+			"LESS": "less",
 			"MARKET": "Market",
+			"MARKET_PRICE_DETAILS": "Market price details",
+			"MORE": "more",
 			"NO_MATCHING_ACCOUNT_REDIRECT": "Go to \"Account\"",
 			"NO_MATCHING_ACCOUNT_TEXT": "You don't have a trading account with the payment method required for that offer.\nYou need to setup a trading account with that payment method if you want to take this offer.\nDo you want to do this now?",
 			"NO_MATCHING_ACCOUNT_TITLE": "No matching trading account.",
@@ -693,7 +697,9 @@
 			"PRICE": "Price",
 			"SELL": "Sell",
 			"SHOW_ALL": "Show all",
-			"TYPE": "Offer type"
+			"TO_SHOW_PRICE_DETAILS_OF_OFFER": "The percentage prices are based on the distance in the market price updated every minute (Prices with chart next to them).\nTo show the details of the price, select the price of the offer that interests you.",
+			"TYPE": "Offer type",
+			"YOU_WILL_GET": "You will get {{percentage}}% {{state}} than the current market price (Updated every minute)."
 		},
 		"TAKE_OFFER": {
 			"AMOUNT_OF_BTC_TO_BUY": "Amount of BTC to buy",
