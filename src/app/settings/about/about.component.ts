@@ -1,10 +1,11 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {AppDAO} from '../../shared/DAO/app.dao';
 
 @Component({
   selector: 'app-about',
   templateUrl: 'about.component.html'
 })
-export class AboutComponent {
+export class AboutComponent implements OnInit {
   public marketPricesProviders = [
     {name: 'BitcoinAverage', www: 'https://bitcoinaverage.com'},
     {name: 'Poloniex', www: 'https://poloniex.com'},
@@ -13,15 +14,15 @@ export class AboutComponent {
   public miningFeesEstimationProviders = [
     {name: '21', www: 'https://bitcoinfees.earn.com'}
   ];
-  public subsystems = {
-    network: '1',
-    p2p: '10',
-    localDb: '0.5.8',
-    tradeProtocol: '3.0'
-  };
-  public appVersion = '0.0.1';
+  public versions = {};
 
-  constructor() {
+  constructor(private appDAO: AppDAO) {
+  }
+
+  ngOnInit() {
+    this.appDAO.getVersions().then(res => {
+      this.versions = res;
+    });
   }
 
   public openLink(url) {

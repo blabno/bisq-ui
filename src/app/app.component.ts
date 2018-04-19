@@ -7,6 +7,7 @@ import {TranslateService} from '@ngx-translate/core';
 
 import {MainComponent} from './main/main.component';
 
+import {AppDAO} from "./shared/DAO/app.dao";
 import {ArbitratorsDAO} from './shared/DAO/arbitrators.dao';
 import {CurrenciesDAO} from './shared/DAO/currencies.dao';
 import {OffersDAO} from './shared/DAO/offers.dao';
@@ -31,6 +32,7 @@ t('WARNING');
 @Component({
   templateUrl: 'app.html',
   providers: [
+    AppDAO,
     ArbitratorsDAO,
     CurrenciesDAO,
     OffersDAO,

@@ -10,7 +10,7 @@ enum BaseCurrencies {
 enum Countries {
   PL = 'Poland',
   GER = 'Germany',
-  RU= 'Russia'
+  RU = 'Russia'
 }
 
 enum BitcoinExplorers {
@@ -29,7 +29,6 @@ export class SettingsService {
   public maxDeviationFromMarketPrice = 30;
   public autoSelectArbitrators = true;
   public showMyOwnOffersInOfferBook = true;
-  public useAnimations = false;
   public sortMarkersLists = true;
   public ignoredPeers = '';
   public preferedCurrency = 'BTC';

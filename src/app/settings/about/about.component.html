@@ -53,13 +53,13 @@
   <div class="card mt-2">
     <div class="card-header">{{'SETTINGS.ABOUT.VERSION_DETAILS' | translate }}</div>
     <div class="card-body">
-      <p>{{'SETTINGS.ABOUT.APPLICATION_VERSION' | translate }}: {{appVersion}}</p>
+      <p>{{'SETTINGS.ABOUT.APPLICATION_VERSION' | translate }}: {{versions.app}}</p>
       <p>{{'SETTINGS.ABOUT.VERSIONS_OF_SUBSYSTEMS' | translate }}:</p>
       <ul>
-        <li>Network: {{subsystems.network}}</li>
-        <li>P2P message: {{subsystems.p2p}}</li>
-        <li>Local DB: {{subsystems.localDb}}</li>
-        <li>Trade protocol: {{subsystems.tradeProtocol}}</li>
+        <li>Network: {{versions.network}}</li>
+        <li>P2P message: {{versions.p2p}}</li>
+        <li>Local DB: {{versions.localDb}}</li>
+        <li>Trade protocol: {{versions.tradeProtocol}}</li>
       </ul>
     </div>
   </div>

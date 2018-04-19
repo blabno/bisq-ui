@@ -1,3 +1,4 @@
+import Promise from 'bluebird';
 import {Component, OnInit} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 import {CurrenciesDAO} from '../../shared/DAO/currencies.dao';
@@ -6,6 +7,7 @@ import {SettingsService} from '../../shared/services/settings.service';
 import {ToastService} from '../../shared/services/toast.service';
 import t from '../../shared/defineTextToTranslate';
 import {PreferencesDAO} from '../../shared/DAO/preferences.dao';
+
 @Component({
   selector: 'app-preferences',
   templateUrl: 'preferences.component.html'
@@ -35,41 +37,47 @@ export class PreferencesComponent implements OnInit {
     "userCountry": "US",
     "userLanguage": "en",
     "withdrawalTxFee": 100
-  }
+  };
 
-  constructor(private translate: TranslateService, private currenciesDAO: CurrenciesDAO, private toast: ToastService, private preferencesDAO: PreferencesDAO, private settings: SettingsService) {
+  constructor(private translate: TranslateService,
+              private currenciesDAO: CurrenciesDAO,
+              private toast: ToastService,
+              private preferencesDAO: PreferencesDAO,
+              private settings: SettingsService) {
   }
 
   ngOnInit() {
-    this.currenciesDAO.query().then(res => {
-      this.currencies = _.get(res, 'currencies') || [];
+    Promise.props({
+      currencies: this.currenciesDAO.query(),
+      available: this.preferencesDAO.getAvailableValues(),
+      preferences: this.preferencesDAO.get()
+    }).then(res => {
+      this.currencies = _.get(res, 'currencies.currencies') || [];
       this.cryptoCurrencies = _.filter(this.currencies, {type: 'crypto'});
       this.nationalCurrencies = _.filter(this.currencies, {type: 'fiat'});
-      return this.preferencesDAO.getAvailableValues();
-    }).then((res: any) => { 
-      this.blockChainExplorers = res.blockChainExplorers || [];
-      this.availablecryptoCurrencies  = res.cryptoCurrencies || [];
-      this.availableFiatCurrencies = res.fiatCurrencies || [];
-      this.userCountries = res.userCountries || [];
-      return this.preferencesDAO.get();
-    }).then((res: any) => {
-      this.settingsModel = res;
+
+      this.blockChainExplorers = res.available.blockChainExplorers || [];
+      this.availablecryptoCurrencies = res.available.cryptoCurrencies || [];
+      this.availableFiatCurrencies = res.available.fiatCurrencies || [];
+      this.userCountries = res.available.userCountries || [];
+
+      this.settingsModel = res.preferences;
       this.translate.use(this.settingsModel.userLanguage);
     });
   }
 
   saveSettings() {
-    if(this.savingSettings) return;
+    if (this.savingSettings) return;
     this.savingSettings = true;
-    this.translate.use(this.settingsModel.userLanguage);
-    this.preferencesDAO.set(this.settingsModel).then( res => {
+    this.preferencesDAO.set(this.settingsModel).then(res => {
       _.merge(this.settingsModel, res);
+      this.translate.use(this.settingsModel.userLanguage);
       this.savingSettings = false;
       this.toast.show(t('SETTINGS.PREFERENCES.SETTINGS_SAVED'), 'success');
     }).catch(err => {
       this.savingSettings = false;
       this.toast.show(_.get(err, 'error.errors[0]') || t('SETTINGS.PREFERENCES.ERROR_WHILE_SAVING'), 'error');
-    }); 
+    });
   }
 
   langChange(e) {
