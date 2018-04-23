@@ -7,7 +7,7 @@ import {ToastService} from '../../shared/services/toast.service';
 import {MarketPriceService} from '../../shared/services/marketPrice.service';
 import t from '../../shared/defineTextToTranslate';
 import {BackButtonService} from "../../shared/services/backButton.service";
-
+import getValidPaymentAccounts from '../../shared/getValidPaymentAccounts';
 @Component({
   selector: 'app-take-offer',
   templateUrl: 'takeOffer.component.html'
@@ -59,9 +59,7 @@ export class TakeOfferComponent implements OnDestroy, OnInit {
       });
       this.paymentsDAO.query().then((offer: any) => {
         this.accountsList = offer.paymentAccounts || [];
-        this.supportedAccountsList = _.filter(this.accountsList, account =>
-          account.paymentMethod === this.paymentMethodId && _.includes(account.tradeCurrencies, this.tradeCurrency)
-        );
+        this.supportedAccountsList = getValidPaymentAccounts(this.paymentMethodId, this.tradeCurrency, this.accountsList);
         this.accountId = _.get(this.supportedAccountsList, '[0].id');
       });
     });

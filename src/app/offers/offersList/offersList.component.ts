@@ -13,6 +13,7 @@ import {ToastService} from '../../shared/services/toast.service';
 import {OfferDetailsComponent} from '../offerDetails/offerDetails.component';
 
 import t from '../../shared/defineTextToTranslate';
+import getValidPaymentAccounts from '../../shared/getValidPaymentAccounts';
 import {PreferencesDAO} from '../../shared/DAO/preferences.dao';
 import {BackButtonService} from "../../shared/services/backButton.service";
 
@@ -139,7 +140,7 @@ export class OffersListComponent implements OnChanges {
   }
 
   takeOffer(offer) {
-    if (!this.checkIfValidPaymentAccount(offer)) {
+    if (getValidPaymentAccounts(offer.paymentMethodId, offer.counterCurrencyCode, this.accountsList).length === 0) {
       this.infoModal.show({
         title: t('OFFERS.LIST.NO_MATCHING_ACCOUNT_TITLE'),
         text: t('OFFERS.LIST.NO_MATCHING_ACCOUNT_TEXT'),
