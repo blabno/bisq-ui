@@ -1,126 +1,132 @@
 <div class="desktop-max-width p-2">
   <app-section-header class="d-none d-lg-block"></app-section-header>
-  <div class="card">
-    <div class="card-header">{{ 'SETTINGS.NETWORK_INFO.BITCOIN_NETWORK' | translate }}</div>
-    <div class="card-body">
-      <div class="row">
-        <div class="col-sm left-label">
-          {{ 'SETTINGS.NETWORK_INFO.CONNECTED_PEERS' | translate }}:
+  <div *ngIf="loading" class="d-flex justify-content-center align-items-center m-4 small-loading">
+    <h1>{{'SHARED.LOADING' | translate }}</h1>
+    <ion-spinner></ion-spinner>
+  </div>
+  <div *ngIf="!loading">
+    <div class="card">
+      <div class="card-header">{{ 'SETTINGS.NETWORK_INFO.BITCOIN_NETWORK' | translate }}</div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm left-label">
+            {{ 'SETTINGS.NETWORK_INFO.CONNECTED_PEERS' | translate }}:
+          </div>
+          <div class="col-sm">
+            <ion-scroll scrollY="true" class="peers-scroll">
+              <ion-grid>
+                <ion-row *ngFor="let peer of bitcoinStatus.peers">
+                  <ion-col>{{peer}}</ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-scroll>
+          </div>
         </div>
-        <div class="col-sm">
-          <ion-scroll scrollY="true" class="peers-scroll">
-            <ion-grid>
-              <ion-row *ngFor="let peer of bitcoinStatus.peers">
-                <ion-col>{{peer}}</ion-col>
-              </ion-row>
-            </ion-grid>
-          </ion-scroll>
+        <div class="row">
+          <div class="col-sm left-label">
+            {{ 'SETTINGS.NETWORK_INFO.USE_TOR_FOR_BITCOIN_NETWORK' | translate }}:
+          </div>
+          <ion-item class="col-sm margin">
+            <ion-checkbox [(ngModel)]="bitcoinStatus.useTorForBitcoinJ" disabled></ion-checkbox>
+          </ion-item>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-sm left-label">
-          {{ 'SETTINGS.NETWORK_INFO.USE_TOR_FOR_BITCOIN_NETWORK' | translate }}:
+        <div class="row">
+          <div class="col-sm left-label">
+            {{ 'SETTINGS.NETWORK_INFO.BITCOIN_CORE_NODES_TO_CONNECT_TO' | translate }}:
+          </div>
+          <div class="col-sm">
+            <ion-list radio-group [(ngModel)]="bitcoinStatus.bitcoinNodesOption">
+              <ion-item>
+                <ion-label>{{ 'SETTINGS.NETWORK_INFO.USE_PROVIDED_BITCOIN_CORE_NODES' | translate }}</ion-label>
+                <ion-radio value="PROVIDED" disabled></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>{{ 'SETTINGS.NETWORK_INFO.USE_CUSTOM_BITCOIN_CORE_NODES' | translate }}</ion-label>
+                <ion-radio value="CUSTOM" disabled></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>{{ 'SETTINGS.NETWORK_INFO.USE_PUBLIC_BITCOIN_NETWORK' | translate }}</ion-label>
+                <ion-radio value="PUBLIC" disabled></ion-radio>`
+              </ion-item>
+            </ion-list>
+          </div>
         </div>
-        <ion-item class="col-sm margin">
-          <ion-checkbox [(ngModel)]="bitcoinStatus.useTorForBitcoinJ" disabled></ion-checkbox>
-        </ion-item>
-      </div>
-      <div class="row">
-        <div class="col-sm left-label">
-          {{ 'SETTINGS.NETWORK_INFO.BITCOIN_CORE_NODES_TO_CONNECT_TO' | translate }}:
+        <div class="row">
+          <div class="col-sm left-label">
+            {{ 'SETTINGS.NETWORK_INFO.BITCOIN_CORE_NODES_TO_CONNECT_TO' | translate }}:
+          </div>
+          <div class="col-sm">
+            <ion-input type="text" [(ngModel)]="bitcoinStatus.bitcoinNodes" placeholder="IP ADDRESS PORT" readonly></ion-input>
+          </div>
         </div>
-        <div class="col-sm">
-          <ion-list radio-group [(ngModel)]="bitcoinStatus.bitcoinNodesOption">
-            <ion-item>
-              <ion-label>{{ 'SETTINGS.NETWORK_INFO.USE_PROVIDED_BITCOIN_CORE_NODES' | translate }}</ion-label>
-              <ion-radio value="PROVIDED" disabled></ion-radio>
-            </ion-item>
-            <ion-item>
-              <ion-label>{{ 'SETTINGS.NETWORK_INFO.USE_CUSTOM_BITCOIN_CORE_NODES' | translate }}</ion-label>
-              <ion-radio value="CUSTOM" disabled></ion-radio>
-            </ion-item>
-            <ion-item>
-              <ion-label>{{ 'SETTINGS.NETWORK_INFO.USE_PUBLIC_BITCOIN_NETWORK' | translate }}</ion-label>
-              <ion-radio value="PUBLIC" disabled></ion-radio>`
-            </ion-item>
-          </ion-list>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm left-label">
-          {{ 'SETTINGS.NETWORK_INFO.BITCOIN_CORE_NODES_TO_CONNECT_TO' | translate }}:
-        </div>
-        <div class="col-sm">
-          <ion-input type="text" [(ngModel)]="bitcoinStatus.bitcoinNodes" placeholder="IP ADDRESS PORT" readonly></ion-input>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm left-label">
-          {{ 'SETTINGS.NETWORK_INFO.RESYNC_SPV_CHAIN' | translate }}:
-        </div>
-        <div class="col-sm">
-          <button ion-button color="light" (click)="notDoneYet()">
-            {{ 'SETTINGS.NETWORK_INFO.DELETE_SPV_FILE_AND_RESYNC' | translate}}
-          </button>
+        <div class="row">
+          <div class="col-sm left-label">
+            {{ 'SETTINGS.NETWORK_INFO.RESYNC_SPV_CHAIN' | translate }}:
+          </div>
+          <div class="col-sm">
+            <button ion-button color="light" (click)="notDoneYet()">
+              {{ 'SETTINGS.NETWORK_INFO.DELETE_SPV_FILE_AND_RESYNC' | translate}}
+            </button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="card mt-2">
-    <div class="card-header">{{'SETTINGS.NETWORK_INFO.P2P_NETWORK' | translate }}</div>
-    <div class="card-body">
-      <div class="row">
-        <div class="col-sm left-label">
-          {{ 'SETTINGS.NETWORK_INFO.MY_ONION_ADDRESS' | translate }}:
+    <div class="card mt-2">
+      <div class="card-header">{{'SETTINGS.NETWORK_INFO.P2P_NETWORK' | translate }}</div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm left-label">
+            {{ 'SETTINGS.NETWORK_INFO.MY_ONION_ADDRESS' | translate }}:
+          </div>
+          <div class="col-sm">
+            <ion-input type="text" [(ngModel)]="p2pStatus.address" readonly></ion-input>
+          </div>
         </div>
-        <div class="col-sm">
-          <ion-input type="text" [(ngModel)]="p2pStatus.address" readonly></ion-input>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm left-label">
-          {{ 'SETTINGS.NETWORK_INFO.CONNECTED_PEERS' | translate }}:
-        </div>
-        <div class="col-sm" *ngIf="p2pStatus.p2pNetworkConnection && p2pStatus.p2pNetworkConnection">
-          <div *ngFor="let connection of p2pStatus.p2pNetworkConnection">
-            <div class="card">
-              <div class="card-header">
-                {{connection.nodeAddress}}
-                <div class="float-right">{{'SETTINGS.NETWORK_INFO.TYPE' | translate}}: {{connection.peerType}}</div>
-              </div>
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-6">{{'SETTINGS.NETWORK_INFO.ESTABLISHED' | translate}}</div>
-                  <div class="col-6">{{getDate(connection.creationDate)}}</div>
+        <div class="row">
+          <div class="col-sm left-label">
+            {{ 'SETTINGS.NETWORK_INFO.CONNECTED_PEERS' | translate }}:
+          </div>
+          <div class="col-sm" *ngIf="p2pStatus.p2pNetworkConnection && p2pStatus.p2pNetworkConnection">
+            <div *ngFor="let connection of p2pStatus.p2pNetworkConnection">
+              <div class="card">
+                <div class="card-header">
+                  {{connection.nodeAddress}}
+                  <div class="float-right">{{'SETTINGS.NETWORK_INFO.TYPE' | translate}}: {{connection.peerType}}</div>
                 </div>
-                <div class="row">
-                  <div class="col-6">{{'SETTINGS.NETWORK_INFO.PING' | translate}}</div>
-                  <div class="col-6">{{connection.roundTripTime}} ms</div>
-                </div>
-                <hr>
-                <div class="row">
-                  <div class="col-12"> {{ 'SETTINGS.NETWORK_INFO.SEND' | translate }}: {{humanizeBytes(connection.sentBytes)}},
-                    {{ 'SETTINGS.NETWORK_INFO.RECEIVED' | translate }}: {{humanizeBytes(connection.receivedBytes)}}</div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-6">{{'SETTINGS.NETWORK_INFO.ESTABLISHED' | translate}}</div>
+                    <div class="col-6">{{getDate(connection.creationDate)}}</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">{{'SETTINGS.NETWORK_INFO.PING' | translate}}</div>
+                    <div class="col-6">{{connection.roundTripTime}} ms</div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-12"> {{ 'SETTINGS.NETWORK_INFO.SEND' | translate }}: {{humanizeBytes(connection.sentBytes)}},
+                      {{ 'SETTINGS.NETWORK_INFO.RECEIVED' | translate }}: {{humanizeBytes(connection.receivedBytes)}}</div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-sm left-label">
-          {{ 'SETTINGS.NETWORK_INFO.TOTAL_TRAFFIC' | translate }}:
+        <div class="row">
+          <div class="col-sm left-label">
+            {{ 'SETTINGS.NETWORK_INFO.TOTAL_TRAFFIC' | translate }}:
+          </div>
+          <div class="col-sm">
+            {{ 'SETTINGS.NETWORK_INFO.SEND' | translate }}: {{humanizeBytes(p2pStatus.totalSentBytes)}}, {{ 'SETTINGS.NETWORK_INFO.RECEIVED'
+            | translate }}: {{humanizeBytes(p2pStatus.totalReceivedBytes)}}
+          </div>
         </div>
-        <div class="col-sm">
-          {{ 'SETTINGS.NETWORK_INFO.SEND' | translate }}: {{humanizeBytes(p2pStatus.totalSentBytes)}}, {{ 'SETTINGS.NETWORK_INFO.RECEIVED'
-          | translate }}: {{humanizeBytes(p2pStatus.totalReceivedBytes)}}
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm left-label"></div>
-        <div class="col-sm">
-          <button ion-button color="light" (click)="notDoneYet()">{{ 'SETTINGS.NETWORK_INFO.OPEN_TOR_SETTINGS' | translate}}
-          </button>
+        <div class="row">
+          <div class="col-sm left-label"></div>
+          <div class="col-sm">
+            <button ion-button color="light" (click)="notDoneYet()">{{ 'SETTINGS.NETWORK_INFO.OPEN_TOR_SETTINGS' | translate}}
+            </button>
+          </div>
         </div>
       </div>
     </div>

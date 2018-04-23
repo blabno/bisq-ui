@@ -22,6 +22,7 @@ export class NetworkInfoComponent implements OnInit {
   public bitcoinStatus = {};
   public p2pNetworkStatus = {};
   public p2pStatus = {};
+  public loading = true;
 
   constructor(private toast: ToastService, private networkDAO: NetworkDAO) {}
 
@@ -32,6 +33,7 @@ export class NetworkInfoComponent implements OnInit {
     }).then( res => {
       this.bitcoinStatus = res.bitcoin || {};
       this.p2pStatus = res.p2p || {};
+      this.loading = false;
     });
   }
 

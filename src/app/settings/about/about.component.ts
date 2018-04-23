@@ -15,6 +15,7 @@ export class AboutComponent implements OnInit {
     {name: '21', www: 'https://bitcoinfees.earn.com'}
   ];
   public versions = {};
+  public loading = true;
 
   constructor(private appDAO: AppDAO) {
   }
@@ -22,6 +23,7 @@ export class AboutComponent implements OnInit {
   ngOnInit() {
     this.appDAO.getVersions().then(res => {
       this.versions = res;
+      this.loading = false;
     });
   }
 
