@@ -1,66 +1,68 @@
 <div class="desktop-max-width p-2">
   <app-section-header class="d-none d-lg-block"></app-section-header>
-  <div class="card">
-    <div class="card-header">{{'SETTINGS.ABOUT.ABOUT_BISQ' | translate }}</div>
-    <div class="card-body">
-      <p class="main-text">{{'SETTINGS.ABOUT.ABOUT_BISQ_TEXT' | translate }}</p>
-      <div class="d-flex row-flex align-items-center p-3 link" href="#" (click)="openLink('https://bisq.network/')">
-        <span class="link">{{'SETTINGS.ABOUT.BISQ_WEB_PAGE' | translate }}</span>
-        <ion-icon class="ml-2" name="md-link"></ion-icon>
-      </div>
-      <div class="d-flex row-flex align-items-center p-3 link" href="#"
-           (click)="openLink('https://github.com/bisq-network/bisq-desktop/')">
-        <span class="link">{{'SETTINGS.ABOUT.SOURCE_CODE' | translate }}</span>
-        <ion-icon class="ml-2" name="md-link"></ion-icon>
-      </div>
-      <div class="d-flex row-flex align-items-center p-3 link" href="#"
-           (click)="openLink('https://github.com/bisq-network/bisq-desktop/blob/master/LICENSE')">
-        <span class="link">{{'SETTINGS.ABOUT.AGPL_LICENSE' | translate }}</span>
-        <ion-icon class="ml-2" name="md-link"></ion-icon>
+  <div *ngIf="loading" class="d-flex justify-content-center align-items-center m-4 small-loading">
+    <h1>{{'SHARED.LOADING' | translate }}</h1>
+    <ion-spinner></ion-spinner>
+  </div>
+  <div *ngIf="!loading">
+    <div class="card">
+      <div class="card-header">{{'SETTINGS.ABOUT.ABOUT_BISQ' | translate }}</div>
+      <div class="card-body">
+        <p class="main-text">{{'SETTINGS.ABOUT.ABOUT_BISQ_TEXT' | translate }}</p>
+        <div class="d-flex row-flex align-items-center p-3 link" href="#" (click)="openLink('https://bisq.network/')">
+          <span class="link">{{'SETTINGS.ABOUT.BISQ_WEB_PAGE' | translate }}</span>
+          <ion-icon class="ml-2" name="md-link"></ion-icon>
+        </div>
+        <div class="d-flex row-flex align-items-center p-3 link" href="#" (click)="openLink('https://github.com/bisq-network/bisq-desktop/')">
+          <span class="link">{{'SETTINGS.ABOUT.SOURCE_CODE' | translate }}</span>
+          <ion-icon class="ml-2" name="md-link"></ion-icon>
+        </div>
+        <div class="d-flex row-flex align-items-center p-3 link" href="#" (click)="openLink('https://github.com/bisq-network/bisq-desktop/blob/master/LICENSE')">
+          <span class="link">{{'SETTINGS.ABOUT.AGPL_LICENSE' | translate }}</span>
+          <ion-icon class="ml-2" name="md-link"></ion-icon>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="card mt-2">
-    <div class="card-header">{{'SETTINGS.ABOUT.SUPPORT_BISQ' | translate }}</div>
-    <div class="card-body">
-      <p class="main-text">{{'SETTINGS.ABOUT.BISQ_IS_COMMUNITY' | translate }}</p>
-      <div class="d-flex row-flex align-items-center p-3 link" href="#"
-           (click)="openLink('https://bisq.network/contribute/', '_system', 'location=yes')">
-        <span class="link">{{'SETTINGS.ABOUT.CONTRIBUTE' | translate }}</span>
-        <ion-icon class="ml-2" name="md-link"></ion-icon>
-      </div>
-      <div class="d-flex row-flex align-items-center p-3 link" href="#"
-           (click)="openLink('https://bisq.network/contribute/#contribute-via-donation')">
-        <span class="link">{{'SETTINGS.ABOUT.DONATE' | translate }}</span>
-        <ion-icon class="ml-2" name="md-link"></ion-icon>
+    <div class="card mt-2">
+      <div class="card-header">{{'SETTINGS.ABOUT.SUPPORT_BISQ' | translate }}</div>
+      <div class="card-body">
+        <p class="main-text">{{'SETTINGS.ABOUT.BISQ_IS_COMMUNITY' | translate }}</p>
+        <div class="d-flex row-flex align-items-center p-3 link" href="#" (click)="openLink('https://bisq.network/contribute/', '_system', 'location=yes')">
+          <span class="link">{{'SETTINGS.ABOUT.CONTRIBUTE' | translate }}</span>
+          <ion-icon class="ml-2" name="md-link"></ion-icon>
+        </div>
+        <div class="d-flex row-flex align-items-center p-3 link" href="#" (click)="openLink('https://bisq.network/contribute/#contribute-via-donation')">
+          <span class="link">{{'SETTINGS.ABOUT.DONATE' | translate }}</span>
+          <ion-icon class="ml-2" name="md-link"></ion-icon>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="card mt-2">
-    <div class="card-header">{{'SETTINGS.ABOUT.DATA_PROVIDERS' | translate }}</div>
-    <div class="card-body">
-      <p class="main-text">{{'SETTINGS.ABOUT.BISQ_USES_3RD_APIS' | translate }}</p>
-      <div class="mt-2 group">{{'SETTINGS.ABOUT.MARKET_PRICES_PROVIDED_BY' | translate }}:</div>
-      <div *ngFor="let provider of marketPricesProviders">
-        <div>{{provider.name}} ({{provider.www}})</div>
-      </div>
-      <div class="mt-2 group">{{'SETTINGS.ABOUT.MINING_FEE_ESTIMATION_PROVIDED_BY' | translate }}:</div>
-      <div *ngFor="let provider of miningFeesEstimationProviders">
-        <div>{{provider.name}} ({{provider.www}})</div>
+    <div class="card mt-2">
+      <div class="card-header">{{'SETTINGS.ABOUT.DATA_PROVIDERS' | translate }}</div>
+      <div class="card-body">
+        <p class="main-text">{{'SETTINGS.ABOUT.BISQ_USES_3RD_APIS' | translate }}</p>
+        <div class="mt-2 group">{{'SETTINGS.ABOUT.MARKET_PRICES_PROVIDED_BY' | translate }}:</div>
+        <div *ngFor="let provider of marketPricesProviders">
+          <div>{{provider.name}} ({{provider.www}})</div>
+        </div>
+        <div class="mt-2 group">{{'SETTINGS.ABOUT.MINING_FEE_ESTIMATION_PROVIDED_BY' | translate }}:</div>
+        <div *ngFor="let provider of miningFeesEstimationProviders">
+          <div>{{provider.name}} ({{provider.www}})</div>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="card mt-2">
-    <div class="card-header">{{'SETTINGS.ABOUT.VERSION_DETAILS' | translate }}</div>
-    <div class="card-body">
-      <p>{{'SETTINGS.ABOUT.APPLICATION_VERSION' | translate }}: {{versions.app}}</p>
-      <p>{{'SETTINGS.ABOUT.VERSIONS_OF_SUBSYSTEMS' | translate }}:</p>
-      <ul>
-        <li>Network: {{versions.network}}</li>
-        <li>P2P message: {{versions.p2p}}</li>
-        <li>Local DB: {{versions.localDb}}</li>
-        <li>Trade protocol: {{versions.tradeProtocol}}</li>
-      </ul>
+    <div class="card mt-2">
+      <div class="card-header">{{'SETTINGS.ABOUT.VERSION_DETAILS' | translate }}</div>
+      <div class="card-body">
+        <p>{{'SETTINGS.ABOUT.APPLICATION_VERSION' | translate }}: {{versions.app}}</p>
+        <p>{{'SETTINGS.ABOUT.VERSIONS_OF_SUBSYSTEMS' | translate }}:</p>
+        <ul>
+          <li>Network: {{versions.network}}</li>
+          <li>P2P message: {{versions.p2p}}</li>
+          <li>Local DB: {{versions.localDb}}</li>
+          <li>Trade protocol: {{versions.tradeProtocol}}</li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>

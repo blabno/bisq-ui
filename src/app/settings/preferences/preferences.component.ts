@@ -14,6 +14,7 @@ import {PreferencesDAO} from '../../shared/DAO/preferences.dao';
 })
 
 export class PreferencesComponent implements OnInit {
+  public loading = true;
   public savingSettings = false;
   public languagesNames = {pl: 'Polski', en: 'English'};
   public widthdrawalTransactionFeeEnabled = false;
@@ -63,6 +64,7 @@ export class PreferencesComponent implements OnInit {
 
       this.settingsModel = res.preferences;
       this.translate.use(this.settingsModel.userLanguage);
+      this.loading = false;
     });
   }
 
