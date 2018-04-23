@@ -19,7 +19,7 @@
         <ion-textarea [(ngModel)]="newMessage" placeholder="{{'SUPPORT.MESSAGES.INPUT_MESSAGE' | translate}}"></ion-textarea>
       </ion-item>
       <div class="buttons">
-        <button ion-button color="light" routerLink="..">{{'BACK' | translate }}</button>
+        <button ion-button color="light" (click)="back()">{{'BACK' | translate }}</button>
         <button ion-button (click)="sendMessage()">{{'SUPPORT.MESSAGES.SEND' | translate}}</button>
       </div>
     </div>

@@ -6,6 +6,7 @@ import _ from 'lodash';
 import t from '../../shared/defineTextToTranslate';
 
 t([
+  'TOAST.EXIT_APP',
   'TOAST.FORM_VALIDATION_ERROR',
   'TOAST.NOMINATED_SUCCESSFULLY',
   'TOAST.PAYMENT_METHOD_CREATED',

@@ -1,9 +1,11 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import _ from 'lodash';
+import moment from 'moment';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
 import {TranslateService} from '@ngx-translate/core';
 import {AlertController} from 'ionic-angular';
-import moment from 'moment';
 
+import {BackButtonService} from '../../../shared/services/backButton.service';
 import {ToastService} from '../../../shared/services/toast.service';
 import {TradesCacheService} from '../../../shared/services/tradesCache.service';
 import {TradesDAO} from '../../../shared/DAO/trades.dao';
@@ -13,7 +15,7 @@ import t from '../../../shared/defineTextToTranslate';
   selector: 'app-trade-details',
   templateUrl: 'tradeDetails.component.html'
 })
-export class TradeDetailsComponent implements OnInit {
+export class TradeDetailsComponent implements OnDestroy, OnInit {
   trade;
   stepsMap;
   selectedTradeStep;
@@ -24,9 +26,12 @@ export class TradeDetailsComponent implements OnInit {
   endDate;
   tradeDuration;
   remainingDuration;
+  private unregisterBackButton = _.noop;
 
   constructor(private activeRoute: ActivatedRoute,
               private alertCtrl: AlertController,
+              private backButton: BackButtonService,
+              private router: Router,
               private toast: ToastService,
               private tradesCache: TradesCacheService,
               private tradesDAO: TradesDAO,
@@ -45,11 +50,15 @@ export class TradeDetailsComponent implements OnInit {
         this.init();
       }
     });
+    this.unregisterBackButton = this.backButton.register(()=>{
+      this.router.navigateByUrl('portfolio/open-trades');
+    });
   }
 
   ngOnDestroy() {
     this.stateChangeSubscriber.unsubscribe();
     this.paramSubscriber.unsubscribe();
+    this.unregisterBackButton();
   }
 
   init() {

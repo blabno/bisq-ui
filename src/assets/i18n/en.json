@@ -889,6 +889,7 @@
 	},
 	"TOAST": {
 		"ADDRESS_COPIED_TO_CLIPBOARD": "Address copied to clipboard",
+		"EXIT_APP": "Press back again to exit App",
 		"FORM_VALIDATION_ERROR": "Missing required fields",
 		"NEW_ADDRESS_CREATE_ERROR": "Unable to create new address",
 		"NOMINATED_SUCCESSFULLY": "Nominated successfully",

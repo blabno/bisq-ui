@@ -1,20 +1,22 @@
 import _ from 'lodash';
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {PaymentAccountsDAO} from '../../shared/DAO/paymentAccounts.dao';
 import {OffersDAO} from '../../shared/DAO/offers.dao';
 import {ToastService} from '../../shared/services/toast.service';
 import {MarketPriceService} from '../../shared/services/marketPrice.service';
 import t from '../../shared/defineTextToTranslate';
+import {BackButtonService} from "../../shared/services/backButton.service";
 
 @Component({
   selector: 'app-take-offer',
   templateUrl: 'takeOffer.component.html'
 })
-export class TakeOfferComponent implements OnInit {
+export class TakeOfferComponent implements OnDestroy, OnInit {
   @ViewChild('createForm') createForm;
 
   constructor(private activeRoute: ActivatedRoute,
+              private backButton: BackButtonService,
               private paymentsDAO: PaymentAccountsDAO,
               private offersDAO: OffersDAO,
               private toast: ToastService,
@@ -35,10 +37,10 @@ export class TakeOfferComponent implements OnInit {
   public paymentMethodId = 0;
   public percentage = 0;
   public isPercentageVisible = false;
-
   public accountsList = [];
   public supportedAccountsList = [];
   public takingOffer;
+  private unregisterBackButton = _.noop;
 
   ngOnInit() {
     this.offerId = this.activeRoute.params['value'].offerId;
@@ -63,6 +65,13 @@ export class TakeOfferComponent implements OnInit {
         this.accountId = _.get(this.supportedAccountsList, '[0].id');
       });
     });
+    this.unregisterBackButton = this.backButton.register(()=>{
+      this.router.navigateByUrl(`/offers/${this.type}`);
+    });
+  }
+
+  ngOnDestroy(){
+    this.unregisterBackButton();
   }
 
   public changeAmountToSell() {

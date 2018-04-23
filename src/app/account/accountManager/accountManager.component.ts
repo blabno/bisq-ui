@@ -1,8 +1,9 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
-import {AlertController, Platform} from 'ionic-angular';
+import {AlertController} from 'ionic-angular';
 import {TranslateService} from '@ngx-translate/core';
 import _ from 'lodash';
 
+import {BackButtonService} from '../../shared/services/backButton.service';
 import {InfoModalService} from '../../shared/components/infoModal/infoModal.service';
 import {ToastService} from '../../shared/services/toast.service';
 
@@ -34,7 +35,7 @@ export class AccountManagerComponent implements OnInit, OnDestroy {
   constructor(private infoModal: InfoModalService,
               private translate: TranslateService,
               private toast: ToastService,
-              private platform: Platform,
+              private backButton: BackButtonService,
               private alertCtrl: AlertController) {
   }
 
@@ -63,9 +64,8 @@ export class AccountManagerComponent implements OnInit, OnDestroy {
   }
 
   registerBackButton() {
-    this.unregisterBackButton = this.platform.registerBackButtonAction(() => {
-      this.doCancel();
-      this.unregisterBackButton();
+    this.unregisterBackButton = this.backButton.register(() => {
+      this.cancel();
     });
   }
 
