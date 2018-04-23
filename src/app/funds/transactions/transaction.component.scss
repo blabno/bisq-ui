@@ -10,7 +10,14 @@ app-funds-transaction {
       }
     }
     .transaction-direction {
-      width: 25px;
+      padding: 0;
+      width: 6px;
+      &.green {
+        background-color: #00ff00;
+      }
+      &.red {
+        background-color: #ff0000;
+      }
     }
     .transaction {
       height: 57px;
@@ -25,12 +32,6 @@ app-funds-transaction {
     }
     .transaction-value {
       width: 100px;
-    }
-    .red-icon {
-      color: red
-    }
-    .green-icon {
-      color: green
     }
   }
  }
