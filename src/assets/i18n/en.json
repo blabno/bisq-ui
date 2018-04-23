@@ -617,6 +617,11 @@
 		"DO_NOT_SHOW_AGAIN": "Don't show again"
 	},
 	"MARKET": {
+		"SUBMENU": {
+			"OFFER_BOOK": "Offer book",
+			"SPREAD": "Spread",
+			"TRADES": "Trades"
+		},
 		"SUMMARY": {
 			"AVAILABLE": "Available",
 			"LOCKED": "Locked",
@@ -627,6 +632,7 @@
 		"ACCOUNT": "Account",
 		"BUY": "Buy BTC",
 		"FUNDS": "Funds",
+		"MARKET": "Market",
 		"PORTFOLIO": "Portfolio",
 		"SELL": "Sell BTC",
 		"SETTINGS": "Settings",

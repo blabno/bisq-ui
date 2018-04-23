@@ -5,6 +5,30 @@
   </button>
   <div class="collapse navbar-collapse menu-content" id="navbarToggle">
     <ul class="navbar-nav mr-auto">
+      <li class="nav-item menu-item dropdown" routerLinkActive="text-primary">
+        <div class="header" id="navbarDropdownMarket" role="button" data-toggle="dropdown" aria-haspopup="true"
+             aria-expanded="false">
+        <i class="fas fa-globe menu-icon"></i>
+        <div class="item-label">{{ 'MENU.MARKET' | translate }}</div>
+        </div>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMarket">
+          <a class="dropdown-item" routerLinkActive="text-primary" routerLink="/market/offers-book"
+             (click)="onMenuItemClick()">
+            <i class="fas fa-newspaper menu-icon-nested"></i>
+            {{'MARKET.SUBMENU.OFFER_BOOK' | translate}}
+          </a>
+          <a class="dropdown-item" routerLinkActive="text-primary" routerLink="/market/spread"
+             (click)="onMenuItemClick()">
+            <i class="fas fa-suitcase menu-icon-nested"></i>
+            {{'MARKET.SUBMENU.SPREAD' | translate}}
+          </a>
+          <a class="dropdown-item" routerLinkActive="text-primary" routerLink="/market/trades"
+             (click)="onMenuItemClick()">
+            <i class="fas fa-clock menu-icon-nested"></i>
+            {{'MARKET.SUBMENU.TRADES' | translate}}
+          </a>
+        </div>
+      </li>
       <li class="nav-item menu-item" routerLinkActive="text-primary" routerLink="/offers/buy"
           (click)="onMenuItemClick()">
         <i class="fas fa-download menu-icon"></i>
@@ -22,7 +46,7 @@
           <div class="item-label">{{ 'MENU.PORTFOLIO' | translate }}</div>
         </div>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownPortfolio">
-           <a class="dropdown-item" routerLinkActive="text-primary" routerLink="/offers/my-offers"
+          <a class="dropdown-item" routerLinkActive="text-primary" routerLink="/offers/my-offers"
              (click)="onMenuItemClick()">
             <i class="fas fa-newspaper menu-icon-nested"></i>
             {{'PORTFOLIO.SUBMENU.MY_OFFERS' | translate}}

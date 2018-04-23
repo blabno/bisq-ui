@@ -23,7 +23,7 @@ import {MessagesComponent} from './support/messages/messages.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'offers/buy', pathMatch: 'full'},
-  {path: 'market', component: MarketComponent},
+  {path: 'market/:type', component: MarketComponent},
 
   {path: 'offers/:type/create', component: CreateOffersComponent},
   {path: 'offers/:type/take/:offerId', component: TakeOfferComponent},
