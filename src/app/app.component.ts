@@ -18,6 +18,7 @@ import {WalletDAO} from './shared/DAO/wallet.dao';
 import {PreferencesDAO} from './shared/DAO/preferences.dao';
 import {NetworkDAO} from './shared/DAO/network.dao';
 
+import {BackButtonService} from './shared/services/backButton.service';
 import {ClipboardService} from './shared/services/clipboard.service';
 import {InfoModalService} from './shared/components/infoModal/infoModal.service';
 import {MarketPriceService} from './shared/services/marketPrice.service';
@@ -40,6 +41,7 @@ t('WARNING');
     SupportDAO,
     TradesDAO,
     WalletDAO,
+    BackButtonService,
     ClipboardService,
     InfoModalService,
     MarketPriceService,
@@ -60,7 +62,8 @@ export class AppComponent {
               private settings: SettingsService,
               private tradesCache: TradesCacheService,
               private translate: TranslateService,
-              private preferences: PreferencesDAO) {
+              private preferences: PreferencesDAO,
+              private backButton: BackButtonService) {
     this.translate.setDefaultLang('en');
     this.preferences.get().then((res: any) => {
       this.translate.use(res.userLanguage);
@@ -81,10 +84,9 @@ export class AppComponent {
     }
 
     platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
+      this.backButton.init();
     });
   }
 }

@@ -1,13 +1,23 @@
-import {Injectable} from '@angular/core';
-import {ModalController} from 'ionic-angular';
 import _ from 'lodash';
+import {Injectable, OnDestroy} from '@angular/core';
+import {ModalController} from 'ionic-angular';
 
 import {InfoModalComponent} from './infoModal.component';
 
-@Injectable()
-export class InfoModalService {
+import {BackButtonService} from '../../services/backButton.service';
 
-  constructor(private modalCtrl: ModalController) {
+@Injectable()
+export class InfoModalService implements OnDestroy {
+
+  private modalCtrlInstance;
+  private unregisterBackButton = _.noop;
+
+  constructor(private modalCtrl: ModalController,
+              private backButton: BackButtonService) {
+  }
+
+  ngOnDestroy() {
+    this.unregisterBackButton();
   }
 
   show(params) {
@@ -17,7 +27,14 @@ export class InfoModalService {
         .includes(params.id)
         .value();
       if (!isHidden) {
-        this.modalCtrl.create(InfoModalComponent, params, {enableBackdropDismiss: !params.disallowCancel}).present();
+        this.modalCtrlInstance = this.modalCtrl.create(InfoModalComponent, params, {enableBackdropDismiss: !params.disallowCancel});
+        if (!params.disallowCancel) {
+          this.unregisterBackButton = this.backButton.register(() => {
+            this.unregisterBackButton();
+            return this.modalCtrlInstance.dismiss();
+          });
+        }
+        this.modalCtrlInstance.present();
       }
     }, 0);
   }

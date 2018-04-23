@@ -1,15 +1,19 @@
-import {Component, OnInit, Input} from '@angular/core';
-import {WalletDAO} from '../../shared/DAO/wallet.dao';
-import {ToastService} from '../../shared/services/toast.service';
-import {ClipboardService} from '../../shared/services/clipboard.service';
 import _ from 'lodash';
+import {Component, OnInit, Input, OnDestroy} from '@angular/core';
+
+import {WalletDAO} from '../../shared/DAO/wallet.dao';
+
+import {BackButtonService} from '../../shared/services/backButton.service';
+import {ClipboardService} from '../../shared/services/clipboard.service';
+import {ToastService} from '../../shared/services/toast.service';
 
 import t from '../../shared/defineTextToTranslate';
+
 @Component({
   selector: 'app-funds-list',
   templateUrl: 'fundsList.component.html'
 })
-export class FundsListComponent implements OnInit {
+export class FundsListComponent implements OnInit, OnDestroy {
 
   @Input() type: String;
 
@@ -20,13 +24,21 @@ export class FundsListComponent implements OnInit {
   public label = 'Fund Bisq wallet';
   public qrCode;
   public loading = true;
+  private unregisterBackButton = _.noop;
 
-  constructor(private walletDao: WalletDAO, private toast: ToastService, private clipboard: ClipboardService) {
+  constructor(private walletDao: WalletDAO,
+              private toast: ToastService,
+              private clipboard: ClipboardService,
+              private backButton: BackButtonService) {
   }
 
   ngOnInit() {
     this.generateAddress();
     this.getAddressesData();
+  }
+
+  ngOnDestroy() {
+    this.unregisterBackButton();
   }
 
   getAddressesData() {
@@ -58,11 +70,15 @@ export class FundsListComponent implements OnInit {
   }
 
   selectWallet(wallet) {
+    this.unregisterBackButton = this.backButton.register(()=>{
+      this.getBack();
+    });
     this.selectedWallet = wallet;
     this.updateQrCode();
   }
 
   getBack() {
+    this.unregisterBackButton();
     this.selectedWallet = {};
     this.updateQrCode();
   }

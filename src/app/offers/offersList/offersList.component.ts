@@ -2,9 +2,7 @@ import _ from 'lodash';
 import {Component, EventEmitter, Input, OnChanges, Output} from '@angular/core';
 import {Router} from '@angular/router';
 import {TranslateService} from '@ngx-translate/core';
-import {ModalController} from 'ionic-angular';
-
-import {AlertController} from "ionic-angular";
+import {AlertController, ModalController} from 'ionic-angular';
 
 import {OffersDAO} from '../../shared/DAO/offers.dao';
 import {NetworkDAO} from '../../shared/DAO/network.dao';
@@ -16,6 +14,7 @@ import {OfferDetailsComponent} from '../offerDetails/offerDetails.component';
 
 import t from '../../shared/defineTextToTranslate';
 import {PreferencesDAO} from '../../shared/DAO/preferences.dao';
+import {BackButtonService} from "../../shared/services/backButton.service";
 
 t([
   'SELL',
@@ -47,6 +46,9 @@ export class OffersListComponent implements OnChanges {
   private myAddress;
   public currenciesFromSettings = [];
 
+  private modalCtrlInstance;
+  private unregisterBackButton = _.noop;
+
   constructor(public settings: SettingsService,
               private paymentsDAO: PaymentAccountsDAO,
               private router: Router,
@@ -57,13 +59,14 @@ export class OffersListComponent implements OnChanges {
               private infoModal: InfoModalService,
               private alertCtrl: AlertController,
               private modalCtrl: ModalController,
-              private preferencesDAO: PreferencesDAO) {
+              private preferencesDAO: PreferencesDAO,
+              private backButton: BackButtonService) {
     this.currencyFilter = this.settings.selectedCurrencyOnOfferList || [this.NO_FILTER];
     this.methodFilter = this.settings.selectedPaymentMethodOnOfferList || this.NO_FILTER;
     this.networkDAO.getP2PNetworkStatus().then(res => {
       this.myAddress = _.get(res, 'address');
       return preferencesDAO.get();
-    }).then((settings: any)=> {
+    }).then((settings: any) => {
       this.currenciesFromSettings = [...settings.cryptoCurrencies, ...settings.fiatCurrencies];
       return this.paymentsDAO.query();
     }).then((res: any) => {
@@ -184,18 +187,29 @@ export class OffersListComponent implements OnChanges {
       deleteOffer: null,
       takeOffer: null
     };
-    if(this.myAddress === offer.ownerNodeAddress) {
-      action.deleteOffer = offer => this.deleteOffer(offer);
+    if (this.myAddress === offer.ownerNodeAddress) {
+      action.deleteOffer = offer => {
+        this.unregisterBackButton();
+        this.deleteOffer(offer);
+      }
     }
     else {
-      action.takeOffer = offer => this.takeOffer(offer)
+      action.takeOffer = offer => {
+        this.unregisterBackButton();
+        this.takeOffer(offer)
+      }
     }
-    this.modalCtrl.create(OfferDetailsComponent, {
+    this.modalCtrlInstance = this.modalCtrl.create(OfferDetailsComponent, {
       ...offer,
       offerAmount: this.getOfferAmount(offer),
       offerPrice: this.getOfferPrice(offer),
       ...action
-    }).present();
+    });
+    this.modalCtrlInstance.present();
+    this.unregisterBackButton = this.backButton.register(() => {
+      this.unregisterBackButton();
+      return this.modalCtrlInstance.dismiss();
+    });
   }
 
   offerDetailsMobileOnly(offer) {

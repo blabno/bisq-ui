@@ -6,6 +6,7 @@ import {OffersDAO} from "../../shared/DAO/offers.dao";
 import {ToastService} from "../../shared/services/toast.service";
 import {MarketPriceService} from "../../shared/services/marketPrice.service";
 import t from '../../shared/defineTextToTranslate';
+import {BackButtonService} from "../../shared/services/backButton.service";
 
 t([
   'OFFERS.CREATE.FILL_ALL_REQUIRED_FIELDS',
@@ -39,11 +40,13 @@ export class CreateOffersComponent implements OnInit, OnDestroy {
     minAmount: 0,
     deposit: 0.01
   };
+  private unregisterbackButton = _.noop;
   private paramSubscribe: any;
   public marketPrice = 0;
   public creatingOffer;
 
   constructor(private activeRoute: ActivatedRoute,
+              private backButtoon: BackButtonService,
               private paymentsDAO: PaymentAccountsDAO,
               private offersDAO: OffersDAO,
               private toast: ToastService,
@@ -65,11 +68,16 @@ export class CreateOffersComponent implements OnInit, OnDestroy {
     this.paramSubscribe = this.activeRoute.params.subscribe(params => {
       this.type = params['type'];
     });
+    this.unregisterbackButton = this.backButtoon.register(()=>{
+      this.router.navigate(['../'],{relativeTo: this.activeRoute});
+    });
   }
 
   ngOnDestroy() {
     this.paramSubscribe.unsubscribe();
+    this.unregisterbackButton();
   }
+
 
   onSelectAccount() {
     if (!this.model.accountId) {

@@ -889,6 +889,7 @@
 	},
 	"TOAST": {
 		"ADDRESS_COPIED_TO_CLIPBOARD": "Adres skopiowany do schowka",
+		"EXIT_APP": "Naciśnij ponownie aby wyjść",
 		"FORM_VALIDATION_ERROR": "Brak wszystkich wymaganych pól",
 		"NEW_ADDRESS_CREATE_ERROR": "Nie można wygenerować nowego adresu",
 		"NOMINATED_SUCCESSFULLY": "Nominowano pomyślnie",
