@@ -11,23 +11,23 @@
   </div>
   <table *ngIf="!loading && transactions.length" class="table table-striped">
     <thead>
-      <tr>
-          <th class="transaction-direction"></th>
-          <th class="transaction-id">{{'FUNDS.TRANSACTION_ID' | translate}}</th>
-          <th class="transaction-date">{{'FUNDS.DATE' | translate}}</th>
-          <th class="transaction-value">{{'FUNDS.VALUE' | translate}}</th>
-      </tr>
+    <tr>
+      <th class="transaction-direction"></th>
+      <th class="transaction-id">{{'FUNDS.TRANSACTION_ID' | translate}}</th>
+      <th class="transaction-date">{{'FUNDS.DATE' | translate}}</th>
+      <th class="transaction-value">{{'FUNDS.VALUE' | translate}}</th>
+    </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let transaction of transactions" class="transaction">
-        <td class="transaction-direction">
-          <i *ngIf="transaction.value >= 0" class="fas fa-plus-circle green-icon"></i>
-          <i *ngIf="0 > transaction.value" class="fas fa-minus-circle red-icon"></i>
-        </td>
-        <td class="transaction-id">{{transaction.hash}}</td>
-        <td class="transaction-date">{{transaction.updateTime | date:'medium'}}</td>
-        <td class="transaction-value">{{transaction.value/1e8}} BTC</td>
-      </tr>
+    <tr *ngFor="let transaction of transactions" class="transaction">
+      <td class="transaction-direction" [ngClass]="{
+        green: 0 <= transaction.value,
+        red: 0 > transaction.value
+        }"></td>
+      <td class="transaction-id">{{transaction.hash}}</td>
+      <td class="transaction-date">{{transaction.updateTime | date:'medium'}}</td>
+      <td class="transaction-value">{{transaction.value/1e8}} BTC</td>
+    </tr>
     </tbody>
   </table>
 </div>

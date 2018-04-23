@@ -14,7 +14,7 @@ export class TransactionComponent implements OnInit {
 
   ngOnInit() {
     this.walletDAO.getTransactions().then((result: any) => {
-      this.transactions = _.sortBy(result.transactions || [], 'updateTime');
+      this.transactions = _.orderBy(result.transactions || [], 'updateTime', 'desc');
       this.loading = false;
     });
   }
