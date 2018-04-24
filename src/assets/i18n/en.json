@@ -617,6 +617,15 @@
 		"DO_NOT_SHOW_AGAIN": "Don't show again"
 	},
 	"MARKET": {
+		"SPREAD": {
+			"BUY": "Buy",
+			"CURRENCY": "Currency",
+			"NO_RESULTS": "No spread results",
+			"OFFERS": "All",
+			"SELL": "Sell",
+			"SPREAD": "Spread",
+			"TOTAL": "Total BTC"
+		},
 		"SUBMENU": {
 			"OFFER_BOOK": "Offer book",
 			"SPREAD": "Spread",

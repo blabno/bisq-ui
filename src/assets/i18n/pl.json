@@ -617,6 +617,15 @@
 		"DO_NOT_SHOW_AGAIN": "Nie pokazuj ponownie"
 	},
 	"MARKET": {
+		"SPREAD": {
+			"BUY": "Sprzedaż",
+			"CURRENCY": "Waluta",
+			"NO_RESULTS": "Brak wyników",
+			"OFFERS": "Wszystkie",
+			"SELL": "Kupno",
+			"SPREAD": "Spread",
+			"TOTAL": "Suma BTC"
+		},
 		"SUBMENU": {
 			"OFFER_BOOK": "Oferty",
 			"SPREAD": "Spread",

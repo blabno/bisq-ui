@@ -1,0 +1,40 @@
+<div class="desktop-max-width">
+  <app-section-header class="d-none d-lg-block"></app-section-header>
+  <div *ngIf="loading" class="d-flex justify-content-center align-items-center m-4 loading">
+    <h1>{{'SHARED.LOADING' | translate}}..</h1>
+    <ion-spinner></ion-spinner>
+  </div>
+  <div *ngIf="!data.length && !loading" class="card no-results-card">
+    <div class="card-body">
+      <span>{{'MARKET.SPREAD.NO_RESULTS' | translate}}</span>
+    </div>
+  </div>
+  <div class="d-sm-none">
+    <sup>1</sup>X / X / X - {{'MARKET.SPREAD.OFFERS' | translate}} / {{'MARKET.SPREAD.BUY' | translate}} /
+    {{'MARKET.SPREAD.SELL' | translate}}
+  </div>
+  <table *ngIf="!loading && data.length" class="table table-striped">
+    <thead>
+    <tr>
+      <th class="spread-currency">{{'MARKET.SPREAD.CURRENCY' | translate}}</th>
+      <th class="d-none d-sm-table-cell text-center spread-offers">{{'MARKET.SPREAD.OFFERS' | translate}}</th>
+      <th class="d-none d-sm-table-cell text-center spread-buy">{{'MARKET.SPREAD.BUY' | translate}}</th>
+      <th class="d-none d-sm-table-cell text-center spread-sell">{{'MARKET.SPREAD.SELL' | translate}}</th>
+      <th class="d-sm-none text-center spread-common">X / X / X<sup>1</sup></th>
+      <th class="spread-total text-center ">{{'MARKET.SPREAD.TOTAL' | translate}}</th>
+      <th class="spread-spread text-center ">{{'MARKET.SPREAD.SPREAD' | translate}}</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of data" class="transaction">
+      <td class="spread-currency">{{item.currency}}</td>
+      <td class="d-none d-sm-table-cell text-center spread-offers">{{item.offers}}</td>
+      <td class="d-none d-sm-table-cell text-center spread-buy">{{item.buy}}</td>
+      <td class="d-none d-sm-table-cell text-center  spread-sell">{{item.sell}}</td>
+      <td class="d-sm-none text-center spread-common">{{item.offers}} / {{item.buy}} / {{item.sell}}</td>
+      <td class="spread-total text-center ">{{item.total}}</td>
+      <td class="spread-spread text-center ">{{item.spread}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
