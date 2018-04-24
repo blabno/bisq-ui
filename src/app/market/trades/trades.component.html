@@ -1,0 +1,34 @@
+<div class="desktop-max-width">
+  <app-section-header class="d-none d-lg-block"></app-section-header>
+  <div class="row">
+    <div class="col-lg-4">
+      <ion-item class="filter-item show">
+        <ion-label floating>{{'OFFERS.LIST.FILTER.BY_CURRENCY' | translate}}</ion-label>
+        <ion-select [(ngModel)]="currencyFilter" (ionChange)="onFilterChange()" multiple="false">
+          <ion-option *ngFor="let currency of supportedPaymentsCurrencies" [value]="currency.rsymbol">{{currency.rname}}
+            ({{currency.rsymbol}})
+          </ion-option>
+        </ion-select>
+      </ion-item>
+    </div>
+    <div class="col-lg-4">
+      <ion-item class="filter-item show">
+        <ion-label floating>{{'MARKET.TRADE.FILTER_INTERVAL' | translate}}</ion-label>
+        <ion-select [(ngModel)]="interval" (ionChange)="onFilterChange()" multiple="false">
+          <ion-option *ngFor="let item of supportedIntervals" [value]="item.value">{{item.label | translate}}
+          </ion-option>
+        </ion-select>
+      </ion-item>
+    </div>
+  </div>
+  <app-market-trades-box-plot [data]="data"></app-market-trades-box-plot>
+  <div *ngIf="loading" class="d-flex justify-content-center align-items-center m-4 loading">
+    <h1>{{'SHARED.LOADING' | translate}}..</h1>
+    <ion-spinner></ion-spinner>
+  </div>
+  <div *ngIf="noData && !loading" class="card no-results-card">
+    <div class="card-body">
+      <span>{{'MARKET.TRADE.NO_RESULTS' | translate}}</span>
+    </div>
+  </div>
+</div>

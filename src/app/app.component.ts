@@ -10,6 +10,7 @@ import {MainComponent} from './main/main.component';
 import {AppDAO} from "./shared/DAO/app.dao";
 import {ArbitratorsDAO} from './shared/DAO/arbitrators.dao';
 import {CurrenciesDAO} from './shared/DAO/currencies.dao';
+import {MarketDAO} from './shared/DAO/market.dao';
 import {OffersDAO} from './shared/DAO/offers.dao';
 import {PaymentAccountsDAO} from './shared/DAO/paymentAccounts.dao';
 import {SupportDAO} from "./shared/DAO/support.dao";
@@ -36,6 +37,7 @@ t('WARNING');
     AppDAO,
     ArbitratorsDAO,
     CurrenciesDAO,
+    MarketDAO,
     OffersDAO,
     PaymentAccountsDAO,
     SupportDAO,
