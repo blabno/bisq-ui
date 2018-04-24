@@ -1,0 +1,38 @@
+app-market-spread {
+  .table {
+    table-layout: fixed;
+    td {
+      vertical-align: middle;
+    }
+    th {
+      sup {
+        color: var(--gray);
+      }
+    }
+    .spread-currency {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      word-wrap: normal;
+      white-space: nowrap;
+    }
+    .spread-offers {
+      width: 84px;
+    }
+    .spread-buy {
+      @extend .spread-offers;
+    }
+    .spread-sell {
+      @extend .spread-offers;
+    }
+    .spread-common {
+      width: 90px;
+    }
+    .spread-total {
+      @extend .spread-currency;
+      width:85px;
+    }
+    .spread-spread {
+      width: 60px;
+    }
+  }
+}
