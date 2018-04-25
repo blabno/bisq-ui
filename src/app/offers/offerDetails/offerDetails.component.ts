@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {NavParams, ViewController} from 'ionic-angular';
+import _ from 'lodash';
 
 @Component({
   selector: 'app-offer-details',
@@ -24,5 +25,9 @@ export class OfferDetailsComponent {
 
   dismiss() {
     this.viewCtrl.dismiss();
+  }
+
+  getOfferMarketPriceMargin(item) {
+    return _.round(item.marketPriceMargin * 100, 2);
   }
 }
