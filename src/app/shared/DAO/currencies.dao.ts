@@ -11,4 +11,8 @@ export class CurrenciesDAO {
   query() {
     return this.http.get(`${this.settings.backendUrl}/api/v1/currencies`).toPromise();
   }
+
+  getMarketPrices() {
+    return this.http.get(`${this.settings.backendUrl}/api/v1/currencies/prices`).toPromise();
+  }
 }
