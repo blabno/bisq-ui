@@ -1,23 +1,42 @@
 import {Injectable} from '@angular/core';
 import _ from 'lodash';
+import moment from 'moment';
+import {CurrenciesDAO} from '../DAO/currencies.dao';
+
+const PREFIX = 'BTC_';
 
 @Injectable()
 export class MarketPriceService {
-  markets;
+  private prices;
+  private loading = false;
+  private currentRequestPromise;
+  private nextRefreshDate;
 
-  constructor() {
-    this.refreshMarkets();
+  constructor(private currenciesDAO: CurrenciesDAO) {
+    this.getMarketPrices();
   }
 
-  refreshMarkets() {
-    if (!this.markets) {
-      this.markets = {
-        BTC_EUR: 7000,
-        BTC_PLN: 30000
-      }
-    } else {
-      this.markets = _.mapValues(this.markets, value => value * (1 + _.random(-0.01, 0.01)));
+  getMarketPrices(forceReload = false) {
+    if (this.loading) {
+      return this.currentRequestPromise;
     }
+    if (this.prices && !forceReload && moment().isBefore(this.nextRefreshDate)) {
+      return this.prices;
+    }
+    this.loading = true;
+    this.currentRequestPromise = this.currenciesDAO
+      .getMarketPrices()
+      .then(res => {
+        this.prices = _.mapKeys(res['prices'], (value, key) => PREFIX + key)
+        this.loading = false;
+        this.nextRefreshDate = moment().add(1, 'minute');
+        return this.prices;
+      })
+      .catch(err => {
+        this.loading = false;
+        throw err;
+      });
+    return this.currentRequestPromise;
   }
 
   get(cryptoSymbol, fiatSymbol) {
@@ -25,12 +44,10 @@ export class MarketPriceService {
   }
 
   getByCode(code) {
-    this.refreshMarkets();
-    return Promise.resolve(this.markets[`${code}`] || _.random(1000, 30000));
+    return this.getMarketPrices().then(res => this.prices[`${code}`]);
   }
 
   list() {
-    this.refreshMarkets();
-    return Promise.resolve(this.markets);
+    return this.getMarketPrices();
   }
 }
