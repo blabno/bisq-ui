@@ -13,7 +13,7 @@ export class OffersComponent implements OnInit, OnDestroy {
 
   listType: 'sell' | 'buy' | 'my-offers';
   offerList = [];
-  currencyPairs = [];
+  currencyCodes = [];
   prices = [];
   private paramSubscribe: any;
   public loading = false;
@@ -39,15 +39,14 @@ export class OffersComponent implements OnInit, OnDestroy {
     this.loading = true;
     this.offersDAO.query().then(res => {
       this.offerList = res['offers'];
-      let currencyPairs = _.map(this.offerList, offer => {
-        let {baseCurrencyCode, counterCurrencyCode} = offer;
-        return baseCurrencyCode + '_' + counterCurrencyCode;
-      });
-      this.currencyPairs = _.uniq(currencyPairs);
-      let promises = _.map(this.currencyPairs, (val) => this.marketPriceService.getByCode(val));
-      return Promise.all(promises);
-    }).then((marketPrices) => {
-      this.prices = _.zipObject(this.currencyPairs, marketPrices);
+      let baseCurrencyCodes = _.map(this.offerList, 'baseCurrencyCode');
+      let currencyCodes = _.map(this.offerList, 'currencyCode');
+      let counterCurrencyCodes = _.map(this.offerList, 'counterCurrencyCode');
+      
+      this.currencyCodes = _.uniq([...baseCurrencyCodes, ...currencyCodes, ...counterCurrencyCodes]);
+      return this.marketPriceService.getMarketPrices(true, this.currencyCodes);
+    }).then(marketPrices => {
+      this.prices = marketPrices;
       this.loading = false;
     }).catch(error => {
       this.toast.error(error, 'TOAST.OFFERS.CANT_FETCH_DATA');
