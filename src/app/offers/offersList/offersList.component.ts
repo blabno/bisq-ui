@@ -121,7 +121,7 @@ export class OffersListComponent implements OnChanges {
 
   getOfferPrice(item) {
     if (item.useMarketBasedPrice) {
-      const basePrice = this.prices[item.baseCurrencyCode + '_' + item.counterCurrencyCode];
+      const basePrice = Number(this.prices[item.counterCurrencyCode]);
       return _.round(basePrice - basePrice * item.marketPriceMargin, 2).toFixed(2);
     } else {
       return _.round(Number(item.price) / 1e4, 2).toFixed(2);
@@ -129,7 +129,7 @@ export class OffersListComponent implements OnChanges {
   }
   
   getOfferMarketPrice(item) {
-    return (this.prices[item.baseCurrencyCode + '_' + item.counterCurrencyCode]).toFixed(2);
+    return Number(this.prices[item.counterCurrencyCode]).toFixed(2);
   }
 
   getOfferMarketPriceMargin(item) {

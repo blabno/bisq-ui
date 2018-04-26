@@ -16,7 +16,7 @@ export class MarketPriceService {
     this.getMarketPrices();
   }
 
-  getMarketPrices(forceReload = false) {
+  getMarketPrices(forceReload = false, currencies = []) {
     if (this.loading) {
       return this.currentRequestPromise;
     }
@@ -25,9 +25,10 @@ export class MarketPriceService {
     }
     this.loading = true;
     this.currentRequestPromise = this.currenciesDAO
-      .getMarketPrices()
+      .getMarketPrices(currencies)
       .then(res => {
-        this.prices = _.mapKeys(res['prices'], (value, key) => PREFIX + key)
+        // this.prices = _.mapKeys(res['prices'], (value, key) => PREFIX + key)
+        this.prices = res['prices'];
         this.loading = false;
         this.nextRefreshDate = moment().add(1, 'minute');
         return this.prices;
