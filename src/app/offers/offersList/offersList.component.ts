@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import {Component, EventEmitter, Input, OnChanges, Output} from '@angular/core';
-import {Router} from '@angular/router';
+import {Router, ActivatedRoute} from '@angular/router';
 import {TranslateService} from '@ngx-translate/core';
 import {AlertController, ModalController} from 'ionic-angular';
 
@@ -47,6 +47,7 @@ export class OffersListComponent implements OnChanges {
   public supportedPaymentsCurrencies = [];
   private myAddress;
   public currenciesFromSettings = [];
+  private includedIds;
 
   private modalCtrlInstance;
   private unregisterBackButton = _.noop;
@@ -62,7 +63,8 @@ export class OffersListComponent implements OnChanges {
               private alertCtrl: AlertController,
               private modalCtrl: ModalController,
               private preferencesDAO: PreferencesDAO,
-              private backButton: BackButtonService) {
+              private backButton: BackButtonService,
+              private activeRoute: ActivatedRoute) {
     this.currencyFilter = this.settings.selectedCurrencyOnOfferList || [this.NO_FILTER];
     this.methodFilter = this.settings.selectedPaymentMethodOnOfferList || this.NO_FILTER;
     this.networkDAO.getP2PNetworkStatus().then(res => {
@@ -82,6 +84,14 @@ export class OffersListComponent implements OnChanges {
   }
 
   ngOnChanges() {
+    this.activeRoute.queryParams.subscribe((params: any) => {
+      if(params.id) {
+        this.includedIds = params.id;
+      } else {
+        this.includedIds = null;
+      }
+      this.filterData();
+    });
     this.filterData();
     this.createCurrenciesList()
   }
@@ -282,6 +292,9 @@ export class OffersListComponent implements OnChanges {
       }
       if (!this.settings.showMyOwnOffersInOfferBook) {
         filteredData = filteredData.filter(o => this.myAddress !== o.ownerNodeAddress);
+      }
+      if(this.includedIds) {
+        filteredData = filteredData.filter(o => _.includes(this.includedIds, o.id));
       }
       this.list = filteredData.value();
     } else if ('my-offers' === this.type) {

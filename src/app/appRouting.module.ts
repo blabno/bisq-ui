@@ -21,10 +21,11 @@ import {AltcoinsComponent} from './account/altcoins/altcoins.component';
 import {ArbitratorComponent} from './account/arbitrator/arbitrator.component';
 import {SupportComponent} from './support/support.component';
 import {MessagesComponent} from './support/messages/messages.component';
+import {OfferBookComponent} from './market/offer-book/offer-book.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'offers/buy', pathMatch: 'full'},
-  {path: 'market/offers-book', component: MarketComponent},
+  {path: 'market/offers-book', component: OfferBookComponent},
   {path: 'market/spread', component: SpreadComponent},
   {path: 'market/trades', component: MarketComponent},
 

@@ -1,0 +1,65 @@
+<div class="desktop-max-width">
+  <div class="col-lg-4">
+    <ion-item class="filter-item show" [ngClass]="{show: isFilterVisible}">
+      <ion-label>{{'OFFERS.LIST.FILTER.BY_CURRENCY' | translate}}</ion-label>
+      <ion-select [(ngModel)]="currencyFilter" (ionChange)="onFilterChange()" placeholder="{{'OFFERS.LIST.SHOW_ALL' | translate}}">
+        <ion-option *ngFor="let currency of supportedPaymentsCurrencies" [value]="currency">{{currency}}</ion-option>
+      </ion-select>
+    </ion-item>
+  </div>
+  <div id="tradesBoxPlot"></div>
+  <div class="row">
+    <div class="col-lg-6" (click)="sellOffersClick()">
+      <table *ngIf="toSellList.length && !loading" class="table table-striped">
+        <caption>Sell BTC to</caption>
+        <thead>
+          <tr>
+            <th>Amount in {{currencyFilter}}</th>
+            <th>Amount in BTC</th>
+            <th>Price in {{currencyFilter}}</th>
+            <th>Trader</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of toSellList">
+            <td>{{getOfferAmount(item)}}</td>
+            <td>{{item.amount}}</td>
+            <td>{{getOfferPrice(item)}}</td>
+            <td>
+              <app-gravatar [hashSeed]="item.ownerNodeAddress" size="24"></app-gravatar>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div ion-button full color="light" class="sell-button">
+        <i class="fas fa-upload menu-icon"></i>{{'OFFERS.LIST.SELL' | translate}}
+      </div>
+    </div>
+    <div class="col-lg-6" (click)="buyOffersClick()">
+      <table *ngIf="toBuyList.length && !loading" class="table table-striped">
+        <caption>Buy BTC from</caption>
+        <thead>
+          <tr>
+            <th>Amount in {{currencyFilter}}</th>
+            <th>Amount in BTC</th>
+            <th>Price in {{currencyFilter}}</th>
+            <th>Trader</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of toBuyList">
+            <td>{{getOfferAmount(item)}}</td>
+            <td>{{item.amount}}</td>
+            <td>{{getOfferPrice(item)}}</td>
+            <td>
+              <app-gravatar [hashSeed]="item.ownerNodeAddress" size="24"></app-gravatar>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div ion-button full color="light" class="buy-button">
+        <i class="fas fa-download menu-icon"></i>{{'OFFERS.LIST.BUY' | translate}}
+      </div>
+    </div>
+  </div>
+</div>

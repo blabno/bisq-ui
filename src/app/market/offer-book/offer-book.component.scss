@@ -1,0 +1,27 @@
+app-offer-book {
+  .row-padding {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  caption {
+    caption-side: top;
+    text-align: center;
+  }
+  th,
+  td {
+    text-align: center;
+  }
+  .axis path,
+  .axis line {
+    fill: none;
+    stroke: grey;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+  }
+  .buy-button {
+    background-color: #2cacaf
+  }
+  .sell-button {
+    background-color: #ffbd24
+  }
+}
