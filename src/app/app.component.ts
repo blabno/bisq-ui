@@ -65,11 +65,7 @@ export class AppComponent {
               private preferences: PreferencesDAO,
               private backButton: BackButtonService) {
     this.translate.setDefaultLang('en');
-    this.preferences.get().then((res: any) => {
-      this.translate.use(res.userLanguage);
-    }).catch(_.noop);
     this.translate.addLangs(['pl', 'en']);
-    this.tradesCache.init();
     if (!this.settings.backendUrl) {
       this.infoModal.show({
         title: t('SETTINGS.BACKEND_URL_MISSING_TITLE'),
@@ -81,6 +77,12 @@ export class AppComponent {
         },
         disallowCancel: true
       });
+    }
+    else {
+      this.tradesCache.init();
+      this.preferences.get().then((res: any) => {
+        this.translate.use(res.userLanguage);
+      }).catch(_.noop);
     }
 
     platform.ready().then(() => {
