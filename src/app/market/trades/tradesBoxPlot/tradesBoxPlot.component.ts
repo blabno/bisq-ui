@@ -38,8 +38,8 @@ export class TradesBoxPlotComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges) {
     const volumes = _.get(this, 'data.volumes', []);
-    const boxPlot =  _.get(this, 'data.boxPlotChartData', []);
-    this.preparedData = this.parseData(this.mergeData(boxPlot, volumes,'period_start'));
+    const boxPlot = _.get(this, 'data.boxPlotChartData', []);
+    this.preparedData = this.parseData(this.mergeData(boxPlot, volumes, 'period_start'));
     this.currency = _.get(this, 'data.currency');
     this.render();
   }
@@ -50,9 +50,12 @@ export class TradesBoxPlotComponent implements OnChanges {
     return _.chain(d)
       .sortBy('period_start')
       .map(value => {
-        for (let key in value) {
-          value[key] = Number(value[key]) || value[key];
-        }
+        value['avg'] = Number(value['avg']);
+        value['close'] = Number(value['close']);
+        value['open'] = Number(value['open']);
+        value['low'] = Number(value['low']);
+        value['high'] = Number(value['high']);
+        value['volume'] = Number(value['volume']);
         return {
           ...value,
           date: moment.unix(value.period_start).format('DD/MM/YY'),

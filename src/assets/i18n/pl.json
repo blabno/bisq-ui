@@ -637,6 +637,9 @@
 			"RESERVED": "Zarezerwowane"
 		},
 		"TRADE": {
+			"AMOUNT": "Ilość",
+			"AMOUNT_IN": "Wartośc w",
+			"DATE_TIME": "Data/Czas",
 			"FILTER_INTERVAL": "Interwał",
 			"INFO": {
 				"AVERAGE": "Średnio",
@@ -654,7 +657,10 @@
 				"WEEK": "Tydzień",
 				"YEAR": "Rok"
 			},
-			"NO_RESULTS": "Brak danych"
+			"LAST_TRADES": "Ostatnie 100 transakcji",
+			"NO_RESULTS": "Brak danych",
+			"OFFER_TYPE": "Typ oferty",
+			"PRICE": "Cena"
 		}
 	},
 	"MENU": {

@@ -637,6 +637,9 @@
 			"RESERVED": "Reserved"
 		},
 		"TRADE": {
+			"AMOUNT": "Amount",
+			"AMOUNT_IN": "Amount in",
+			"DATE_TIME": "Date/Time",
 			"FILTER_INTERVAL": "Interval",
 			"INFO": {
 				"AVERAGE": "Average",
@@ -654,7 +657,10 @@
 				"WEEK": "Week",
 				"YEAR": "Year"
 			},
-			"NO_RESULTS": "No data"
+			"LAST_TRADES": "Last 100 trades",
+			"NO_RESULTS": "No data",
+			"OFFER_TYPE": "Offer type",
+			"PRICE": "Price"
 		}
 	},
 	"MENU": {

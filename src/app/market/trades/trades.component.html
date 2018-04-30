@@ -22,6 +22,37 @@
     </div>
   </div>
   <app-market-trades-box-plot [data]="data"></app-market-trades-box-plot>
+  <div class="row" *ngIf="!noData && trades && !loading">
+    <div class="col-sm-12">
+      <div class="d-sm-none">
+        <sup>1</sup>X / X / X - {{'MARKET.TRADE.PRICE' | translate}} / {{'MARKET.TRADE.AMOUNT' | translate}}
+        / {{'MARKET.TRADE.AMOUNT_IN' | translate}} {{currencyFilter}}
+      </div>
+      <p>{{'MARKET.TRADE.LAST_TRADES' | translate}}</p>
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>{{'MARKET.TRADE.DATE_TIME' | translate}}</th>
+          <th class="d-none d-sm-table-cell text-center">{{'MARKET.TRADE.PRICE' | translate}}</th>
+          <th class="d-none d-sm-table-cell text-center">{{'MARKET.TRADE.AMOUNT' | translate}}</th>
+          <th class="d-none d-sm-table-cell text-center">{{'MARKET.TRADE.AMOUNT_IN' | translate}} {{currencyFilter}}</th>
+          <th class="d-sm-none text-center">X / X / X<sup>1</sup></th>
+          <th>{{'MARKET.TRADE.OFFER_TYPE' | translate}}</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of trades;">
+          <td>{{item.trade_date | date:'short'}}</td>
+          <td class="d-none d-sm-table-cell text-center">{{item.price | number:'1.2-4'}}</td>
+          <td class="d-none d-sm-table-cell text-center">{{item.amount | number:'1.2-4'}}</td>
+          <td class="d-none d-sm-table-cell text-center">{{(item.price / item.amount) | number:'1.2-4'}}</td>
+          <td class="d-sm-none text-center">{{item.price | number:'1.2-4'}} / {{item.amount}}&nbsp;/<br/> {{(item.price / item.amount) | number:'1.2-4'}}</td>
+          <td>{{item.direction | translate}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
   <div *ngIf="loading" class="d-flex justify-content-center align-items-center m-4 loading">
     <h1>{{'SHARED.LOADING' | translate}}..</h1>
     <ion-spinner></ion-spinner>

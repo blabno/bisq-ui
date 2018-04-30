@@ -6,7 +6,7 @@ import {Component} from '@angular/core';
 import {MarketDAO} from '../../shared/DAO/market.dao';
 import {ToastService} from '../../shared/services/toast.service';
 
-import t from '../../shared/defineTextToTranslate';
+import defineTextToTranslate from '../../shared/defineTextToTranslate';
 
 @Component({
   selector: 'app-market-trades',
@@ -21,24 +21,25 @@ export class TradesComponent {
   public supportedIntervals: Array<Object>;
   public noData: boolean = false;
   public loading: boolean = false;
+  public trades: Array<Object>;
 
   constructor(private marketDAO: MarketDAO,
               private toast: ToastService) {
     this.supportedIntervals = [
       {
-        label: t('MARKET.TRADE.INTERVAL.DAY'),
+        label: defineTextToTranslate('MARKET.TRADE.INTERVAL.DAY'),
         value: 'day'
       },
       {
-        label: t('MARKET.TRADE.INTERVAL.WEEK'),
+        label: defineTextToTranslate('MARKET.TRADE.INTERVAL.WEEK'),
         value: 'week'
       },
       {
-        label: t('MARKET.TRADE.INTERVAL.MONTH'),
+        label: defineTextToTranslate('MARKET.TRADE.INTERVAL.MONTH'),
         value: 'month'
       },
       {
-        label: t('MARKET.TRADE.INTERVAL.YEAR'),
+        label: defineTextToTranslate('MARKET.TRADE.INTERVAL.YEAR'),
         value: 'year'
       },
     ];
@@ -51,6 +52,14 @@ export class TradesComponent {
     this.interval = 'day';
   }
 
+  private parseKnowNumberValues(d) {
+    return _.map(d, value => {
+      value['amount'] = Number(value['amount']);
+      value['price'] = Number(value['price']);
+      return value;
+    });
+  }
+
   onFilterChange() {
     if (this.currencyFilter && this.interval) {
       this.noData = false;
@@ -59,7 +68,8 @@ export class TradesComponent {
       const from = moment().add(-15, this.interval).unix();
       Promise.props({
         boxPlotChartData: this.marketDAO.getPrices(market, this.interval, from),
-        volumes: this.marketDAO.getVolumes(market, this.interval, from)
+        volumes: this.marketDAO.getVolumes(market, this.interval, from),
+        trades: this.marketDAO.getLastTrades(market)
       }).then((res: any) => {
         if (!_.get(res, 'boxPlotChartData.length')) {
           this.noData = true;
@@ -68,6 +78,7 @@ export class TradesComponent {
           ...res,
           currency: this.currencyFilter
         };
+        this.trades = this.parseKnowNumberValues(res.trades);
         this.loading = false;
       }).catch(error => {
         this.data = null;
