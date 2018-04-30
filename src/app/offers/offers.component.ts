@@ -4,6 +4,7 @@ import {OffersDAO} from "../shared/DAO/offers.dao";
 import {ToastService} from "../shared/services/toast.service";
 import _ from 'lodash';
 import {MarketPriceService} from '../shared/services/marketPrice.service';
+import {SettingsService} from "../shared/services/settings.service";
 
 @Component({
   selector: 'app-offers',
@@ -21,12 +22,15 @@ export class OffersComponent implements OnInit, OnDestroy {
   constructor(private activeRoute: ActivatedRoute,
               private offersDAO: OffersDAO,
               private toast: ToastService,
-              private marketPriceService: MarketPriceService) {
+              private marketPriceService: MarketPriceService,
+              private settings: SettingsService) {
   }
 
   ngOnInit() {
     this.paramSubscribe = this.activeRoute.params.subscribe(params => {
-      this.refreshOffersList();
+      if (this.settings.backendUrl) {
+        this.refreshOffersList();
+      }
       this.listType = params['type'];
     });
   }
@@ -42,7 +46,7 @@ export class OffersComponent implements OnInit, OnDestroy {
       let baseCurrencyCodes = _.map(this.offerList, 'baseCurrencyCode');
       let currencyCodes = _.map(this.offerList, 'currencyCode');
       let counterCurrencyCodes = _.map(this.offerList, 'counterCurrencyCode');
-      
+
       this.currencyCodes = _.uniq([...baseCurrencyCodes, ...currencyCodes, ...counterCurrencyCodes]);
       return this.marketPriceService.getMarketPrices(true, this.currencyCodes);
     }).then(marketPrices => {

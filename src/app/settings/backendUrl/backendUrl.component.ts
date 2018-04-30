@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 
@@ -6,6 +7,8 @@ import {NetworkDAO} from '../../shared/DAO/network.dao';
 import {TradesCacheService} from '../../shared/services/tradesCache.service';
 import {ToastService} from '../../shared/services/toast.service';
 import t from '../../shared/defineTextToTranslate';
+import {TranslateService} from "@ngx-translate/core";
+import {PreferencesDAO} from "../../shared/DAO/preferences.dao";
 
 @Component({
   selector: 'app-backend-url',
@@ -25,7 +28,9 @@ export class BackendUrlComponent implements OnInit, OnDestroy {
               private networkDAO: NetworkDAO,
               private router: Router,
               private toast: ToastService,
-              private tradesCache: TradesCacheService) {
+              private tradesCache: TradesCacheService,
+              private preferences: PreferencesDAO,
+              private translate: TranslateService) {
   }
 
   ngOnInit() {
@@ -41,7 +46,7 @@ export class BackendUrlComponent implements OnInit, OnDestroy {
   }
 
   save() {
-    if(this.isSavingAlready) return;
+    if (this.isSavingAlready) return;
 
     if (!this.settings.backendUrl) {
       this.invalidUrl = true;
@@ -58,15 +63,19 @@ export class BackendUrlComponent implements OnInit, OnDestroy {
       .then(() => {
         this.invalidUrl = false;
         this.toast.show(t('SETTINGS.BACKEND_URL_UPDATED'), 'success');
-        this.router.navigateByUrl('/offers/buy');
-        this.isSavingAlready = false;
+        this.preferences.get().then((res: any) => {
+          this.translate.use(res.userLanguage);
+          this.tradesCache.init();
+          this.settings.saveSettings();
+          this.router.navigateByUrl('/offers/buy');
+          this.isSavingAlready = false;
+        }).catch(_.noop);
       })
       .catch(() => {
         this.invalidUrl = true;
         this.toast.show(t('SETTINGS.BACKEND_URL_UNAVAILABLE'), 'error');
         this.isSavingAlready = false;
       });
-    this.settings.saveSettings();
   }
 
   addressKeyHandler(keyCode) {
