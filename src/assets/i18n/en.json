@@ -842,7 +842,7 @@
 			"BITCOIN_NETWORK": "Bitcoin network",
 			"CONNECTED_PEERS": "Connected peers",
 			"DELETE_SPV_FILE_AND_RESYNC": "Delete SPV file and resync",
-			"ESTABLISHED": "established",
+			"ESTABLISHED": "Established",
 			"MY_ONION_ADDRESS": "My onion address",
 			"OPEN_TOR_SETTINGS": "Open tor settings",
 			"P2P_NETWORK": "P2P network",
