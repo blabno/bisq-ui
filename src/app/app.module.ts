@@ -39,7 +39,7 @@ import {ReservedComponent} from './funds/reserved/reserved.component';
 import {SectionHeaderComponent} from "./shared/components/sectionHeader/sectionHeader.component";
 import {SendComponent} from './funds/send/send.component';
 import {SpreadComponent} from './market/spread/spread.component';
-import {SummaryComponent} from './market/summary/summary.component';
+import {OfferBookComponent} from './market/offer-book/offer-book.component';
 import {SupportComponent} from './support/support.component';
 import {TakeOfferComponent} from './offers/takeOffer/takeOffer.component';
 import {TradeDetailsComponent} from './portfolio/openTrades/tradeDetails/tradeDetails.component';
@@ -81,7 +81,7 @@ const loadComponents = [
   SectionHeaderComponent,
   SendComponent,
   SpreadComponent,
-  SummaryComponent,
+  OfferBookComponent,
   SupportComponent,
   TakeOfferComponent,
   TradeDetailsComponent,
