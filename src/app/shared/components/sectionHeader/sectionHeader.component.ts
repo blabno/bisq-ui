@@ -31,6 +31,7 @@ export class SectionHeaderComponent {
   updateSectionTitle(url) {
     const pathsArray = [
       {path: '/market/spread', title: ['MENU.MARKET', t('MARKET.SUBMENU.SPREAD')]},
+      {path: '/market/trades', title: ['MENU.MARKET', t('MARKET.SUBMENU.TRADES')]},
       {path: '/offers/buy/create', title: ['MENU.BUY', t('OFFERS.CREATE.TITLE')]},
       {path: '/offers/buy/take', title: ['MENU.BUY', t('OFFERS.TAKE_OFFER.TITLE')]},
       {path: '/offers/buy', title: ['MENU.BUY']},

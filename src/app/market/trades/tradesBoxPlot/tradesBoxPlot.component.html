@@ -1,0 +1,17 @@
+<div id="tradesBoxPlot"></div>
+<div class="info" *ngIf="this.preparedData.length">
+  <div *ngIf="itemToView" class="row">
+    <div class="col-6">
+      {{ 'MARKET.TRADE.INFO.DATE' | translate }}: {{itemToView.period_start*1000 | date:'mediumDate'}}<br/>
+      {{ 'MARKET.TRADE.INFO.OPEN' | translate }}: {{itemToView.open}} {{currency}}<br/>
+      {{ 'MARKET.TRADE.INFO.CLOSE' | translate }}: {{itemToView.close}} {{currency}}<br/>
+      {{ 'MARKET.TRADE.INFO.TRADES' | translate }}: {{itemToView.num_trades}}
+    </div>
+    <div class="col-6">
+      {{ 'MARKET.TRADE.INFO.AVERAGE' | translate }}: {{itemToView.avg}} {{currency}}<br/>
+      {{ 'MARKET.TRADE.INFO.MAX' | translate }}: {{itemToView.high}} {{currency}}<br/>
+      {{ 'MARKET.TRADE.INFO.MIN' | translate }}: {{itemToView.low}} {{currency}}<br/>
+      {{ 'MARKET.TRADE.INFO.VOLUME' | translate }}: {{itemToView.volume}}
+    </div>
+  </div>
+</div>

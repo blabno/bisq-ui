@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {MarketComponent} from './market/market.component';
 import {SpreadComponent} from './market/spread/spread.component';
+import {TradesComponent} from './market/trades/trades.component';
 import {OffersComponent} from './offers/offers.component';
 import {CreateOffersComponent} from './offers/createOffers/createOffers.component';
 import {TakeOfferComponent} from './offers/takeOffer/takeOffer.component';
@@ -27,7 +28,7 @@ const appRoutes: Routes = [
   {path: '', redirectTo: 'offers/buy', pathMatch: 'full'},
   {path: 'market/offers-book', component: OfferBookComponent},
   {path: 'market/spread', component: SpreadComponent},
-  {path: 'market/trades', component: MarketComponent},
+  {path: 'market/trades', component: TradesComponent},
 
   {path: 'offers/:type/create', component: CreateOffersComponent},
   {path: 'offers/:type/take/:offerId', component: TakeOfferComponent},

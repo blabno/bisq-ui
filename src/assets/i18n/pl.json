@@ -635,6 +635,32 @@
 			"AVAILABLE": "Dostępne",
 			"LOCKED": "Zablokowane",
 			"RESERVED": "Zarezerwowane"
+		},
+		"TRADE": {
+			"AMOUNT": "Ilość",
+			"AMOUNT_IN": "Wartośc w",
+			"DATE_TIME": "Data/Czas",
+			"FILTER_INTERVAL": "Interwał",
+			"INFO": {
+				"AVERAGE": "Średnio",
+				"CLOSE": "Zamknięcie",
+				"DATE": "Data",
+				"MAX": "Maks.",
+				"MIN": "Min.",
+				"OPEN": "Otwarcie",
+				"TRADES": "Transakcji",
+				"VOLUME": "Wolumen"
+			},
+			"INTERVAL": {
+				"DAY": "Dzień",
+				"MONTH": "Miesiąc",
+				"WEEK": "Tydzień",
+				"YEAR": "Rok"
+			},
+			"LAST_TRADES": "Ostatnie 100 transakcji",
+			"NO_RESULTS": "Brak danych",
+			"OFFER_TYPE": "Typ oferty",
+			"PRICE": "Cena"
 		}
 	},
 	"MENU": {
@@ -912,6 +938,9 @@
 		"ADDRESS_COPIED_TO_CLIPBOARD": "Adres skopiowany do schowka",
 		"EXIT_APP": "Naciśnij ponownie aby wyjść",
 		"FORM_VALIDATION_ERROR": "Brak wszystkich wymaganych pól",
+		"MARKET": {
+			"FETCH_DATA_ERROR": "Błąd: Nie można pobrać danych dla wykresu"
+		},
 		"NEW_ADDRESS_CREATE_ERROR": "Nie można wygenerować nowego adresu",
 		"NOMINATED_SUCCESSFULLY": "Nominowano pomyślnie",
 		"OFFERS": {

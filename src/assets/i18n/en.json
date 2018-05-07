@@ -635,6 +635,32 @@
 			"AVAILABLE": "Available",
 			"LOCKED": "Locked",
 			"RESERVED": "Reserved"
+		},
+		"TRADE": {
+			"AMOUNT": "Amount",
+			"AMOUNT_IN": "Amount in",
+			"DATE_TIME": "Date/Time",
+			"FILTER_INTERVAL": "Interval",
+			"INFO": {
+				"AVERAGE": "Average",
+				"CLOSE": "Close",
+				"DATE": "Date",
+				"MAX": "Max",
+				"MIN": "Min",
+				"OPEN": "Open",
+				"TRADES": "Trades",
+				"VOLUME": "Volume"
+			},
+			"INTERVAL": {
+				"DAY": "Day",
+				"MONTH": "Month",
+				"WEEK": "Week",
+				"YEAR": "Year"
+			},
+			"LAST_TRADES": "Last 100 trades",
+			"NO_RESULTS": "No data",
+			"OFFER_TYPE": "Offer type",
+			"PRICE": "Price"
 		}
 	},
 	"MENU": {
@@ -912,6 +938,9 @@
 		"ADDRESS_COPIED_TO_CLIPBOARD": "Address copied to clipboard",
 		"EXIT_APP": "Press back again to exit App",
 		"FORM_VALIDATION_ERROR": "Missing required fields",
+		"MARKET": {
+			"FETCH_DATA_ERROR": "Error: Cant't fetch data for chart"
+		},
 		"NEW_ADDRESS_CREATE_ERROR": "Unable to create new address",
 		"NOMINATED_SUCCESSFULLY": "Nominated successfully",
 		"OFFERS": {

@@ -45,6 +45,8 @@ import {TakeOfferComponent} from './offers/takeOffer/takeOffer.component';
 import {TradeDetailsComponent} from './portfolio/openTrades/tradeDetails/tradeDetails.component';
 import {TradeListComponent} from './portfolio/tradeList/tradeList.component';
 import {TradeStatusComponent} from './portfolio/openTrades/tradeStatus/tradeStatus.component';
+import {TradesBoxPlotComponent} from './market/trades/tradesBoxPlot/tradesBoxPlot.component';
+import {TradesComponent} from './market/trades/trades.component';
 import {TransactionComponent} from './funds/transactions/transaction.component';
 import {WalletPassComponent} from './account/wallet-pass/wallet-pass.component';
 import {WalletSeedComponent} from './account/wallet-seed/wallet-seed.component';
@@ -87,6 +89,8 @@ const loadComponents = [
   TradeDetailsComponent,
   TradeListComponent,
   TradeStatusComponent,
+  TradesBoxPlotComponent,
+  TradesComponent,
   TransactionComponent,
   WalletPassComponent,
   WalletSeedComponent
