@@ -33,7 +33,7 @@
     <div class="label">{{'OFFERS.DETAILS.MAKER_ADDRESS' | translate}}</div>
     <div>{{offer.ownerNodeAddress}}</div>
     <div class="label">{{'OFFERS.DETAILS.CREATE_DATE' | translate}}</div>
-    <div>{{offer.date}}</div>
+    <div>{{offer.date | date:'medium'}}</div>
     <div class="label">{{'OFFERS.DETAILS.SECURITY_DEPOSIT' | translate}}</div>
     <div>
       {{'SHARED.BUYER' | translate}}: {{offer.buyerDeposit}} BTC /
