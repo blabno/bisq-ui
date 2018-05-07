@@ -12,6 +12,9 @@ app-network-info {
   .row {
     padding-left: 5px;
     align-items: center;
+    & .top {
+      align-items: baseline;
+    }
   }
   .margin {
     margin: 5px;

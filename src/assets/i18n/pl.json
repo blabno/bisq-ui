@@ -842,7 +842,7 @@
 			"BITCOIN_NETWORK": "Sieć bitcoin",
 			"CONNECTED_PEERS": "Połączenia",
 			"DELETE_SPV_FILE_AND_RESYNC": "Usuń plik SPV i synchronizuj",
-			"ESTABLISHED": "Polączono",
+			"ESTABLISHED": "Połączono",
 			"MY_ONION_ADDRESS": "Mój adres onion",
 			"OPEN_TOR_SETTINGS": "Otwórz ustawienia TORa",
 			"P2P_NETWORK": "Sieć P2P",
