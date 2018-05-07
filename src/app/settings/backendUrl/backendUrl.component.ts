@@ -2,10 +2,13 @@ import _ from 'lodash';
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 
+import {AwsApiService} from './awsApi.service';
 import {SettingsService} from '../../shared/services/settings.service';
 import {NetworkDAO} from '../../shared/DAO/network.dao';
 import {TradesCacheService} from '../../shared/services/tradesCache.service';
 import {ToastService} from '../../shared/services/toast.service';
+import {InfoModalService} from '../../shared/components/infoModal/infoModal.service';
+
 import t from '../../shared/defineTextToTranslate';
 import {TranslateService} from "@ngx-translate/core";
 import {PreferencesDAO} from "../../shared/DAO/preferences.dao";
@@ -25,6 +28,8 @@ export class BackendUrlComponent implements OnInit, OnDestroy {
   isSavingAlready = false;
 
   constructor(public settings: SettingsService,
+              private awsApi: AwsApiService,
+              private infoModal: InfoModalService,
               private networkDAO: NetworkDAO,
               private router: Router,
               private toast: ToastService,
@@ -79,12 +84,25 @@ export class BackendUrlComponent implements OnInit, OnDestroy {
   }
 
   addressKeyHandler(keyCode) {
-    if(keyCode === 13 && !this.isSavingAlready) {
+    if (keyCode === 13 && !this.isSavingAlready) {
       this.save()
+    }
+  }
+
+
+  addUrlToSuggestions(url) {
+    if (!_.includes(this.items, url)) {
+      this.items.unshift(url);
     }
   }
 
   selectUrl(url) {
     this.settings.backendUrl = url;
+  }
+
+  selectUrlAndSave(url) {
+
+    this.selectUrl(url);
+    this.save()
   }
 }

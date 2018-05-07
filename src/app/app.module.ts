@@ -10,12 +10,14 @@ import {NgxQRCodeModule} from 'ngx-qrcode2';
 import {Clipboard} from '@ionic-native/clipboard';
 import {SplashScreen} from '@ionic-native/splash-screen';
 import {StatusBar} from '@ionic-native/status-bar';
+import {HTTP} from '@ionic-native/http';
 
 import {AboutComponent} from './settings/about/about.component';
 import {AccountManagerComponent} from './account/accountManager/accountManager.component';
 import {AltcoinsComponent} from './account/altcoins/altcoins.component';
 import {AppComponent} from './app.component';
 import {ArbitratorComponent} from './account/arbitrator/arbitrator.component';
+import {AwsBackendComponent} from './settings/backendUrl/awsBackend/awsBackend.component';
 import {BackendUrlComponent} from './settings/backendUrl/backendUrl.component';
 import {BackupComponent} from './account/backup/backup.component';
 import {CreateOffersComponent} from './offers/createOffers/createOffers.component';
@@ -60,6 +62,7 @@ const loadComponents = [
   AltcoinsComponent,
   AppComponent,
   ArbitratorComponent,
+  AwsBackendComponent,
   BackendUrlComponent,
   BackupComponent,
   CreateOffersComponent,
@@ -128,6 +131,7 @@ export function createTranslateLoader(http: HttpClient) {
     Clipboard,
     StatusBar,
     SplashScreen,
+    HTTP,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

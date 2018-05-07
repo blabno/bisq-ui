@@ -19,6 +19,7 @@ import {WalletDAO} from './shared/DAO/wallet.dao';
 import {PreferencesDAO} from './shared/DAO/preferences.dao';
 import {NetworkDAO} from './shared/DAO/network.dao';
 
+import {AwsApiService} from './settings/backendUrl/awsApi.service';
 import {BackButtonService} from './shared/services/backButton.service';
 import {ClipboardService} from './shared/services/clipboard.service';
 import {InfoModalService} from './shared/components/infoModal/infoModal.service';
@@ -43,6 +44,7 @@ t('WARNING');
     SupportDAO,
     TradesDAO,
     WalletDAO,
+    AwsApiService,
     BackButtonService,
     ClipboardService,
     InfoModalService,

@@ -3,8 +3,9 @@
   <ion-item>
     <ion-label stacked>{{'SETTINGS.BACKEND_URL_INPUT_LABEL' | translate}}</ion-label>
     <ion-input [(ngModel)]="settings.backendUrl" [ngClass]="{invalid: invalidUrl}" (ionChange)="change()"
-      (keypress)="addressKeyHandler($event.keyCode)"></ion-input>
-    <button *ngIf="!isSavingAlready"  ion-button item-end (click)="save()" class="save-button">{{'SAVE' | translate}}</button>
+               (keypress)="addressKeyHandler($event.keyCode)"></ion-input>
+    <button *ngIf="!isSavingAlready" ion-button item-end (click)="save()" class="save-button">{{'SAVE' | translate}}
+    </button>
     <ion-spinner *ngIf="isSavingAlready" item-end></ion-spinner>
   </ion-item>
   <ion-list>
@@ -13,4 +14,7 @@
       {{item}}
     </button>
   </ion-list>
+  <hr/>
+  <app-aws-backend (onAwsIpLoaded)="addUrlToSuggestions($event)"
+                   (onAwsApiReady)="selectUrlAndSave($event)"></app-aws-backend>
 </div>
