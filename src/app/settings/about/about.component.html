@@ -43,11 +43,17 @@
         <p class="main-text">{{'SETTINGS.ABOUT.BISQ_USES_3RD_APIS' | translate }}</p>
         <div class="mt-2 group">{{'SETTINGS.ABOUT.MARKET_PRICES_PROVIDED_BY' | translate }}:</div>
         <div *ngFor="let provider of marketPricesProviders">
-          <div>{{provider.name}} ({{provider.www}})</div>
+          <div class="d-flex row-flex align-items-center p-3 link" href="#" (click)="openLink(provider.www)">
+            <span class="link">{{provider.name}} ({{provider.www}})</span>
+            <ion-icon class="ml-2" name="md-link"></ion-icon>
+          </div>
         </div>
         <div class="mt-2 group">{{'SETTINGS.ABOUT.MINING_FEE_ESTIMATION_PROVIDED_BY' | translate }}:</div>
         <div *ngFor="let provider of miningFeesEstimationProviders">
-          <div>{{provider.name}} ({{provider.www}})</div>
+          <div class="d-flex row-flex align-items-center p-3 link" href="#" (click)="openLink(provider.www)">
+            <span class="link">{{provider.name}} ({{provider.www}})</span>
+            <ion-icon class="ml-2" name="md-link"></ion-icon>
+          </div>
         </div>
       </div>
     </div>
