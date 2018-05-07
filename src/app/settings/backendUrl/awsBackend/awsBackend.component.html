@@ -1,0 +1,64 @@
+<div *ngIf="isAwsAvailable && isAwsBackendAvailable" class="status">
+  {{'SETTINGS.AWS_BACKEND.STATUS' | translate}}: <span class="value">{{awsBackendStatus | translate}}</span>
+</div>
+<div class="creating-info" *ngIf="this.settings.awsCreateInitDate || this.settings.awsStartInitDate">
+  <div *ngIf="this.settings.awsCreateInitDate">{{'SETTINGS.AWS_BACKEND.CREATING_INFORMATION' | translate}}</div>
+  <div *ngIf="this.settings.awsStartInitDate">{{'SETTINGS.AWS_BACKEND.STARTING_INFORMATION' | translate}}</div>
+  <div class="link">
+    <a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks">
+      https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks
+      <ion-icon class="ml-2" name="md-link"></ion-icon>
+    </a>
+  </div>
+  <div class="progress">
+    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+         [ngClass]="isProgressbarDanger ? 'bg-danger' : 'bg-info'" [ngStyle]="{width: progressbarValue + '%'}"></div>
+  </div>
+</div>
+
+<div>
+  <button *ngIf="isAwsAvailable && !isAwsBackendAvailable && !isAwsCredentialsVisible" ion-button
+          (click)="initCreateAwsBackend()">
+    {{'SETTINGS.AWS_BACKEND.CREATE' | translate}}
+  </button>
+  <button *ngIf="isAwsAvailable && isAwsBackendAvailable && 'SHARED.RUNNING' === awsBackendStatus" ion-button
+          (click)="stopAwsBackend()">
+    {{'SETTINGS.AWS_BACKEND.STOP' | translate}}
+  </button>
+  <button *ngIf="isAwsAvailable && isAwsBackendAvailable && 'SHARED.STOPPED' === awsBackendStatus" ion-button
+          (click)="startAwsBackend()">
+    {{'SETTINGS.AWS_BACKEND.START' | translate}}
+  </button>
+  <button *ngIf="isAwsAvailable && isDeleteVisible" ion-button
+          color="danger" (click)="deleteAwsBackend()">
+    {{'SETTINGS.AWS_BACKEND.DELETE' | translate}}
+  </button>
+  <button *ngIf="isAwsAvailable && isAwsBackendAvailable" ion-button color="light"
+          (click)="refreshAwsStatus()">
+    {{'SETTINGS.AWS_BACKEND.REFRESH_STATUS' | translate}}
+  </button>
+
+  <div *ngIf="isAwsAvailable && !isAwsBackendAvailable && isAwsCredentialsVisible">
+    <div>{{'SETTINGS.AWS_BACKEND.CREATE_INFORMATION_0' | translate}}</div>
+    <div class="link">
+      <a href="https://console.aws.amazon.com/iam/home?region=us-east-1#/users">
+        https://console.aws.amazon.com/iam/home?region=us-east-1#/users
+        <ion-icon class="ml-2" name="md-link"></ion-icon>
+      </a>
+    </div>
+
+    <div class="create-info">{{'SETTINGS.AWS_BACKEND.CREATE_INFORMATION_1' | translate}}</div>
+    <ion-item>
+      <ion-label floating>{{ 'SETTINGS.AWS_BACKEND.KEY_ID' | translate }}</ion-label>
+      <ion-input type="text" [(ngModel)]="settings.awsAccessKeyId"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>{{ 'SETTINGS.AWS_BACKEND.KEY_SECRET' | translate }}</ion-label>
+      <ion-input type="text" [(ngModel)]="settings.awsSecretAccessKey"></ion-input>
+    </ion-item>
+    <button ion-button (click)="createAwsBackend()" [disabled]="isAwsCreatingInProgress">
+      {{'SHARED.CONFIRM' | translate}}
+      <ion-spinner *ngIf="isAwsCreatingInProgress" item-end></ion-spinner>
+    </button>
+  </div>
+</div>

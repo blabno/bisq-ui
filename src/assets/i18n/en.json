@@ -515,7 +515,7 @@
 			"CURRENCY_ZAR": "South African Rand (ZAR)",
 			"CURRENCY_ZMW": "Zambian Kwacha (ZMW)",
 			"CURRENCY_ZWD": "Zimbabwe Dollar (ZWD)",
-			"DELETE_CONFIRMATION": "Do you really want to delete selected account",
+			"DELETE_CONFIRMATION": "Do you really want to delete selected account?",
 			"EMAIL": "Email",
 			"EMAIL_OR_MOBILE": "Email or mobile nr",
 			"EMAIL_OR_PHONE": "Email or phone nr",
@@ -631,11 +631,6 @@
 			"SPREAD": "Spread",
 			"TRADES": "Trades"
 		},
-		"SUMMARY": {
-			"AVAILABLE": "Available",
-			"LOCKED": "Locked",
-			"RESERVED": "Reserved"
-		},
 		"TRADE": {
 			"AMOUNT": "Amount",
 			"AMOUNT_IN": "Amount in",
@@ -650,12 +645,6 @@
 				"OPEN": "Open",
 				"TRADES": "Trades",
 				"VOLUME": "Volume"
-			},
-			"INTERVAL": {
-				"DAY": "Day",
-				"MONTH": "Month",
-				"WEEK": "Week",
-				"YEAR": "Year"
 			},
 			"LAST_TRADES": "Last 100 trades",
 			"NO_RESULTS": "No data",
@@ -854,6 +843,25 @@
 			"VERSIONS_OF_SUBSYSTEMS": "Versions of subsystems",
 			"VERSION_DETAILS": "Version details"
 		},
+		"AWS_BACKEND": {
+			"ALREADY_EXIST": "Connected to already existed AWS backend",
+			"CREATE": "Create AWS backend",
+			"CREATE_INFORMATION_0": "You have to provide AWS credentials to be able to deploy new AWS backend. Go to AWS console and follow below instruction.",
+			"CREATE_INFORMATION_1": "1. Click \"Add user\" button\n2. Type any \"User name\"\n3. Select \"Programmatic access\" in \"Access type\" field\n4. Click \"Next: Permissions\" button\n5. Select \"Admin\" checkbox\n6. Click \"Next: Review\" button\n7. Click \"Create user\" button\n8. Click \"Show\" in \"Secret access key\" column\n9. Copy both values",
+			"CREATING_INFORMATION": "Preparing backend could take up to 10 minutes. If after this time server is not ready you can go to AWS Console and check status. You can also delete backend and try to create again.",
+			"DELETE": "Delete AWS backend",
+			"DELETED": "Backend deleted successfully",
+			"DELETE_CONFIRMATION": "Do you really want to delete AWS backend?",
+			"KEY_ID": "Access key ID",
+			"KEY_SECRET": "Secret access key",
+			"REFRESH_STATUS": "Refresh status",
+			"START": "Start",
+			"STARTED": "Backend started successfully",
+			"STARTING_INFORMATION": "Starting backend could take up to 3 minutes. If after this time server is not ready you can go to AWS Console and check status. You can also delete backend and try to create again.",
+			"STATUS": "AWS backend status",
+			"STOP": "Stop",
+			"STOPPED": "Backend stopped successfully"
+		},
 		"BACKEND_URL_ALT_LABEL": "Or pick address from preset:",
 		"BACKEND_URL_INPUT_LABEL": "TYPE SERVER ADDRESS",
 		"BACKEND_URL_MISSING_REDIRECT": "Go to setup",
@@ -916,11 +924,19 @@
 	"SHARED": {
 		"AS": "as",
 		"BUYER": "Buyer",
+		"CONFIRM": "Confirm",
+		"CREATING": "Creating",
+		"DELETING": "Deleting",
 		"FILTER": "Filter",
+		"INITIALIZING": "Initializing",
 		"LOADING": "Loading",
 		"NOT_DONE_YET": "Functionality is not done yet",
 		"REFRESH": "Refresh",
-		"SELLER": "Seller"
+		"RUNNING": "Running",
+		"SELLER": "Seller",
+		"STARTING": "Starting",
+		"STOPPED": "Stopped",
+		"STOPPING": "Stopping"
 	},
 	"SUPPORT": {
 		"LIST": {

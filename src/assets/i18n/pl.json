@@ -631,11 +631,6 @@
 			"SPREAD": "Spread",
 			"TRADES": "Transakcje"
 		},
-		"SUMMARY": {
-			"AVAILABLE": "Dostępne",
-			"LOCKED": "Zablokowane",
-			"RESERVED": "Zarezerwowane"
-		},
 		"TRADE": {
 			"AMOUNT": "Ilość",
 			"AMOUNT_IN": "Wartośc w",
@@ -650,12 +645,6 @@
 				"OPEN": "Otwarcie",
 				"TRADES": "Transakcji",
 				"VOLUME": "Wolumen"
-			},
-			"INTERVAL": {
-				"DAY": "Dzień",
-				"MONTH": "Miesiąc",
-				"WEEK": "Tydzień",
-				"YEAR": "Rok"
 			},
 			"LAST_TRADES": "Ostatnie 100 transakcji",
 			"NO_RESULTS": "Brak danych",
@@ -854,6 +843,25 @@
 			"VERSIONS_OF_SUBSYSTEMS": "Wersje podsystemów",
 			"VERSION_DETAILS": "Wersje"
 		},
+		"AWS_BACKEND": {
+			"ALREADY_EXIST": "Połączono do istniejącego backendu AWS",
+			"CREATE": "Stwórz backend AWS",
+			"CREATE_INFORMATION_0": "Aby stworzyć nowy backend AWS musisz podać kody dostępu ze strony AWS. Wejdź na stronę AWS Console i podążaj za poniższą instrukcja",
+			"CREATE_INFORMATION_1": "1. Kliknij przycisk \"Add user\"\n2. Wpisz dowolna nazwę w polu \"User name\"\n3. Wybierz \"Programmatic access\" w polu \"Access type\"\n4. Kliknij przycisk \"Next: Permissions\"\n5. Zaznacz \"Admin\"\n6. Kliknij przycisk \"Next: Review\"\n7. Kliknij przycisk \"Create user\"\n8. Kliknij \"Show\" w kolumnie \"Secret access key\"\n9. Skopiuj widoczne wartości",
+			"CREATING_INFORMATION": "Tworzenie backendu może zająć do 10 minut. Jeśli po tym czasie serwer nie jest gotowy możesz przejść na stronę AWS Console i sprawdzić status. Możesz również usunąć backend i spróbować utworzyć go ponownie.",
+			"DELETE": "Usuń",
+			"DELETED": "AWS backend usunięty pomyślnie",
+			"DELETE_CONFIRMATION": "Czy na pewno chcesz usunąć backend AWS",
+			"KEY_ID": "Access key ID",
+			"KEY_SECRET": "Secret access key",
+			"REFRESH_STATUS": "Odśwież status",
+			"START": "Start",
+			"STARTED": "AWS backend uruchomiony pomyślnie",
+			"STARTING_INFORMATION": "Uruchamianie backendu może zająć do 10 minut. Jeśli po tym czasie serwer nie jest gotowy możesz przejść na stronę AWS Console i sprawdzić status. Możesz również usunąć backend i spróbować utworzyć go ponownie.",
+			"STATUS": "Status",
+			"STOP": "Stop",
+			"STOPPED": "Zatrzymany"
+		},
 		"BACKEND_URL_ALT_LABEL": "Lub wybierz jeden z poniższych:",
 		"BACKEND_URL_INPUT_LABEL": "WPROWADŹ ADRES SERWERA",
 		"BACKEND_URL_MISSING_REDIRECT": "Przejdź do ustawień ",
@@ -916,11 +924,19 @@
 	"SHARED": {
 		"AS": "jako",
 		"BUYER": "Kupujący",
+		"CONFIRM": "Potwierdź",
+		"CREATING": "Tworzenie",
+		"DELETING": "Usuwanie",
 		"FILTER": "Filtr",
+		"INITIALIZING": "Inicjalizowanie",
 		"LOADING": "Wczytywanie",
 		"NOT_DONE_YET": "Funkcjonalność nie skończona jeszcze",
 		"REFRESH": "Odśwież",
-		"SELLER": "Sprzedający"
+		"RUNNING": "Uruchomiony",
+		"SELLER": "Sprzedający",
+		"STARTING": "Uruchamianie",
+		"STOPPED": "Zatrzmany",
+		"STOPPING": "Zatrzymywanie"
 	},
 	"SUPPORT": {
 		"LIST": {

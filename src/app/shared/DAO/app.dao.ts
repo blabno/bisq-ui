@@ -17,4 +17,8 @@ export class AppDAO {
       app: '3.0'
     });
   }
+
+  checkAvailability(url) {
+    return this.http.get(`${url}/api/v1/network/p2p/status`).toPromise();
+  }
 }

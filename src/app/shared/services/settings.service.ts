@@ -20,7 +20,13 @@ enum BitcoinExplorers {
 @Injectable()
 export class SettingsService {
   public backendSettings = {};
+  public awsAccessKeyId = '';
+  public awsCreateInitDate = 0;
+  public awsStartInitDate = 0;
+  public awsSecretAccessKey = '';
   public backendUrl = '';
+  public backendEC2InstanceId = '';
+  public backendEC2InstanceIP = '';
   public baseCurrency: BaseCurrencies = BaseCurrencies.BITCOIN;
   public language = 'en';
   public country: Countries = Countries.PL;
@@ -76,6 +82,8 @@ export class SettingsService {
       const storageValue = localStorage.getItem(key);
       if (this[key] instanceof Array && storageValue) {
         this[key] = storageValue.split(',') || this[key];
+      } else if ('number' === typeof this[key]) {
+        this[key] = Number(storageValue) || this[key];
       } else {
         this[key] = storageValue || this[key];
       }

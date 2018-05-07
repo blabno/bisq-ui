@@ -1,7 +1,9 @@
 import Promise from 'bluebird';
 import {Injectable} from '@angular/core';
 import moment from 'moment';
+
 import {CurrenciesDAO} from '../DAO/currencies.dao';
+import {SettingsService} from './settings.service';
 
 const PREFIX = 'BTC_';
 
@@ -12,8 +14,10 @@ export class MarketPriceService {
   private currentRequestPromise;
   private nextRefreshDate;
 
-  constructor(private currenciesDAO: CurrenciesDAO) {
-    this.getMarketPrices();
+  constructor(private currenciesDAO: CurrenciesDAO, private settings: SettingsService) {
+    if (this.settings.backendUrl) {
+      this.getMarketPrices();
+    }
   }
 
   getMarketPrices(forceReload = false, currencies = []) {

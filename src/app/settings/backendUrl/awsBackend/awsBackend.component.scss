@@ -1,0 +1,40 @@
+app-aws-backend {
+  display: block;
+  @media (max-width: 992px) {
+    padding: 15px;
+  }
+  hr {
+    background-color: var(--facile-grey);
+  }
+
+  .link {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    color: blue;
+    a {
+      color: blue;
+      text-decoration: underline;
+    }
+  }
+  .status {
+    margin-top: 24px;
+    .value {
+      font-weight: bold;
+    }
+  }
+  .create-info {
+    white-space: pre-line;
+  }
+  .creating-info {
+    margin-top: 8px;
+  }
+  .progress {
+    margin-top: 20px;
+    height: 16px;
+  }
+  button.button {
+    margin-top: 24px;
+    margin-bottom: 24px;
+    float: right;
+  }
+}
