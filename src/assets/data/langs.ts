@@ -376,8 +376,8 @@ export default {
     nativeName: 'lietuvių kalba',
   },
   lu: {
-    name: 'Luba-Katanga',
-    nativeName: '',
+    name: 'Kiluba',
+    nativeName: 'Kiluba',
   },
   lv: {
     name: 'Latvian',
