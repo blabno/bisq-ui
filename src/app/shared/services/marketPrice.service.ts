@@ -1,5 +1,5 @@
+import Promise from 'bluebird';
 import {Injectable} from '@angular/core';
-import _ from 'lodash';
 import moment from 'moment';
 import {CurrenciesDAO} from '../DAO/currencies.dao';
 
@@ -21,7 +21,7 @@ export class MarketPriceService {
       return this.currentRequestPromise;
     }
     if (this.prices && !forceReload && moment().isBefore(this.nextRefreshDate)) {
-      return this.prices;
+      return Promise.resolve(this.prices);
     }
     this.loading = true;
     this.currentRequestPromise = this.currenciesDAO
