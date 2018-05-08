@@ -559,6 +559,7 @@
 		"SUBMENU": {
 			"ALTCOINS_ACCOUNTS": "Altcoins Accounts",
 			"ARBITRATOR": "Arbitrator",
+			"BACKUP": "Backup",
 			"CURRENCY_ACCOUNTS": "Currency Accounts"
 		},
 		"WALLET_PASS": {
@@ -584,6 +585,29 @@
 		}
 	},
 	"BACK": "Back",
+	"BACKUPS": {
+		"LIST": {
+			"DOWNLOAD": "Download",
+			"NO_RESULTS": "There are no backups",
+			"REMOVE": "Delete",
+			"RESTORE": "Restore"
+		},
+    "RESTORE_ALERT": {
+      "TITLE": "Backup restore",
+      "TEXT": "If you confirm this operation the backend application will be stopped. In order to apply restored changes you need to start your backend instance again or if you are using AWS backend provider application will automatically restart after few seconds. Are you sure you want to proceed?",
+      "BUTTON_PROCEED": "Proceed"
+    },
+    "DELETE_ALERT": {
+      "TITLE": "Delete backup",
+      "TEXT": "This operation will cause deletion of the backup. You will lose all the data contained within this backup. Are you sure you want to proceed?"
+    },
+    "BACKUP_CREATED": "Backup created successfully",
+    "BACKUP_DELETED": "Backup deleted successfully",
+    "BACKUP_UPLOADED": "Backup uploaded successfully",
+    "CREATE": "Create backup",
+    "UPLOAD": "Upload backup",
+    "RESTORE_IN_PROGRESS": "Restore in progress..."
+	},
 	"BUY": "Buy",
 	"CANCEL": "Cancel",
 	"CONFIRM": "Confirm",
@@ -616,6 +640,7 @@
 	"INFO_MODAL": {
 		"DO_NOT_SHOW_AGAIN": "Don't show again"
 	},
+  "INFO_ALERT_CANCEL": "Cancel",
 	"MARKET": {
 		"SPREAD": {
 			"BUY": "Buy",

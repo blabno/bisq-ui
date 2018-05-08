@@ -1,1 +1,65 @@
-<p>backup works!</p>
+<div *ngIf="loading" class="d-flex justify-content-center align-items-center m-4 loading">
+  <h1>{{'SHARED.LOADING' | translate}}..</h1>
+  <ion-spinner></ion-spinner>
+</div>
+<div class="row d-flex justify-content-center" *ngIf="!loading">
+  <button ion-button>
+    <label for="file" class="mb-0">
+      {{'BACKUPS.UPLOAD' | translate}} <i class="fas fa-upload"></i>
+    </label>
+    <input type="file"
+           class="hide-input"
+           id="file"
+           (change)="uploadBackup($event.target.files[0])">
+  </button>
+  <button ion-button color="secondary" (click)="createBackup()">
+    {{'BACKUPS.CREATE' | translate}} <i class="fas fa-plus ml-1"></i>
+  </button>
+</div>
+<div *ngIf="!list.length && !loading" class="card no-results-card">
+  <div class="card-body">
+    <span>{{'BACKUPS.LIST.NO_RESULTS' | translate}}</span>
+  </div>
+</div>
+<div class="pt-3">
+  <div *ngIf="list.length && !loading">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th class="info">Backup</th>
+        <th class="info"></th>
+        <th class="info"></th>
+        <th class="info"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of list">
+        <td>
+          {{item}}
+        </td>
+        <td class="action">
+          <a class="btn btn-primary" (click)="downloadBackup(item)">
+            <div class="select-button">
+              <i class="fas fa-download"></i>
+            </div>
+          </a>
+        </td>
+        <td class="action">
+          <div class="btn btn-danger" (click)="restoreBackup(item)">
+            <div class="select-button">
+              {{'BACKUPS.LIST.RESTORE' | translate}} <i class="fas fa-sync-alt"></i>
+            </div>
+          </div>
+        </td>
+        <td class="action">
+          <div class="btn btn-danger" (click)="deleteBackup(item)">
+            <div class="select-button">
+              <i class="fas fa-trash-alt"></i>
+            </div>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

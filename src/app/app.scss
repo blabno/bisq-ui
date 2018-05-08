@@ -169,3 +169,25 @@ ion-popover.select-popover ion-list {
   color: var(--red);
   margin-left: 5px;
 }
+
+.info-alert-danger {
+  .alert-wrapper, .alert-message {
+    background: #ff0000;
+    color: #ffffff;
+  }
+
+  .alert-button {
+    color: #e2e2e2;
+  }
+}
+
+.info-alert-success {
+  .alert-wrapper, .alert-message {
+    background: #24c250;
+    color: #373737;
+  }
+
+  .alert-button {
+    color: #bbdc51;
+  }
+}

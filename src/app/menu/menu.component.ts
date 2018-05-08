@@ -7,7 +7,7 @@ import {Component, ViewChild} from '@angular/core';
 export class MenuComponent {
   @ViewChild('navbarToggler') navbarToggler;
 
-  sectionTitle = ['MENU.ACCOUNT', 'ACCOUNT.SUBMENU.CURRENCY_ACCOUNTS'];
+  sectionTitle = ['MENU.ACCOUNT', 'ACCOUNT.SUBMENU.CURRENCY_ACCOUNTS', 'ACCOUNT.SUBMENU.BACKUP'];
 
   onMenuItemClick() {
     if (992 > window.innerWidth) {

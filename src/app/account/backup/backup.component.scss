@@ -1,2 +1,97 @@
 app-backup {
+
+  .hide-input {
+    display: none;
+  }
+
+  button {
+    &.create {
+      margin-right: 10px;
+      margin-bottom: 8px;
+    }
+    &.refresh {
+      margin-bottom: 8px;
+    }
+  }
+  .filter-item {
+    padding-left: 0;
+    .select-placeholder {
+      color: black
+    }
+  }
+  .filter-label {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-top: 1px;
+  }
+  .table {
+    th {
+      text-align: center;
+      padding-left: 2px;
+      padding-right: 2px;
+      &.price {
+        text-align: right;
+        padding-right: 6px;
+      }
+    }
+    td {
+      vertical-align: middle;
+      text-align: center;
+      padding-left: 1px;
+      padding-right: 1px;
+      &.price {
+        text-align: right;
+        padding-right: 6px;
+      }
+      &.payment-method i {
+        font-size: 16px;
+        margin-left: 4px;
+      }
+      &.action {
+        .btn {
+          font-size: 14px;
+        }
+      }
+      &.owner {
+        min-width: 38px;
+      }
+      &.info i {
+        font-size: 16px;
+        margin-top: 8px;
+        margin-bottom: 7px;
+        margin-right: 6px;
+      }
+    }
+  }
+  .info {
+    color: var(--info);
+  }
+
+  @media (max-width: 992px) {
+    button.create {
+      display: block;
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+    }
+    .filter-item {
+      display: none;
+      &.show {
+        display: flex;
+      }
+      &.last {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  .create-btn, .upload-btn {
+    font-size: 16px;
+
+    i {
+      margin: 4px;
+    }
+  }
+
 }

@@ -559,6 +559,7 @@
 		"SUBMENU": {
 			"ALTCOINS_ACCOUNTS": "Konta alternatywne",
 			"ARBITRATOR": "Arbitrator",
+			"BACKUP": "Kopia zapasowa",
 			"CURRENCY_ACCOUNTS": "Konta walutowe"
 		},
 		"WALLET_PASS": {
@@ -584,6 +585,29 @@
 		}
 	},
 	"BACK": "Wróć",
+	"BACKUPS": {
+		"LIST": {
+			"DOWNLOAD": "Pobierz",
+			"NO_RESULTS": "Brak kopii zapasowych",
+			"REMOVE": "Usuń",
+			"RESTORE": "Przywróć"
+		},
+    "RESTORE_ALERT": {
+      "TITLE": "Przywrócenie kopii zapasowej",
+      "TEXT": "Ta operacja jest niebezpieczna. Jeśli potwierdzisz tę operację, aplikacja backendu zostanie zatrzymana. Aby zastosować przywrócone zmiany, musisz ponownie uruchomić instancję backendu lub jeśli korzystasz z aplikacji zaplecza AWS, aplikacja automatycznie uruchomi się ponownie po kilku sekundach. Czy na pewno chcesz kontynuować?",
+      "BUTTON_PROCEED": "Kontynuuj"
+    },
+    "DELETE_ALERT": {
+      "TITLE": "Usuń kopię zapasową",
+      "TEXT": "Ta operacja spowoduję usunięcie zapisanej kopii zapasowej. Utracisz wszystkie dane zapisane na tej kopii. Czy na pewno chcesz kontynuować?"
+    },
+    "BACKUP_CREATED": "Kopia zapasowa została pomyślnie utworzona",
+    "BACKUP_DELETED": "Kopia zapasowa została pomyślnie usunięta",
+    "BACKUP_UPLOADED": "Kopia zapasowa została pomyślnie zapisana",
+		"CREATE": "Stwórz kopie zapasową",
+		"UPLOAD": "Załaduj kopie zapasową",
+    "RESTORE_IN_PROGRESS": "Przywracanie kopi zapasowej trwa..."
+	},
 	"BUY": "Kupno",
 	"CANCEL": "Anuluj",
 	"CONFIRM": "Potwierdź",
@@ -616,6 +640,7 @@
 	"INFO_MODAL": {
 		"DO_NOT_SHOW_AGAIN": "Nie pokazuj ponownie"
 	},
+  "INFO_ALERT_CANCEL": "Anuluj",
 	"MARKET": {
 		"SPREAD": {
 			"BUY": "Sprzedaż",
