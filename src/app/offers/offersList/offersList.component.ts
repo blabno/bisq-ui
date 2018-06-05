@@ -69,7 +69,7 @@ export class OffersListComponent implements OnChanges {
     this.methodFilter = this.settings.selectedPaymentMethodOnOfferList || this.NO_FILTER;
     this.networkDAO.getP2PNetworkStatus().then(res => {
       this.myAddress = _.get(res, 'address');
-      return preferencesDAO.get();
+      return this.preferencesDAO.get();
     }).then((settings: any) => {
       this.currenciesFromSettings = [...settings.cryptoCurrencies, ...settings.fiatCurrencies];
       return this.paymentsDAO.query();
@@ -137,7 +137,7 @@ export class OffersListComponent implements OnChanges {
       return _.round(Number(item.price) / 1e4, 2).toFixed(2);
     }
   }
-  
+
   getOfferMarketPrice(item) {
     return Number(this.prices[item.counterCurrencyCode]).toFixed(2);
   }
@@ -157,7 +157,7 @@ export class OffersListComponent implements OnChanges {
       ]
     }).present();
   }
-  
+
   priceDetails(item, event) {
     event.stopPropagation();
     if (!item.useMarketBasedPrice) return;

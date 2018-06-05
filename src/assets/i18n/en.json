@@ -560,17 +560,18 @@
 			"ALTCOINS_ACCOUNTS": "Altcoins Accounts",
 			"ARBITRATOR": "Arbitrator",
 			"BACKUP": "Backup",
-			"CURRENCY_ACCOUNTS": "Currency Accounts"
+			"CURRENCY_ACCOUNTS": "Currency Accounts",
+			"WALLET_PASS": "Wallet password"
 		},
 		"WALLET_PASS": {
+			"DIFFERENT_PASSWORDS": "Password and confirmed password are not the same",
+			"EMPTY_PASSWORD": "Password cannot be empty",
 			"ENTER_PASS": "Enter password",
-			"HEADER": "Set password protection for wallet",
-			"INFORMATION": "Information",
-			"INFORMATION_CONTENT": "The password will be needed when the application is started and when you extract cryptocurrency from the wallet or if you want to see the mnemonic phrase for the wallet.",
-			"REMOVE_HEADER": "Remove password protection for wallet",
 			"REMOVE_PASS": "Remove password",
+			"REMOVE_SUCCESS": "Password successfully removed",
 			"RE_ENTER_PASS": "Confirm password",
-			"SET_PASS": "Set password"
+			"SET_PASS": "Set password",
+			"SET_SUCCESS": "Password successfully set"
 		},
 		"WALLET_SEED": {
 			"BACKUP_HEADER": "Backup your wallets mnemonic phrase",
@@ -586,27 +587,25 @@
 	},
 	"BACK": "Back",
 	"BACKUPS": {
+		"BACKUP_CREATED": "Backup created successfully",
+		"BACKUP_DELETED": "Backup deleted successfully",
+		"BACKUP_UPLOADED": "Backup uploaded successfully",
+		"CREATE": "Create backup",
+		"DELETE_ALERT": {
+			"TEXT": "This operation will cause deletion of the backup. You will lose all the data contained within this backup. Are you sure you want to proceed?",
+			"TITLE": "Delete backup"
+		},
 		"LIST": {
-			"DOWNLOAD": "Download",
 			"NO_RESULTS": "There are no backups",
-			"REMOVE": "Delete",
 			"RESTORE": "Restore"
 		},
-    "RESTORE_ALERT": {
-      "TITLE": "Backup restore",
-      "TEXT": "If you confirm this operation the backend application will be stopped. In order to apply restored changes you need to start your backend instance again or if you are using AWS backend provider application will automatically restart after few seconds. Are you sure you want to proceed?",
-      "BUTTON_PROCEED": "Proceed"
-    },
-    "DELETE_ALERT": {
-      "TITLE": "Delete backup",
-      "TEXT": "This operation will cause deletion of the backup. You will lose all the data contained within this backup. Are you sure you want to proceed?"
-    },
-    "BACKUP_CREATED": "Backup created successfully",
-    "BACKUP_DELETED": "Backup deleted successfully",
-    "BACKUP_UPLOADED": "Backup uploaded successfully",
-    "CREATE": "Create backup",
-    "UPLOAD": "Upload backup",
-    "RESTORE_IN_PROGRESS": "Restore in progress..."
+		"RESTORE_ALERT": {
+			"BUTTON_PROCEED": "Proceed",
+			"TEXT": "If you confirm this operation the backend application will be stopped. In order to apply restored changes you need to start your backend instance again or if you are using AWS backend provider application will automatically restart after few seconds. Are you sure you want to proceed?",
+			"TITLE": "Backup restore"
+		},
+		"RESTORE_IN_PROGRESS": "Restore in progress...",
+		"UPLOAD": "Upload backup"
 	},
 	"BUY": "Buy",
 	"CANCEL": "Cancel",
@@ -637,10 +636,16 @@
 		"TRANSACTION_ID": "TxID",
 		"VALUE": "Value"
 	},
+	"INFO_ALERT_CANCEL": "Cancel",
 	"INFO_MODAL": {
 		"DO_NOT_SHOW_AGAIN": "Don't show again"
 	},
-  "INFO_ALERT_CANCEL": "Cancel",
+	"LOGIN": {
+		"ERROR": "Login error",
+		"LOGIN": "Login",
+		"PASSWORD": "Password",
+		"SUCCESS": "Successfully logged in"
+	},
 	"MARKET": {
 		"SPREAD": {
 			"BUY": "Buy",
@@ -681,6 +686,8 @@
 		"ACCOUNT": "Account",
 		"BUY": "Buy BTC",
 		"FUNDS": "Funds",
+		"LOGGED_OUT": "Successfully logged out",
+		"LOGOUT": "Logout",
 		"MARKET": "Market",
 		"PORTFOLIO": "Portfolio",
 		"SELL": "Sell BTC",
@@ -892,6 +899,7 @@
 		"BACKEND_URL_MISSING_REDIRECT": "Go to setup",
 		"BACKEND_URL_MISSING_TEXT": "This application requires correct URL address to running BISQ server.",
 		"BACKEND_URL_MISSING_TITLE": "Server address is undefined",
+		"BACKEND_URL_PROTECTED": "Server need authorization",
 		"BACKEND_URL_REQUIRED": "Server address cannot be empty",
 		"BACKEND_URL_UNAVAILABLE": "Unable to connect to specified address",
 		"BACKEND_URL_UPDATED": "Successfully connected",

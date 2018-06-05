@@ -20,10 +20,12 @@ import {BackendUrlComponent} from './settings/backendUrl/backendUrl.component';
 import {CurrencyComponent} from './account/currency/currency.component';
 import {AltcoinsComponent} from './account/altcoins/altcoins.component';
 import {ArbitratorComponent} from './account/arbitrator/arbitrator.component';
+import {WalletPassComponent} from './account/wallet-pass/wallet-pass.component';
 import {BackupComponent} from './account/backup/backup.component';
 import {SupportComponent} from './support/support.component';
 import {MessagesComponent} from './support/messages/messages.component';
 import {OfferBookComponent} from './market/offer-book/offer-book.component';
+import {LoginComponent} from "./login/login.component";
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'offers/buy', pathMatch: 'full'},
@@ -54,13 +56,16 @@ const appRoutes: Routes = [
   {path: 'account/currency', component: CurrencyComponent},
   {path: 'account/altcoins', component: AltcoinsComponent},
   {path: 'account/arbitrator', component: ArbitratorComponent},
+  {path: 'account/wallet-pass', component: WalletPassComponent},
   {path: 'account/backup', component: BackupComponent},
 
   {path: 'settings', redirectTo: 'settings/preferences', pathMatch: 'full'},
   {path: 'settings/preferences', component: PreferencesComponent},
   {path: 'settings/network-info', component: NetworkInfoComponent},
   {path: 'settings/about', component: AboutComponent},
-  {path: 'settings/backend-url', component: BackendUrlComponent}
+  {path: 'settings/backend-url', component: BackendUrlComponent},
+
+  {path: 'login', component: LoginComponent}
 ];
 
 @NgModule({

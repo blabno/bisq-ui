@@ -23,7 +23,7 @@ export class ArbitratorComponent implements OnInit {
   public languagesSpoken;
   public doingActionOn = {};
   public settingsModel = {
-    autoSelectArbitrators: false 
+    autoSelectArbitrators: false
   };
   public savingSettings = false;
 
@@ -36,9 +36,11 @@ export class ArbitratorComponent implements OnInit {
       return {value: key, name: lang.nativeName};
     });
     this.getArbitrators();
-    this.preferencesDAO.get().then(res => {
-      _.merge(this.settingsModel, res);
-    });
+    this.preferencesDAO.get()
+      .then(res => {
+        _.merge(this.settingsModel, res);
+      })
+      .catch(error => this.toast.error(error));
   }
 
   getArbitrators() {
@@ -47,10 +49,12 @@ export class ArbitratorComponent implements OnInit {
       this.arbitrators = _.get(res, 'arbitrators') || [];
       this.arbitratorsSelection = _.chain(_.get(res, 'arbitrators')).mapKeys('address').mapValues(() => false).value();
       return this.arbitratorsDAO.query(true);
-    }).then(res => {
-      this.arbitratorsSelection = _.chain(_.get(res, 'arbitrators')).mapKeys('address').mapValues(() => true).value();
-      this.loading = false;
-    });
+    })
+      .then(res => {
+        this.arbitratorsSelection = _.chain(_.get(res, 'arbitrators')).mapKeys('address').mapValues(() => true).value();
+        this.loading = false;
+      })
+      .catch(error => this.toast.error(error));
   }
 
   onSelectionChange(event, address) {
@@ -99,6 +103,6 @@ export class ArbitratorComponent implements OnInit {
     }).catch(err => {
       this.savingSettings = false;
       this.toast.show(_.get(err, 'error.errors[0]') || t('ACCOUNT.ARBITRATOR.AUTO_SELECT_ARBITRATORS_ERROR'), 'error');
-    }); 
+    });
   }
 }

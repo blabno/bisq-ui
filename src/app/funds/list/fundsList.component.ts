@@ -43,10 +43,12 @@ export class FundsListComponent implements OnInit, OnDestroy {
 
   getAddressesData() {
     this.loading = true;
-    this.walletDao.getAddresses(this.type).then(res => {
-      this.walletAddresses = _.get(res, 'walletAddresses') || [];
-      this.loading = false;
-    });
+    this.walletDao.getAddresses(this.type)
+      .then(res => {
+        this.walletAddresses = _.get(res, 'walletAddresses') || [];
+        this.loading = false;
+      })
+      .catch(error => this.toast.error(error));
   }
 
   generateAddress() {

@@ -1,33 +1,21 @@
-<div class="desktop-max-width">
+<div class="desktop-max-width padding">
   <app-section-header class="d-none d-lg-block"></app-section-header>
-  <div class="card">
-    <div class="card-header" *ngIf="passwordExist">{{ 'ACCOUNT.WALLET_PASS.REMOVE_HEADER' | translate}}</div>
-    <div class="card-header" *ngIf="!passwordExist">{{ 'ACCOUNT.WALLET_PASS.HEADER' | translate}}</div>
-    <div class="card-body">
-      <form>
-        <ion-item>
-          <ion-label>{{'ACCOUNT.WALLET_PASS.ENTER_PASS' | translate}}</ion-label>
-          <ion-input type="password"></ion-input>
-        </ion-item>
-        <ion-item *ngIf="!passwordExist">
-          <ion-label>{{'ACCOUNT.WALLET_PASS.RE_ENTER_PASS' | translate}}</ion-label>
-          <ion-input type="password"></ion-input>
-        </ion-item>
-      </form>
-    </div>
-  </div>
+  <form>
+    <ion-item>
+      <ion-label floating>{{'ACCOUNT.WALLET_PASS.ENTER_PASS' | translate}}</ion-label>
+      <ion-input type="password" name="oldPassword" [(ngModel)]="password"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!passwordExist">
+      <ion-label floating>{{'ACCOUNT.WALLET_PASS.RE_ENTER_PASS' | translate}}</ion-label>
+      <ion-input type="password" name="newPassword" [(ngModel)]="confirmedPassword"></ion-input>
+    </ion-item>
+  </form>
   <div class="buttons">
-    <button class="btn btn-primary button-md" (click)="setPassword()" *ngIf="!passwordExist">
+    <button ion-button (click)="setPassword()" *ngIf="!isPasswordSet()">
       {{'ACCOUNT.WALLET_PASS.SET_PASS' | translate}}
     </button>
-    <button class="btn btn-primary button-md" (click)="removePassword()" *ngIf="passwordExist">
+    <button ion-button color="danger" (click)="removePassword()" *ngIf="isPasswordSet()">
       {{'ACCOUNT.WALLET_PASS.REMOVE_PASS' | translate}}
     </button>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <i class="fas fa-info-circle info"></i>{{'ACCOUNT.WALLET_PASS.INFORMATION' | translate}}
-    </div>
-    <div class="card-body">{{'ACCOUNT.WALLET_PASS.INFORMATION_CONTENT' | translate}}</div>
   </div>
 </div>

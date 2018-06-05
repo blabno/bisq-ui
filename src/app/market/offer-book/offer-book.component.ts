@@ -105,7 +105,6 @@ export class OfferBookComponent implements OnInit {
         this.loading = false;
       })
       .catch(error => {
-        console.log(error);
         this.toast.error(error, 'TOAST.OFFERS.CANT_FETCH_DATA');
         this.loading = false;
       });
@@ -134,7 +133,7 @@ export class OfferBookComponent implements OnInit {
     .x(d => this.xScale(d.price))
     .y(d => {
       accY += d.amount;
-      return this.yScale(accY); 
+      return this.yScale(accY);
     });
 
     let area = d3.area()
@@ -260,7 +259,7 @@ export class OfferBookComponent implements OnInit {
   sellOffersClick() {
     this.router.navigate(['/offers/sell'], { queryParams: { id: _.map(this.toSellList, 'id') } });
   }
-  
+
   buyOffersClick() {
     this.router.navigate(['/offers/buy'], { queryParams: { id: _.map(this.toBuyList, 'id') } });
   }

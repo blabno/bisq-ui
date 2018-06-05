@@ -54,7 +54,9 @@ export class SectionHeaderComponent {
       {path: '/account/currency', title: ['MENU.ACCOUNT', 'ACCOUNT.SUBMENU.CURRENCY_ACCOUNTS']},
       {path: '/account/altcoins', title: ['MENU.ACCOUNT', 'ACCOUNT.SUBMENU.ALTCOINS_ACCOUNTS']},
       {path: '/account/arbitrator', title: ['MENU.ACCOUNT', 'ACCOUNT.SUBMENU.ARBITRATOR']},
-      {path: '/account/backup', title: ['MENU.ACCOUNT', 'ACCOUNT.SUBMENU.BACKUP']}
+      {path: '/account/wallet-pass', title: ['MENU.ACCOUNT', 'ACCOUNT.SUBMENU.WALLET_PASS']},
+      {path: '/account/backup', title: ['MENU.ACCOUNT', 'ACCOUNT.SUBMENU.BACKUP']},
+      {path: '/login', title: ['LOGIN.LOGIN']}
     ];
     const pathObject = _.find(pathsArray, object => _.includes(url, object.path)) || {};
     this.sectionTitle = pathObject.title;

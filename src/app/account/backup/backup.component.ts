@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { BackupsDAO } from "../../shared/DAO/backups.dao";
-import { InfoModalService } from "../../shared/components/infoModal/infoModal.service";
-import { chain, trimStart, trimEnd, sortBy } from 'lodash';
-import { ToastService } from "../../shared/services/toast.service";
-import { InfoAlertService } from "../../shared/components/infoAlert/infoAlert.service";
-import {SettingsService} from "../../shared/services/settings.service";
+import {Component, OnInit} from '@angular/core';
+import {BackupsDAO} from '../../shared/DAO/backups.dao';
+import {InfoModalService} from '../../shared/components/infoModal/infoModal.service';
+import {chain, trimStart, trimEnd, sortBy} from 'lodash';
+import {ToastService} from '../../shared/services/toast.service';
+import {InfoAlertService} from '../../shared/components/infoAlert/infoAlert.service';
+import {SettingsService} from '../../shared/services/settings.service';
+
+import t from '../../shared/defineTextToTranslate';
 
 @Component({
   selector: 'app-backup',
@@ -45,7 +47,7 @@ export class BackupComponent implements OnInit {
   createBackup() {
     this.loading = true;
     this.backupsDAO.createBackup().then(() => {
-      this.toast.show('BACKUPS.BACKUP_CREATED', 'success');
+      this.toast.show(t('BACKUPS.BACKUP_CREATED'), 'success');
       this.fetchBackupsList()
     }).catch((err) => this.callError(err));
   }
@@ -57,7 +59,7 @@ export class BackupComponent implements OnInit {
     formData.append('file', file, file.name);
 
     this.backupsDAO.uploadBackup(formData).then(() => {
-      this.toast.show('BACKUPS.BACKUP_UPLOADED', 'success');
+      this.toast.show(t('BACKUPS.BACKUP_UPLOADED'), 'success');
       this.fetchBackupsList();
     }).catch((err) => this.callError(err));
   }
@@ -69,14 +71,14 @@ export class BackupComponent implements OnInit {
 
   restoreBackup(backup: string) {
     this.infoAlert.show({
-      title: 'BACKUPS.RESTORE_ALERT.TITLE',
-      message: 'BACKUPS.RESTORE_ALERT.TEXT',
+      title: t('BACKUPS.RESTORE_ALERT.TITLE'),
+      message: t('BACKUPS.RESTORE_ALERT.TEXT'),
       type: 'danger',
       confirmButton: {
-        text: 'BACKUPS.RESTORE_ALERT.BUTTON_PROCEED',
+        text: t('BACKUPS.RESTORE_ALERT.BUTTON_PROCEED'),
         handler: () => {
           this.backupsDAO.restoreBackup(backup)
-            .then(() => this.toast.show('BACKUPS.RESTORE_IN_PROGRESS', 'success'))
+            .then(() => this.toast.show(t('BACKUPS.RESTORE_IN_PROGRESS'), 'success'))
             .catch((err) => this.callError(err));
         }
       }
@@ -85,16 +87,16 @@ export class BackupComponent implements OnInit {
 
   deleteBackup(backup: string) {
     this.infoAlert.show({
-      title: 'BACKUPS.DELETE_ALERT.TITLE',
-      message: 'BACKUPS.DELETE_ALERT.TEXT',
+      title: t('BACKUPS.DELETE_ALERT.TITLE'),
+      message: t('BACKUPS.DELETE_ALERT.TEXT'),
       type: 'danger',
       confirmButton: {
-        text: 'BACKUPS.RESTORE_ALERT.BUTTON_PROCEED',
+        text: t('BACKUPS.RESTORE_ALERT.BUTTON_PROCEED'),
         handler: () => {
           this.loading = true;
           this.backupsDAO.removeBackup(backup)
             .then(() => {
-              this.toast.show('BACKUPS.BACKUP_DELETED', 'success');
+              this.toast.show(t('BACKUPS.BACKUP_DELETED'), 'success');
               this.fetchBackupsList();
             })
             .catch(err => this.callError(err));

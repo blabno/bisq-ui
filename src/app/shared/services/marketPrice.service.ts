@@ -4,6 +4,7 @@ import moment from 'moment';
 
 import {CurrenciesDAO} from '../DAO/currencies.dao';
 import {SettingsService} from './settings.service';
+import {ToastService} from './toast.service';
 
 const PREFIX = 'BTC_';
 
@@ -14,7 +15,7 @@ export class MarketPriceService {
   private currentRequestPromise;
   private nextRefreshDate;
 
-  constructor(private currenciesDAO: CurrenciesDAO, private settings: SettingsService) {
+  constructor(private currenciesDAO: CurrenciesDAO, private settings: SettingsService, private toast: ToastService) {
     if (this.settings.backendUrl) {
       this.getMarketPrices();
     }
@@ -37,9 +38,9 @@ export class MarketPriceService {
         this.nextRefreshDate = moment().add(1, 'minute');
         return this.prices;
       })
-      .catch(err => {
+      .catch(error => {
         this.loading = false;
-        throw err;
+        this.toast.error(error);
       });
     return this.currentRequestPromise;
   }

@@ -19,6 +19,8 @@ enum BitcoinExplorers {
 
 @Injectable()
 export class SettingsService {
+  public isAuthorizationRequired = false;
+  public authorizationHeader = '';
   public backendSettings = {};
   public awsAccessKeyId = '';
   public awsCreateInitDate = 0;
@@ -84,6 +86,8 @@ export class SettingsService {
         this[key] = storageValue.split(',') || this[key];
       } else if ('number' === typeof this[key]) {
         this[key] = Number(storageValue) || this[key];
+      }  else if ('boolean' === typeof this[key]) {
+        this[key] = 'true' === this[key];
       } else {
         this[key] = storageValue || this[key];
       }

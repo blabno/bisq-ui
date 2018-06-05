@@ -211,7 +211,6 @@ export class TradesCacheService {
       .catch(error => {
         this.toast.error(error, 'TOAST.TRADES.CANT_FETCH_DATA');
         clearInterval(this.interval);
-        throw error;
       });
   }
 

@@ -2,7 +2,7 @@ import {ErrorHandler, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from '@angular/common/http';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {NgxQRCodeModule} from 'ngx-qrcode2';
@@ -27,6 +27,7 @@ import {FundsListComponent} from './funds/list/fundsList.component';
 import {GravatarComponent} from './shared/components/gravatar/gravatar.component';
 import {InfoModalComponent} from './shared/components/infoModal/infoModal.component';
 import {LockedComponent} from './funds/locked/locked.component';
+import {LoginComponent} from './login/login.component';
 import {MainComponent} from './main/main.component';
 import {MarketComponent} from './market/market.component';
 import {MenuComponent} from './menu/menu.component';
@@ -53,6 +54,8 @@ import {TransactionComponent} from './funds/transactions/transaction.component';
 import {WalletPassComponent} from './account/wallet-pass/wallet-pass.component';
 import {WalletSeedComponent} from './account/wallet-seed/wallet-seed.component';
 import {MoreThanZeroValidator} from './shared/validators/moreThanZero.directive';
+import {AuthInterceptor} from './shared/interceptors/auth.interceptor';
+import {SettingsService} from './shared/services/settings.service';
 
 import {AppRoutingModule} from './appRouting.module';
 
@@ -72,6 +75,7 @@ const loadComponents = [
   GravatarComponent,
   InfoModalComponent,
   LockedComponent,
+  LoginComponent,
   MainComponent,
   MarketComponent,
   MenuComponent,
@@ -132,7 +136,9 @@ export function createTranslateLoader(http: HttpClient) {
     StatusBar,
     SplashScreen,
     HTTP,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    SettingsService,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
   ]
 })
 export class AppModule {

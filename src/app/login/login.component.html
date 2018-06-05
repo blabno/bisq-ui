@@ -1,0 +1,13 @@
+<div class="desktop-max-width padding">
+  <form>
+    <ion-item>
+      <ion-label floating>{{'LOGIN.PASSWORD' | translate}}</ion-label>
+      <ion-input type="password" name="password" [(ngModel)]="password"></ion-input>
+    </ion-item>
+  </form>
+  <div class="buttons">
+    <button class="btn btn-primary button-md" (click)="authenticate()">
+      {{'LOGIN.LOGIN' | translate}}
+    </button>
+  </div>
+</div>
