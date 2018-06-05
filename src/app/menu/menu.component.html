@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" *ngIf="isMenuVisible()">
   <button class="navbar-toggler toggler " type="button" data-toggle="collapse" data-target="#navbarToggle"
           aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation" #navbarToggler>
     <span class="navbar-toggler-icon"></span>
@@ -151,11 +151,22 @@
             <i class="fas fa-gavel menu-icon-nested"></i>
             {{'ACCOUNT.SUBMENU.ARBITRATOR' | translate}}
           </a>
+          <a class="dropdown-item" routerLinkActive="text-primary" routerLink="/account/wallet-pass"
+             (click)="onMenuItemClick()">
+            <i class="fas fa-unlock menu-icon-nested"></i>
+            {{'ACCOUNT.SUBMENU.WALLET_PASS' | translate}}
+          </a>
           <a class="dropdown-item" routerLinkActive="text-primary" routerLink="/account/backup"
              (click)="onMenuItemClick()">
             <i class="fas fa-cloud-download-alt menu-icon-nested"></i>
             {{'ACCOUNT.SUBMENU.BACKUP' | translate}}
           </a>
+        </div>
+      </li>
+      <li *ngIf="isAuthenticated()" class="nav-item menu-item dropdown" (click)="logout()">
+        <div class="header">
+          <i class="fas fa-sign-out-alt menu-icon"></i>
+          <div class="item-label">{{ 'MENU.LOGOUT' | translate }}</div>
         </div>
       </li>
     </ul>

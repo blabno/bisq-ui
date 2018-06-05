@@ -7,24 +7,25 @@ import {TranslateService} from '@ngx-translate/core';
 
 import {MainComponent} from './main/main.component';
 
-import {AppDAO} from "./shared/DAO/app.dao";
+import {AppDAO} from './shared/DAO/app.dao';
 import {ArbitratorsDAO} from './shared/DAO/arbitrators.dao';
+import {BackupsDAO} from './shared/DAO/backups.dao';
 import {CurrenciesDAO} from './shared/DAO/currencies.dao';
 import {MarketDAO} from './shared/DAO/market.dao';
+import {NetworkDAO} from './shared/DAO/network.dao';
 import {OffersDAO} from './shared/DAO/offers.dao';
 import {PaymentAccountsDAO} from './shared/DAO/paymentAccounts.dao';
-import {SupportDAO} from "./shared/DAO/support.dao";
-import {TradesDAO} from './shared/DAO/trades.dao';
-import {WalletDAO} from './shared/DAO/wallet.dao';
 import {PreferencesDAO} from './shared/DAO/preferences.dao';
-import {NetworkDAO} from './shared/DAO/network.dao';
-import {BackupsDAO} from './shared/DAO/backups.dao';
+import {SupportDAO} from './shared/DAO/support.dao';
+import {TradesDAO} from './shared/DAO/trades.dao';
+import {UserDAO} from './shared/DAO/user.dao';
+import {WalletDAO} from './shared/DAO/wallet.dao';
 
 import {AwsApiService} from './settings/backendUrl/awsApi.service';
 import {BackButtonService} from './shared/services/backButton.service';
 import {ClipboardService} from './shared/services/clipboard.service';
 import {InfoModalService} from './shared/components/infoModal/infoModal.service';
-import {InfoAlertService} from "./shared/components/infoAlert/infoAlert.service";
+import {InfoAlertService} from './shared/components/infoAlert/infoAlert.service';
 import {MarketPriceService} from './shared/services/marketPrice.service';
 import {SettingsService} from './shared/services/settings.service';
 import {ToastService} from './shared/services/toast.service';
@@ -45,13 +46,13 @@ t('WARNING');
     PaymentAccountsDAO,
     SupportDAO,
     TradesDAO,
+    UserDAO,
     WalletDAO,
     AwsApiService,
     BackButtonService,
     ClipboardService,
     InfoModalService,
     MarketPriceService,
-    SettingsService,
     ToastService,
     TradesCacheService,
     PreferencesDAO,

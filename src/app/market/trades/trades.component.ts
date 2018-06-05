@@ -46,9 +46,11 @@ export class TradesComponent {
   }
 
   ngOnInit() {
-    this.marketDAO.getAvailableMarkets().then((res: any) => {
-      this.supportedPaymentsCurrencies = _.chain(res).filter(o => o.lsymbol === 'BTC' && o.rtype === 'fiat').value();
-    });
+    this.marketDAO.getAvailableMarkets()
+      .then((res: any) => {
+        this.supportedPaymentsCurrencies = _.chain(res).filter(o => o.lsymbol === 'BTC' && o.rtype === 'fiat').value();
+      })
+      .catch(error => this.toast.error(error));
     this.interval = 'day';
   }
 

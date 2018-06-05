@@ -560,17 +560,18 @@
 			"ALTCOINS_ACCOUNTS": "Konta alternatywne",
 			"ARBITRATOR": "Arbitrator",
 			"BACKUP": "Kopia zapasowa",
-			"CURRENCY_ACCOUNTS": "Konta walutowe"
+			"CURRENCY_ACCOUNTS": "Konta walutowe",
+			"WALLET_PASS": "Hasło portfela"
 		},
 		"WALLET_PASS": {
-			"ENTER_PASS": "Wprowadź haslo",
-			"HEADER": "Ustaw hasło zabezpieczeń portfela",
-			"INFORMATION": "Informacja",
-			"INFORMATION_CONTENT": "Hasło potrzebe będzie podczas uruchamiania aplikacji oraz w przypadku wyciągania kryptowaluty z portfela lub jeśli zechcesz zobaczyć frazę mnemoniczną dla portfela.",
-			"REMOVE_HEADER": "Usuń hasło zabezpieczeń portfela",
+			"DIFFERENT_PASSWORDS": "Hasło oraz potwierdzone hasło nie są takie same",
+			"EMPTY_PASSWORD": "Hasło nie może byc puste",
+			"ENTER_PASS": "Wprowadź hasło",
 			"REMOVE_PASS": "Usuń hasło",
+			"REMOVE_SUCCESS": "Hasło usunięte",
 			"RE_ENTER_PASS": "Potwierdź hasło",
-			"SET_PASS": "Ustaw hasło"
+			"SET_PASS": "Ustaw hasło",
+			"SET_SUCCESS": "Hasło ustawione"
 		},
 		"WALLET_SEED": {
 			"BACKUP_HEADER": "Zrób kopię zapasową frazy",
@@ -586,27 +587,25 @@
 	},
 	"BACK": "Wróć",
 	"BACKUPS": {
+		"BACKUP_CREATED": "Kopia zapasowa została pomyślnie utworzona",
+		"BACKUP_DELETED": "Kopia zapasowa została pomyślnie usunięta",
+		"BACKUP_UPLOADED": "Kopia zapasowa została pomyślnie zapisana",
+		"CREATE": "Stwórz kopie zapasową",
+		"DELETE_ALERT": {
+			"TEXT": "Ta operacja spowoduję usunięcie zapisanej kopii zapasowej. Utracisz wszystkie dane zapisane na tej kopii. Czy na pewno chcesz kontynuować?",
+			"TITLE": "Usuń kopię zapasową"
+		},
 		"LIST": {
-			"DOWNLOAD": "Pobierz",
 			"NO_RESULTS": "Brak kopii zapasowych",
-			"REMOVE": "Usuń",
 			"RESTORE": "Przywróć"
 		},
-    "RESTORE_ALERT": {
-      "TITLE": "Przywrócenie kopii zapasowej",
-      "TEXT": "Ta operacja jest niebezpieczna. Jeśli potwierdzisz tę operację, aplikacja backendu zostanie zatrzymana. Aby zastosować przywrócone zmiany, musisz ponownie uruchomić instancję backendu lub jeśli korzystasz z aplikacji zaplecza AWS, aplikacja automatycznie uruchomi się ponownie po kilku sekundach. Czy na pewno chcesz kontynuować?",
-      "BUTTON_PROCEED": "Kontynuuj"
-    },
-    "DELETE_ALERT": {
-      "TITLE": "Usuń kopię zapasową",
-      "TEXT": "Ta operacja spowoduję usunięcie zapisanej kopii zapasowej. Utracisz wszystkie dane zapisane na tej kopii. Czy na pewno chcesz kontynuować?"
-    },
-    "BACKUP_CREATED": "Kopia zapasowa została pomyślnie utworzona",
-    "BACKUP_DELETED": "Kopia zapasowa została pomyślnie usunięta",
-    "BACKUP_UPLOADED": "Kopia zapasowa została pomyślnie zapisana",
-		"CREATE": "Stwórz kopie zapasową",
-		"UPLOAD": "Załaduj kopie zapasową",
-    "RESTORE_IN_PROGRESS": "Przywracanie kopi zapasowej trwa..."
+		"RESTORE_ALERT": {
+			"BUTTON_PROCEED": "Kontynuuj",
+			"TEXT": "Ta operacja jest niebezpieczna. Jeśli potwierdzisz tę operację, aplikacja backendu zostanie zatrzymana. Aby zastosować przywrócone zmiany, musisz ponownie uruchomić instancję backendu lub jeśli korzystasz z aplikacji zaplecza AWS, aplikacja automatycznie uruchomi się ponownie po kilku sekundach. Czy na pewno chcesz kontynuować?",
+			"TITLE": "Przywrócenie kopii zapasowej"
+		},
+		"RESTORE_IN_PROGRESS": "Przywracanie kopi zapasowej trwa...",
+		"UPLOAD": "Załaduj kopie zapasową"
 	},
 	"BUY": "Kupno",
 	"CANCEL": "Anuluj",
@@ -637,10 +636,16 @@
 		"TRANSACTION_ID": "TxID",
 		"VALUE": "Wartość"
 	},
+	"INFO_ALERT_CANCEL": "Anuluj",
 	"INFO_MODAL": {
 		"DO_NOT_SHOW_AGAIN": "Nie pokazuj ponownie"
 	},
-  "INFO_ALERT_CANCEL": "Anuluj",
+	"LOGIN": {
+		"ERROR": "Błąd logowania",
+		"LOGIN": "Zaloguj",
+		"PASSWORD": "Hasło",
+		"SUCCESS": "Zalogowano pomyślnie"
+	},
 	"MARKET": {
 		"SPREAD": {
 			"BUY": "Sprzedaż",
@@ -681,6 +686,8 @@
 		"ACCOUNT": "Konto",
 		"BUY": "Kup",
 		"FUNDS": "Fundusze",
+		"LOGGED_OUT": "Wylogowano pomyślnie",
+		"LOGOUT": "Wyloguj",
 		"MARKET": "Market",
 		"PORTFOLIO": "Portfolio",
 		"SELL": "Sprzedaj",
@@ -892,6 +899,7 @@
 		"BACKEND_URL_MISSING_REDIRECT": "Przejdź do ustawień ",
 		"BACKEND_URL_MISSING_TEXT": "Ta aplikacja wymaga prawidłowego adresu URL do działającego serwera BISQ",
 		"BACKEND_URL_MISSING_TITLE": "Brak adresu serwera",
+		"BACKEND_URL_PROTECTED": "Serwer wymaga autoryzacji",
 		"BACKEND_URL_REQUIRED": "Adres serwera nie może być pusty",
 		"BACKEND_URL_UNAVAILABLE": "Błąd połączenia z wybranym adresem",
 		"BACKEND_URL_UPDATED": "Połączono pomyślnie",

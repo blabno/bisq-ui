@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { AlertController } from 'ionic-angular';
 import { TranslateService } from "@ngx-translate/core";
 
+import t from '../../defineTextToTranslate';
+
 @Injectable()
 export class InfoAlertService {
 
@@ -20,7 +22,7 @@ export class InfoAlertService {
     let cssClass = '';
     let buttons = [
       {
-        text: 'INFO_ALERT_CANCEL',
+        text: t('INFO_ALERT_CANCEL'),
         role: 'cancel',
         handler: () => {}
       }

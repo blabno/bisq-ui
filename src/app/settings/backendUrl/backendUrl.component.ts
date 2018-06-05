@@ -2,12 +2,10 @@ import _ from 'lodash';
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 
-import {AwsApiService} from './awsApi.service';
 import {SettingsService} from '../../shared/services/settings.service';
 import {NetworkDAO} from '../../shared/DAO/network.dao';
 import {TradesCacheService} from '../../shared/services/tradesCache.service';
 import {ToastService} from '../../shared/services/toast.service';
-import {InfoModalService} from '../../shared/components/infoModal/infoModal.service';
 
 import t from '../../shared/defineTextToTranslate';
 import {TranslateService} from "@ngx-translate/core";
@@ -28,8 +26,6 @@ export class BackendUrlComponent implements OnInit, OnDestroy {
   isSavingAlready = false;
 
   constructor(public settings: SettingsService,
-              private awsApi: AwsApiService,
-              private infoModal: InfoModalService,
               private networkDAO: NetworkDAO,
               private router: Router,
               private toast: ToastService,
@@ -76,10 +72,14 @@ export class BackendUrlComponent implements OnInit, OnDestroy {
           this.isSavingAlready = false;
         }).catch(_.noop);
       })
-      .catch(() => {
+      .catch(error => {
         this.invalidUrl = true;
-        this.toast.show(t('SETTINGS.BACKEND_URL_UNAVAILABLE'), 'error');
         this.isSavingAlready = false;
+        if(401 === error.status) {
+          this.toast.show(t('SETTINGS.BACKEND_URL_PROTECTED'), 'success');
+        } else {
+          this.toast.show(t('SETTINGS.BACKEND_URL_UNAVAILABLE'), 'error');
+        }
       });
   }
 
